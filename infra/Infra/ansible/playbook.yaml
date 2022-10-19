@@ -1,0 +1,133 @@
+- hosts: all
+  become: yes #vira sudo sempre que precisar
+  tasks:
+  - name: "System : alterando nome dos hosts"
+    hostname:
+      name: "{{ new_hostname }}"
+  # 1 Instalacao das dependencias no sistema em todos os hosts
+  - name: "System : instalar dependencias do docker e java para compilar"
+    apt: # apt-get install apt-transport-https 
+      name: "{{item}}"
+      state: present 
+      update_cache: yes
+    loop:
+      - apt-transport-https #0
+      - ca-certificates #1
+      - curl
+      - gnupg-agent
+      - software-properties-common
+      - openjdk-17-jdk
+      - maven  
+  # Fim 
+
+  # 1 - Instalacao do Docker em todos os hosts
+  - name: "Docker : adicionar chave GPG"
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+  # 2
+  - name: "Docker : adicionar repositório do instalador"
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu bionic stable
+      state: present
+  # 2
+  - name: "Docker : instalacao"
+    apt:
+      name: "{{item}}"
+      state: latest
+      update_cache: yes
+    loop:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose
+  # 3
+  - name: "Docker : instalar python e pip, Ansible precisa para poder iniciar e executar o Docker"
+    apt:
+      name: "{{item}}"
+      state: latest
+      update_cache: yes
+    loop:
+      - python3
+      - pip
+  # 4
+  - name: " Docker : Instalar recurso que o ansible  precisa para o docker"
+    pip:
+      name: docker
+  # Fim instalacao Docker em todos os hosts
+
+  handlers:
+  # 1
+    - name: "System : reiniciar o Docker"
+      service: 
+        name: docker 
+        state: restarted
+
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: Criar rede servers
+    docker_network: 
+      name: servers
+      driver: bridge
+      state: present
+      force: yes
+
+  # - name: remover imagem
+  #   shell:
+  #       cmd: 'docker rmi cypherbold/mysql_server_ecommerce'
+
+  # - name: remover container
+  #   shell:
+  #       cmd: 'docker container rm rllimaferreira/mysql_server_ecommerce'  
+
+  - name: Criar container Banco de dados
+    docker_container:
+      name: mysql_server_ecommerce
+      image: cypherbold/mysql_server_ecommerce
+      networks: 
+      - name: servers
+      ports: 
+      - "3306:3306"
+      volumes:
+      - /home/ubuntu:/var/lib/mysql
+      # recreate: true
+
+  # - name: remover imagem
+  #   shell:
+  #       cmd: 'docker rmi cypherbold/back_server_ecommerce'
+
+  # - name: remover container
+  #   shell:
+  #       cmd: 'docker container rm rllimaferreira/back_server_ecommerce'  
+
+  - name: Criar container Backend
+    docker_container:
+      name: back_server_ecommerce
+      image: cypherbold/back_server_ecommerce
+      networks: 
+      - name: servers
+      ports: 
+      - "8080:8080"
+      state: started
+      # recreate: true
+
+  # - name: remover imagem
+  #   shell:
+  #       cmd: 'docker rmi cypherbold/front_server_ecommerce'
+
+  # - name: remover container
+  #   shell:
+  #       cmd: 'docker container rm rllimaferreira/front_server_ecommerce'    
+
+  - name: Criar container Front
+    docker_container:
+      name: front_server_ecommerce
+      image: cypherbold/front_server_ecommerce
+      networks: 
+      - name: servers
+      ports: 
+      - "80:80"
+      state: started
+      # recreate: true
