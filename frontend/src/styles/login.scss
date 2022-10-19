@@ -1,0 +1,24 @@
+@import './mixins/mixins.scss';
+@import './variables/variables';
+
+
+.login { 
+  height: 100%;
+  width: 100%;
+  .login_content {
+    margin: 25vh auto;
+    width: 25vw;
+    text-align: center;
+    .content__title {
+      color: $primary-color;
+      @include font-small;
+    }
+    .content__form {
+      width: 100%;
+      .form__button {
+        @include button1;
+        width: 12.5vw;
+      }
+    }
+  }
+}
