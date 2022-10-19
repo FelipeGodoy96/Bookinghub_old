@@ -1,3 +1,30 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.login {
+  height: 100%;
+  width: 100%;
+}
+.login .login_content {
+  margin: 25vh auto;
+  width: 25vw;
+  text-align: center;
+}
+.login .login_content .content__title {
+  color: #1DBEB4;
+  font-family: "Roboto", sans-serif;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.login .login_content .content__form {
+  width: 100%;
+}
+.login .login_content .content__form .form__button {
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+  width: 12.5vw;
+}
 
 /*# sourceMappingURL=login.css.map */
