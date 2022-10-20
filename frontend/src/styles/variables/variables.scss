@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+$primary-color: #1DBEB4;
+$secondary-color: #383B58;
+$alternative-color: #545776;
+$bg-color: #F3F1ED;
+
+$font-principal: "Roboto", sans-serif;
+
+$white: #FFF;
+
+$theme-colors: (
+  "primary":    $primary-color,
+  "secondary":  $secondary-color,
+  "alternative": $alternative-color,
+  "background": $bg-color,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+

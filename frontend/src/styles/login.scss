@@ -1,5 +1,7 @@
 @import './mixins/mixins.scss';
-@import './variables/variables';
+@import './variables/variables.scss';
+
+
 
 
 .login { 
@@ -17,8 +19,11 @@
       width: 100%;
       .form__button {
         @include button1;
-        width: 12.5vw;
+      
       }
     }
   }
 }
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

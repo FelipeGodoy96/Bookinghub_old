@@ -22,7 +22,7 @@ export default function Login () {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="* * * * * * * *"></Form.Control>
             </Form.Group>
-            <Button className="form__button">Entrar</Button>
+            <Button variant="primary">Entrar</Button>
           </Form>
         </div>
       </div>
