@@ -1,31 +1,55 @@
-
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './styles/login.css'
+import { useState } from 'react'
 
 export default function Login () {
+  function isEmail (email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    )
+  }
+  const [ email, setEmail ] = useState('')
+  const [ password, setPassword ] = useState('')
   return (
-    <Container fluid>
-    <div className="login">
-      <div className="login_content">
+    <Container fluid className="d-flex vh-100">
+      <div className="d-flex flex-column text-center login">
         <span className='content__title'>
           Iniciar sessão
         </span>
         <div className='content__form'>
-          <Form>
+          <Form onSubmit={(event) => {
+            event.preventDefault()
+          }}>
             <Form.Group className="mb-3 text-start" controlId="formEmail">
-              <Form.Label>E-mail</Form.Label>
-              <Form.Control type="email" placeholder="Insira seu e-mail"></Form.Control>
+              <Form.Label>
+                E-mail
+              </Form.Label>
+              <Form.Control 
+                onChange={
+                  (e) => setEmail(e.target.value)
+                  
+                  } 
+                type="email" 
+                placeholder="Insira seu e-mail">
+              </Form.Control>
             </Form.Group>
             <Form.Group className="mb-3 text-start" controlId="formPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="* * * * * * * *"></Form.Control>
+              <Form.Label>
+                Senha
+              </Form.Label>
+              <Form.Control 
+                onChange={
+                  (e) => setPassword(e.target.value)
+                  
+                }
+                type="password" 
+                placeholder="********"></Form.Control>
             </Form.Group>
-            <Button variant="primary">Entrar</Button>
+            <Button type="submit" variant="primary">Entrar</Button>
           </Form>
         </div>
-      </div>
     </div>
     </Container>
   )
