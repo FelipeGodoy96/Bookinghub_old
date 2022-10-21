@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './styles/Cadastro.css'
+import { Link } from "react-router-dom";
 import { useState } from 'react'
 import { Icon } from 'react-icons-kit'
 import {eye} from 'react-icons-kit/feather/eye'
@@ -107,7 +108,10 @@ export default function Cadastro () {
           </Form>
           <div className='d-flex account justify-content-center'>
             <p>Ja tem uma conta?</p>
-            <a href='/'>Iniciar sessão</a>
+            <Link to="/login">
+                iniciar sessão
+              </Link>
+          
             </div>
           
         </div>
