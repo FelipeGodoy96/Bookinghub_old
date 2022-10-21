@@ -8,7 +8,7 @@ import HotelFazendaCapa from "./assets/img/HotelFazendaCapa.jpg";
 import ApartamentosCapa from "./assets/img/ApartamentosCapa.jpg";
 import { Link } from "react-router-dom";
 
-import "./Home.css";
+import './styles/home.css'
 export default function Home() {
   return (
     <>
@@ -22,7 +22,7 @@ export default function Home() {
 
       <Container
         fluid
-        className="categories-container bg-light d-flex flex-column justify-content-center align-items-center"
+        className="categories-container d-flex flex-column justify-content-center align-items-center"
       >
         <h1 className="text-center"> Buscar por categoria de acomodação</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
@@ -70,24 +70,22 @@ export default function Home() {
           <Card.Body className="cardInfo d-flex flex-column">
             <div className="d-flex flex-row justify-content-between">
               <div>
-                <p>Categoria</p>
+                <p>Categoria </p>
                 <h3>Nome do hotel</h3>
               </div>
               <div className=" d-flex flex-column align-items-center">
-                <div>8.0</div>
-                <span>Muito Bom</span>
+                <div className="notaParceiro">8.0</div>
+                <div className="classificacaoParceiro">Muito Bom</div>
               </div>
             </div>
             <div className="bi bi-geo-alt mb-1">
               Centro<br/>
-              Ouro Preto - MG <br />
-              <Link>MOSTRAR NO MAPA</Link>
+              Ouro Preto - MG - <Link to="/">MOSTRAR NO MAPA</Link>
             </div>
             <div>
               No coração de San Telmo, desfrute de uma pousada inspirada nas
               paixões de Buenos Aires. Com 2 piscinas impressionantes, uma no
-              terraço e outra ao ar livre; quartos privados (alguns... ver
-              mais...
+              terraço e outra ao ar livre; quartos privados (alguns <Link to="/">...mais</Link>
             </div>
 
             <Button className="m-1">Ver Mais</Button>

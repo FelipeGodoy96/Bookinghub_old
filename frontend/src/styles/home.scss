@@ -1,0 +1,43 @@
+@import './mixins/mixins.scss';
+@import './variables/variables.scss';
+
+.categories-container {
+  img {
+    height: 183px;
+    object-fit: cover;
+  }
+}
+
+.anuncios-container {
+  
+  button {
+    @include button1;
+    
+  }
+  .anuncioCard {
+    max-width: 393px;
+
+    img {
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+  .notaParceiro{
+    color: $white;
+    padding: 0.3em;
+    border-radius: 18px;
+    background-color: $secondary-color
+  }
+  .classificacaoParceiro{
+    color: $secondary-color;
+    @include text1;
+  }
+}
+
+
+
+
+
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
