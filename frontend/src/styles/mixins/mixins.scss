@@ -40,6 +40,14 @@
   font-weight: bold;
 }
 
+@mixin button3 {
+  font-family: $font-principal;
+  color: $primary-color;
+  background-color: $white;
+  font-size: 12pt;
+  font-weight:600;
+}
+
 @mixin text1 {
   font-family: $font-principal;
   font-weight: medium;
@@ -49,5 +57,5 @@
 @mixin text2 {
   font-family: $font-principal;
   font-weight: medium;
-  font-sizxe: 12pt;
+  font-size: 12pt;
 }

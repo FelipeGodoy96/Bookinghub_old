@@ -1,9 +1,9 @@
 
 import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LogomarcaIco from "../../assets/icon/kingLionIco.svg";
-import "./NavBarDefault.css";
+import "../../styles/NavBarDefault.css";
 
 
 export default function NavBarDefault() {
@@ -21,12 +21,17 @@ export default function NavBarDefault() {
 
           <Navbar.Collapse className="notLogedNav" id="basic-navbar-nav">
             <Nav className="ms-auto gap-2">
+              <Button>
               <Link className="mx-auto nav-link" to="/login">
                 Fazer Login
               </Link>
+              </Button>
+              
+              <Button>
               <Link className="mx-auto nav-link" to="/cadastro">
                 Cadastre-se
               </Link>
+              </Button>
               
             </Nav>
           </Navbar.Collapse>
