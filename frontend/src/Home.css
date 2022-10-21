@@ -1,0 +1,17 @@
+
+.categories-container img{
+  
+ height: 183px;
+ object-fit: cover;
+}
+
+.anuncios-container img{
+  height: 150px;
+  object-fit: cover;
+
+}
+
+.anuncioCard{
+  max-width: 393px;
+ 
+}

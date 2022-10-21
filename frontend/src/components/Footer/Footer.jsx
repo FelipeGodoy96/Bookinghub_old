@@ -12,7 +12,7 @@ export default function Footer() {
       </div>
      
      
-      <div className="SocialMidia d-flex flex-row align-items-center" >
+      <div className="SocialMidia gap-3 mx-3 d-flex flex-row align-items-center" >
         <Link className="socialIco nav-link" to="#">
           <BsFacebook size={24} />
         </Link>
