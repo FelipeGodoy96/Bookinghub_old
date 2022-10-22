@@ -1,0 +1,21 @@
+.toogle{
+    position: absolute;
+    margin-left: 15em;
+    margin-top: -1.8em;
+    cursor: pointer;
+}
+
+.account{
+    
+    margin: .5rem;
+}
+
+.account p{
+    font-size: 0.8em;
+}
+
+
+.account a{
+    text-decoration: none;
+    font-size: 0.8em;
+}
