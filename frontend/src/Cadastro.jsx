@@ -17,18 +17,21 @@ export default function Cadastro () {
       email
     )
   }
+  function isName (name) {
+    return /^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*$/.test(name)
+  }
   const [nome, setNome] = useState('')
   const [sobrenome, setSobrenome] = useState('')
   const [ email, setEmail ] = useState('')
-  const [type, setType]=useState('password');
-  const [icon, setIcon]=useState(eyeOff);
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(eyeOff);
 
-  const handleToggle=()=>{    
-    if(type==='password'){
+  const handleToggle = () => {    
+    if (type==='password') {
       setIcon(eye);      
       setType('text');
     }
-    else{
+    else {
       setIcon(eyeOff);     
       setType('password');
     }
@@ -49,9 +52,20 @@ export default function Cadastro () {
           <Form.Label>Nome</Form.Label>
           <Form.Control 
                 onChange={
-                  (e) => setName(e.target.value)
-                  
-                  } 
+                  (e) => {
+
+                   
+                    if (!isName(e.target.value) || e.target.value.length > 20) {
+                      e.target.classList.add('is-invalid')
+                    }
+                    else if (isName(e.target.value) && e.target.value.length <= 20) {
+                      e.target.classList.remove('is-invalid')
+                      e.target.classList.add('is-valid')
+                    }
+              
+
+                  }
+                } 
                 type="text" 
                 placeholder="Insira seu nome">
               </Form.Control>
@@ -79,9 +93,17 @@ export default function Cadastro () {
               </Form.Label>
               <Form.Control 
                 onChange={
-                  (e) => setEmail(e.target.value)
-                  
+                  (e) => {
+                    if (!isEmail(e.target.value)) {
+                      e.target.classList.add('is-invalid')
+                    }
+                    else if (isEmail(e.target.value)) {
+                      e.target.classList.remove('is-invalid')
+                      e.target.classList.add('is-valid')
+                      setEmail(e.target.value)
+                    }
                   } 
+                }
                 type="email" 
                 placeholder="Insira seu e-mail">
               </Form.Control>
@@ -109,7 +131,7 @@ export default function Cadastro () {
           <div className='d-flex account justify-content-center'>
             <p>Ja tem uma conta?</p>
             <Link to="/login">
-                iniciar sessão
+                Iniciar sessão
               </Link>
           
             </div>
