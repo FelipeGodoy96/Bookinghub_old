@@ -3,8 +3,10 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './styles/login.css'
 import { useState } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login () {
+  const navigate = useNavigate()
   function isEmail (email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       email
@@ -21,6 +23,15 @@ export default function Login () {
         <div className='content__form'>
           <Form onSubmit={(event) => {
             event.preventDefault()
+            const localObject = JSON.parse(window.localStorage.getItem(email))
+            if (email === localObject.email && password === localObject.password) {
+              // implementar useContext lógica aqui
+              navigate("/")
+            }
+            else {
+              // feedback de credências inválidas
+              console.log("Por favor, tente novamente, suas credenciais são inválidas")
+            }
           }}>
             <Form.Group className="mb-3 text-start" controlId="formEmail">
               <Form.Label>
@@ -29,7 +40,6 @@ export default function Login () {
               <Form.Control 
                 onChange={
                   (e) => setEmail(e.target.value)
-                  
                   } 
                 type="email" 
                 placeholder="Insira seu e-mail">
@@ -42,13 +52,18 @@ export default function Login () {
               <Form.Control 
                 onChange={
                   (e) => setPassword(e.target.value)
-                  
                 }
                 type="password" 
                 placeholder="********"></Form.Control>
             </Form.Group>
             <Button type="submit" variant="primary">Entrar</Button>
           </Form>
+          <div className='d-flex account justify-content-center'>
+            <p>Ainda não tem conta?⠀</p>
+            <Link to="/">
+              Registre-se
+            </Link>
+          </div>
         </div>
     </div>
     </Container>

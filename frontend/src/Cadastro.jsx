@@ -59,11 +59,11 @@ export default function Cadastro () {
                 email: email,
                 password: pw
               }
-              window.localStorage.setItem(user.nome, JSON.stringify(user))
+              window.localStorage.setItem(user.email, JSON.stringify(user))
                navigate("/")
             }
             else {
-              
+              // feedback de credenciais inválidas - a implementar
             }
           }}>
     <Row className="mb-3">
@@ -251,9 +251,9 @@ export default function Cadastro () {
           <div className='d-flex account justify-content-center'>
             <p>Já tem uma conta?⠀</p>
             <Link to="/login">
-                Iniciar sessão
-              </Link>
-            </div>
+              Iniciar sessão
+            </Link>
+          </div>
         </div>
     </div>
     </Container>
