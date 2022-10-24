@@ -76,6 +76,12 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+header{
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
 *,
 *::before,
 *::after {
@@ -627,6 +633,11 @@ progress {
 .figure-caption {
   font-size: 0.875em;
   color: #6c757d;
+}
+
+.textIcon{
+  margin: 0;
+  font-weight: 500;
 }
 
 .container,
@@ -21863,6 +21874,9 @@ textarea.form-control-lg {
   background-color: #FFF;
   font-size: 12pt;
   font-weight: 600;
+}
+.NavStyle header {
+  position: fixed;
 }
 
 /*# sourceMappingURL=NavBarDefault.css.map */

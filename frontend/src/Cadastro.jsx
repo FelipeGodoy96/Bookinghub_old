@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Footer from "./components/Footer/Footer"
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip'
 import './styles/Cadastro.css'
@@ -37,7 +38,8 @@ export default function Cadastro () {
     setType(!type)
     setIcon(!icon)
   }
-  return (
+  return (<>
+    <div className="d-flex flex-column m-0 vh-100">
     <Container fluid className="d-flex p-0  vh-100">
       <div className="d-flex flex-column text-center login">
         <span className='content__title'>
@@ -251,11 +253,20 @@ export default function Cadastro () {
           <div className='d-flex account justify-content-center'>
             <p>Já tem uma conta?⠀</p>
             <Link to="/login">
+<<<<<<< frontend/src/Cadastro.jsx
+                Iniciar sessão
+              </Link>          
+            </div>
+          
+=======
               Iniciar sessão
             </Link>
           </div>
+>>>>>>> frontend/src/Cadastro.jsx
         </div>
     </div>
     </Container>
-  )
+    <Footer/>
+    </div>
+    </>)
 }
