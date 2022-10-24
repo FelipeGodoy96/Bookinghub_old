@@ -253,16 +253,12 @@ export default function Cadastro () {
           <div className='d-flex account justify-content-center'>
             <p>Já tem uma conta?⠀</p>
             <Link to="/login">
-<<<<<<< frontend/src/Cadastro.jsx
+
                 Iniciar sessão
               </Link>          
             </div>
           
-=======
-              Iniciar sessão
-            </Link>
-          </div>
->>>>>>> frontend/src/Cadastro.jsx
+
         </div>
     </div>
     </Container>

@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import React, { useRef } from "react";
-import "./Searchbar.css";
+import "../../styles/Searchbar.css";
+
 
 export default function Searchbar() {
   const ref = useRef();
