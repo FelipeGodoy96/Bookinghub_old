@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Searchbar from "./components/Searchbar/Searchbar";
+import NavSpace from "./components/Navbar/NavSpace"
 import HotelCapa from "./assets/img/HotelCapa.jpg";
 import HostelCapa from "./assets/img/HostelCapa.jpg";
 import HotelFazendaCapa from "./assets/img/HotelFazendaCapa.jpg";
@@ -12,6 +13,7 @@ import './styles/home.css'
 export default function Home() {
   return (
     <>
+    <NavSpace/>
       <Container
         fluid
         className="d-flex flex-column align-items-center text-center"

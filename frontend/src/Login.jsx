@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './styles/login.css'
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 export default function Login () {
   function isEmail (email) {
@@ -49,6 +50,12 @@ export default function Login () {
             </Form.Group>
             <Button type="submit" variant="primary">Entrar</Button>
           </Form>
+          <div className='d-flex account justify-content-center'>
+            <p>Não tem uma conta?</p>
+            <Link to="/Cadastro">
+                Criar conta
+              </Link>          
+            </div>
         </div>
     </div>
     </Container>

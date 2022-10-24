@@ -132,8 +132,7 @@ export default function Cadastro () {
             <p>Ja tem uma conta?</p>
             <Link to="/login">
                 Iniciar sessão
-              </Link>
-          
+              </Link>          
             </div>
           
         </div>

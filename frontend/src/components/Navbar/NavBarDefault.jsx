@@ -12,8 +12,9 @@ export default function NavBarDefault() {
       <Navbar expand="lg" className="NavStyle">
         <Container>
           <Navbar.Brand>
-            <Link className="nav-link" to="/">
+            <Link className="nav-link d-flex align-items-center" to="/">
               <img width="60" height="auto" src={LogomarcaIco} />
+              <p className="textIcon">Lion's Rest</p> 
             </Link>
           </Navbar.Brand>
 
