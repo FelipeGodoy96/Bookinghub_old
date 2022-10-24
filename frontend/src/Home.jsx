@@ -7,8 +7,8 @@ import HotelCapa from "./assets/img/HotelCapa.jpg";
 import HostelCapa from "./assets/img/HostelCapa.jpg";
 import HotelFazendaCapa from "./assets/img/HotelFazendaCapa.jpg";
 import ApartamentosCapa from "./assets/img/ApartamentosCapa.jpg";
+import Footer from "./components/Footer/Footer"
 import { Link } from "react-router-dom";
-
 import './styles/home.css'
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
 
       <Container
         fluid
-        className="categories-container d-flex flex-column justify-content-center align-items-center"
+        className="categories-container d-flex flex-column justify-content-center align-items-center pt-5"
       >
         <h1 className="text-center"> Buscar por categoria de acomodação</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
@@ -64,7 +64,7 @@ export default function Home() {
 
       <Container
         fluid
-        className="anuncios-container d-flex flex-column justify-content-center align-items-center"
+        className="anuncios-container d-flex flex-column justify-content-center align-items-center pt-5 pb-5"
       >
         <h1 className="text-center"> Recomendações</h1>
         <Card className="anuncioCard w-100 d-flex flex-column">
@@ -94,6 +94,7 @@ export default function Home() {
           </Card.Body>
         </Card>
       </Container>
+      <Footer/>
     </>
   );
 }

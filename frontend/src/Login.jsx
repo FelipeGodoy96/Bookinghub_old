@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Footer from "./components/Footer/Footer"
 import './styles/login.css'
 import { useState } from 'react'
 import { Link } from "react-router-dom";
@@ -13,7 +14,8 @@ export default function Login () {
   }
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
-  return (
+  return (<>
+  <div className="d-flex flex-column m-0 vh-100">
     <Container fluid className="d-flex vh-100">
       <div className="d-flex flex-column text-center login">
         <span className='content__title'>
@@ -51,13 +53,21 @@ export default function Login () {
             <Button type="submit" variant="primary">Entrar</Button>
           </Form>
           <div className='d-flex account justify-content-center'>
-            <p>Não tem uma conta?</p>
+            <p className='opsLogin'>Não tem uma conta?</p>
             <Link to="/Cadastro">
                 Criar conta
-              </Link>          
-            </div>
+              </Link> 
+          </div>
+          <div className='d-flex account justify-content-center'>
+            <p className='opsLogin'>Esqueceu sua senha?</p>
+            <Link to="/RedefinirSenha">
+            Redefinir senha
+              </Link> 
+          </div>       
         </div>
     </div>
     </Container>
-  )
+    <Footer/>
+    </div>
+    </>)
 }

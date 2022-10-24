@@ -37,7 +37,7 @@ export default function NavBarDefault() {
             </Nav>
           </Navbar.Collapse>
 
-          {/* <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
+          <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
             <Nav className="ms-auto gap-2">
               <div className="mx-auto">
               <img width="60" height="auto" src={LogomarcaIco} />
@@ -48,7 +48,7 @@ export default function NavBarDefault() {
                Fulano
               </div>
             </Nav>
-          </Navbar.Collapse> */}
+          </Navbar.Collapse>  
 
         </Container>
       </Navbar>

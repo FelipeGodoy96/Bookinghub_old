@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Footer from "./components/Footer/Footer"
 import './styles/Cadastro.css'
 import { Link } from "react-router-dom";
 import { useState } from 'react'
@@ -36,7 +37,8 @@ export default function Cadastro () {
       setType('password');
     }
   }
-  return (
+  return (<>
+    <div className="d-flex flex-column m-0 vh-100">
     <Container fluid className="d-flex p-0  vh-100">
       <div className="d-flex flex-column text-center login">
         <span className='content__title'>
@@ -139,5 +141,7 @@ export default function Cadastro () {
 
     </div>
     </Container>
-  )
+    <Footer/>
+    </div>
+    </>)
 }
