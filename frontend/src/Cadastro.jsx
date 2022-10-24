@@ -18,13 +18,15 @@ export default function Cadastro () {
     )
   }
   function isName (name) {
-    return /^[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*$/.test(name)
+    return /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/gm.test(name)
   }
-  const [nome, setNome] = useState('')
-  const [sobrenome, setSobrenome] = useState('')
+  const [ nome, setNome ] = useState('')
+  const [ sobrenome, setSobrenome ] = useState('')
   const [ email, setEmail ] = useState('')
-  const [type, setType] = useState(false);
-  const [icon, setIcon] = useState(false);
+  const [ pw, setPw ] = useState('')
+  const [ confirmPw, setConfirmPw ] = useState('')
+  const [ type, setType ] = useState(false);
+  const [ icon, setIcon ] = useState(false);
 
   const handleToggle = () => {   
     setType(!type)
@@ -40,7 +42,6 @@ export default function Cadastro () {
           <Form onSubmit={(event) => {
             event.preventDefault()
           }}>
-
     <Row className="mb-3">
         <Form.Group as={Col} className='text-start' controlId="formName">
           <Form.Label>Nome</Form.Label>
@@ -53,6 +54,7 @@ export default function Cadastro () {
                     else if (isName(e.target.value) && e.target.value.length <= 20) {
                       e.target.classList.remove('is-invalid')
                       e.target.classList.add('is-valid')
+                      setNome(e.target.value)
                     }        
                   }
                 } 
@@ -60,13 +62,20 @@ export default function Cadastro () {
                 placeholder="Insira seu nome">
               </Form.Control>
         </Form.Group>
-
         <Form.Group as={Col}  className='text-start' controlId="formSobrenome">
           <Form.Label >Sobrenome</Form.Label>
           <Form.Control
                 onChange={
-                  (e) => setSobrenome(e.target.value)
-                  
+                  (e) => {
+                    if (!isName(e.target.value) || e.target.value.length > 20) {
+                      e.target.classList.add('is-invalid')
+                    }
+                    else if (isName(e.target.value) && e.target.value.length <= 20) {
+                      e.target.classList.remove('is-invalid')
+                      e.target.classList.add('is-valid')
+                      setSobrenome(e.target.value)
+                    }   
+                  }
                   } 
                 type="text" 
                 placeholder="Insira seu sobrenome">
@@ -100,14 +109,44 @@ export default function Cadastro () {
               </Form.Label>
               <Form.Control 
                 onChange={
-                  (e) => setPassword(e.target.value)
+                  (e) => {
+                    if (e.target.value.length <= 6) {
+                      e.target.classList.add('is-invalid')
+                    }
+                    else if (e.target.value.length > 6 && e.target.value.length <= 20) {
+                      e.target.classList.add('is-valid')
+                      e.target.classList.remove('is-invalid')
+                      setPw(e.target.value)
+                    }
+                  }
                 }
                 type={type ? "text" : "password"}
                 placeholder="********">
                 </Form.Control>
                 <span className='toogle' onClick={handleToggle}><Icon icon={icon ? eye : eyeOff} size={20}/></span>
             </Form.Group>
-            <Button type="submit" variant="primary">Criar Conta</Button>
+            <Form.Group className="mb-3 text-start  " controlId="formPassword">
+              <Form.Label>
+                Confirmar senha
+              </Form.Label>
+              <Form.Control 
+                onChange={
+                  (e) => {
+                    if (e.target.value !== pw) {
+                      e.target.classList.add('is-invalid')
+                    }
+                    else if (e.target.value === pw) {
+                      e.target.classList.add('is-valid')
+                      e.target.classList.remove('is-invalid')
+                      setConfirmPw(e.target.value)
+                    }
+                  }
+                }
+                type={type ? "text" : "password"}
+                placeholder="********">
+                </Form.Control>
+            </Form.Group>
+            <Button type="submit" variant="primary">Criar conta</Button>
           </Form>
           <div className='d-flex account justify-content-center'>
             <p>Já tem uma conta?⠀</p>
