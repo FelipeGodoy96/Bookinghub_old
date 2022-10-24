@@ -23,18 +23,12 @@ export default function Cadastro () {
   const [nome, setNome] = useState('')
   const [sobrenome, setSobrenome] = useState('')
   const [ email, setEmail ] = useState('')
-  const [type, setType] = useState('password');
-  const [icon, setIcon] = useState(eyeOff);
+  const [type, setType] = useState(false);
+  const [icon, setIcon] = useState(false);
 
-  const handleToggle = () => {    
-    if (type==='password') {
-      setIcon(eye);      
-      setType('text');
-    }
-    else {
-      setIcon(eyeOff);     
-      setType('password');
-    }
+  const handleToggle = () => {   
+    setType(!type)
+    setIcon(!icon)
   }
   return (
     <Container fluid className="d-flex p-0  vh-100">
@@ -50,20 +44,16 @@ export default function Cadastro () {
     <Row className="mb-3">
         <Form.Group as={Col} className='text-start' controlId="formName">
           <Form.Label>Nome</Form.Label>
-          <Form.Control 
+          <Form.Control
                 onChange={
-                  (e) => {
-
-                   
+                  (e) => {                   
                     if (!isName(e.target.value) || e.target.value.length > 20) {
                       e.target.classList.add('is-invalid')
                     }
                     else if (isName(e.target.value) && e.target.value.length <= 20) {
                       e.target.classList.remove('is-invalid')
                       e.target.classList.add('is-valid')
-                    }
-              
-
+                    }        
                   }
                 } 
                 type="text" 
@@ -73,7 +63,7 @@ export default function Cadastro () {
 
         <Form.Group as={Col}  className='text-start' controlId="formSobrenome">
           <Form.Label >Sobrenome</Form.Label>
-          <Form.Control 
+          <Form.Control
                 onChange={
                   (e) => setSobrenome(e.target.value)
                   
@@ -83,10 +73,6 @@ export default function Cadastro () {
               </Form.Control>
         </Form.Group>
       </Row>
-
-           
-
-
             <Form.Group className="mb-3 text-start" controlId="formEmail">
               <Form.Label>
                 E-mail
@@ -115,29 +101,21 @@ export default function Cadastro () {
               <Form.Control 
                 onChange={
                   (e) => setPassword(e.target.value)
-                  
                 }
-                
-                type={type} 
+                type={type ? "text" : "password"}
                 placeholder="********">
-               
-              
                 </Form.Control>
-                <span className='toogle' onClick={handleToggle}><Icon icon={icon} size={20}/></span>
-             
+                <span className='toogle' onClick={handleToggle}><Icon icon={icon ? eye : eyeOff} size={20}/></span>
             </Form.Group>
             <Button type="submit" variant="primary">Criar Conta</Button>
           </Form>
           <div className='d-flex account justify-content-center'>
-            <p>Ja tem uma conta?</p>
+            <p>Já tem uma conta?⠀</p>
             <Link to="/login">
                 Iniciar sessão
               </Link>
-          
             </div>
-          
         </div>
-
     </div>
     </Container>
   )
