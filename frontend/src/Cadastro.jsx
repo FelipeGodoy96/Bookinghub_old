@@ -40,7 +40,7 @@ export default function Cadastro () {
   }
   return (<>
     <div className="d-flex flex-column m-0 vh-100">
-    <Container fluid className="d-flex p-0  vh-100">
+    <Container fluid className="d-flex vh-100">
       <div className="d-flex flex-column text-center login">
         <span className='content__title'>
           Criar conta
