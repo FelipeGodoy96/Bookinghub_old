@@ -8,7 +8,7 @@ import "../../styles/NavBarDefault.css";
 
 export default function NavBarDefault() {
   return (
-    <header>
+    <header className="NavBar">
       <Navbar expand="lg" className="NavStyle">
         <Container>
           <Navbar.Brand>
