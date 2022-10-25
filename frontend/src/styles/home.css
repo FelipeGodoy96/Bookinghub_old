@@ -22161,40 +22161,6 @@ textarea.form-control-lg {
   padding-bottom: 2rem;
 }
 
-.categories-container img {
-  height: 183px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.anuncios-container button {
-  font-family: "Roboto", sans-serif;
-  color: #FFF;
-  background-color: #1DBEB4;
-  font-size: 14pt;
-  font-weight: bold;
-}
-.anuncios-container .anuncioCard {
-  max-width: 393px;
-}
-.anuncios-container .anuncioCard img {
-  height: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.anuncios-container .notaParceiro {
-  color: #FFF;
-  padding: 0.3em;
-  border-radius: 18px;
-  background-color: #383B58;
-}
-.anuncios-container .classificacaoParceiro {
-  color: #383B58;
-  font-family: "Roboto", sans-serif;
-  font-weight: medium;
-  font-size: 14pt;
-}
-
 /*!
  * Bootstrap  v5.2.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors

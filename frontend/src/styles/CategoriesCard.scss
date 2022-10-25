@@ -1,0 +1,11 @@
+@import './mixins/mixins.scss';
+@import './variables/variables.scss';
+.categoriesCard img {
+  
+    height: 183px;
+    object-fit: cover;
+  
+}
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

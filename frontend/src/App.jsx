@@ -7,12 +7,14 @@ import Cadastro from "./Cadastro";
 import RedefinirSenha from "./RedefinirSenha";
 import "./App.css";
 import { LoginProvider } from "./Contexts/LoginContext";
+import {ContextProvider} from "./Contexts/Context";
 
 
 
 export default function App() {
   return (
     <div className="App">
+      <ContextProvider>
       <LoginProvider>
         <NavBarDefault />
         <Routes>
@@ -27,6 +29,7 @@ export default function App() {
         
       
       </LoginProvider>
+      </ContextProvider>
     </div>
   );
 }
