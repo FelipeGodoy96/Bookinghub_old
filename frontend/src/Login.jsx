@@ -4,23 +4,36 @@ import Button from "react-bootstrap/Button";
 import Footer from "./components/Footer/Footer";
 import LoginContext from "../src/Contexts/LoginContext";
 import "./styles/login.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { loginAuth } from "./utils/auth";
 
 export default function Login() {
-  // const { state, setState } = useContext(LoginContext);
+  const { loginState, setLoginState } = useContext(LoginContext);
+  const { isLoged, user } = loginState;
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       email
     );
   }
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  function logon(email, password) {
+    const { loged, user: userData } = loginAuth(email, password);
+    if (loged) {
+      setLoginState({ ...loginState, isLoged: true, user: userData });
+    } else {
+      alert("falha no login");
+    }
+  }
+
+  if (isLoged) return <Profile user={user} />;
   return (
     <>
-    <div className="loginContainer d-flex flex-column m-0 vh-100">  
+      <div className="loginContainer d-flex flex-column m-0 vh-100">
         <Container fluid className="notLogedLogin d-flex vh-100">
           <div className="d-flex flex-column text-center login">
             <span className="content__title">Iniciar sessão</span>
@@ -28,21 +41,7 @@ export default function Login() {
               <Form
                 onSubmit={(event) => {
                   event.preventDefault();
-                  const localObject = JSON.parse(
-                    window.localStorage.getItem(email)
-                  );
-                  if (
-                    email === localObject.email &&
-                    password === localObject.password
-                  ) {
-                    // implementar useContext lógica aqui
-                    navigate("/");
-                  } else {
-                    // feedback de credências inválidas
-                    console.log(
-                      "Por favor, tente novamente, suas credenciais são inválidas"
-                    );
-                  }
+                  logon(email, password);
                 }}
               >
                 <Form.Group className="mb-3 text-start" controlId="formEmail">
@@ -79,8 +78,29 @@ export default function Login() {
             </div>
           </div>
         </Container>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
 }
+
+const Profile = ({ user }) => {
+  const { loginState, setLoginState } = useContext(LoginContext);
+  function logout() {
+    setLoginState({ ...loginState, isLoged: false, user: "" });
+    alert("Logout efetuado");
+  }
+  return (
+    <>
+      <div className="logedContainer d-flex flex-column m-0 vh-100">
+        <Container fluid className="LogedLogin d-flex flex-column vh-100">
+          <h1 className="mt-5 p-5">{user.email}</h1>
+          <Button type="button" variant="primary" onClick={() => logout()}>
+            Logout
+          </Button>
+        </Container>
+      </div>
+      <Footer />
+    </>
+  );
+};

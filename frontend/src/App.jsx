@@ -7,13 +7,13 @@ import Cadastro from "./Cadastro";
 import RedefinirSenha from "./RedefinirSenha";
 import "./App.css";
 import { LoginProvider } from "./Contexts/LoginContext";
-import Footer from "./components/Footer/Footer";
+
 
 
 export default function App() {
   return (
     <div className="App">
-      {/* <LoginProvider> */}
+      <LoginProvider>
         <NavBarDefault />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,7 +26,7 @@ export default function App() {
        
         
       
-      {/* </LoginProvider> */}
+      </LoginProvider>
     </div>
   );
 }
