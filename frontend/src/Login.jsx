@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Footer from "./components/Footer/Footer";
 import LoginContext from "../src/Contexts/LoginContext";
 import "./styles/login.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginAuth } from "./utils/auth";
 
@@ -14,19 +14,16 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
-  function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      email
-    );
-  }
+  // const errorMsg = useRef(null)
+  // console.log(errorMsg.current);
+
   function logon(email, password) {
     const { loged, user: userData } = loginAuth(email, password);
     if (loged) {
       setLoginState({ ...loginState, isLoged: true, user: userData });
     } else {
-      alert("falha no login");
+      // errorMsg.current.style.visibility="visible"
     }
   }
 
@@ -63,6 +60,7 @@ export default function Login() {
                     placeholder="********"
                   ></Form.Control>
                 </Form.Group>
+                <span className="loginFail" style={{visibility:"hidden"}}> Falha nas credenciais de Login</span>
                 <Button type="submit" variant="primary">
                   Entrar
                 </Button>
