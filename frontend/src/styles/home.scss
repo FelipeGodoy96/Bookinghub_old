@@ -1,6 +1,11 @@
 @import './mixins/mixins.scss';
 @import './variables/variables.scss';
-
+.SearchBar{
+  background-color: $secondary-color;
+  color: $white;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
 .categories-container {
   img {
     height: 183px;

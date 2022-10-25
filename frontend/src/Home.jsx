@@ -2,25 +2,26 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Searchbar from "./components/Searchbar/Searchbar";
-import NavSpace from "./components/Navbar/NavSpace"
+
 import HotelCapa from "./assets/img/HotelCapa.jpg";
 import HostelCapa from "./assets/img/HostelCapa.jpg";
 import HotelFazendaCapa from "./assets/img/HotelFazendaCapa.jpg";
 import ApartamentosCapa from "./assets/img/ApartamentosCapa.jpg";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
 import { Link } from "react-router-dom";
-import './styles/home.css'
+import "./styles/home.css";
 export default function Home() {
   return (
     <>
-    <NavSpace/>
-      <Container
-        fluid
-        className="d-flex flex-column align-items-center text-center"
+   
+      
+ 
+      <section
+        className="d-flex flex-column align-items-center text-center SearchBar"
       >
         <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
         <Searchbar />
-      </Container>
+      </section>
 
       <Container
         fluid
@@ -81,20 +82,23 @@ export default function Home() {
               </div>
             </div>
             <div className="bi bi-geo-alt mb-1">
-              Centro<br/>
+              Centro
+              <br />
               Ouro Preto - MG - <Link to="/">MOSTRAR NO MAPA</Link>
             </div>
             <div>
               No coração de San Telmo, desfrute de uma pousada inspirada nas
               paixões de Buenos Aires. Com 2 piscinas impressionantes, uma no
-              terraço e outra ao ar livre; quartos privados (alguns <Link to="/">...mais</Link>
+              terraço e outra ao ar livre; quartos privados (alguns{" "}
+              <Link to="/">...mais</Link>
             </div>
 
             <Button className="m-1">Ver Mais</Button>
           </Card.Body>
         </Card>
       </Container>
-      <Footer/>
+      <Footer />
+
     </>
   );
 }
