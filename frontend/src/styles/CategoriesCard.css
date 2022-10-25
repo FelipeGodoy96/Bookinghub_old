@@ -22154,11 +22154,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.SearchBar {
-  background-color: #383B58;
-  color: #FFF;
-  padding-top: 6rem;
-  padding-bottom: 2rem;
+.categoriesCard img {
+  height: 183px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /*!
@@ -33271,4 +33270,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=CategoriesCard.css.map */

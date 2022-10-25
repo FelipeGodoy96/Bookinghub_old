@@ -22154,11 +22154,34 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.SearchBar {
-  background-color: #383B58;
+.anuncioCard {
+  max-width: 393px;
+}
+.anuncioCard img {
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.anuncioCard button {
+  font-family: "Roboto", sans-serif;
   color: #FFF;
-  padding-top: 6rem;
-  padding-bottom: 2rem;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.notaParceiro {
+  color: #FFF;
+  padding: 0.3em;
+  border-radius: 18px;
+  background-color: #383B58;
+}
+
+.classificacaoParceiro {
+  color: #383B58;
+  font-family: "Roboto", sans-serif;
+  font-weight: medium;
+  font-size: 14pt;
 }
 
 /*!
@@ -33271,4 +33294,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=ProductCard.css.map */
