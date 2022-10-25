@@ -8,12 +8,13 @@ import "../../styles/NavBarDefault.css";
 
 export default function NavBarDefault() {
   return (
-    <header>
+    <header className="NavBar">
       <Navbar expand="lg" className="NavStyle">
         <Container>
           <Navbar.Brand>
-            <Link className="nav-link" to="/">
+            <Link className="nav-link d-flex align-items-center" to="/">
               <img width="60" height="auto" src={LogomarcaIco} />
+              <p className="textIcon">Lion's Rest</p> 
             </Link>
           </Navbar.Brand>
 
@@ -36,7 +37,7 @@ export default function NavBarDefault() {
             </Nav>
           </Navbar.Collapse>
 
-          {/* <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
+          <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
             <Nav className="ms-auto gap-2">
               <div className="mx-auto">
               <img width="60" height="auto" src={LogomarcaIco} />
@@ -47,7 +48,7 @@ export default function NavBarDefault() {
                Fulano
               </div>
             </Nav>
-          </Navbar.Collapse> */}
+          </Navbar.Collapse>  
 
         </Container>
       </Navbar>

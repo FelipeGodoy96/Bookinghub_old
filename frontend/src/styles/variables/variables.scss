@@ -3,6 +3,7 @@
 
 $primary-color: #1DBEB4;
 $secondary-color: #383B58;
+$bg2-color: #FFDE59;
 $alternative-color: #545776;
 $bg-color: #F3F1ED;
 
@@ -15,6 +16,7 @@ $theme-colors: (
   "secondary":  $secondary-color,
   "alternative": $alternative-color,
   "background": $bg-color,
+  "background2": $bg2-color,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,

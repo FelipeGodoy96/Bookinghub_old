@@ -2,13 +2,12 @@
 @import './variables/variables.scss';
 
 
-
 .container-fluid {
   background: $bg-color;
   // overflow: hidden;
     justify-content: center;
     .login {
-      @include text1;
+      @include text2;
       justify-content: center;
       width: 20rem;
       .content__title {
