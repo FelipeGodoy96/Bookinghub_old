@@ -36,9 +36,11 @@ export default function Home() {
         className="anuncios-container d-flex flex-column justify-content-center align-items-center pt-5 pb-5"
       >
         <h1 className="text-center"> Recomendações</h1>
+        <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
         {anuncios.map((m, index) => (
           <ProductCard data={m} key={index} />
         ))}
+         </div>
       </Container>
 
       <Footer />

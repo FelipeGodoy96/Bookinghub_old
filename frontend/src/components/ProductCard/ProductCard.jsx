@@ -24,7 +24,7 @@ export default function ProductCard({ data }) {
           <div className="bi bi-geo-alt mb-1">
             Bairro
             <br />
-            {data.location} <Link to="/">MOSTRAR NO MAPA</Link>
+            {data.location} <Link className="i bi-pin-map" to="/">Ver no mapa</Link>
           </div>
           <p>
             {data.description.substring(0, 180)}
