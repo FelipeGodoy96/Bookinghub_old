@@ -41,8 +41,7 @@ const anuncios = [
     location: "Ouro Preto",
     description:
       "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
-  }
-  ,
+  },  
   {
     img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
     category: categorias.find( f => f.id === 1),
@@ -50,8 +49,72 @@ const anuncios = [
     location: "Ouro Preto",
     description:
       "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
-  }
-];
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  {
+    img: "https://hotelsolardemaria.com.br/images/fachada-externa.jpg",
+    category: categorias.find( f => f.id === 1),
+    title: "Novo Hotel",
+    location: "Ouro Preto",
+    description:
+      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+  },
+  ];
 
 const DEFAULT_VALUE = {
   state: { anuncios, categorias },
