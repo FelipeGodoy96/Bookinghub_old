@@ -18,7 +18,7 @@ export default function ProductCard({ data }) {
               </div>
             </div>
             <div>
-              <h3>{data.title}</h3>
+              <h3 className="nomeAnunciante">{data.title}</h3>
             </div>
           </div>
           <div className="bi bi-geo-alt mb-1">

@@ -16,7 +16,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState('hidden');
 
-  console.log(isVisible);
+ 
 
   function logon(email, password) {
   
@@ -24,9 +24,7 @@ export default function Login() {
     if (loged) {
       setLoginState({ ...loginState, isLoged: true, user: userData });
     } else {
-
       setIsVisible("visible") 
-    
     }
   }
 
