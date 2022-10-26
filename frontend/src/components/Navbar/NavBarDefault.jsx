@@ -49,7 +49,6 @@ export default function NavBarDefault() {
               </div>
             </Nav>
           </Navbar.Collapse>  
-
         </Container>
       </Navbar>
     </header>
