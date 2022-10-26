@@ -14,7 +14,7 @@ export default function NavBarDefault() {
           <Navbar.Brand>
             <Link className="nav-link d-flex align-items-center" to="/">
               <img width="60" height="auto" src={LogomarcaIco} />
-              <p className="textIcon">Lion's Rest</p> 
+              <p className="textIcon" style={{ margin: "0" }}>Lion's Rest</p> 
             </Link>
           </Navbar.Brand>
 
