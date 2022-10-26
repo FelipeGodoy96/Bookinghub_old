@@ -6,7 +6,7 @@ import "../../styles/ProductCard.css";
 export default function ProductCard({ data }) {
   return (
     <>
-      <Card className="anuncioCard w-100 d-flex flex-column m-2">
+      <Card className="anuncioCard d-flex flex-column m-2">
         <Card.Img variant="top" src={data.img} />
         <Card.Body className="cardInfo d-flex flex-column">
           <div className="d-flex flex-row flex-column justify-content-between">

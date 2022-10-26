@@ -2,7 +2,13 @@
 @import './variables/variables.scss';
 
 .anuncioCard {
-  max-width: 393px;
+  max-width: 390px;
+
+
+  @media screen and (max-width: 390px) {
+    max-width: 310px
+  }
+  
 
   img {
     height: 150px;
@@ -14,12 +20,10 @@
   }
 
   .nomeAnunciante {
-    width: 100%;
     height: 2rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    
   }
 }
 

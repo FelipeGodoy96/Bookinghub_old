@@ -22155,7 +22155,12 @@ textarea.form-control-lg {
   }
 }
 .anuncioCard {
-  max-width: 393px;
+  max-width: 390px;
+}
+@media screen and (max-width: 390px) {
+  .anuncioCard {
+    max-width: 310px;
+  }
 }
 .anuncioCard img {
   height: 150px;
@@ -22170,7 +22175,6 @@ textarea.form-control-lg {
   font-weight: bold;
 }
 .anuncioCard .nomeAnunciante {
-  width: 100%;
   height: 2rem;
   white-space: nowrap;
   overflow: hidden;
