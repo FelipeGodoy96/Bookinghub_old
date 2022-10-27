@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  #dados para crição do container do mysql
+  db:
+    image: "mysql:latest" #imagem vem do dockerhub, equivale ao from
+    container_name: dbecommerce #nomeando container
+    ports: # redirecionando as portas
+      - "3306:3306" # primeira meu pc e seunda porta container
+    environment: #variaveis de ambientes do mysql
+      MYSQL_DATABASE: ecommerce
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: DigitalHouse2022
+      MYSQL_ROOT_PASSWORD: DigitalHouse2022
+    volumes: #meu hd externo para o container
+      - db_ecommerce:/var/lib/mysql
+    networks: # uma rede entre os container
+      - servers
+##fim do mysql
+
+  #outro container --- backend
+  springweb:
+    container_name: ecommerce
+    build: . #preciso do Dockerfile para gerar a imagem
+    image: "cypherbold/ecommerce:1.01"
+    ports:
+    - "8080:8080"
+    networks:
+      - servers
+    depends_on:
+      - db
+    # environment:
+    #    - "SPRING_PROFILES_ACTIVE=docker"
+
+volumes:
+  db_ecommerce:
+
+networks:
+  servers:
+    driver: bridge
+
+#docker-compose up -d
