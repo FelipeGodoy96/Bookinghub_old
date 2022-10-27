@@ -1,0 +1,49 @@
+{
+	"id": "9a56f820-91a7-4e62-9c2b-6192d119fcc2",
+	"name": "DELETE - LION'S REST - CATEGORIA",
+	"timestamp": "2022-10-25T03:14:54.320Z",
+	"collection_id": "21375452-edc26d7f-4282-4951-88a2-dfb2f360fa52",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 1,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2aea75b1-9a9f-4bfa-a3d6-b19aa96d8ea9",
+			"name": "Eliminar uma categoria",
+			"url": "http://localhost:9000/categorias/4",
+			"time": 22,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"O status de resposta é 204": true
+			},
+			"testPassFailCounts": {
+				"O status de resposta é 204": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"O status de resposta é 204": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 22,
+	"collection": {
+		"requests": [
+			{
+				"id": "2aea75b1-9a9f-4bfa-a3d6-b19aa96d8ea9",
+				"method": "DELETE"
+			}
+		]
+	}
+}
