@@ -1,18 +1,11 @@
 @import './mixins/mixins.scss';
 @import './variables/variables.scss';
-.SearchBar{
-  background-color: $secondary-color;
-  color: $white;
-  padding-top: 6rem;
-  padding-bottom: 2rem;
+.categoriesCard img {
+  
+    height: 183px;
+    object-fit: cover;
+  
 }
-
-
-
-
-
-
-
 
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';

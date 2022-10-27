@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Footer from "./components/Footer/Footer";
 import LoginContext from "../src/Contexts/LoginContext";
 import "./styles/login.css";
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef ,useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginAuth } from "./utils/auth";
 
@@ -14,16 +14,17 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isVisible, setIsVisible] = useState('hidden');
 
-  // const errorMsg = useRef(null)
-  // console.log(errorMsg.current);
+ 
 
   function logon(email, password) {
+  
     const { loged, user: userData } = loginAuth(email, password);
     if (loged) {
       setLoginState({ ...loginState, isLoged: true, user: userData });
     } else {
-      // errorMsg.current.style.visibility="visible"
+      setIsVisible("visible") 
     }
   }
 
@@ -47,6 +48,7 @@ export default function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     placeholder="Insira seu e-mail"
+                  
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group
@@ -60,7 +62,7 @@ export default function Login() {
                     placeholder="********"
                   ></Form.Control>
                 </Form.Group>
-                <span className="loginFail" style={{visibility:"hidden"}}> Falha nas credenciais de Login</span>
+                <div className="loginFail mt-1 mb-2" style={{visibility:`${isVisible}`}}> Falha nas credenciais de Login</div>
                 <Button type="submit" variant="primary">
                   Entrar
                 </Button>
