@@ -1,0 +1,49 @@
+{
+	"id": "a89046a8-8b5f-44f4-a55b-aa63e3d25e1e",
+	"name": "GET - LION'S REST - CATEGORIA",
+	"timestamp": "2022-10-25T03:08:25.966Z",
+	"collection_id": "21375452-326c87fb-e9fd-4d62-bd17-9869bdb1f886",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 1,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "5a7fa0ba-e50d-49ac-b695-57aa7e3956b6",
+			"name": "Listar todas as categorias",
+			"url": "http://localhost:9000/categorias",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"O status de resposta é 200 (OK)": true
+			},
+			"testPassFailCounts": {
+				"O status de resposta é 200 (OK)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"O status de resposta é 200 (OK)": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 17,
+	"collection": {
+		"requests": [
+			{
+				"id": "5a7fa0ba-e50d-49ac-b695-57aa7e3956b6",
+				"method": "GET"
+			}
+		]
+	}
+}
