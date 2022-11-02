@@ -5,7 +5,6 @@ import br.com.APIrest.APIrest.model.Categorias;
 import java.io.Serializable;
 
 public class CategoriasDto implements Serializable {
-
     private static long serialVersionUID = 1L;
 
     private Integer id;
