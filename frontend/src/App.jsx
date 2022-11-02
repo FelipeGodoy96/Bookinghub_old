@@ -1,5 +1,6 @@
 import { Routes, Route,Navigate } from "react-router-dom";
 import Home from "./Home";
+import Anuncio from "./Anuncio";
 import NotFound from "./NotFound";
 import NavBarDefault from "./components/Navbar/NavBarDefault";
 import Login from "./Login";
@@ -19,6 +20,7 @@ export default function App() {
         <NavBarDefault />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/anuncio" element={<Anuncio/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/redefinirSenha" element={<RedefinirSenha />} />

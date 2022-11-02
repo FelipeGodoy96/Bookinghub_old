@@ -3,10 +3,17 @@
 
 $primary-color: #1DBEB4;
 $secondary-color: #383B58;
-$bg2-color: #FFDE59;
-$alternative-color: #545776;
 $bg-color: #F3F1ED;
+$bg2-color: #FFDE59;
+$bg3-color:#EEEEF1;
+$alternative-color: #545776;
 $warning:#F44336;
+
+$azure-radiance: #029dfc;
+$black: #000000;
+$concrete: #f2f2f2;
+$malibu: #639eff;
+$tundora: #464646;
 
 $font-principal: "Roboto", sans-serif;
 
@@ -18,6 +25,7 @@ $theme-colors: (
   "alternative": $alternative-color,
   "background": $bg-color,
   "background2": $bg2-color,
+  "background3": $bg3-color,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
