@@ -21,7 +21,7 @@ public class ServiceCategorias {
     public List<CategoriasDto> findAll(){
         List<Categorias> list = repository.findAll();
         return list.stream().map(x -> new CategoriasDto(x)).collect(Collectors.toList());
-}
+    }
 
     @Transactional(readOnly = true)
     public CategoriasDto findById (Integer id) {
