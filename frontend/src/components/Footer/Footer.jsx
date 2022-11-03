@@ -8,7 +8,7 @@ export default function Footer() {
     <>
     <footer className="defFooter w-100 d-flex flex-row justify-content-between align-items-center">
       <div className="navFooter px-4">
-      ©2022 Lion's Rest
+      ©2022 Booking Hub
       </div>
      
      

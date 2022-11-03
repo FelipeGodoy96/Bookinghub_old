@@ -22178,6 +22178,9 @@ textarea.form-control-lg {
   font-size: 1.3rem;
   margin-left: 1rem;
 }
+.anuncioInfo .socialShare {
+  z-index: 100;
+}
 .anuncioInfo .socialShare .c-share {
   position: relative;
   width: 3.4375em;

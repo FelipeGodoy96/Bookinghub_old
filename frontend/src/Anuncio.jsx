@@ -1,23 +1,25 @@
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ImageGallery from 'react-image-gallery';
+import ImageGallery from "react-image-gallery";
 import Footer from "./components/Footer/Footer";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./styles/Anuncio.css";
 export default function Anuncio() {
   const images = [
     {
-      original: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg',
-      thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg',
+      original:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg",
+      thumbnail:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
     },
     {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/"
     },
     {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/"
+    }
   ];
   return (
     <>
@@ -27,7 +29,9 @@ export default function Anuncio() {
             <p>categoria</p>
             <h3 className="nomeAnunciante">Nome</h3>
           </div>
-          <div className="iconeSubHeader bi bi-geo-alt mb-1"></div>
+          <Link>
+            <div className="iconeSubHeader bi bi-arrow-return-left mb-1"></div>
+          </Link>
         </Container>
       </section>
 
@@ -43,9 +47,9 @@ export default function Anuncio() {
           </div>
 
           <div className=" d-flex flex-column align-items-center">
-                <div className="notaParceiro">8.0</div>
-                <div className="classificacaoParceiro">Muito Bom</div>
-              </div>
+            <div className="notaParceiro">8.0</div>
+            <div className="classificacaoParceiro">Muito Bom</div>
+          </div>
         </Container>
       </section>
 
@@ -64,11 +68,14 @@ export default function Anuncio() {
               <li className="bi bi-whatsapp">Email</li>
             </ul>
           </div>
-          
         </Container>
         <div className="galeriaDeImagens mt-3">
-
-        <ImageGallery showPlayButton={false} showFullscreenButton={false} items={images} showIndex={true}/>
+          <ImageGallery
+            showPlayButton={false}
+            showFullscreenButton={false}
+            items={images}
+            showIndex={true}
+          />
         </div>
 
         <Container className="descripition d-flex flex-column justify-content-end">
@@ -87,12 +94,13 @@ export default function Anuncio() {
             variado das 07:00 h às 10:30 h.
           </p>
         </Container>
+
         <Container className="descripition d-flex flex-column justify-content-end">
           <h3>O que esse lugar oferece?</h3>
           <p>aa</p>
         </Container>
 
-        <Container className="rules d-flex flex-column">
+        <Container className="descripition d-flex flex-column">
           <h3>O que você precisa saber ?</h3>
           <div className="row">
             <div className="col-lg col-md order-1">
@@ -116,7 +124,7 @@ export default function Anuncio() {
           </div>
         </Container>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }
