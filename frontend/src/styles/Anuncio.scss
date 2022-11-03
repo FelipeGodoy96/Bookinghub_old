@@ -29,6 +29,10 @@
 
   .socialShare {
     z-index: 100;
+    ::before {
+      margin-right: 8px;
+    }
+    
     .c-share {
       position: relative;
       width: 3.4375em;

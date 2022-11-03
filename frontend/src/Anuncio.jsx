@@ -61,11 +61,11 @@ export default function Anuncio() {
               <span className="c-share__icon"></span>
             </label>
 
-            <ul className="c-share_options" data-title="Compartilhar">
-              <li className="bi bi-whatsapp">Facebook</li>
-              <li className="bi bi-whatsapp">Twitter</li>
+            <ul className="c-share_options shareOptions" data-title="Compartilhar">
+              <li className="bi bi-facebook">Facebook</li>
+              <li className="bi bi-twitter">Twitter</li>
               <li className="bi bi-whatsapp">WhatsApp</li>
-              <li className="bi bi-whatsapp">Email</li>
+              <li className="bi bi-envelope">Email</li>
             </ul>
           </div>
         </Container>
