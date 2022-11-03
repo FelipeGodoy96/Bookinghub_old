@@ -25,8 +25,14 @@ export default function Anuncio() {
               Ver no mapa
             </Link>
           </div>
+
+          <div className=" d-flex flex-column align-items-center">
+                <div className="notaParceiro">8.0</div>
+                <div className="classificacaoParceiro">Muito Bom</div>
+              </div>
         </Container>
       </section>
+
       <section className="anuncioInfo d-flex flex-column">
         <Container className="d-flex flex-row justify-content-end socialShare">
           <div className="c-share">
@@ -35,14 +41,15 @@ export default function Anuncio() {
               <span className="c-share__icon"></span>
             </label>
 
-            <ul className="c-share_options" data-title="Share">
-              <li>Facebook</li>
-              <li>Twitter</li>
-              <li>Google</li>
-              <li>Email</li>
+            <ul className="c-share_options" data-title="Compartilhar">
+              <li className="bi bi-whatsapp">Facebook</li>
+              <li className="bi bi-whatsapp">Twitter</li>
+              <li className="bi bi-whatsapp">WhatsApp</li>
+              <li className="bi bi-whatsapp">Email</li>
             </ul>
           </div>
         </Container>
+
         <Container className="descripition d-flex flex-column justify-content-end">
           <h3>Fique no coração de Buenos Aires</h3>
           <p>
@@ -59,27 +66,27 @@ export default function Anuncio() {
             variado das 07:00 h às 10:30 h.
           </p>
         </Container>
-        <Container className="descripition d-flex flex-row justify-content-end">
+        <Container className="descripition d-flex flex-column justify-content-end">
           <h3>O que esse lugar oferece?</h3>
           <p>aa</p>
         </Container>
 
-        <Container className="rules d-flex flex-row justify-content-end">
+        <Container className="rules d-flex flex-column">
           <h3>O que você precisa saber ?</h3>
           <div className="row">
-            <div className="col order-1">
+            <div className="col-lg col-md order-1">
               <h4>Regras da casa</h4>
               <p>Check-out:12:00</p>
               <p>Proibido Fumar</p>
               <p>Proibido Festas</p>
             </div>
-            <div className="col order-2">
+            <div className="col-lg col-md order-2">
               <h4>Saúde e Segurança</h4>
               <p>Check-out:12:00</p>
               <p>Proibido Fumar</p>
               <p>Proibido Festas</p>
             </div>
-            <div className="col order-3">
+            <div className="col-lg order-3">
               <h4>Politicas de Cancelamento</h4>
               <p>Check-out:12:00</p>
               <p>Proibido Fumar</p>

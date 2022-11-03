@@ -22166,6 +22166,7 @@ textarea.form-control-lg {
 }
 
 .mapSubHeader {
+  padding: 1rem;
   background-color: #EEEEF1;
   width: 100%;
 }
