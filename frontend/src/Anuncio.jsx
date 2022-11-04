@@ -1,13 +1,15 @@
-import { Container, Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { BsArrowReturnLeft } from "react-icons/bs";
+import { MdPets,MdWifi,MdLiveTv,MdAcUnit,MdPool,MdCarRental,MdDining } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
-import "./styles/Anuncio.css";
 import MyGallery from "./components/Gallery/Gallery";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import "./styles/Anuncio.css";
+import Box from "@mui/material/Box";
 
 export default function Anuncio() {
   const images = [
@@ -29,13 +31,13 @@ export default function Anuncio() {
   return (
     <>
       <section className="subHeader">
-        <Container className="d-flex flex-row justify-content-between">
+        <Container className="d-flex flex-row justify-content-between align-items-center">
           <div className="informacoesAnunciante">
-            <p>categoria</p>
+            <p>HOTEL</p>
             <h3 className="nomeAnunciante">Nome</h3>
           </div>
-          <Link>
-            <div className="iconeSubHeader bi bi-arrow-return-left mb-1"></div>
+          <Link to="/" >
+          <BsArrowReturnLeft className="iconeSubHeader"/>
           </Link>
         </Container>
       </section>
@@ -66,7 +68,10 @@ export default function Anuncio() {
               <span className="c-share__icon"></span>
             </label>
 
-            <ul className="c-share_options shareOptions" data-title="Compartilhar">
+            <ul
+              className="c-share_options shareOptions"
+              data-title="Compartilhar"
+            >
               <li className="bi bi-facebook">Facebook</li>
               <li className="bi bi-twitter">Twitter</li>
               <li className="bi bi-whatsapp">WhatsApp</li>
@@ -75,11 +80,36 @@ export default function Anuncio() {
           </div>
         </Container>
         {/* <div className="galeriaDeImagens mt-3"> */}
-        <Box sx={{display: {xs: 'none', sm: 'none', md: 'none', lg:'block', xl:'block' }, paddingX: '15vw'}}>
-         <MyGallery/> 
+        <Box
+          sx={{
+            display: {
+              xs: "none",
+              sm: "none",
+              md: "none",
+              lg: "block",
+              xl: "block"
+            },
+            paddingX: "15vw"
+          }}
+        >
+          <MyGallery />
         </Box>
-        <Box sx={{display: {xs:'block', sm:'block', md:'block', lg:'none', xl:'none'}}}>          
+        <Box
+          sx={{
+            display: {
+              xs: "block",
+              sm: "block",
+              md: "block",
+              lg: "none",
+              xl: "none"
+            }
+          }}
+        >
           <ImageGallery
+            className="galeriaMobile"
+            slideInterval={5000}
+            autoPlay={true}
+            showThumbnails={false}
             showPlayButton={false}
             showFullscreenButton={false}
             items={images}
@@ -107,7 +137,20 @@ export default function Anuncio() {
 
         <Container className="descripition d-flex flex-column justify-content-end">
           <h3>O que esse lugar oferece?</h3>
-          <p>aa</p>
+          <div className="cozinha hotelservice"><MdDining/>Cozinha</div>
+          <div className="estacionamento hotelservice"><MdCarRental/>Estacionamento</div>
+          <div className="piscina hotelservice"><MdPool/>Piscina</div>
+          <div className="arCondicionado hotelservice"><MdAcUnit/>Ar Condicionado</div>
+          <div className="tv hotelservice"><MdLiveTv/>Televisor</div>
+          <div className="wifi hotelservice"><MdWifi/>Internet Wi-fi</div>
+          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+        </Container>
+
+        <Container className="datasDisponíveis d-flex flex-column">
+        <h3>Datas disponíveis
+          +
+        </h3>
+
         </Container>
 
         <Container className="descripition d-flex flex-column">
