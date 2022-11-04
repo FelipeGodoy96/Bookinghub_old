@@ -16,15 +16,15 @@ export default function MyGallery () {
     <Gallery>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '50vw 25vw 25vw',
+        gridTemplateColumns: '30vw 20vw 20vw',
         gridTemplateRows: '300px 0px',
-        gap: 8
-        
+        gap: 8        
       }}>
       <Item
         original="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
         thumbnail="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
-        
+        height="" // altura  da imagem original
+        width="" //  largura  da imagem original
       >
         {({ ref, open }) => (
           <img 

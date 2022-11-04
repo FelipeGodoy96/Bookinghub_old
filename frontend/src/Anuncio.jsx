@@ -3,23 +3,29 @@ import { Link } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import "./styles/Anuncio.css";
 import MyGallery from "./components/Gallery/Gallery";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+
 export default function Anuncio() {
-  // const images = [
-  //   {
-  //     original:
-  //       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg",
-  //     thumbnail:
-  //       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
-  //   },
-  //   {
-  //     original: "https://picsum.photos/id/1015/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1015/250/150/"
-  //   },
-  //   {
-  //     original: "https://picsum.photos/id/1019/1000/600/",
-  //     thumbnail: "https://picsum.photos/id/1019/250/150/"
-  //   }
-  // ];
+  const images = [
+    {
+      original:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg",
+      thumbnail:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/"
+    },
+    {
+      original: "https://picsum.photos/id/1019/1000/600/",
+      thumbnail: "https://picsum.photos/id/1019/250/150/"
+    }
+  ];
   return (
     <>
       <section className="subHeader">
@@ -68,15 +74,19 @@ export default function Anuncio() {
             </ul>
           </div>
         </Container>
-        <div className="galeriaDeImagens mt-3">
-         <MyGallery/>
-          {/* <ImageGallery
+        {/* <div className="galeriaDeImagens mt-3"> */}
+        <Box sx={{display: {xs: 'none', sm: 'none', md: 'none', lg:'block', xl:'block' }, paddingX: '15vw'}}>
+         <MyGallery/> 
+        </Box>
+        <Box sx={{display: {xs:'block', sm:'block', md:'block', lg:'none', xl:'none'}}}>          
+          <ImageGallery
             showPlayButton={false}
             showFullscreenButton={false}
             items={images}
             showIndex={true}
-          /> */}
-        </div>
+          />
+        </Box>
+        {/* </div> */}
 
         <Container className="descripition  d-flex flex-column justify-content-end">
           <h3>Fique no coração de Buenos Aires</h3>
