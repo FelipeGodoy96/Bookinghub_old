@@ -9,11 +9,18 @@ public class Categorias implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "categorias_sequence", sequenceName = "categorias_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
     private Integer id;
     private String qualificacao;
     private String descricao;
     private String imagem;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "produto_onetm")
+    private Produtos produtos_one;
+
+
 
     public Categorias() {
     }
@@ -51,5 +58,12 @@ public class Categorias implements Serializable {
     }
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public Produtos getProdutos() {
+        return produtos_one;
+    }
+    public void setProdutos(Produtos produtos) {
+        this.produtos_one = produtos;
     }
 }

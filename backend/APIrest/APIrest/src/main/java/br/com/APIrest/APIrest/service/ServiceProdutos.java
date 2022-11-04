@@ -1,7 +1,10 @@
 package br.com.APIrest.APIrest.service;
 
+import br.com.APIrest.APIrest.dto.CaracteristicasDto;
 import br.com.APIrest.APIrest.dto.ProdutosDto;
+import br.com.APIrest.APIrest.model.Caracteristicas;
 import br.com.APIrest.APIrest.model.Produtos;
+import br.com.APIrest.APIrest.repository.RepositoryCaracteristicas;
 import br.com.APIrest.APIrest.repository.RepositoryProdutos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,10 @@ public class ServiceProdutos {
 
     @Autowired
     private RepositoryProdutos repository;
+
+
+    @Autowired
+    private RepositoryCaracteristicas caracrepository;
 
     @Transactional(readOnly = true)
     public List<ProdutosDto> findAll(){
@@ -37,9 +44,7 @@ public class ServiceProdutos {
     @Transactional
     public ProdutosDto insert(ProdutosDto dto) {
         Produtos entity = new Produtos();
-        entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setDescricao(dto.getDescricao());
+        copyDtoForEntity(dto, entity);
         entity = repository.save(entity);
         return new ProdutosDto(entity);
     }
@@ -47,10 +52,18 @@ public class ServiceProdutos {
     @Transactional
     public ProdutosDto update(Integer id, ProdutosDto dto) {
         Produtos entity = repository.getReferenceById(id);
-        entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setDescricao(dto.getDescricao());
+        copyDtoForEntity(dto, entity);
         entity = repository.save(entity);
         return new ProdutosDto(entity);
+    }
+
+    private void copyDtoForEntity(ProdutosDto dto, Produtos entity) {
+        entity.setNome(dto.getNome());
+        entity.setDescricao(dto.getDescricao());
+        entity.getCaracteristica().clear();
+        for (CaracteristicasDto caracDto : dto.getCaracteristica()) {
+            Caracteristicas caracteristicas = caracrepository.getReferenceById(caracDto.getId());
+            entity.getCaracteristica().add(caracteristicas);
+        }
     }
 }

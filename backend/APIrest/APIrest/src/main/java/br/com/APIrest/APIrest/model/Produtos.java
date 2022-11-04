@@ -3,22 +3,27 @@ package br.com.APIrest.APIrest.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "produtos")
 public class Produtos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "produto_sequence", sequenceName = "produto_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
     private Integer id;
     private String nome;
     private String descricao;
 
+    @OneToMany(mappedBy = "produtos_one", fetch = FetchType.LAZY)
+    private List<Categorias> categoria;
+
     @ManyToMany
-    @JoinTable(name = "ProdutoCaracteristica",
-    joinColumns = @JoinColumn(name = "ProdutoID"),
-    inverseJoinColumns = @JoinColumn(name = "CaracteristicaID"))
+    @JoinTable(name = "produtoCaracteristica",
+    joinColumns = @JoinColumn(name = "produtoID"),
+    inverseJoinColumns = @JoinColumn(name = "caracteristicaID"))
     Set<Caracteristicas> caracteristica = new HashSet<>();
 
     public Produtos() {
@@ -28,8 +33,8 @@ public class Produtos implements Serializable {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.caracteristica = caracteristica;
-    }
+                this.caracteristica = caracteristica;
+            }
 
     public Integer getId() {
         return id;
@@ -54,5 +59,12 @@ public class Produtos implements Serializable {
 
     public Set<Caracteristicas> getCaracteristica() {
         return caracteristica;
+    }
+
+    public List<Categorias> getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(List<Categorias> categoria) {
+        this.categoria = categoria;
     }
 }

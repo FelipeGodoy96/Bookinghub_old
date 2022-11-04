@@ -1,6 +1,5 @@
 package br.com.APIrest.APIrest.dto;
 
-import br.com.APIrest.APIrest.model.Caracteristicas;
 import br.com.APIrest.APIrest.model.Produtos;
 
 import java.io.Serializable;
@@ -13,7 +12,6 @@ public class ProdutosDto implements Serializable {
     private Integer id;
     private String nome;
     private String descricao;
-
     private Set<CaracteristicasDto> caracteristica = new HashSet<>();
 
     public ProdutosDto() {
