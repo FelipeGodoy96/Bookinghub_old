@@ -22290,4 +22290,25 @@ textarea.form-control-lg {
   opacity: 0;
   transform: translateY(0.625em);
   transition: 0s;
+}
+.anuncioInfo .descripition {
+  padding: 1.5rem;
+}
+.anuncioInfo .descripition h3, .anuncioInfo .descripition .h3 {
+  margin-top: 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 20pt;
+  font-weight: bold;
+}
+.anuncioInfo .descripition h4, .anuncioInfo .descripition .h4 {
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.anuncioInfo .descripition p {
+  font-family: "Roboto", sans-serif;
+  font-weight: medium;
+  font-size: 12pt;
+  margin-top: 0.8rem;
 }/*# sourceMappingURL=Anuncio.css.map */

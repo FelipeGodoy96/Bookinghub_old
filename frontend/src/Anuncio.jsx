@@ -78,7 +78,7 @@ export default function Anuncio() {
           />
         </div>
 
-        <Container className="descripition d-flex flex-column justify-content-end">
+        <Container className="descripition  d-flex flex-column justify-content-end">
           <h3>Fique no coração de Buenos Aires</h3>
           <p>
             Está localizado a poucas quadras da Avenida Alvear, da Avenida

@@ -161,4 +161,23 @@
       }
     }
   }
+
+  .descripition {
+    padding: 1.5rem;
+    
+    h3{
+      margin-top: 1.8rem ;
+      @include font-secondary;
+    }
+    h4{
+      margin-top: 1rem;
+      @include font-alternative;
+    }
+    p{
+      @include text2;
+      margin-top: .8rem;
+    }
+  } 
+  
 }
+
