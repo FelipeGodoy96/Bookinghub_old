@@ -1,26 +1,25 @@
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import ImageGallery from "react-image-gallery";
 import Footer from "./components/Footer/Footer";
-import "react-image-gallery/styles/css/image-gallery.css";
 import "./styles/Anuncio.css";
+import MyGallery from "./components/Gallery/Gallery";
 export default function Anuncio() {
-  const images = [
-    {
-      original:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg",
-      thumbnail:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/"
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/"
-    }
-  ];
+  // const images = [
+  //   {
+  //     original:
+  //       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg",
+  //     thumbnail:
+  //       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
+  //   },
+  //   {
+  //     original: "https://picsum.photos/id/1015/1000/600/",
+  //     thumbnail: "https://picsum.photos/id/1015/250/150/"
+  //   },
+  //   {
+  //     original: "https://picsum.photos/id/1019/1000/600/",
+  //     thumbnail: "https://picsum.photos/id/1019/250/150/"
+  //   }
+  // ];
   return (
     <>
       <section className="subHeader">
@@ -70,12 +69,13 @@ export default function Anuncio() {
           </div>
         </Container>
         <div className="galeriaDeImagens mt-3">
-          <ImageGallery
+         <MyGallery/>
+          {/* <ImageGallery
             showPlayButton={false}
             showFullscreenButton={false}
             items={images}
             showIndex={true}
-          />
+          /> */}
         </div>
 
         <Container className="descripition  d-flex flex-column justify-content-end">
