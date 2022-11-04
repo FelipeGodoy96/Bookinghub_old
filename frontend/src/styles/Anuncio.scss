@@ -190,7 +190,9 @@
     h3 {
       margin-top: 1.8rem;
       @include font-secondary;
+     
     }
+ 
     h4 {
       margin-top: 1rem;
       @include font-alternative;
@@ -200,4 +202,12 @@
       margin-top: 0.8rem;
     }
   }
+.service{
+  padding: 3rem;
+  .hotelservice{
+    margin: 1rem;
+  }
+ 
+}
+ 
 }

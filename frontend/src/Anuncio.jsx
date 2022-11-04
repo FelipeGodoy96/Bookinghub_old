@@ -136,14 +136,22 @@ export default function Anuncio() {
         </Container>
 
         <Container className="descripition d-flex flex-column justify-content-end">
-          <h3>O que esse lugar oferece?</h3>
-          <div className="cozinha hotelservice"><MdDining/>Cozinha</div>
-          <div className="estacionamento hotelservice"><MdCarRental/>Estacionamento</div>
-          <div className="piscina hotelservice"><MdPool/>Piscina</div>
-          <div className="arCondicionado hotelservice"><MdAcUnit/>Ar Condicionado</div>
+          <h3 className="title3">O que esse lugar oferece?</h3>
+          
+          <div className=" service d-flex flex-wrap justify-content-between align-content-center  ">
+          <div className="cozinha hotelservice "><MdDining/>Cozinha</div>
+          <div className="estacionamento hotelservice "><MdCarRental/>Estacionamento</div>
+          <div className="piscina hotelservice "><MdPool/>Piscina</div>
+          <div className="arCondicionado hotelservice "><MdAcUnit/>Ar Condicionado</div>
           <div className="tv hotelservice"><MdLiveTv/>Televisor</div>
           <div className="wifi hotelservice"><MdWifi/>Internet Wi-fi</div>
           <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
+          </div>
         </Container>
 
         <Container className="datasDisponíveis d-flex flex-column">

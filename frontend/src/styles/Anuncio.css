@@ -22339,4 +22339,10 @@ textarea.form-control-lg {
   font-weight: medium;
   font-size: 12pt;
   margin-top: 0.8rem;
+}
+.anuncioInfo .service {
+  padding: 3rem;
+}
+.anuncioInfo .service .hotelservice {
+  margin: 1rem;
 }/*# sourceMappingURL=Anuncio.css.map */
