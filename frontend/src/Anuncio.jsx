@@ -1,4 +1,8 @@
-import { Container } from "react-bootstrap";
+import { useState } from 'react';
+import * as React from "react";
+import Calendar from 'react-calendar';
+
+import { Container,Card } from "react-bootstrap";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { MdPets,MdWifi,MdLiveTv,MdAcUnit,MdPool,MdCarRental,MdDining } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -6,7 +10,6 @@ import Footer from "./components/Footer/Footer";
 import MyGallery from "./components/Gallery/Gallery";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./styles/Anuncio.css";
 import Box from "@mui/material/Box";
@@ -28,6 +31,8 @@ export default function Anuncio() {
       thumbnail: "https://picsum.photos/id/1019/250/150/"
     }
   ];
+  const [value, onChange] = useState(new Date());
+  
   return (
     <>
       <section className="subHeader">
@@ -154,10 +159,9 @@ export default function Anuncio() {
           </div>
         </Container>
 
-        <Container className="datasDisponíveis d-flex flex-column">
-        <h3>Datas disponíveis
-          +
-        </h3>
+        <Container className="datasDisponiveis d-flex flex-column">
+        <h3>Datas disponíveis</h3>
+        <Calendar className="calendario" onChange={onChange} value={value} />
 
         </Container>
 

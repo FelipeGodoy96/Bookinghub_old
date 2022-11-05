@@ -22340,6 +22340,121 @@ textarea.form-control-lg {
   font-size: 12pt;
   margin-top: 0.8rem;
 }
+.anuncioInfo .calendario .react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+  border: 1px solid #a0a096;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}
+.anuncioInfo .calendario .react-calendar--doubleView {
+  width: 700px;
+}
+.anuncioInfo .calendario .react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+.anuncioInfo .calendario .react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+.anuncioInfo .calendario .react-calendar,
+.anuncioInfo .calendario .react-calendar *,
+.anuncioInfo .calendario .react-calendar *:before,
+.anuncioInfo .calendario .react-calendar *:after {
+  box-sizing: border-box;
+}
+.anuncioInfo .calendario .react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.anuncioInfo .calendario .react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+.anuncioInfo .calendario .react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+.anuncioInfo .calendario .react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+.anuncioInfo .calendario .react-calendar__navigation button:disabled {
+  background-color: #f0f0f0;
+}
+.anuncioInfo .calendario .react-calendar__navigation button:enabled:hover,
+.anuncioInfo .calendario .react-calendar__navigation button:enabled:focus {
+  background-color: #e6e6e6;
+}
+.anuncioInfo .calendario .react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+.anuncioInfo .calendario .react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+.anuncioInfo .calendario .react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+.anuncioInfo .calendario .react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+.anuncioInfo .calendario .react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+.anuncioInfo .calendario .react-calendar__year-view .react-calendar__tile,
+.anuncioInfo .calendario .react-calendar__decade-view .react-calendar__tile,
+.anuncioInfo .calendario .react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+.anuncioInfo .calendario .react-calendar__tile {
+  max-width: 100%;
+  padding: 10px 6.6667px;
+  background: none;
+  text-align: center;
+  line-height: 16px;
+}
+.anuncioInfo .calendario .react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+.anuncioInfo .calendario .react-calendar__tile:enabled:hover,
+.anuncioInfo .calendario .react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+.anuncioInfo .calendario .react-calendar__tile--now {
+  background: #ffff76;
+}
+.anuncioInfo .calendario .react-calendar__tile--now:enabled:hover,
+.anuncioInfo .calendario .react-calendar__tile--now:enabled:focus {
+  background: #ffffa9;
+}
+.anuncioInfo .calendario .react-calendar__tile--hasActive {
+  background: #76baff;
+}
+.anuncioInfo .calendario .react-calendar__tile--hasActive:enabled:hover,
+.anuncioInfo .calendario .react-calendar__tile--hasActive:enabled:focus {
+  background: #a9d4ff;
+}
+.anuncioInfo .calendario .react-calendar__tile--active {
+  background: #006edc;
+  color: white;
+}
+.anuncioInfo .calendario .react-calendar__tile--active:enabled:hover,
+.anuncioInfo .calendario .react-calendar__tile--active:enabled:focus {
+  background: #1087ff;
+}
+.anuncioInfo .calendario .react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
 .anuncioInfo .service {
   padding: 3rem;
 }
