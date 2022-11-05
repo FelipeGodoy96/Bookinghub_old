@@ -17,7 +17,11 @@ public class Produtos implements Serializable {
     private String nome;
     private String descricao;
 
-    @OneToMany(mappedBy = "produtos_one", fetch = FetchType.LAZY)
+    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "cidade_mtone")
+    //private List<Cidades> cidades;
+
+    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
     private List<Categorias> categoria;
 
     @ManyToMany
@@ -33,8 +37,8 @@ public class Produtos implements Serializable {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-                this.caracteristica = caracteristica;
-            }
+        this.caracteristica = caracteristica;
+        }
 
     public Integer getId() {
         return id;
@@ -57,14 +61,17 @@ public class Produtos implements Serializable {
         this.descricao = descricao;
     }
 
-    public Set<Caracteristicas> getCaracteristica() {
-        return caracteristica;
-    }
+    //public List<Cidades> getCidade() { return cidades; }
+    //public void setCidade(List<Cidades> cidades) { this.cidades = cidades; }
 
     public List<Categorias> getCategoria() {
         return categoria;
     }
     public void setCategoria(List<Categorias> categoria) {
         this.categoria = categoria;
+    }
+
+    public Set<Caracteristicas> getCaracteristica() {
+        return caracteristica;
     }
 }

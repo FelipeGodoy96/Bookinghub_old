@@ -2,16 +2,22 @@ package br.com.APIrest.APIrest.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table
+@Table(name = "cidades")
 public class Cidades implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    //@SequenceGenerator(name = "cidade_sequence", sequenceName = "cidade_sequence")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String pais;
+
+   // @OneToMany(mappedBy = "cidades", fetch = FetchType.LAZY)
+   // private Produtos produto;
 
     public Cidades() {
     }
@@ -42,4 +48,7 @@ public class Cidades implements Serializable {
     public void setPais(String pais) {
         this.pais = pais;
     }
+
+   // public Produtos getProduto() { return produto; }
+   // public void setProduto(Produtos produto) { this.produto = produto; }
 }

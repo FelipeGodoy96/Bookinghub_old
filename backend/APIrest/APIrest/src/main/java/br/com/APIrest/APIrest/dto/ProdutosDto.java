@@ -12,6 +12,9 @@ public class ProdutosDto implements Serializable {
     private Integer id;
     private String nome;
     private String descricao;
+
+    //private Set<CidadesDto> cidade = new HashSet<>();
+    private Set<CategoriasDto> categoria = new HashSet<>();
     private Set<CaracteristicasDto> caracteristica = new HashSet<>();
 
     public ProdutosDto() {
@@ -27,12 +30,15 @@ public class ProdutosDto implements Serializable {
         id = produtos.getId();
         nome = produtos.getNome();
         descricao = produtos.getDescricao();
+        //produtos.getCidade().forEach(cidades -> this.cidade.add(new CidadesDto(cidades)));
+        produtos.getCategoria().forEach(categorias -> this.categoria.add(new CategoriasDto(categorias)));
         produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
     }
 
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -40,6 +46,7 @@ public class ProdutosDto implements Serializable {
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -47,8 +54,19 @@ public class ProdutosDto implements Serializable {
     public String getDescricao() {
         return descricao;
     }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    //public Set<CidadesDto> getCidade() { return cidade; }
+    //public void setCidade(Set<CidadesDto> cidade) { this.cidade = cidade; }
+
+    public Set<CategoriasDto> getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Set<CategoriasDto> categoria) {
+        this.categoria = categoria;
     }
 
     public Set<CaracteristicasDto> getCaracteristica() {

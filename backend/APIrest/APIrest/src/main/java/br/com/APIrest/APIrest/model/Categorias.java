@@ -18,7 +18,7 @@ public class Categorias implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_onetm")
-    private Produtos produtos_one;
+    private Produtos produtos;
 
 
 
@@ -61,9 +61,9 @@ public class Categorias implements Serializable {
     }
 
     public Produtos getProdutos() {
-        return produtos_one;
+        return produtos;
     }
     public void setProdutos(Produtos produtos) {
-        this.produtos_one = produtos;
+        this.produtos = produtos;
     }
 }
