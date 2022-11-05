@@ -22343,6 +22343,11 @@ textarea.form-control-lg {
 .anuncioInfo .service {
   padding: 3rem;
 }
+@media screen and (max-width: 1024px) {
+  .anuncioInfo .service {
+    grid-column: 1fr 1fr;
+  }
+}
 .anuncioInfo .service .hotelservice {
   margin: 1rem;
 }/*# sourceMappingURL=Anuncio.css.map */

@@ -204,10 +204,14 @@
   }
 .service{
   padding: 3rem;
-  .hotelservice{
-    margin: 1rem;
+  @media screen and (max-width: 1024px) {
+    grid-column: 1fr 1fr ;
   }
+.hotelservice{
+  margin:1rem;
  
 }
+}
+
  
 }

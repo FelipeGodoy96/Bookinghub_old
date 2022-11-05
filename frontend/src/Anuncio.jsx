@@ -1,6 +1,8 @@
 import { Container } from "react-bootstrap";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { BsArrowReturnLeft } from "react-icons/bs";
-import { MdPets,MdWifi,MdLiveTv,MdAcUnit,MdPool,MdCarRental,MdDining } from "react-icons/md";
+import { MdPets, MdWifi, MdLiveTv, MdAcUnit, MdPool, MdCarRental, MdDining } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import MyGallery from "./components/Gallery/Gallery";
@@ -37,7 +39,7 @@ export default function Anuncio() {
             <h3 className="nomeAnunciante">Nome</h3>
           </div>
           <Link to="/" >
-          <BsArrowReturnLeft className="iconeSubHeader"/>
+            <BsArrowReturnLeft className="iconeSubHeader" />
           </Link>
         </Container>
       </section>
@@ -136,28 +138,49 @@ export default function Anuncio() {
         </Container>
 
         <Container className="descripition d-flex flex-column justify-content-end">
-          <h3 className="title3">O que esse lugar oferece?</h3>
-          
-          <div className=" service d-flex flex-wrap justify-content-between align-content-center  ">
-          <div className="cozinha hotelservice "><MdDining/>Cozinha</div>
-          <div className="estacionamento hotelservice "><MdCarRental/>Estacionamento</div>
-          <div className="piscina hotelservice "><MdPool/>Piscina</div>
-          <div className="arCondicionado hotelservice "><MdAcUnit/>Ar Condicionado</div>
-          <div className="tv hotelservice"><MdLiveTv/>Televisor</div>
-          <div className="wifi hotelservice"><MdWifi/>Internet Wi-fi</div>
-          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
-          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
-          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
-          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
-          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
-          <div className="aceitaPets hotelservice"><MdPets/>Aceita Pets</div>
-          </div>
+          <h3 className="title3 ">O que esse lugar oferece?</h3>
+
+          <Row>
+            <Col xs={12} md={3}>
+              <div className="cozinha hotelservice "><MdDining className="m-lg-2" />Cozinha</div>
+              </Col>
+              <Col xs={12} md={3}>
+              <div className="estacionamento hotelservice "><MdCarRental className="m-lg-2" />Estacionamento</div>
+              </Col>
+              <Col xs={12} md={3}>
+              <div className="piscina hotelservice"><MdPool className="m-lg-2" />Piscina</div>
+              </Col>
+              <Col xs={12} md={3}> 
+              <div className="arCondicionado hotelservice "><MdAcUnit className="m-lg-2" />Ar Condicionado</div>
+              </Col>
+              
+              <Col xs={12} md={3}>
+                <div className="tv hotelservice    "><MdLiveTv className="m-lg-2" />Televisor</div>
+                </Col>
+                <Col xs={12} md={3}>
+                <div className="aceitaPets hotelservice   "><MdPets className="m-lg-2" />Aceita Pets</div>
+                </Col>
+                <Col xs={12} md={3}>
+                <div className="wifi hotelservice    "><MdWifi className="m-lg-2" />Wi-fi</div>
+              </Col>
+          </Row>
+
+          {/* <div className=" service d-flex flex-wrap justify-content-between align-content-center  ">
+          <div className="cozinha hotelservice col-sm-3 "><MdDining className="m-lg-2"/>Cozinha</div>
+          <div className="estacionamento hotelservice  col-sm-3"><MdCarRental className="m-lg-2"/>Estacionamento</div>
+          <div className="piscina hotelservice col-sm-3"><MdPool className="m-lg-2"/>Piscina</div>
+          <div className="arCondicionado hotelservice col-sm-3 "><MdAcUnit className="m-lg-2"/>Ar Condicionado</div>
+          <div className="tv hotelservice  col-sm-3  "><MdLiveTv className="m-lg-2"/>Televisor</div>
+          <div className="aceitaPets hotelservice  col-sm-3 "><MdPets className="m-lg-2"/>Aceita Pets</div>
+          <div className="wifi hotelservice col-sm-3   "><MdWifi className="m-lg-2"/>Wi-fi</div>   
+             
+          </div> */}
         </Container>
 
         <Container className="datasDisponíveis d-flex flex-column">
-        <h3>Datas disponíveis
-          +
-        </h3>
+          <h3>Datas disponíveis
+            +
+          </h3>
 
         </Container>
 
