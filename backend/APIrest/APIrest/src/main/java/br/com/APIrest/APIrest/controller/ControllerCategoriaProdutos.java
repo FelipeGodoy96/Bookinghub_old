@@ -1,7 +1,7 @@
 package br.com.APIrest.APIrest.controller;
 
-import br.com.APIrest.APIrest.dto.CidadeProdutosDto;
-import br.com.APIrest.APIrest.service.ServiseCidadeProdutos;
+import br.com.APIrest.APIrest.dto.CategoriaProdutosDto;
+import br.com.APIrest.APIrest.service.ServiceCategoriaProdutos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,15 +13,15 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/cidade_produtos")
-public class ControllerCidadeProdutos {
+@RequestMapping(value = "/categoria_produtos")
+public class ControllerCategoriaProdutos {
 
     @Autowired
-    ServiseCidadeProdutos service;
+    ServiceCategoriaProdutos service;
 
     @GetMapping
-    public ResponseEntity<List<CidadeProdutosDto>> findAllCidades() {
-        List<CidadeProdutosDto> list = service.findAll();
+    public ResponseEntity<List<CategoriaProdutosDto>> findAllCategorias() {
+        List<CategoriaProdutosDto> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 }

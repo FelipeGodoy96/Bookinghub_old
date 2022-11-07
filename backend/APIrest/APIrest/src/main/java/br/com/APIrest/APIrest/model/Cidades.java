@@ -10,8 +10,8 @@ public class Cidades implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @SequenceGenerator(name = "cidade_sequence", sequenceName = "cidade_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String pais;

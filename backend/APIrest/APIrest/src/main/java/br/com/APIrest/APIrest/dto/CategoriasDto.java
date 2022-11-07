@@ -56,4 +56,4 @@ public class CategoriasDto implements Serializable {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
-}
+    }

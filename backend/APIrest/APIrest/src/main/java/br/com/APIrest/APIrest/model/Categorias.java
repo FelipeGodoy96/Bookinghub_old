@@ -2,6 +2,7 @@ package br.com.APIrest.APIrest.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table
@@ -10,17 +11,15 @@ public class Categorias implements Serializable {
 
     @Id
     @SequenceGenerator(name = "categorias_sequence", sequenceName = "categorias_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String qualificacao;
     private String descricao;
     private String imagem;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "produto_onetm")
-    private Produtos produtos;
-
-
+    @OneToMany(mappedBy = "categorias", fetch = FetchType.LAZY)
+    private List<Produtos> produto;
 
     public Categorias() {
     }
@@ -60,10 +59,10 @@ public class Categorias implements Serializable {
         this.imagem = imagem;
     }
 
-    public Produtos getProdutos() {
-        return produtos;
+    public List<Produtos> getProduto() {
+        return produto;
     }
-    public void setProdutos(Produtos produtos) {
-        this.produtos = produtos;
+    public void setProduto(List<Produtos> produto) {
+        this.produto = produto;
     }
 }

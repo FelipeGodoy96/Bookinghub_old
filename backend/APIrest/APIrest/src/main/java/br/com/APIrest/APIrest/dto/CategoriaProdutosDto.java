@@ -1,33 +1,36 @@
-package br.com.lionsrest.LionsRest.dto;
+package br.com.APIrest.APIrest.dto;
 
-import br.com.lionsrest.LionsRest.model.Categorias;
+import br.com.APIrest.APIrest.model.Categorias;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-public class CategoriasDto implements Serializable {
-
+public class CategoriaProdutosDto implements Serializable {
     private static long serialVersionUID = 1L;
 
     private Integer id;
     private String qualificacao;
     private String descricao;
     private String imagem;
+    private Set<ProdutosDto> produto = new HashSet<>();
 
-    public CategoriasDto() {
+    public CategoriaProdutosDto() {
     }
 
-    public CategoriasDto(Integer id, String qualificacao, String descricao, String imagem) {
+    public CategoriaProdutosDto(Integer id, String qualificacao, String descricao, String imagem) {
         this.id = id;
         this.qualificacao = qualificacao;
         this.descricao = descricao;
         this.imagem = imagem;
     }
 
-    public CategoriasDto(Categorias categorias) {
-        this.id = categorias.getId();
-        this.qualificacao = categorias.getQualificacao();
-        this.descricao = categorias.getDescricao();
-        this.imagem = categorias.getImagem();
+    public CategoriaProdutosDto(Categorias categorias) {
+        id = categorias.getId();
+        qualificacao = categorias.getQualificacao();
+        descricao = categorias.getDescricao();
+        imagem = categorias.getImagem();
+        categorias.getProduto().forEach(produtos -> this.produto.add(new ProdutosDto(produtos)));
     }
 
     public Integer getId() {
@@ -56,5 +59,12 @@ public class CategoriasDto implements Serializable {
     }
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public Set<ProdutosDto> getProduto() {
+        return produto;
+    }
+    public void setProduto(Set<ProdutosDto> produto) {
+        this.produto = produto;
     }
 }

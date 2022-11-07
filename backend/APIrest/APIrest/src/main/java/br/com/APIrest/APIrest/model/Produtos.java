@@ -3,7 +3,6 @@ package br.com.APIrest.APIrest.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,7 +11,8 @@ public class Produtos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @SequenceGenerator(name = "produto_sequence", sequenceName = "produto_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String descricao;
@@ -21,13 +21,14 @@ public class Produtos implements Serializable {
     @JoinColumn(name = "cidade_mtone")
     private Cidades cidades;
 
-    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
-    private List<Categorias> categoria;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoria_onetm")
+    private Categorias categorias;
 
     @ManyToMany
     @JoinTable(name = "produtoCaracteristica",
-    joinColumns = @JoinColumn(name = "produtoID"),
-    inverseJoinColumns = @JoinColumn(name = "caracteristicaID"))
+    joinColumns = @JoinColumn(name = "produtoID", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "caracteristicaID", referencedColumnName = "id"))
     Set<Caracteristicas> caracteristica = new HashSet<>();
 
     public Produtos() {
@@ -61,11 +62,11 @@ public class Produtos implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<Categorias> getCategoria() {
-        return categoria;
+    public Categorias getCategorias() {
+        return categorias;
     }
-    public void setCategoria(List<Categorias> categoria) {
-        this.categoria = categoria;
+    public void setCategorias(Categorias categorias) {
+        this.categorias = categorias;
     }
 
     public Set<Caracteristicas> getCaracteristica() {
