@@ -30,7 +30,6 @@ public class ProdutosDto implements Serializable {
         id = produtos.getId();
         nome = produtos.getNome();
         descricao = produtos.getDescricao();
-        //produtos.getCidade().forEach(cidades -> this.cidade.add(new CidadesDto(cidades)));
         produtos.getCategoria().forEach(categorias -> this.categoria.add(new CategoriasDto(categorias)));
         produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
     }

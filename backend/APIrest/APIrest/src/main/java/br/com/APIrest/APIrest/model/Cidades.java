@@ -9,15 +9,15 @@ import java.util.List;
 public class Cidades implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    //@SequenceGenerator(name = "cidade_sequence", sequenceName = "cidade_sequence")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "cidade_sequence", sequenceName = "cidade_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private String pais;
 
-   // @OneToMany(mappedBy = "cidades", fetch = FetchType.LAZY)
-   // private Produtos produto;
+    @OneToMany(mappedBy = "cidades", fetch = FetchType.LAZY)
+    private List<Produtos> produto;
 
     public Cidades() {
     }
@@ -49,6 +49,10 @@ public class Cidades implements Serializable {
         this.pais = pais;
     }
 
-   // public Produtos getProduto() { return produto; }
-   // public void setProduto(Produtos produto) { this.produto = produto; }
+    public List<Produtos> getProduto() {
+        return produto;
+    }
+    public void setProduto(List<Produtos> produto) {
+        this.produto = produto;
+    }
 }

@@ -6,29 +6,29 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CidadesDto implements Serializable {
+public class CidadeProdutosDto implements Serializable {
     private static long serialVersionUID = 1L;
 
     private Integer id;
     private String nome;
     private String pais;
 
-    //private Set<ProdutosDto> produto = new HashSet<>();
+    private Set<ProdutosDto> produto = new HashSet<>();
 
-    public CidadesDto() {
+    public CidadeProdutosDto() {
     }
 
-    public CidadesDto(Integer id, String nome, String pais) {
+    public CidadeProdutosDto(Integer id, String nome, String pais) {
         this.id = id;
         this.nome = nome;
         this.pais = pais;
     }
 
-    public CidadesDto(Cidades cidades) {
+    public CidadeProdutosDto(Cidades cidades) {
         id = cidades.getId();
         nome = cidades.getNome();
         pais = cidades.getPais();
-        //cidades.getProduto().forEach(produtos -> this.produto.add(new ProdutosDto(produtos)));
+        cidades.getProduto().forEach(produtos -> this.produto.add(new ProdutosDto(produtos)));
     }
 
     public Integer getId() {
@@ -52,6 +52,10 @@ public class CidadesDto implements Serializable {
         this.pais = pais;
     }
 
-    //public Set<ProdutosDto> getProduto() { return produto; }
-    //public void setProduto(Set<ProdutosDto> produto) { this.produto = produto; }
+    public Set<ProdutosDto> getProduto() {
+        return produto;
+    }
+    public void setProduto(Set<ProdutosDto> produto) {
+        this.produto = produto;
+    }
 }
