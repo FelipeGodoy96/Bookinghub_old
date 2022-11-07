@@ -22340,120 +22340,69 @@ textarea.form-control-lg {
   font-size: 12pt;
   margin-top: 0.8rem;
 }
-.anuncioInfo .calendario .react-calendar {
-  width: 350px;
-  max-width: 100%;
-  background: white;
-  border: 1px solid #a0a096;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.125em;
+.anuncioInfo .calendario :root {
+  --rmdp-primary-teal: #009688;
+  --rmdp-secondary-teal: #00796b;
+  --rmdp-shadow-teal: #26a69a;
+  --rmdp-today-teal: #1de9b6;
+  --rmdp-hover-teal: #4db6ac;
+  --rmdp-deselect-teal: #00695c;
 }
-.anuncioInfo .calendario .react-calendar--doubleView {
-  width: 700px;
+.anuncioInfo .calendario .calendario .rmdp-wrapper {
+  border: 1px solid var(--rmdp-secondary-teal);
+  box-shadow: 0 0 5px var(--rmdp-secondary-teal);
 }
-.anuncioInfo .calendario .react-calendar--doubleView .react-calendar__viewContainer {
-  display: flex;
-  margin: -0.5em;
+.anuncioInfo .calendario .calendario .rmdp-panel-body li {
+  background-color: var(--rmdp-primary-teal);
+  box-shadow: 0 0 2px var(--rmdp-secondary-teal);
 }
-.anuncioInfo .calendario .react-calendar--doubleView .react-calendar__viewContainer > * {
-  width: 50%;
-  margin: 0.5em;
+.anuncioInfo .calendario .calendario .rmdp-week-day {
+  color: var(--rmdp-primary-teal);
 }
-.anuncioInfo .calendario .react-calendar,
-.anuncioInfo .calendario .react-calendar *,
-.anuncioInfo .calendario .react-calendar *:before,
-.anuncioInfo .calendario .react-calendar *:after {
-  box-sizing: border-box;
+.anuncioInfo .calendario .calendario .rmdp-day.rmdp-deactive {
+  color: var(--rmdp-secondary-teal);
 }
-.anuncioInfo .calendario .react-calendar button {
-  margin: 0;
-  border: 0;
-  outline: none;
+.anuncioInfo .calendario .calendario .rmdp-range {
+  background-color: var(--rmdp-primary-teal);
+  box-shadow: 0 0 3px var(--rmdp-shadow-teal);
 }
-.anuncioInfo .calendario .react-calendar button:enabled:hover {
-  cursor: pointer;
+.anuncioInfo .calendario .calendario .rmdp-arrow {
+  border: solid var(--rmdp-primary-teal);
+  border-width: 0 2px 2px 0;
 }
-.anuncioInfo .calendario .react-calendar__navigation {
-  display: flex;
-  height: 44px;
-  margin-bottom: 1em;
+.anuncioInfo .calendario .calendario .rmdp-arrow-container:hover {
+  background-color: var(--rmdp-primary-teal);
+  box-shadow: 0 0 3px var(--rmdp-secondary-teal);
 }
-.anuncioInfo .calendario .react-calendar__navigation button {
-  min-width: 44px;
-  background: none;
+.anuncioInfo .calendario .calendario .rmdp-panel-body::-webkit-scrollbar-thumb {
+  background: var(--rmdp-primary-teal);
 }
-.anuncioInfo .calendario .react-calendar__navigation button:disabled {
-  background-color: #f0f0f0;
+.anuncioInfo .calendario .calendario .rmdp-day.rmdp-today span {
+  background-color: var(--rmdp-today-teal);
 }
-.anuncioInfo .calendario .react-calendar__navigation button:enabled:hover,
-.anuncioInfo .calendario .react-calendar__navigation button:enabled:focus {
-  background-color: #e6e6e6;
+.anuncioInfo .calendario .calendario .rmdp-rtl .rmdp-panel {
+  border-left: unset;
+  border-right: 1px solid var(--rmdp-secondary-teal);
 }
-.anuncioInfo .calendario .react-calendar__month-view__weekdays {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.75em;
+.anuncioInfo .calendario .calendario .rmdp-day.rmdp-selected span:not(.highlight) {
+  background-color: var(--rmdp-primary-teal);
+  box-shadow: 0 0 3px var(--rmdp-shadow-teal);
 }
-.anuncioInfo .calendario .react-calendar__month-view__weekdays__weekday {
-  padding: 0.5em;
+.anuncioInfo .calendario .calendario .rmdp-day:not(.rmdp-day-hidden) span:hover {
+  background-color: var(--rmdp-hover-teal) !important;
 }
-.anuncioInfo .calendario .react-calendar__month-view__weekNumbers .react-calendar__tile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75em;
-  font-weight: bold;
+.anuncioInfo .calendario .calendario .b-deselect {
+  color: var(--rmdp-deselect-teal);
+  background-color: white;
 }
-.anuncioInfo .calendario .react-calendar__month-view__days__day--weekend {
-  color: #d10000;
+.anuncioInfo .calendario .calendario .rmdp-action-button {
+  color: var(--rmdp-primary-teal);
 }
-.anuncioInfo .calendario .react-calendar__month-view__days__day--neighboringMonth {
-  color: #757575;
+.anuncioInfo .calendario .calendario .rmdp-button:not(.rmdp-action-button) {
+  background-color: var(--rmdp-primary-teal);
 }
-.anuncioInfo .calendario .react-calendar__year-view .react-calendar__tile,
-.anuncioInfo .calendario .react-calendar__decade-view .react-calendar__tile,
-.anuncioInfo .calendario .react-calendar__century-view .react-calendar__tile {
-  padding: 2em 0.5em;
-}
-.anuncioInfo .calendario .react-calendar__tile {
-  max-width: 100%;
-  padding: 10px 6.6667px;
-  background: none;
-  text-align: center;
-  line-height: 16px;
-}
-.anuncioInfo .calendario .react-calendar__tile:disabled {
-  background-color: #f0f0f0;
-}
-.anuncioInfo .calendario .react-calendar__tile:enabled:hover,
-.anuncioInfo .calendario .react-calendar__tile:enabled:focus {
-  background-color: #e6e6e6;
-}
-.anuncioInfo .calendario .react-calendar__tile--now {
-  background: #ffff76;
-}
-.anuncioInfo .calendario .react-calendar__tile--now:enabled:hover,
-.anuncioInfo .calendario .react-calendar__tile--now:enabled:focus {
-  background: #ffffa9;
-}
-.anuncioInfo .calendario .react-calendar__tile--hasActive {
-  background: #76baff;
-}
-.anuncioInfo .calendario .react-calendar__tile--hasActive:enabled:hover,
-.anuncioInfo .calendario .react-calendar__tile--hasActive:enabled:focus {
-  background: #a9d4ff;
-}
-.anuncioInfo .calendario .react-calendar__tile--active {
-  background: #006edc;
-  color: white;
-}
-.anuncioInfo .calendario .react-calendar__tile--active:enabled:hover,
-.anuncioInfo .calendario .react-calendar__tile--active:enabled:focus {
-  background: #1087ff;
-}
-.anuncioInfo .calendario .react-calendar--selectRange .react-calendar__tile--hover {
-  background-color: #e6e6e6;
+.anuncioInfo .calendario .calendario .rmdp-button:not(.rmdp-action-button):hover {
+  background-color: var(--rmdp-deselect-teal);
 }
 .anuncioInfo .service {
   padding: 3rem;

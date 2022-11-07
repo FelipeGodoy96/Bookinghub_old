@@ -22167,7 +22167,7 @@ textarea.form-control-lg {
   border-radius: 0px 0px 10px 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.NavBar .NavStyle button {
+.NavBar .NavStyle .notLogedNav button {
   height: 2.5rem;
   font-family: "Roboto", sans-serif;
   color: #FFF;
@@ -22180,6 +22180,6 @@ textarea.form-control-lg {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.NavBar .NavStyle button a {
+.NavBar .NavStyle .notLogedNav button a {
   color: #FFF;
 }/*# sourceMappingURL=NavBarDefault.css.map */

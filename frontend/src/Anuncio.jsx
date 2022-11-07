@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
 import * as React from "react";
-import Calendar from 'react-calendar';
-import { Container,Card } from "react-bootstrap";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Card, Button } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { BsArrowReturnLeft } from "react-icons/bs";
-import { MdPets, MdWifi, MdLiveTv, MdAcUnit, MdPool, MdCarRental, MdDining } from "react-icons/md";
+import {
+  MdPets,
+  MdWifi,
+  MdLiveTv,
+  MdAcUnit,
+  MdPool,
+  MdCarRental,
+  MdDining
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import MyGallery from "./components/Gallery/Gallery";
@@ -14,6 +21,9 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./styles/Anuncio.css";
 import Box from "@mui/material/Box";
+
+import "@mobiscroll/react/dist/css/mobiscroll.min.css";
+import { Datepicker, localePtBR } from "@mobiscroll/react";
 
 export default function Anuncio() {
   const images = [
@@ -32,8 +42,8 @@ export default function Anuncio() {
       thumbnail: "https://picsum.photos/id/1019/250/150/"
     }
   ];
-  const [value, onChange] = useState(new Date());
-  
+ 
+
   return (
     <>
       <section className="subHeader">
@@ -42,7 +52,7 @@ export default function Anuncio() {
             <p>HOTEL</p>
             <h3 className="nomeAnunciante">Nome</h3>
           </div>
-          <Link to="/" >
+          <Link to="/">
             <BsArrowReturnLeft className="iconeSubHeader" />
           </Link>
         </Container>
@@ -146,27 +156,48 @@ export default function Anuncio() {
 
           <Row>
             <Col xs={12} md={3}>
-              <div className="cozinha hotelservice "><MdDining className="m-lg-2" />Cozinha</div>
-              </Col>
-              <Col xs={12} md={3}>
-              <div className="estacionamento hotelservice "><MdCarRental className="m-lg-2" />Estacionamento</div>
-              </Col>
-              <Col xs={12} md={3}>
-              <div className="piscina hotelservice"><MdPool className="m-lg-2" />Piscina</div>
-              </Col>
-              <Col xs={12} md={3}> 
-              <div className="arCondicionado hotelservice "><MdAcUnit className="m-lg-2" />Ar Condicionado</div>
-              </Col>
-              
-              <Col xs={12} md={3}>
-                <div className="tv hotelservice    "><MdLiveTv className="m-lg-2" />Televisor</div>
-                </Col>
-                <Col xs={12} md={3}>
-                <div className="aceitaPets hotelservice   "><MdPets className="m-lg-2" />Aceita Pets</div>
-                </Col>
-                <Col xs={12} md={3}>
-                <div className="wifi hotelservice    "><MdWifi className="m-lg-2" />Wi-fi</div>
-              </Col>
+              <div className="cozinha hotelservice ">
+                <MdDining className="m-lg-2" />
+                Cozinha
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div className="estacionamento hotelservice ">
+                <MdCarRental className="m-lg-2" />
+                Estacionamento
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div className="piscina hotelservice">
+                <MdPool className="m-lg-2" />
+                Piscina
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div className="arCondicionado hotelservice ">
+                <MdAcUnit className="m-lg-2" />
+                Ar Condicionado
+              </div>
+            </Col>
+
+            <Col xs={12} md={3}>
+              <div className="tv hotelservice    ">
+                <MdLiveTv className="m-lg-2" />
+                Televisor
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div className="aceitaPets hotelservice   ">
+                <MdPets className="m-lg-2" />
+                Aceita Pets
+              </div>
+            </Col>
+            <Col xs={12} md={3}>
+              <div className="wifi hotelservice    ">
+                <MdWifi className="m-lg-2" />
+                Wi-fi
+              </div>
+            </Col>
           </Row>
 
           {/* <div className=" service d-flex flex-wrap justify-content-between align-content-center  ">
@@ -181,10 +212,28 @@ export default function Anuncio() {
           </div> */}
         </Container>
 
-        <Container className="datasDisponiveis d-flex flex-column">
-        <h3>Datas disponíveis</h3>
-        <Calendar className="calendario" onChange={onChange} value={value} />
-
+        <Container className="agendaDeReservas d-flex flex-column">
+          <h3>Datas disponíveis</h3>
+          <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
+            <Card>
+              <Datepicker
+                locale={localePtBR}
+                theme="ios"
+                themeVariant="light"
+                controls={["calendar"]}
+                display="inline"
+                rangeSelectMode="wizard"
+                select="range"
+                showRangeLabels={true}
+              />
+            </Card>
+            <Card>
+              <h5 className="p-3 text-start">
+              Adicione as datas da sua estadia para obter a tarifa de hospedagem
+                </h5>
+              <Button>Reservar agora</Button>
+            </Card>
+          </Container>
         </Container>
 
         <Container className="descripition d-flex flex-column">

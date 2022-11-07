@@ -12,8 +12,8 @@
     -webkit-backdrop-filter: blur(9px);
     border-radius: 0px 0px 10px 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-
-    button {
+  
+    .notLogedNav button {
       height: 2.5rem;
       @include button4;
     }
