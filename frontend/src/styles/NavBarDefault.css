@@ -22160,7 +22160,7 @@ textarea.form-control-lg {
   z-index: 100;
 }
 .NavBar .NavStyle {
-  background-color: #FFDE59;
+  background-color: #1DBEB4;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
@@ -22168,9 +22168,18 @@ textarea.form-control-lg {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .NavBar .NavStyle button {
+  height: 2.5rem;
   font-family: "Roboto", sans-serif;
-  color: #1DBEB4;
-  background-color: #FFF;
-  font-size: 12pt;
+  color: #FFF;
+  padding: 0.1rem;
+  font-size: 14px;
   font-weight: 600;
+  background: rgba(56, 59, 88, 0.95);
+  backdrop-filter: blur(16.5px);
+  -webkit-backdrop-filter: blur(16.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.NavBar .NavStyle button a {
+  color: #FFF;
 }/*# sourceMappingURL=NavBarDefault.css.map */

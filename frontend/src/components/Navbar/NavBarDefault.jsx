@@ -27,7 +27,7 @@ export default function NavBarDefault() {
           {!isLoged && (
             <Navbar.Collapse className="notLogedNav" id="basic-navbar-nav">
               <Nav className="ms-auto gap-2">
-                <Button>
+                <Button >
                   <Link className="mx-auto nav-link" to="/login">
                     Fazer Login
                   </Link>
