@@ -20,9 +20,9 @@ export default function App() {
     const fetchData = async () => {
       try {
         const request = await fetch('54.183.252.14:8080/imagens')
-        const response = await request.json()
-        setData(response)
-        console.log(response)
+        // const response = await request.json()
+        setData(request)
+        console.log(request)
       } catch (error) {
         console.error(error)
         console.log(error.message)
