@@ -9,23 +9,22 @@ import RedefinirSenha from "./RedefinirSenha";
 import "./App.css";
 import { LoginProvider } from "./Contexts/LoginContext";
 import {ContextProvider} from "./Contexts/Context";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-
-
-export default function App() {
-  const [ data, setData ] = useState('')
+useEffect(() => {
   const fetchData = async () => {
     try {
-      const req = await fetch('172.31.9.65')
+      const req = await fetch('ip-172-31-9-65.us-west-1.compute.internal')
       setData(req)
     } catch (error) {
       console.error(error)
     }
   }
   fetchData()
-  console.log(data)
+}, [])
 
+
+export default function App() {
   return (
     <div className="App">
       <ContextProvider>
