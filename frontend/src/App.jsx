@@ -15,17 +15,16 @@ import { useState, useEffect } from 'react'
 
 
 export default function App() {
-  const [ data, setData ] = useState('')
+  const [ data, setData ] = useState([])
   useEffect(() => {   
     const fetchData = async () => {
       try {
-        const req = await fetch('ip-172-31-9-65.us-west-1.compute.internal/')
-        const res = await req.json()
-        setData(res)
+        const request = await fetch('ip-172-31-9-65.us-west-1.compute.internal/')
+        const response = await request.json()
+        setData(response)
         console.log(res)
       } catch (error) {
         console.error(error)
-        console.log(error)
         console.log(error.message)
       }
     }
