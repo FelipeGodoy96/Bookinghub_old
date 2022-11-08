@@ -1,0 +1,49 @@
+@import './mixins/mixins.scss';
+@import './variables/variables.scss';
+
+.anuncioCard {
+  max-width: 390px;
+
+  background: rgba(243, 241, 237, 1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  @media screen and (max-width: 390px) {
+    max-width: 310px
+  }
+  
+
+  img {
+    height: 150px;
+    object-fit: cover;
+  }
+
+  button {
+    @include button1;
+  }
+
+  .nomeAnunciante {
+    height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.notaParceiro {
+  color: $white;
+  padding: 0.3em;
+  border-radius: 18px;
+  background-color: $secondary-color
+}
+
+.classificacaoParceiro {
+  color: $secondary-color;
+  @include text1;
+}
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
