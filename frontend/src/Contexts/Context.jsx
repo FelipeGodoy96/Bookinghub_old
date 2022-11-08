@@ -49,7 +49,7 @@ const anuncios = [
     title: "Balneário Rio de Pedras",
     location: "Itabirito",
     description:
-      "Chalés Charmosos, Ótimo Restaurante, Parque Aquático Completo, Piscina Aquecida Coberta. Cheio de Opções de Lazer e Entretenimento com uma Represa de Mais de 15 km de Extensão. Diversão para Família. Lazer para a Família"
+      "Chalés Charmosos, Ótimo Restaurante, Parque Aquático Completo, Piscina Aquecida Coberta. Cheio de Opções de Lazer e Entretenimento com uma Represa de Mais de 15 km de Extensão. Diversão para Família. Lazer para a Família."
   },
   {
     img: "https://viverpampulha.com.br/wp-content/uploads/2021/03/belo-horizonte-minas-gerais-brasil-vista-aerea-da-lagoa-da-pampulha_70216-7568-2.jpg",
@@ -89,7 +89,7 @@ const anuncios = [
     title: "Pousada Trijunção",
     location: "Ituberá",
     description:
-      "O Hotel Solar de Maria está situado em ponto estratégico, a poucos passos da suntuosa Igreja de Nossa Senhora do Rosário e próximo aos principais atrativos turísticos, bem como a 700 mts do Centro de Artes e Convenções, sede dos mais importantes eventos e congressos da região."
+      "Localizada em uma propriedade no marco que divide os Estados de Minas Gerais, Bahia e Goiás, a Pousada Trijunção tem como missão apoiar a redescoberta do Cerrado, e estimular a sua preservação."
   },
   {
     img: "http://www.eventoaqui.com.br/uploads/suppliers/7029/imagem_1.jpg",
