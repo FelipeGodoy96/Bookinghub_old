@@ -202,91 +202,15 @@
       margin-top: 0.8rem;
     }
   }
-.calendario{
-  
-  :root {
-    --rmdp-primary-teal: #009688;
-    --rmdp-secondary-teal: #00796b;
-    --rmdp-shadow-teal: #26a69a;
-    --rmdp-today-teal: #1de9b6;
-    --rmdp-hover-teal: #4db6ac;
-    --rmdp-deselect-teal: #00695c;
-  }
-  
-  
-  .calendario .rmdp-wrapper {
-    border: 1px solid var(--rmdp-secondary-teal);
-    box-shadow: 0 0 5px var(--rmdp-secondary-teal);
-  }
-  
-  .calendario .rmdp-panel-body li {
-    background-color: var(--rmdp-primary-teal);
-    box-shadow: 0 0 2px var(--rmdp-secondary-teal);
-  }
-  
-  .calendario .rmdp-week-day {
-    color: var(--rmdp-primary-teal);
-  }
-  
-  .calendario .rmdp-day.rmdp-deactive {
-    color: var(--rmdp-secondary-teal);
-  }
-  
-  .calendario .rmdp-range {
-    background-color: var(--rmdp-primary-teal);
-    box-shadow: 0 0 3px var(--rmdp-shadow-teal);
-  }
-  
-  .calendario .rmdp-arrow {
-    border: solid var(--rmdp-primary-teal);
-    border-width: 0 2px 2px 0;
-  }
-  
-  .calendario .rmdp-arrow-container:hover {
-    background-color: var(--rmdp-primary-teal);
-    box-shadow: 0 0 3px var(--rmdp-secondary-teal);
-  }
-  
-  .calendario .rmdp-panel-body::-webkit-scrollbar-thumb {
-    background: var(--rmdp-primary-teal);
-  }
-  
-  .calendario .rmdp-day.rmdp-today span {
-    background-color: var(--rmdp-today-teal);
-  }
-  
-  .calendario .rmdp-rtl .rmdp-panel {
-    border-left: unset;
-    border-right: 1px solid var(--rmdp-secondary-teal);
-  }
-  
-  .calendario .rmdp-day.rmdp-selected span:not(.highlight) {
-    background-color: var(--rmdp-primary-teal);
-    box-shadow: 0 0 3px var(--rmdp-shadow-teal);
-  }
-  
-  .calendario .rmdp-day:not(.rmdp-day-hidden) span:hover {
-    background-color: var(--rmdp-hover-teal) !important;
-  }
-  
-  .calendario .b-deselect {
-    color: var(--rmdp-deselect-teal);
-    background-color: white;
-  }
-  
-  .calendario .rmdp-action-button {
-    color: var(--rmdp-primary-teal);
-  }
-  
-  .calendario .rmdp-button:not(.rmdp-action-button) {
-    background-color: var(--rmdp-primary-teal);
-  }
-  
-  .calendario .rmdp-button:not(.rmdp-action-button):hover {
-    background-color: var(--rmdp-deselect-teal);
+.confirmReserva{
+
+ 
+  max-width: 320px ;
+  margin-left:1rem;
+  @media screen and (max-width: 992px) {
+    margin-top: 1rem;
   }
 }
-
 .service{
   padding: 3rem;
   @media screen and (max-width: 1024px) {

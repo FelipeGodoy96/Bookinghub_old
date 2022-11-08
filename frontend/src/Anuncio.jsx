@@ -21,9 +21,10 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./styles/Anuncio.css";
 import Box from "@mui/material/Box";
-
-
-
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { DateRange } from "react-date-range";
+import { ptBR } from "date-fns/locale";
 
 export default function Anuncio() {
   const images = [
@@ -42,7 +43,12 @@ export default function Anuncio() {
       thumbnail: "https://picsum.photos/id/1019/250/150/"
     }
   ];
- 
+
+  const [date, setDate] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: "selection"
+  });
 
   return (
     <>
@@ -216,13 +222,21 @@ export default function Anuncio() {
           <h3>Datas disponíveis</h3>
           <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
             <Card>
+              <DateRange
             
+                locale={ptBR}
+                editableDateInputs={true}
+                moveRangeOnFirstSelection={false}
+                ranges={[date]}
+                onChange={(ranges) => setDate(ranges.selection)}
+              />
             </Card>
-            <Card>
-              <h5 className="p-3 text-start">
-              Adicione as datas da sua estadia para obter a tarifa de hospedagem
-                </h5>
-              <Button>Reservar agora</Button>
+            <Card className="confirmReserva">
+              <h6 className="p-3 ">
+                Adicione as datas da sua estadia para obter a tarifa de
+                hospedagem
+              </h6>
+              <Button onClick={() => console.log(date)}>Reservar agora</Button>
             </Card>
           </Container>
         </Container>
