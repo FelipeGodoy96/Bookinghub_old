@@ -22,8 +22,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import "./styles/Anuncio.css";
 import Box from "@mui/material/Box";
 
-import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-import { Datepicker, localePtBR } from "@mobiscroll/react";
+
+
 
 export default function Anuncio() {
   const images = [
@@ -216,16 +216,7 @@ export default function Anuncio() {
           <h3>Datas disponíveis</h3>
           <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
             <Card>
-              <Datepicker
-                locale={localePtBR}
-                theme="ios"
-                themeVariant="light"
-                controls={["calendar"]}
-                display="inline"
-                rangeSelectMode="wizard"
-                select="range"
-                showRangeLabels={true}
-              />
+            
             </Card>
             <Card>
               <h5 className="p-3 text-start">
