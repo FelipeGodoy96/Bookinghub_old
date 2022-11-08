@@ -19,7 +19,7 @@ export default function App() {
   useEffect(() => {   
     const fetchData = async () => {
       try {
-        const request = await fetch('http://54.183.252.14:8080/imagens')
+        const request = await fetch('http://ip-172-31-9-65.us-west-1.compute.internal:8080/imagens')
         const response = await request.json()
         setData(response)
         console.log(response)
