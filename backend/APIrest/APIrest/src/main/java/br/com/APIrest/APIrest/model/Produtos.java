@@ -15,6 +15,7 @@ public class Produtos implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+    @Column(columnDefinition="TEXT")
     private String descricao;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
