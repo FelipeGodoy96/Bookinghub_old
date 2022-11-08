@@ -15,9 +15,8 @@ import { useState, useEffect } from 'react'
 
 
 export default function App() {
-
-  useEffect(() => {
-    const [ data, setData ] = useState('')
+  const [ data, setData ] = useState('')
+  useEffect(() => {   
     const fetchData = async () => {
       try {
         const req = await fetch('ip-172-31-9-65.us-west-1.compute.internal/')
