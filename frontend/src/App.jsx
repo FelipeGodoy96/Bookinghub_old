@@ -20,9 +20,9 @@ export default function App() {
     const fetchData = async () => {
       try {
         const request = await fetch('ip-172-31-9-65.us-west-1.compute.internal/')
-        const response = await request.json()
-        setData(response)
-        console.log(res)
+        // const response = await request.json()
+        setData(request)
+        console.log(request)
       } catch (error) {
         console.error(error)
         console.log(error.message)
