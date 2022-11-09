@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import * as React from "react";
 import { Container, Card, Button } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
@@ -13,7 +14,7 @@ import {
   MdCarRental,
   MdDining
 } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import MyGallery from "./components/Gallery/Gallery";
 import ImageGallery from "react-image-gallery";
@@ -27,6 +28,61 @@ import { DateRange } from "react-date-range";
 import { ptBR } from "date-fns/locale";
 
 export default function Anuncio() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [anuncio, setAnuncio] = useState({
+    idCategoria: 1,
+    id: 1,
+    categoria: "",
+    descricaoProduto: "",
+    nome: "",
+    descricao: "",
+    foto: "",
+    cidade: "Cidade Teste"
+  });
+
+  async function buscarTodosAnuncios() {
+    try {
+      const anuncioRaw = await axios.get(
+        "http://54.183.252.14:8080/categoria_produtos"
+      );
+      const anunciosAgrupados = agruparAnuncios(anuncioRaw.data);
+      const anunciosFiltrados = anunciosAgrupados.filter(
+        (item) => item.id.toString() === id
+      );
+      if (anunciosFiltrados.length < 1) {
+        throw "Anúncio nao encontrado";
+      }
+      setAnuncio(anunciosFiltrados[0]);
+    } catch (err) {
+      navigate("/404-NaoEncontrado");
+    }
+  }
+
+  function agruparAnuncios(anunciosRaw) {
+    const ctx = [];
+    anunciosRaw.forEach((category) => {
+      category.produto.forEach((product) => {
+        ctx.push({
+          idCategoria: category.id,
+          id: product.id,
+          categoria: category.descricao,
+          descricaoProduto: product.descricao,
+          nome: product.nome,
+          descricao: product.descricao,
+          foto: category.imagem,
+          cidade: "Cidade Teste"
+        });
+      });
+    });
+    return ctx;
+  }
+
+  useEffect(() => {
+    buscarTodosAnuncios();
+  }, []);
+  // checar se existe um anuncio de id 99
+  // navigate pra pagina 404 -> nao encontrado
   const images = [
     {
       original:
@@ -55,8 +111,8 @@ export default function Anuncio() {
       <section className="subHeader">
         <Container className="d-flex flex-row justify-content-between align-items-center">
           <div className="informacoesAnunciante">
-            <p>HOTEL</p>
-            <h3 className="nomeAnunciante">Nome</h3>
+            <p>{anuncio.categoria}</p>
+            <h3 className="nomeAnunciante">{anuncio.nome}</h3>
           </div>
           <Link to="/">
             <BsArrowReturnLeft className="iconeSubHeader" />
@@ -141,9 +197,10 @@ export default function Anuncio() {
         {/* </div> */}
 
         <Container className="descripition  d-flex flex-column justify-content-end">
-          <h3>Fique no coração de Buenos Aires</h3>
+          <h3>Informações sobre esta acomodação</h3>
           <p>
-            Está localizado a poucas quadras da Avenida Alvear, da Avenida
+            {anuncio.descricao}
+            {/* Está localizado a poucas quadras da Avenida Alvear, da Avenida
             Quintana, do Parque San Martín e do bairro da Recoleta. Nos
             arredores também existem vários locais de interesse, como a Rua
             Florida, o Centro Comercial Galerías Pacífico, a zona de Puerto
@@ -153,7 +210,7 @@ export default function Anuncio() {
             estrelas que goza de uma localização tranquila, a poucos passos de
             prestigiadas galerias de arte, teatros, museus e áreas comerciais.
             Há também WiFi gratuito. A propriedade serve um café da manhã
-            variado das 07:00 h às 10:30 h.
+            variado das 07:00 h às 10:30 h. */}
           </p>
         </Container>
 
@@ -223,7 +280,6 @@ export default function Anuncio() {
           <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
             <Card>
               <DateRange
-            
                 locale={ptBR}
                 editableDateInputs={true}
                 moveRangeOnFirstSelection={false}

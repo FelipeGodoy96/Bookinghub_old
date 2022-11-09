@@ -1,33 +1,56 @@
+import axios from "axios";
 import Container from "react-bootstrap/Container";
+import { useContext, useEffect } from "react";
 import Searchbar from "./components/Searchbar/Searchbar";
 import Footer from "./components/Footer/Footer";
-import { useContext } from "react";
 import Context from "./Contexts/Context";
-import fetchData from "./utils/fetch";
 import "./styles/home.css";
 import CategoriesCard from "./components/CategoriesCard/CategoriesCard";
 import ProductCard from "./components/ProductCard/ProductCard";
-import { useEffect } from "react";
 
 export default function Home() {
   const { state, setState } = useContext(Context);
   useEffect(() => {
     async function getData() {
-      const categorias = await fetchData.get(
+      const categorias = await axios.get(
         "http://54.183.252.14:8080/categorias"
       );
-
-      const anuncios = await fetchData.get(
+      const anuncios = await axios.get(
         "http://54.183.252.14:8080/categoria_produtos"
       );
-      setState({ ...state, anuncios, categorias });
+      setState({
+        ...state,
+        anuncios: anuncios.data,
+        categorias: categorias.data
+      });
     }
     getData();
   }, []);
 
-  const { anuncios ,categorias  } = state;
+  const { anuncios, categorias } = state;
 
- 
+  function agruparAnuncios() {
+    const ctx = [];
+    anuncios.forEach((category) => {
+      category.produto.forEach((product) => {
+        ctx.push({
+          idCategoria: category.id,
+          id: product.id,
+          categoria: category.descricao,
+          descricaoProduto: product.descricao,
+          nome: product.nome,
+          foto: category.imagem,
+          cidade: "Cidade Teste"
+        });
+      });
+    });
+    return ctx;
+  }
+
+  useEffect(() => {
+    agruparAnuncios();
+  }, [state]);
+
   return (
     <>
       <section className="d-flex flex-column align-items-center text-center SearchBar">
@@ -53,7 +76,7 @@ export default function Home() {
       >
         <h1 className="text-center"> Recomendações</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
-          {anuncios.map((m, index) => (
+          {agruparAnuncios().map((m, index) => (
             <ProductCard data={m} key={index} />
           ))}
         </div>

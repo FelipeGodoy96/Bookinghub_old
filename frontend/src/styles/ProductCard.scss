@@ -2,7 +2,7 @@
 @import './variables/variables.scss';
 
 .anuncioCard {
-  max-width: 390px;
+  width: 390px;
 
   background: rgba(243, 241, 237, 1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -12,7 +12,8 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   @media screen and (max-width: 390px) {
-    max-width: 310px
+    
+    width: 310px
   }
   
 

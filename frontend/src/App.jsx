@@ -20,7 +20,7 @@ export default function App() {
         <NavBarDefault />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/anuncio" element={<Anuncio/>} />
+          <Route path="/anuncio/:id" element={<Anuncio/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/redefinirSenha" element={<RedefinirSenha />} />
