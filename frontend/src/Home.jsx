@@ -3,14 +3,29 @@ import Searchbar from "./components/Searchbar/Searchbar";
 import Footer from "./components/Footer/Footer";
 import { useContext } from "react";
 import Context from "./Contexts/Context";
-
+import fetchData from "./utils/fetch";
 import "./styles/home.css";
 import CategoriesCard from "./components/CategoriesCard/CategoriesCard";
 import ProductCard from "./components/ProductCard/ProductCard";
+import { useEffect } from "react";
+
 export default function Home() {
   const { state, setState } = useContext(Context);
-  const { categorias, anuncios } = state;
- 
+  useEffect(() => {
+    async function getData() {
+      const categorias = await fetchData.get(
+        "http://54.183.252.14:8080/categorias"
+      );
+
+      const anuncios = await fetchData.get(
+        "http://54.183.252.14:8080/categoria_produtos"
+      );
+      setState({ ...state, anuncios, categorias });
+    }
+    getData();
+  }, []);
+
+  const { anuncios ,categorias  } = state;
 
   return (
     <>
@@ -37,10 +52,10 @@ export default function Home() {
       >
         <h1 className="text-center"> Recomendações</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
-        {anuncios.map((m, index) => (
-          <ProductCard data={m} key={index} />
-        ))}
-         </div>
+          {anuncios.map((m, index) => (
+            <ProductCard data={m} key={index} />
+          ))}
+        </div>
       </Container>
 
       <Footer />
