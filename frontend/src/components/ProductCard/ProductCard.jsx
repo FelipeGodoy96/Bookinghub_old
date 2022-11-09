@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 import "../../styles/ProductCard.css";
 import erroImagem from "../../assets/img/erro-imagem.png";
 export default function ProductCard({ data }) {
+  console.log("data",data.produto);
 
+  const items = data.produto
+
+  const nomeItem=items.forEach((itens)=>{
+   console.log(itens.nome)
+  });
+  
+ 
   return (
     <>
       <Card className="anuncioCard d-flex flex-column m-2">
@@ -27,7 +35,7 @@ export default function ProductCard({ data }) {
             </div>
             <div>
               <h3 className="nomeAnunciante">
-                nome do hotel
+                {nomeItem}
                 </h3>
             </div>
           </div>

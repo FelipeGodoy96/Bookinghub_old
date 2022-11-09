@@ -27,6 +27,7 @@ export default function Home() {
 
   const { anuncios ,categorias  } = state;
 
+ 
   return (
     <>
       <section className="d-flex flex-column align-items-center text-center SearchBar">
