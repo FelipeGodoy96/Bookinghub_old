@@ -1,6 +1,4 @@
 import React, { createContext, useState } from "react";
-import { useEffect } from "react";
-
 
 // const DEFAULT_VALUE = {
 //   state:JSON.parse(localStorage.getItem('meuLoginToken')) || [],
