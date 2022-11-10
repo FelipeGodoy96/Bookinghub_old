@@ -122,14 +122,15 @@ export default function Anuncio() {
 
       <section className="mapSubHeader">
         <Container className="d-flex flex-row justify-content-between">
-          <div className="bi bi-geo-alt p-1">
-            Bairro
-            <br />
-            Ouro Preto
-            <Link className="i bi-pin-map" to="/">
-              Ver no mapa
-            </Link>
+        <div className="d-flex flex-column flex-lg-row align-items-center gap-lg-5">
+
+          <div className="bi bi-geo-alt">
+          Cidade TESTE
           </div>
+          <Link className="bi bi-pin-map" to="/">
+            Ver no mapa
+          </Link>
+        </div>
 
           <div className=" d-flex flex-column align-items-center">
             <div className="notaParceiro">8.0</div>
@@ -200,17 +201,6 @@ export default function Anuncio() {
           <h3>Informações sobre esta acomodação</h3>
           <p>
             {anuncio.descricao}
-            {/* Está localizado a poucas quadras da Avenida Alvear, da Avenida
-            Quintana, do Parque San Martín e do bairro da Recoleta. Nos
-            arredores também existem vários locais de interesse, como a Rua
-            Florida, o Centro Comercial Galerías Pacífico, a zona de Puerto
-            Madero, a Plaza de Mayo e o Palácio Municipal. Nossos clientes
-            afirmam que esta parte de Buenos Aires é a preferida, segundo
-            avaliações independentes. O Hotel é um sofisticado hotel de 4
-            estrelas que goza de uma localização tranquila, a poucos passos de
-            prestigiadas galerias de arte, teatros, museus e áreas comerciais.
-            Há também WiFi gratuito. A propriedade serve um café da manhã
-            variado das 07:00 h às 10:30 h. */}
           </p>
         </Container>
 

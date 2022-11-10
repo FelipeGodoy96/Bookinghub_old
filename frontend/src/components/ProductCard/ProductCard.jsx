@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/esm/Card";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import "../../styles/ProductCard.css";
-import { useState } from "react";
 import erroImagem from "../../assets/img/erro-imagem.png";
+import React from "react";
 
 export default function ProductCard({ data }) {
+  const navigate = useNavigate();
+
   return (
     <Card className="anuncioCard d-flex flex-column m-2">
       <Card.Img
@@ -29,11 +32,13 @@ export default function ProductCard({ data }) {
             <h3 className="nomeAnunciante">{data.nome}</h3>
           </div>
         </div>
-        <div className="bi bi-geo-alt mb-1">
-          Bairro
-          <br />
+        <div className="mb-1 d-flex flex-row align-items-center justify-content-between">
+          <div className="bi bi-geo-alt">
+
           {data.cidade}
-          <Link className="i bi-pin-map" to="/">
+          </div>
+
+          <Link className="bi bi-pin-map" to="/">
             Ver no mapa
           </Link>
         </div>
@@ -42,7 +47,7 @@ export default function ProductCard({ data }) {
           ....
         </p>
 
-        <Button className="m-1" onClick={() => navigate(`/hotel/${data.id}`)}>
+        <Button className="m-1" onClick={() => navigate(`/anuncio/${data.id}`)}>
           Ver Mais
         </Button>
       </Card.Body>

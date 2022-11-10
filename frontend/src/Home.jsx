@@ -9,6 +9,7 @@ import CategoriesCard from "./components/CategoriesCard/CategoriesCard";
 import ProductCard from "./components/ProductCard/ProductCard";
 
 export default function Home() {
+  
   const { state, setState } = useContext(Context);
   useEffect(() => {
     async function getData() {
