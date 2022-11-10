@@ -13,16 +13,17 @@ export default function Home() {
   const { state, setState } = useContext(Context);
   useEffect(() => {
     async function getData() {
-      const categorias = await axios.get(
+      const categoriasData = await axios.get(
         "http://54.183.252.14:8080/categorias"
       );
-      const anuncios = await axios.get(
+      const anunciosData = await axios.get(
         "http://54.183.252.14:8080/categoria_produtos"
       );
       setState({
         ...state,
-        anuncios: anuncios.data,
-        categorias: categorias.data
+        anuncios: anunciosData.data,
+        categorias: categoriasData.data,
+        categoriasProd: anunciosData.data
       });
     }
     getData();
@@ -51,7 +52,7 @@ export default function Home() {
   useEffect(() => {
     agruparAnuncios();
   }, [state]);
-
+  
   return (
     <>
       <section className="d-flex flex-column align-items-center text-center SearchBar">
