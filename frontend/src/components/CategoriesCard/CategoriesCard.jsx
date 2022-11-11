@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "react-bootstrap/esm/Button";
 export default function CategoriesCard({ data }) {
   const navigate = useNavigate();
-
+console.log(data);
 
   return (
     <>
@@ -18,14 +18,14 @@ export default function CategoriesCard({ data }) {
           }}
           src={data.imagem}
         />
-        <Card.Body>
+        <Card.Body className="d-flex flex-column align-items-center">
           <Card.Title>{data.descricao}</Card.Title>
-          <Card.Text>1.000 Hotéis</Card.Text>
+          <Card.Text>Mais de 1.000 encontrados</Card.Text>
           <Button
             className="m-1"
             onClick={() => navigate(`/categoria/${data.descricao}`)}
           >
-            Ver tudo em {data.descricao}
+            Ver todos
           </Button>
         </Card.Body>
       </Card>

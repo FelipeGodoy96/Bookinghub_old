@@ -92,7 +92,7 @@ export default function Categoria() {
     <Container
         fluid
         className="categoryPage d-flex flex-column justify-content-center align-items-center">
-        <h1 className="text-center"> {nomecategoria}</h1>
+        <h1 className="text-center">Filtro por categoria: {nomecategoria}</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
           {anuncio.map((m, index) => (
             <ProductCard data={m} key={index} />
