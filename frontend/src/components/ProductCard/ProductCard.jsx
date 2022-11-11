@@ -23,7 +23,7 @@ export default function ProductCard({ data }) {
         <div className="d-flex flex-row flex-column justify-content-between">
           <div className=" d-flex  justify-content-between align-items-center">
             <p>{data.categoria}</p>
-            <div className=" d-flex flex-column align-items-center">
+            <div className=" d-flex flex-column align-items-end">
               <div className="notaParceiro">8.0</div>
               <div className="classificacaoParceiro">Muito Bom</div>
             </div>
