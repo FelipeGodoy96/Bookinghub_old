@@ -1,0 +1,37 @@
+{
+  "name": "sprint-01",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.12",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "date-fns": "^2.29.3",
+    "nstall": "^0.2.0",
+    "photoswipe": "^5.3.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-date-range": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-icons-kit": "^2.0.0",
+    "react-image-gallery": "^1.2.11",
+    "react-photoswipe-gallery": "^2.2.2",
+    "react-router-dom": "^6.4.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "vite": "^3.1.0"
+  }
+}
