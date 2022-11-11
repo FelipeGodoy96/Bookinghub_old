@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import * as React from "react";
-import { Container, Card, Button } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { BsArrowReturnLeft } from "react-icons/bs";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import * as React from 'react'
+import { Container, Card, Button } from 'react-bootstrap'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import { BsArrowReturnLeft } from 'react-icons/bs'
 import {
   MdPets,
   MdWifi,
@@ -13,56 +13,56 @@ import {
   MdPool,
   MdCarRental,
   MdDining
-} from "react-icons/md";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
-import MyGallery from "./components/Gallery/Gallery";
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
-import CssBaseline from "@mui/material/CssBaseline";
-import "./styles/Anuncio.css";
-import Box from "@mui/material/Box";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRange } from "react-date-range";
-import { ptBR } from "date-fns/locale";
+} from 'react-icons/md'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import Footer from './components/Footer/Footer'
+import MyGallery from './components/Gallery/Gallery'
+import ImageGallery from 'react-image-gallery'
+import 'react-image-gallery/styles/css/image-gallery.css'
+import './styles/Anuncio.css'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import 'react-date-range/dist/styles.css' // main style file
+import 'react-date-range/dist/theme/default.css' // theme css file
+import { DateRange } from 'react-date-range'
+import { ptBR } from 'date-fns/locale'
 
 export default function Anuncio() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { id } = useParams()
+  const navigate = useNavigate()
   const [anuncio, setAnuncio] = useState({
     idCategoria: 1,
     id: 1,
-    categoria: "",
-    descricaoProduto: "",
-    nome: "",
-    descricao: "",
-    foto: "",
-    cidade: "Cidade Teste"
-  });
+    categoria: '',
+    descricaoProduto: '',
+    nome: '',
+    descricao: '',
+    foto: '',
+    cidade: 'Cidade Teste'
+  })
 
   async function buscarTodosAnuncios() {
     try {
       const anuncioRaw = await axios.get(
-        "http://54.183.252.14:8080/categoria_produtos"
-      );
-      const anunciosAgrupados = agruparAnuncios(anuncioRaw.data);
+        'http://54.183.252.14:8080/categoria_produtos'
+      )
+      const anunciosAgrupados = agruparAnuncios(anuncioRaw.data)
       const anunciosFiltrados = anunciosAgrupados.filter(
-        (item) => item.id.toString() === id
-      );
+        item => item.id.toString() === id
+      )
       if (anunciosFiltrados.length < 1) {
-        throw "Anúncio nao encontrado";
+        throw 'Anúncio nao encontrado'
       }
-      setAnuncio(anunciosFiltrados[0]);
+      setAnuncio(anunciosFiltrados[0])
     } catch (err) {
-      navigate("/404-NaoEncontrado");
+      navigate('/404-NaoEncontrado')
     }
   }
 
   function agruparAnuncios(anunciosRaw) {
-    const ctx = [];
-    anunciosRaw.forEach((category) => {
-      category.produto.forEach((product) => {
+    const ctx = []
+    anunciosRaw.forEach(category => {
+      category.produto.forEach(product => {
         ctx.push({
           idCategoria: category.id,
           id: product.id,
@@ -71,40 +71,67 @@ export default function Anuncio() {
           nome: product.nome,
           descricao: product.descricao,
           foto: category.imagem,
-          cidade: "Cidade Teste"
-        });
-      });
-    });
-    return ctx;
+          cidade: 'Cidade Teste'
+        })
+      })
+    })
+    return ctx
   }
 
   useEffect(() => {
-    buscarTodosAnuncios();
-  }, []);
+    buscarTodosAnuncios()
+  }, [])
   // checar se existe um anuncio de id 99
   // navigate pra pagina 404 -> nao encontrado
   const images = [
     {
       original:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg",
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg',
       thumbnail:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg"
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg'
     },
     {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/"
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/'
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/"
+      original: 'https://picsum.photos/id/1019/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1019/250/150/'
     }
-  ];
+  ]
+
+  const galleryStyle = {
+    grid: {
+      padding: '1rem',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gridAutoRows: '25vh',
+      gap: '1rem',
+      width: '100%',
+      height: '100%',
+    },
+    images: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: '5px'
+    },
+    mainImage: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: '5px',
+      gridColumn: 'span 2',
+      gridRow: 'span 2'
+    }
+  }
+
 
   const [date, setDate] = useState({
     startDate: new Date(),
     endDate: new Date(),
-    key: "selection"
-  });
+    key: 'selection'
+  })
 
   return (
     <>
@@ -122,17 +149,14 @@ export default function Anuncio() {
 
       <section className="mapSubHeader">
         <Container className="d-flex flex-row justify-content-between">
-        <div className="d-flex flex-column flex-lg-row align-items-center gap-lg-5">
-
-          <div className="bi bi-geo-alt">
-          Cidade TESTE
+          <div className="d-flex flex-column flex-lg-row align-items-center gap-lg-5">
+            <div className="bi bi-geo-alt">Cidade TESTE</div>
+            <Link className="bi bi-pin-map" to="/">
+              Ver no mapa
+            </Link>
           </div>
-          <Link className="bi bi-pin-map" to="/">
-            Ver no mapa
-          </Link>
-        </div>
 
-          <div className=" d-flex flex-column align-items-center">
+          <div className="d-flex flex-column align-items-center">
             <div className="notaParceiro">8.0</div>
             <div className="classificacaoParceiro">Muito Bom</div>
           </div>
@@ -158,29 +182,39 @@ export default function Anuncio() {
             </ul>
           </div>
         </Container>
-        {/* <div className="galeriaDeImagens mt-3"> */}
+        <Container className="galleryCentralizer" >
+          <Box className="galleryWrapper"
+            sx={{
+              display: {
+                xs: 'none',
+                sm: 'none',
+                md: 'none',
+                lg: 'block',
+                xl: 'block'
+              },
+              height: '25vw',
+              // width: '100%',
+              marginTop: '1rem',
+              marginBottom: '1rem',
+            }}
+            >
+           <div style={galleryStyle.grid}>
+                <img alt="defaultImage" src={images[0].original} style={galleryStyle.mainImage}/>
+                <img alt="gallery" src={images[1].original} style={galleryStyle.images} />
+                <img alt="gallery" src={images[2].original} style={galleryStyle.images} />
+                <img alt="gallery" src={images[2].original} style={galleryStyle.images} />
+                <img alt="gallery" src={images[2].original} style={galleryStyle.images} />
+           </div>
+          </Box>
+        </Container>
         <Box
           sx={{
             display: {
-              xs: "none",
-              sm: "none",
-              md: "none",
-              lg: "block",
-              xl: "block"
-            },
-            paddingX: "15vw"
-          }}
-        >
-          <MyGallery />
-        </Box>
-        <Box
-          sx={{
-            display: {
-              xs: "block",
-              sm: "block",
-              md: "block",
-              lg: "none",
-              xl: "none"
+              xs: 'block',
+              sm: 'block',
+              md: 'block',
+              lg: 'none',
+              xl: 'none'
             }
           }}
         >
@@ -195,13 +229,10 @@ export default function Anuncio() {
             showIndex={true}
           />
         </Box>
-        {/* </div> */}
 
         <Container className="descripition  d-flex flex-column justify-content-end">
           <h3>Informações sobre esta acomodação</h3>
-          <p>
-            {anuncio.descricao}
-          </p>
+          <p>{anuncio.descricao}</p>
         </Container>
 
         <Container className="descripition d-flex flex-column justify-content-end">
@@ -274,7 +305,7 @@ export default function Anuncio() {
                 editableDateInputs={true}
                 moveRangeOnFirstSelection={false}
                 ranges={[date]}
-                onChange={(ranges) => setDate(ranges.selection)}
+                onChange={ranges => setDate(ranges.selection)}
               />
             </Card>
             <Card className="confirmReserva">
@@ -313,5 +344,5 @@ export default function Anuncio() {
       </section>
       <Footer />
     </>
-  );
+  )
 }
