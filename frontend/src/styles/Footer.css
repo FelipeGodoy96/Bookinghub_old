@@ -22155,6 +22155,7 @@ textarea.form-control-lg {
   }
 }
 .defFooter {
+  bottom: 0;
   color: #F3F1ED;
   height: 58px;
   background-color: #1DBEB4;
