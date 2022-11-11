@@ -1,5 +1,7 @@
 import Button from "react-bootstrap/Button";
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "../../styles/Searchbar.css";
 
 export default function Searchbar() {
@@ -11,7 +13,7 @@ export default function Searchbar() {
   useEffect(() => {
     const FetchResp = async () => {
       try{
-        const api = await fetch('http://54.183.252.14:8080/cidades')
+        const api = await fetch('http://54.183.252.14:8080/cidade_produtos')
         const data = await api.json();
         console.log(data);
         Repos(data);
@@ -23,7 +25,7 @@ export default function Searchbar() {
     FetchResp();
   }, []);
   const Change = ({ target }) => {
-    if(!target.value) {
+    if(!target.toLowerCase) {
       repos(Resp)
       return
     }
@@ -46,7 +48,9 @@ export default function Searchbar() {
             />
             <datalist id="data">
               {resp.map((respost) =>
-                <option key={respost.id} value={respost.nome} />
+                <Link className="link" to={`/cidade/${respost.nome}`} >
+                <option key={respost.id} value={respost.nome}/>
+                </Link>
               )}
             </datalist>        
 
@@ -77,7 +81,7 @@ export default function Searchbar() {
             />
           </div>
 
-          <Button className="m-1">Buscar</Button>
+          <Link to="/cidade"><Button className="m-1">Buscar</Button></Link>
         </div>
       </div>
     </>

@@ -16,10 +16,7 @@ export default function Cidade() {
         const api = await fetch('http://54.183.252.14:8080/cidade_produtos')
         const data = await api.json();
        // console.log(data);
-        const teste = data.find(cidade => cidade.nome === 'Ouro Preto')
-
-
-        
+        const teste = data.find(cidade => cidade.nome === "Ouro Preto")        
         setCidade(teste)
         console.log(teste)
         //Repos(data);
@@ -36,9 +33,7 @@ export default function Cidade() {
   //})
  
   return(<>
-  <br /><br /><br />
-  {
-    cidade?.produto?.map((produto) => <p>{produto.nome}</p>)
-  }
+  <br /><br /><br />  <br /><br /><br />  <br /><br /><br />
+  { cidade?.produto?.map((produto) => <p>{produto.nome}</p>) }
   <Footer/>
   </>)};
