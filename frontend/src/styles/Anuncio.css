@@ -22045,11 +22045,14 @@ textarea.form-control-lg {
   text-decoration: underline;
   color: #FFF;
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: 1rem;
+  right: 1rem;
   margin: 0.5rem;
   background: transparent;
   border: none;
+}
+.anuncioInfo .gallery-wrapper .gallery-grid .gallery-modal {
+  background-color: rgba(56, 59, 88, 0.85);
 }
 .anuncioInfo .descripition {
   padding: 1.5rem;

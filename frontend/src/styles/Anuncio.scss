@@ -213,11 +213,14 @@
         text-decoration: underline;
         color: $white;
         position: absolute;
-        bottom: 0.5rem;
-        right: 0.5rem;
+        bottom: 1rem;
+        right: 1rem;
         margin: 0.5rem;
         background: transparent;
         border: none;
+      }
+      .gallery-modal {
+        background-color: rgb(56, 59, 88, 0.85);
       }
     }
   }

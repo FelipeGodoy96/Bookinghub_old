@@ -16,12 +16,11 @@ import {
 } from 'react-icons/md'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
-import MyGallery from './components/Gallery/Gallery'
 import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import './styles/Anuncio.css'
-import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
+import Modal from '@mui/material/Modal'
 import 'react-date-range/dist/styles.css' // main style file
 import 'react-date-range/dist/theme/default.css' // theme css file
 import { DateRange } from 'react-date-range'
@@ -100,37 +99,21 @@ export default function Anuncio() {
     },
     {
       original: 'https://picsum.photos/200/300',
+      thumbnail: 'https://picsum.photos/200/300'
     },
     {
       original: 'https://picsum.photos/300/300',
+      thumbnail: 'https://picsum.photos/300/300'
     }
   ]
 
-  const galleryStyle = {
-    grid: {
-      padding: '1rem',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gridAutoRows: '25vh',
-      gap: '1rem',
-      width: '100%',
-      height: '100%',
-    },
-    images: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      borderRadius: '5px'
-    },
-    mainImage: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      borderRadius: '5px',
-      gridColumn: 'span 2',
-      gridRow: 'span 2'
-    }
-  }
+ const [ gallery, setGallery ] = React.useState(false)
+ const handleOpenGallery = () => {
+  setGallery(true)
+ }
+ const handleCloseGallery = () => {
+  setGallery(false)
+ }
 
 
   const [date, setDate] = useState({
@@ -210,7 +193,26 @@ export default function Anuncio() {
                 <img className="gallery-grid-image" alt="gallery-image" src={images[2]?.original}  />
                 <img className="gallery-grid-image" alt="gallery-image" src={images[3]?.original}  />
                 <img className="gallery-grid-image" alt="gallery-image" src={images[4]?.original}  />
-                <button className="gallery-button-showall" type="button">Ver mais</button>
+                <button className="gallery-button-showall" type="button" onClick={handleOpenGallery}>Ver mais</button>
+                <Modal               
+                // sx={{backgroundColor: 'rgb(56, 59, 88, 0.85)'}}
+                open={gallery}
+                onClose={handleCloseGallery}
+                >
+                  <Box
+                  sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '10px'}}
+                  >
+                    <ImageGallery
+                    className="galeriaModalDesktop"
+                    autoPlay={false}
+                    showThumbnails={true}
+                    showPlayButton={false}
+                    items={images}
+                    showIndex={true}
+                    showFullscreenButton={false}
+                    />
+                  </Box>
+                </Modal>
            </div>
           </Box>
         </Container>
