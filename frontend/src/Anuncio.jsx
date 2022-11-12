@@ -97,6 +97,12 @@ export default function Anuncio() {
     {
       original: 'https://picsum.photos/id/1019/1000/600/',
       thumbnail: 'https://picsum.photos/id/1019/250/150/'
+    },
+    {
+      original: 'https://picsum.photos/200/300',
+    },
+    {
+      original: 'https://picsum.photos/300/300',
     }
   ]
 
@@ -183,7 +189,7 @@ export default function Anuncio() {
           </div>
         </Container>
         <Container className="galleryCentralizer" >
-          <Box className="galleryWrapper"
+          <Box className="gallery-wrapper"
             sx={{
               display: {
                 xs: 'none',
@@ -198,12 +204,13 @@ export default function Anuncio() {
               marginBottom: '1rem',
             }}
             >
-           <div style={galleryStyle.grid}>
-                <img alt="defaultImage" src={images[0].original} style={galleryStyle.mainImage}/>
-                <img alt="gallery" src={images[1].original} style={galleryStyle.images} />
-                <img alt="gallery" src={images[2].original} style={galleryStyle.images} />
-                <img alt="gallery" src={images[2].original} style={galleryStyle.images} />
-                <img alt="gallery" src={images[2].original} style={galleryStyle.images} />
+           <div className="gallery-grid" >
+                <img className="gallery-main-image" alt="defaultImage" src={images[0]?.original} />
+                <img className="gallery-grid-image" alt="gallery-image" src={images[1]?.original} />
+                <img className="gallery-grid-image" alt="gallery-image" src={images[2]?.original}  />
+                <img className="gallery-grid-image" alt="gallery-image" src={images[3]?.original}  />
+                <img className="gallery-grid-image" alt="gallery-image" src={images[4]?.original}  />
+                <button className="gallery-button-showall" type="button">Ver mais</button>
            </div>
           </Box>
         </Container>

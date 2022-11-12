@@ -1,5 +1,5 @@
-@import "./mixins/mixins.scss";
-@import "./variables/variables.scss";
+@import './mixins/mixins.scss';
+@import './variables/variables.scss';
 
 .subHeader {
   background-color: $secondary-color;
@@ -10,10 +10,10 @@
   .iconeSubHeader {
     color: $white;
     font-size: 2rem;
-    &:hover{
+    &:hover {
       transition: 1s;
       transform: scale(1.3);
-    } 
+    }
   }
   p {
     font-size: 1.5em;
@@ -126,7 +126,7 @@
 
       &::before,
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         width: 1em;
         height: 0.125em;
@@ -184,6 +184,43 @@
     }
   }
 
+  .gallery-wrapper {
+    height: 100%;
+    position: relative;
+    .gallery-grid {
+      padding: 0.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 25vh;
+      gap: 0.5rem;
+      width: 100%;
+      height: 100%;
+      .gallery-grid-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      .gallery-main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .gallery-button-showall {
+        text-decoration: underline;
+        color: $white;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        margin: 0.5rem;
+        background: transparent;
+        border: none;
+      }
+    }
+  }
 
   .descripition {
     padding: 1.5rem;
@@ -191,9 +228,8 @@
     h3 {
       margin-top: 1.8rem;
       @include font-secondary;
-     
     }
- 
+
     h4 {
       margin-top: 1rem;
       @include font-alternative;
@@ -203,25 +239,20 @@
       margin-top: 0.8rem;
     }
   }
-.confirmReserva{
-
- 
-  max-width: 320px ;
-  margin-left:1rem;
-  @media screen and (max-width: 992px) {
-    margin-top: 1rem;
+  .confirmReserva {
+    max-width: 320px;
+    margin-left: 1rem;
+    @media screen and (max-width: 992px) {
+      margin-top: 1rem;
+    }
   }
-}
-.service{
-  padding: 3rem;
-  @media screen and (max-width: 1024px) {
-    grid-column: 1fr 1fr ;
+  .service {
+    padding: 3rem;
+    @media screen and (max-width: 1024px) {
+      grid-column: 1fr 1fr;
+    }
+    .hotelservice {
+      margin: 1rem;
+    }
   }
-.hotelservice{
-  margin:1rem;
- 
-}
-}
-
- 
 }
