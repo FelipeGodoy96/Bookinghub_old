@@ -25,6 +25,7 @@ import 'react-date-range/dist/styles.css' // main style file
 import 'react-date-range/dist/theme/default.css' // theme css file
 import { DateRange } from 'react-date-range'
 import { ptBR } from 'date-fns/locale'
+import CustomGallery from './components/CustomGallery/Gallery'
 
 export default function Anuncio() {
   const { id } = useParams()
@@ -194,23 +195,16 @@ export default function Anuncio() {
                 <img className="gallery-grid-image" alt="gallery-image" src={images[3]?.original}  />
                 <img className="gallery-grid-image" alt="gallery-image" src={images[4]?.original}  />
                 <button className="gallery-button-showall" type="button" onClick={handleOpenGallery}>Ver mais</button>
-                <Modal               
-                // sx={{backgroundColor: 'rgb(56, 59, 88, 0.85)'}}
+                <Modal 
+                className="gallery-modal"             
+                sx={{backgroundColor: 'rgb(56, 59, 88, 0.8)'}}
                 open={gallery}
                 onClose={handleCloseGallery}
                 >
                   <Box
                   sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '10px'}}
                   >
-                    <ImageGallery
-                    className="galeriaModalDesktop"
-                    autoPlay={false}
-                    showThumbnails={true}
-                    showPlayButton={false}
-                    items={images}
-                    showIndex={true}
-                    showFullscreenButton={false}
-                    />
+                    <CustomGallery images={images}/>
                   </Box>
                 </Modal>
            </div>
