@@ -162,13 +162,15 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   }
 
   .image-gallery-slide .image-gallery-image {
-    max-height: calc(100vh - 80px); // 80 px for the thumbnail space
+    // max-height: calc(100vh - 80px); // 80 px for the thumbnail space
+    max-height: 400px;
+    max-width: 600px;
   }
 
   &.left,
   &.right {
     .image-gallery-slide .image-gallery-image {
-      max-height: 100vh;
+      max-height: 400px;
     }
   }
 }
@@ -356,6 +358,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-thumbnails {
   overflow: hidden;
   padding: 5px 0;
+  margin-top: 40px;
 
   @media (max-width: $ig-small-screen) {
     padding: 3px 0;
@@ -396,10 +399,13 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 
   .image-gallery-thumbnail-image {
     vertical-align: middle;
-    width: 100%;
+    min-width: 80px;
+    min-height: 80px;
     line-height: 0;
     border-radius: 10px;
     height: 100%;
+    max-height: 80px;
+    max-width: 100px;
   }
 
   &.active,
@@ -446,13 +452,15 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 }
 
 .image-gallery-index {
-  background: $ig-background-black;
-  color: $ig-white;
+  // background: $ig-background-black;
+  // color: $ig-white;
+  font-weight: 700;
   line-height: 1;
   padding: 10px 20px;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  top: 101%;
   z-index: 4;
 
   @media(max-width: $ig-small-screen) {
