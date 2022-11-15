@@ -1,29 +1,29 @@
-import axios from "axios";
-import Container from "react-bootstrap/Container";
-import { useContext, useEffect } from "react";
-import Searchbar from "./components/Searchbar/Searchbar";
-import Footer from "./components/Footer/Footer";
-import Context from "./Contexts/Context";
-import "./styles/home.css";
-import CategoriesCard from "./components/CategoriesCard/CategoriesCard";
-import ProductCard from "./components/ProductCard/ProductCard";
+/* eslint-disable react/no-array-index-key */
+import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import React, { useContext, useEffect } from 'react';
+import Searchbar from './components/Searchbar/Searchbar';
+import Footer from './components/Footer/Footer';
+import Context from './Contexts/Context';
+import './styles/home.css';
+import CategoriesCard from './components/CategoriesCard/CategoriesCard';
+import ProductCard from './components/ProductCard/ProductCard';
 
 export default function Home() {
-  
   const { state, setState } = useContext(Context);
   useEffect(() => {
     async function getData() {
       const categoriasData = await axios.get(
-        "http://54.183.252.14:8080/categorias"
+        'http://54.183.252.14:8080/categorias',
       );
       const anunciosData = await axios.get(
-        "http://54.183.252.14:8080/categoria_produtos"
+        'http://54.183.252.14:8080/categoria_produtos',
       );
       setState({
         ...state,
         anuncios: anunciosData.data,
         categorias: categoriasData.data,
-        categoriasProd: anunciosData.data
+        categoriasProd: anunciosData.data,
       });
     }
     getData();
@@ -42,7 +42,7 @@ export default function Home() {
           descricaoProduto: product.descricao,
           nome: product.nome,
           foto: category.imagem,
-          cidade: "Cidade Teste"
+          cidade: 'Cidade Teste',
         });
       });
     });
@@ -52,7 +52,7 @@ export default function Home() {
   useEffect(() => {
     agruparAnuncios();
   }, [state]);
-  
+
   return (
     <>
       <section className="d-flex flex-column align-items-center text-center SearchBar">

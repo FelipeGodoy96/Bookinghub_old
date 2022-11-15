@@ -1,10 +1,11 @@
-import { useState } from "react";
-import Button from "react-bootstrap/esm/Button";
-import Card from "react-bootstrap/esm/Card";
-import { Link, useNavigate} from "react-router-dom";
-import "../../styles/ProductCard.css";
-import erroImagem from "../../assets/img/erro-imagem.png";
-import React from "react";
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import Button from 'react-bootstrap/esm/Button';
+import Card from 'react-bootstrap/esm/Card';
+import { Link, useNavigate } from 'react-router-dom';
+import '../../styles/ProductCard.css';
+import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function ProductCard({ data }) {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function ProductCard({ data }) {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src = erroImagem;
         }}
-        src={data.foto ? data.foto : "Erro Imagem não encontrada"}
+        src={data.foto ? data.foto : 'Erro Imagem não encontrada'}
       />
       <Card.Body className="cardInfo d-flex flex-column">
         <div className="d-flex flex-row flex-column justify-content-between">
@@ -35,7 +36,7 @@ export default function ProductCard({ data }) {
         <div className="mb-1 d-flex flex-row align-items-center justify-content-between">
           <div className="bi bi-geo-alt">
 
-          {data.cidade}
+            {data.cidade}
           </div>
 
           <Link className="bi bi-pin-map" to="/">

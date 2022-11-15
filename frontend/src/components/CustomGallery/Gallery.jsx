@@ -1,15 +1,18 @@
-import '../../styles/Gallery.css'
-import ImageGallery from 'react-image-gallery'
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import '../../styles/Gallery.css';
+import ImageGallery from 'react-image-gallery';
 
-export default function CustomGallery (props) {
+export default function CustomGallery(props) {
   return (
     <ImageGallery
-    autoPlay={false}
-    showThumbnails={true}
-    showPlayButton={false}
-    items={props.images}
-    showIndex={true}
-    showFullscreenButton={false}
-    />    
-  )
+      autoPlay={false}
+      showThumbnails
+      showPlayButton={false}
+      items={props.images}
+      showIndex
+      showFullscreenButton={false}
+    />
+  );
 }
