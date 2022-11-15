@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-useless-escape */
 import React, { useRef, useState } from 'react';
 import Container from 'react-bootstrap/Container';
