@@ -1,16 +1,17 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Cidade from "./Cidade";
-import Categoria from "./Categoria";
-import Home from "./Home";
-import Anuncio from "./Anuncio";
-import NotFound from "./NotFound";
-import Login from "./Login";
-import Cadastro from "./Cadastro";
-import RedefinirSenha from "./RedefinirSenha";
-import NavBarDefault from "./components/Navbar/NavBarDefault";
-import { LoginProvider } from "./Contexts/LoginContext";
-import { ContextProvider } from "./Contexts/Context";
-import "./App.css";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Cidade from './Cidade';
+import Categoria from './Categoria';
+import Home from './Home';
+import Anuncio from './Anuncio';
+import NotFound from './NotFound';
+import Login from './Login';
+import Cadastro from './Cadastro';
+import RedefinirSenha from './RedefinirSenha';
+import NavBarDefault from './components/Navbar/NavBarDefault';
+import { LoginProvider } from './Contexts/LoginContext';
+import { ContextProvider } from './Contexts/Context';
+import './App.css';
 
 export default function App() {
   return (

@@ -1,29 +1,27 @@
-import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-import "../../styles/Footer.css";
+import '../../styles/Footer.css';
 
 export default function Footer() {
   return (
-    <>
     <footer className="defFooter w-100 d-flex flex-row justify-content-between align-items-center">
       <div className="navFooter px-4">
-      ©2022 Booking Hub
+        ©2022 Booking Hub
       </div>
-     
-     
-      <div className="SocialMidia gap-3 mx-3 d-flex flex-row align-items-center" >
-        <Link className="socialIco nav-link" to="#">
+
+      <div className="SocialMidia gap-3 mx-3 d-flex flex-row align-items-center">
+        <Link className="socialIco nav-link" to="/facebook">
           <BsFacebook size={24} />
         </Link>
-        <Link className="socialIco nav-link" to="#">
+        <Link className="socialIco nav-link" to="/instagram">
           <BsInstagram size={24} />
         </Link>
-        <Link className="socialIco nav-link" to="#">
-          <BsLinkedin size={24}/>
+        <Link className="socialIco nav-link" to="/linkedin">
+          <BsLinkedin size={24} />
         </Link>
       </div>
     </footer>
-    </>
   );
 }
