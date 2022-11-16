@@ -1,26 +1,24 @@
-@import './mixins/mixins.scss';
-@import './variables/variables.scss';
-
 .defFooter {
   bottom: 0;
-    color: $bg-color;
-    height: 58px;
-    background-color: #1DBEB4;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 9px );
-    -webkit-backdrop-filter: blur( 9px );  
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-  }
-  
-  .socialIco {
-    margin-left: 1rem;
-    color: $bg-color;
-   
-  }
-  .socialIco:hover {
-     transform: scale(1.2)  ;
-     -webkit-transform: scale(1.2);
-     -moz-transform: scale(1.2);
-     -ms-transform: scale(1.2);
-     -o-transform: scale(1.2);
+  color: $bg-color;
+  height: 58px;
+  background-color: #1DBEB4;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.socialIco {
+  margin-left: 1rem;
+  color: $bg-color;
+
+}
+
+.socialIco:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }

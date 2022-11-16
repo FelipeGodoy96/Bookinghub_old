@@ -1,5 +1,18 @@
 @import './variables/variables.scss';
 @import './mixins/mixins.scss';
+@import './Anuncio.scss';
+@import './Cadastro.scss';
+@import './Categoria.scss';
+@import './CategoriesCard.scss';
+@import './Footer.scss';
+@import './Gallery.scss';
+@import './Home.scss';
+@import './Login.scss';
+@import './NavBarDefault.scss';
+@import './ProductCard.scss';
+@import './Searchbar.scss';
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
