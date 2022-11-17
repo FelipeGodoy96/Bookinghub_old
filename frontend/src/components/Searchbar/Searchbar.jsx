@@ -12,7 +12,7 @@ export default function Searchbar() {
 
   useEffect(() => {
     const FetchResp = async () => {
-      const api = await fetch('http://54.183.252.14:8080/cidade_produtos');
+      const api = await fetch('http://52.53.186.118:8080/cidade_produtos');
       const data = await api.json();
       Repos(data);
       repos(data);

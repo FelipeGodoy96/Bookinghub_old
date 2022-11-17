@@ -44,7 +44,7 @@ export default function Categoria() {
   async function buscarTodosAnuncios() {
     try {
       const anuncioRaw = await axios.get(
-        'http://54.183.252.14:8080/categoria_produtos',
+        'http://52.53.186.118:8080/categoria_produtos',
       );
       const anunciosAgrupados = agruparAnuncios(anuncioRaw.data);
       const anunciosFiltrados = anunciosAgrupados.filter(

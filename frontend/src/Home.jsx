@@ -14,10 +14,10 @@ export default function Home() {
   useEffect(() => {
     async function getData() {
       const categoriasData = await axios.get(
-        'http://54.183.252.14:8080/categorias',
+        'http://52.53.186.118:8080/categorias',
       );
       const anunciosData = await axios.get(
-        'http://54.183.252.14:8080/categoria_produtos',
+        'http://52.53.186.118:8080/categoria_produtos',
       );
       setState({
         ...state,
