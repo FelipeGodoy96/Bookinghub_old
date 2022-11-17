@@ -4,7 +4,6 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import LogomarcaIco from '../../assets/icon/booking_hub_logo_semfundo.png';
-import '../../styles/NavBarDefault.css';
 import LoginContext from '../../Contexts/LoginContext';
 
 export default function NavBarDefault() {

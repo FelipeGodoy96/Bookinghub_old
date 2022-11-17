@@ -5,7 +5,6 @@ import Container from 'react-bootstrap/esm/Container';
 import axios from 'axios';
 import Footer from './components/Footer/Footer';
 import ProductCard from './components/ProductCard/ProductCard';
-import './styles/Categoria.css';
 
 export default function Categoria() {
   const { nomecategoria } = useParams();

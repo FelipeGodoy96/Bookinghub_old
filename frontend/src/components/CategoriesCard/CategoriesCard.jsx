@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
-import '../../styles/CategoriesCard.css';
+
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';

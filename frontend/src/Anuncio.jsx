@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as React from 'react';
@@ -17,7 +18,6 @@ import {
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
-import './styles/Anuncio.css';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import 'react-date-range/dist/styles.css'; // main style file
@@ -70,7 +70,7 @@ export default function Anuncio() {
         (item) => item.id.toString() === id,
       );
       if (anunciosFiltrados.length < 1) {
-        throw 'Anúncio nao encontrado';
+        throw new Error();
       }
       setAnuncio(anunciosFiltrados[0]);
     } catch (err) {

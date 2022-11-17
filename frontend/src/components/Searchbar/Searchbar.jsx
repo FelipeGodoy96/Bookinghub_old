@@ -2,8 +2,6 @@ import Button from 'react-bootstrap/Button';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import '../../styles/Searchbar.css';
-
 export default function Searchbar() {
   const ref = useRef();
 

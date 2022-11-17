@@ -6,7 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Footer from './components/Footer/Footer';
 import LoginContext from './Contexts/LoginContext';
-import './styles/login.css';
 import loginAuth from './utils/auth';
 
 export default function Login() {

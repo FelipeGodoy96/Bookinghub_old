@@ -4,7 +4,6 @@ import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../styles/ProductCard.css';
 import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function ProductCard({ data }) {

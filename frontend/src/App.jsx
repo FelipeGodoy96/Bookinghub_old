@@ -13,6 +13,7 @@ import NavBarDefault from './components/Navbar/NavBarDefault';
 import { LoginProvider } from './Contexts/LoginContext';
 import { ContextProvider } from './Contexts/Context';
 import './App.css';
+import './styles/index.css';
 
 export default function App() {
   return (

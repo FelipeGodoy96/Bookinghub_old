@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import './styles/Cadastro.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Icon } from 'react-icons-kit';

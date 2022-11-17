@@ -5,7 +5,6 @@ import React, { useContext, useEffect } from 'react';
 import Searchbar from './components/Searchbar/Searchbar';
 import Footer from './components/Footer/Footer';
 import Context from './Contexts/Context';
-import './styles/home.css';
 import CategoriesCard from './components/CategoriesCard/CategoriesCard';
 import ProductCard from './components/ProductCard/ProductCard';
 
@@ -16,6 +15,9 @@ export default function Home() {
       const categoriasData = await axios.get(
         'http://52.53.186.118:8080/categorias',
       );
+      const cidadesData = await axios.get(
+        'http://52.53.186.118:8080/cidade_produtos',
+      );
       const anunciosData = await axios.get(
         'http://52.53.186.118:8080/categoria_produtos',
       );
@@ -24,12 +26,13 @@ export default function Home() {
         anuncios: anunciosData.data,
         categorias: categoriasData.data,
         categoriasProd: anunciosData.data,
+        cidades: cidadesData.data,
       });
     }
     getData();
   }, []);
 
-  const { anuncios, categorias } = state;
+  const { anuncios, categorias, cidades } = state;
 
   function agruparAnuncios() {
     const ctx = [];
@@ -43,6 +46,16 @@ export default function Home() {
           nome: product.nome,
           foto: category.imagem,
           cidade: 'Cidade Teste',
+        });
+      });
+    });
+
+    cidades.forEach((cidadesCtx) => {
+      cidadesCtx.produto.forEach((produto) => {
+        ctx.forEach((item, i) => {
+          if (item.id === produto.id) {
+            ctx[i].cidade = cidadesCtx.nome;
+          }
         });
       });
     });

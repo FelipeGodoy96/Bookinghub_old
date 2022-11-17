@@ -3,9 +3,10 @@
 import React, { createContext, useState } from 'react';
 
 const DEFAULT_VALUE = {
-  state: { categorias: [], anuncios: [] },
+  state: { categorias: [], anuncios: [], cidades: [] },
   setState: () => {}, // função de inicialização
 };
+
 const Context = createContext(DEFAULT_VALUE);
 
 function ContextProvider({ children }) {
