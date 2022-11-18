@@ -7,6 +7,7 @@ import Anuncio from './Anuncio';
 import NotFound from './NotFound';
 import Login from './Login';
 import Cadastro from './Cadastro';
+import Reserva from './Reserva';
 import ConfirmacaoReserva from './ConfirmacaoReserva';
 import RedefinirSenha from './RedefinirSenha';
 import NavBarDefault from './components/Navbar/NavBarDefault';
@@ -24,6 +25,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
+            <Route path="/reserva" element={<Reserva />} />
             <Route path="/anuncio/:id" element={<Anuncio />} />
             <Route path="/cidade/:nome" element={<Cidade />} />
             <Route path="/categoria/:nomecategoria" element={<Categoria />} />
