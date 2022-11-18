@@ -14,7 +14,7 @@ export default function ConfirmacaoReserva() {
       <Container className="d-flex align-items-center justify-content-center vh-100">
         <Card className="confirmationCard">
           <Card.Body className="d-flex flex-column align-items-center justify-content-center p-4">
-            <BsFillPatchCheckFill />
+            <BsFillPatchCheckFill className='checkfill' />
             <Card.Title>Muito Obrigado</Card.Title>
             <Card.Text>
               Reserva Realizada com Sucesso

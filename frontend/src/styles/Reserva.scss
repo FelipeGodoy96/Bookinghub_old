@@ -1,0 +1,19 @@
+
+.formContainer h1{
+    @include font-secondary;
+   
+
+
+}
+
+.cardForm{
+   
+    @include card;
+    width: 55em;
+    padding: 4em;
+}
+
+.dateContainer h1{
+   @include font-secondary;
+
+}
