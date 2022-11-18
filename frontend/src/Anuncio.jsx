@@ -321,7 +321,7 @@ export default function Anuncio() {
           </Row>
         </Container>
 
-        <Container className="agendaDeReservas d-flex flex-column">
+        <Container className="descripition agendaDeReservas d-flex flex-column">
           <h3>Datas disponíveis</h3>
           <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
             <Card>
