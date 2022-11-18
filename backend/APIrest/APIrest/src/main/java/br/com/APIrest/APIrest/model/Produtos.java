@@ -3,6 +3,7 @@ package br.com.APIrest.APIrest.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,6 +26,9 @@ public class Produtos implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_onetm")
     private Categorias categorias;
+
+    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
+    private List<Reservas> reserva;
 
     @ManyToMany
     @JoinTable(name = "produtoCaracteristica",
@@ -80,5 +84,12 @@ public class Produtos implements Serializable {
     }
     public void setCidades(Cidades cidades) {
         this.cidades = cidades;
+    }
+
+    public List<Reservas> getReserva() {
+        return reserva;
+    }
+    public void setReserva(List<Reservas> reserva) {
+        this.reserva = reserva;
     }
 }

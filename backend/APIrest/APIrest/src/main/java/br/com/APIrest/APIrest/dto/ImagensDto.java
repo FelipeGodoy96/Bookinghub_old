@@ -21,9 +21,9 @@ public class ImagensDto implements Serializable {
     }
 
     public ImagensDto(Imagens imagens) {
-        this.id = imagens.getId();
-        this.titulo = imagens.getTitulo();
-        this.url = imagens.getUrl();
+        id = imagens.getId();
+        titulo = imagens.getTitulo();
+        url = imagens.getUrl();
     }
 
     public Integer getId() {
