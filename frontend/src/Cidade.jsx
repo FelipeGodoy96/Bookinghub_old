@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/esm/Container';
 import Footer from './components/Footer/Footer';
 
 export default function Cidade() {
-  const [cidade, setCidade] = useState({
-
-  });
+  const [cidade, setCidade] = useState({});
 
   useEffect(() => {
     const FetchResp = async () => {
@@ -18,20 +17,13 @@ export default function Cidade() {
   }, []);
 
   return (
-    <>
-      <br />
-      <br />
-      <br />
-      {' '}
-      <br />
-      <br />
-      <br />
-      {' '}
-      <br />
-      <br />
-      <br />
-      { cidade?.produto?.map((produto) => <p>{produto.nome}</p>) }
+    <div className="d-flex flex-column m-0 vh-100">
+      <Container fluid className="d-flex vh-100">
+        {cidade?.produto?.map((produto) => (
+          <p>{produto.nome}</p>
+        ))}
+      </Container>
       <Footer />
-    </>
+    </div>
   );
 }

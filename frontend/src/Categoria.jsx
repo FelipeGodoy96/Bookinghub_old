@@ -10,16 +10,18 @@ export default function Categoria() {
   const { nomecategoria } = useParams();
 
   const navigate = useNavigate();
-  const [anuncio, setAnuncio] = useState([{
-    idCategoria: 1,
-    id: 1,
-    categoria: '',
-    descricaoProduto: '',
-    nome: '',
-    descricao: '',
-    foto: '',
-    cidade: 'Cidade Teste',
-  }]);
+  const [anuncio, setAnuncio] = useState([
+    {
+      idCategoria: 1,
+      id: 1,
+      categoria: '',
+      descricaoProduto: '',
+      nome: '',
+      descricao: '',
+      foto: '',
+      cidade: 'Cidade Teste',
+    },
+  ]);
 
   function agruparAnuncios(anunciosRaw) {
     const ctx = [];
@@ -64,11 +66,10 @@ export default function Categoria() {
   }, []);
 
   return (
-    <>
-
+    <div className="d-flex flex-column m-0 vh-100">
       <Container
         fluid
-        className="categoryPage d-flex flex-column justify-content-center align-items-center"
+        className="categoryPage d-flex flex-column justify-content-center align-items-center vh-100"
       >
         <h1 className="text-center">
           Filtro por categoria:
@@ -82,7 +83,6 @@ export default function Categoria() {
         </div>
       </Container>
       <Footer />
-
-    </>
+    </div>
   );
 }
