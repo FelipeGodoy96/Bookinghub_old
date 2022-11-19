@@ -21,6 +21,9 @@ public class Usuarios implements Serializable {
 
     @OneToMany(mappedBy = "usuarios", fetch = FetchType.LAZY)
     private List<Reservas> reserva;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "clientes_usuarios")
+    private Cliente cliente;
     @ManyToMany(fetch = FetchType.EAGER) // Força a busca dos perfis do usuário
     @JoinTable(name = "usuarios_papeis",
             joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),

@@ -28,6 +28,8 @@ INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest3', 'sobre
 
 INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('23:18:17', '2023-06-17', '2023-06-20');
 
+INSERT INTO cliente (id) VALUES (1);
+
 INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (1, 1);
 INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (2, 2);
 INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (3, 2);
@@ -43,4 +45,6 @@ UPDATE produtos SET categoria_onetm = 3 WHERE id = 3
 UPDATE produtos SET cidade_mtone = 1 WHERE id = 3
 UPDATE produtos SET cidade_mtone = 2 WHERE id = 2
 UPDATE produtos SET cidade_mtone = 3 WHERE id = 1
+
+UPDATE usuarios  SET  clientes_usuarios = 1 WHERE id = 1
 
