@@ -1,19 +1,22 @@
 
-.formContainer h1{
-    @include font-secondary;
-   
+.formContainer{
+    padding-top: 8rem;
+    h1{
+        @include font-secondary;
+    }
+    .cardForm{
+        @include card;
+    
+        padding: 4em;
+    }
+    .emailObs{
+        color: #6b6b6bb0;
+    }
+    .checkBox{
+        padding-top: 12px;
+    }
+    hr.solid {
+        border-top: 3px solid #bbb;
+      }
+} 
 
-
-}
-
-.cardForm{
-   
-    @include card;
-    width: 55em;
-    padding: 4em;
-}
-
-.dateContainer h1{
-   @include font-secondary;
-
-}

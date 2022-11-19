@@ -32,7 +32,7 @@ export default function ProductCard({ data }) {
             <h3 className="nomeAnunciante">{data.nome}</h3>
           </div>
         </div>
-        <div className="mb-1 d-flex flex-row align-items-center justify-content-between">
+        <div className="verMapa mb-4 d-flex flex-row align-items-center justify-content-between">
           <div className="bi bi-geo-alt">
 
             {data.cidade}
