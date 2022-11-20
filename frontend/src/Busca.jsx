@@ -24,9 +24,7 @@ export default function SearchResult() {
         <Searchbar />
       </section>
       <Container fluid className="d-flex vh-100">
-        {cidade?.produto?.map((produto) => (
-          <p>{produto.nome}</p>
-        ))}
+        teste
       </Container>
       <Footer />
     </div>

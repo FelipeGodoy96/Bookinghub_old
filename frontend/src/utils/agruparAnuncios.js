@@ -10,6 +10,8 @@ export default function agruparAnuncios(anuncios = null, cidades = null) {
           descricaoProduto: product.descricao,
           nome: product.nome,
           foto: category.imagem,
+          fotosAnuncio: [],
+          datasDisponiveisAnuncio: [],
           cidade: 'Cidade Teste',
         });
       });

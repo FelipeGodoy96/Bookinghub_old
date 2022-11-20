@@ -16,12 +16,12 @@ export default function Routers() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/reserva" element={<Reserva />} />
+      <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
       <Route path="/buscar/" element={<Busca />} />
-      <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
-      <Route path="/redefinirSenha" element={<RedefinirSenha />} />
+      <Route path="/redefinir-senha" element={<RedefinirSenha />} />
       <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
       <Route path="/404-NaoEncontrado" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404-NaoEncontrado" />} />
