@@ -26,6 +26,7 @@ import { DateRange } from 'react-date-range';
 import { ptBR } from 'date-fns/locale';
 import Footer from './components/Footer/Footer';
 import CustomGallery from './components/CustomGallery/Gallery';
+import Calendario from './components/Calendario/Calendario';
 
 export default function Anuncio() {
   const { id } = useParams();
@@ -115,12 +116,6 @@ export default function Anuncio() {
   const handleCloseGallery = () => {
     setGallery(false);
   };
-
-  const [date, setDate] = useState({
-    startDate: new Date(),
-    endDate: new Date(),
-    key: 'selection',
-  });
 
   return (
     <>
@@ -323,24 +318,7 @@ export default function Anuncio() {
 
         <Container className="descripition agendaDeReservas d-flex flex-column">
           <h3>Datas disponíveis</h3>
-          <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
-            <Card>
-              <DateRange
-                locale={ptBR}
-                editableDateInputs
-                moveRangeOnFirstSelection={false}
-                ranges={[date]}
-                onChange={(ranges) => setDate(ranges.selection)}
-              />
-            </Card>
-            <Card className="confirmReserva">
-              <h6 className="p-3 ">
-                Adicione as datas da sua estadia para obter a tarifa de
-                hospedagem
-              </h6>
-              <Button onClick={() => console.log(date)}>Reservar agora</Button>
-            </Card>
-          </Container>
+          <Calendario />
         </Container>
 
         <Container className="descripition d-flex flex-column">
