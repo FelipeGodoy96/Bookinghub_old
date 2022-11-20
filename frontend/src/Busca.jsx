@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/esm/Container';
 import Footer from './components/Footer/Footer';
 import Searchbar from './components/Searchbar/Searchbar';
