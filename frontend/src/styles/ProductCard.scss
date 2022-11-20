@@ -27,19 +27,20 @@
     text-overflow: ellipsis;
   }
 
-  .notaParceiro {
-    color: $white;
-    padding: 0.3em;
-    border-radius: 18px;
-    background-color: $secondary-color
-  }
+
 
   .descricaoAnunciante {
     text-align: justify;
   }
-
-  .classificacaoParceiro {
-    color: $secondary-color;
-    @include text1;
-  }
+  
+}
+.notaParceiro {
+  color: $white;
+  padding: 0.3em;
+  border-radius: 18px;
+  background-color: $secondary-color
+}
+.classificacaoParceiro {
+  color: $secondary-color;
+  @include text1;
 }

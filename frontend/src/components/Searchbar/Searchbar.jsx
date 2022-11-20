@@ -1,22 +1,17 @@
 import Button from 'react-bootstrap/Button';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Context from '../../Contexts/Context';
 
 export default function Searchbar() {
   const ref = useRef();
 
-  const [Resp, Repos] = useState([]);
-  const [resp, repos] = useState([]);
+  const { state } = useContext(Context);
+  const { cidades } = state;
 
-  useEffect(() => {
-    const FetchResp = async () => {
-      const api = await fetch('http://52.53.186.118:8080/cidade_produtos');
-      const data = await api.json();
-      Repos(data);
-      repos(data);
-    };
-    FetchResp();
-  }, []);
+  const [Resp, Repos] = useState(cidades);
+  const [resp, repos] = useState(cidades);
+
   const Change = ({ target }) => {
     if (!target.toLowerCase) {
       repos(Resp);
@@ -40,8 +35,8 @@ export default function Searchbar() {
           />
           <datalist id="data">
             {resp.map((respost) => (
-              <Link className="link" to={`/cidade/${respost.nome}`}>
-                <option key={respost.id} value={respost.nome}>{respost.nome}</option>
+              <Link className="link" key={respost.id} to={`/cidade/${respost.nome}`}>
+                <option value={respost.nome}>{respost.nome}</option>
               </Link>
             ))}
           </datalist>
@@ -73,7 +68,7 @@ export default function Searchbar() {
           />
         </div>
 
-        <Link to="/cidade"><Button className="m-1">Buscar</Button></Link>
+        <Link to="/"><Button className="m-1">Buscar</Button></Link>
       </div>
     </div>
   );

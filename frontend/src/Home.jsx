@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import axios from 'axios';
 import Container from 'react-bootstrap/Container';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Searchbar from './components/Searchbar/Searchbar';
 import Footer from './components/Footer/Footer';
 import Context from './Contexts/Context';
@@ -9,62 +8,8 @@ import CategoriesCard from './components/CategoriesCard/CategoriesCard';
 import ProductCard from './components/ProductCard/ProductCard';
 
 export default function Home() {
-  const { state, setState } = useContext(Context);
-  useEffect(() => {
-    async function getData() {
-      const categoriasData = await axios.get(
-        'http://52.53.186.118:8080/categorias',
-      );
-      const cidadesData = await axios.get(
-        'http://52.53.186.118:8080/cidade_produtos',
-      );
-      const anunciosData = await axios.get(
-        'http://52.53.186.118:8080/categoria_produtos',
-      );
-      setState({
-        ...state,
-        anuncios: anunciosData.data,
-        categorias: categoriasData.data,
-        categoriasProd: anunciosData.data,
-        cidades: cidadesData.data,
-      });
-    }
-    getData();
-  }, []);
-
-  const { anuncios, categorias, cidades } = state;
-
-  function agruparAnuncios() {
-    const ctx = [];
-    anuncios.forEach((category) => {
-      category.produto.forEach((product) => {
-        ctx.push({
-          idCategoria: category.id,
-          id: product.id,
-          categoria: category.descricao,
-          descricaoProduto: product.descricao,
-          nome: product.nome,
-          foto: category.imagem,
-          cidade: 'Cidade Teste',
-        });
-      });
-    });
-
-    cidades.forEach((cidadesCtx) => {
-      cidadesCtx.produto.forEach((produto) => {
-        ctx.forEach((item, i) => {
-          if (item.id === produto.id) {
-            ctx[i].cidade = cidadesCtx.nome;
-          }
-        });
-      });
-    });
-    return ctx;
-  }
-
-  useEffect(() => {
-    agruparAnuncios();
-  }, [state]);
+  const { state } = useContext(Context);
+  const { anuncios, categorias } = state;
 
   return (
     <>
@@ -79,7 +24,7 @@ export default function Home() {
       >
         <h1 className="text-center"> Buscar por categoria de acomodação</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
-          {categorias.map((m, index) => (
+          {categorias?.map((m, index) => (
             <CategoriesCard data={m} key={index} />
           ))}
         </div>
@@ -91,7 +36,7 @@ export default function Home() {
       >
         <h1 className="text-center"> Recomendações</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
-          {agruparAnuncios().map((m, index) => (
+          {anuncios.map((m, index) => (
             <ProductCard data={m} key={index} />
           ))}
         </div>

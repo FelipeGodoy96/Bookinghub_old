@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import * as React from 'react';
+import React from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -15,7 +13,7 @@ import {
   MdCarRental,
   MdDining,
 } from 'react-icons/md';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import Box from '@mui/material/Box';
@@ -23,63 +21,15 @@ import Modal from '@mui/material/Modal';
 import Footer from './components/Footer/Footer';
 import CustomGallery from './components/CustomGallery/Gallery';
 import Calendario from './components/Calendario/Calendario';
+import Context from './Contexts/Context';
 
 export default function Anuncio() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const [anuncio, setAnuncio] = useState({
-    idCategoria: 1,
-    id: 1,
-    categoria: '',
-    descricaoProduto: '',
-    nome: '',
-    descricao: '',
-    foto: '',
-    cidade: 'Cidade Teste',
-  });
+  const { state } = React.useContext(Context);
+  const { anuncios } = state;
 
-  function agruparAnuncios(anunciosRaw) {
-    const ctx = [];
-    anunciosRaw.forEach((category) => {
-      category.produto.forEach((product) => {
-        ctx.push({
-          idCategoria: category.id,
-          id: product.id,
-          categoria: category.descricao,
-          descricaoProduto: product.descricao,
-          nome: product.nome,
-          descricao: product.descricao,
-          foto: category.imagem,
-          cidade: 'Cidade Teste',
-        });
-      });
-    });
-    return ctx;
-  }
+  const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
 
-  async function buscarTodosAnuncios() {
-    try {
-      const anuncioRaw = await axios.get(
-        'http://52.53.186.118:8080/categoria_produtos',
-      );
-      const anunciosAgrupados = agruparAnuncios(anuncioRaw.data);
-      const anunciosFiltrados = anunciosAgrupados.filter(
-        (item) => item.id.toString() === id,
-      );
-      if (anunciosFiltrados.length < 1) {
-        throw new Error();
-      }
-      setAnuncio(anunciosFiltrados[0]);
-    } catch (err) {
-      navigate('/404-NaoEncontrado');
-    }
-  }
-
-  useEffect(() => {
-    buscarTodosAnuncios();
-  }, []);
-  // checar se existe um anuncio de id 99
-  // navigate pra pagina 404 -> nao encontrado
   const images = [
     {
       original:
@@ -118,8 +68,8 @@ export default function Anuncio() {
       <section className="subHeader">
         <Container className="d-flex flex-row justify-content-between align-items-center">
           <div className="informacoesAnunciante">
-            <p>{anuncio.categoria}</p>
-            <h3 className="nomeAnunciante">{anuncio.nome}</h3>
+            <p>{anuncioSelected.categoria}</p>
+            <h3 className="nomeAnunciante">{anuncioSelected.nome}</h3>
           </div>
           <Link to="/">
             <BsArrowReturnLeft className="iconeSubHeader" />
@@ -130,13 +80,13 @@ export default function Anuncio() {
       <section className="mapSubHeader">
         <Container className="d-flex flex-row justify-content-between">
           <div className="d-flex flex-column flex-lg-row align-items-center gap-lg-5">
-            <div className="bi bi-geo-alt">Cidade TESTE</div>
+            <div className="bi bi-geo-alt">{anuncioSelected.cidade}</div>
             <Link className="bi bi-pin-map" to="/">
               Ver no mapa
             </Link>
           </div>
 
-          <div className="d-flex flex-column align-items-center">
+          <div className=" d-flex flex-column align-items-end">
             <div className="notaParceiro">8.0</div>
             <div className="classificacaoParceiro">Muito Bom</div>
           </div>
@@ -259,7 +209,7 @@ export default function Anuncio() {
 
         <Container className="descripition  d-flex flex-column justify-content-end">
           <h3>Informações sobre esta acomodação</h3>
-          <p>{anuncio.descricao}</p>
+          <p>{anuncioSelected.descricaoProduto}</p>
         </Container>
 
         <Container className="descripition d-flex flex-column justify-content-end">
@@ -320,7 +270,7 @@ export default function Anuncio() {
               <h6 className="p-3 ">
                 Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
-              <Button onClick={() => console.log(date)}>Reservar agora</Button>
+              <Button>Reservar agora</Button>
             </Card>
           </div>
         </Container>
