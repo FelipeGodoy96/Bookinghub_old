@@ -67,7 +67,6 @@ public class ProdutosDto implements Serializable {
     public Set<ReservasDto> getReserva() {
         return reserva;
     }
-
     public void setReserva(Set<ReservasDto> reserva) {
         this.reserva = reserva;
     }

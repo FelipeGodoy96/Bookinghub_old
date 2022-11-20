@@ -21,7 +21,7 @@ public class UsuariosDto implements Serializable {
 
     private String senha; //Criptografado
 
-    private Set<ReservasDto> reserva = new HashSet<>();
+    private Set<ProdutosDto> produto = new HashSet<>();
     private Set<PapeisDto> papeis = new HashSet<>();
 
     public UsuariosDto() {
@@ -42,7 +42,7 @@ public class UsuariosDto implements Serializable {
         email = usuarios.getEmail();
         senha = usuarios.getSenha();
         usuarios.getPapeis().forEach(papeis -> this.papeis.add(new PapeisDto(papeis)));
-        usuarios.getReserva().forEach(reservas -> this.reserva.add(new ReservasDto(reservas)));
+        usuarios.getProduto().forEach(produtos -> this.produto.add(new ProdutosDto(produtos)));
 
     }
 
@@ -88,11 +88,17 @@ public class UsuariosDto implements Serializable {
         this.papeis = papeis;
     }
 
-    public Set<ReservasDto> getReserva() {
-        return reserva;
+//    public Set<ReservasDto> getReserva() {
+//        return reserva;
+//    }
+//    public void setReserva(Set<ReservasDto> reserva) {
+//        this.reserva = reserva;
+//    }
+    public Set<ProdutosDto> getProduto() {
+        return produto;
     }
-    public void setReserva(Set<ReservasDto> reserva) {
-        this.reserva = reserva;
+    public void setProduto(Set<ProdutosDto> produto) {
+        this.produto = produto;
     }
 }
 
