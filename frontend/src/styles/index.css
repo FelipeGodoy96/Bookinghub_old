@@ -22779,6 +22779,39 @@ textarea.form-control-lg {
   font-size: 14pt;
 }
 
+.anuncioCardReserva {
+  height: 500px;
+  width: 390px;
+  background: rgb(243, 241, 237);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+@media screen and (max-width: 390px) {
+  .anuncioCardReserva {
+    width: 310px;
+  }
+}
+.anuncioCardReserva img {
+  height: 150px;
+  object-fit: cover;
+}
+.anuncioCardReserva button {
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.anuncioCardReserva .nomeAnuncianteReserva {
+  height: 2.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .searchBarComponent button {
   font-family: "Roboto", sans-serif;
   color: #1DBEB4;

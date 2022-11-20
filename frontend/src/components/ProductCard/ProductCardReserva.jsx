@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import Button from 'react-bootstrap/esm/Button';
 
 import Card from 'react-bootstrap/esm/Card';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function ProductCardReserva({ data }) {
   return (
-    <Card className="anuncioCard d-flex flex-column m-2">
+    <Card className="anuncioCardReserva d-flex flex-column m-2">
       {/* <Card.Img
         variant="top"
         onError={({ currentTarget }) => {
@@ -28,7 +29,7 @@ export default function ProductCardReserva({ data }) {
             <p>Categoria</p>
           </div>
           <div>
-            <h3 className="nomeAnunciante">Nome do hotel</h3>
+            <h3 className="nomeAnuncianteReserva">Nome do hotel</h3>
           </div>
         </div>
         <hr className="solid" />
@@ -50,6 +51,10 @@ export default function ProductCardReserva({ data }) {
           <Card.Title>Check-out</Card.Title>
           <Card.Text>Data</Card.Text>
         </div>
+
+        <Button className="m-1">
+          Confirmar Reserva
+        </Button>
       </Card.Body>
     </Card>
   );
