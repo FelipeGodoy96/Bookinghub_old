@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
 import { ptBR } from 'date-fns/locale';
 import { Button, Card, Container } from 'react-bootstrap';
-import { useState } from 'react';
 
 export default function Calendario() {
   const [date, setDate] = useState({

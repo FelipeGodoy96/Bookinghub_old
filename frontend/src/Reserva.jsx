@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 import { Card, Container } from 'react-bootstrap';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import ProductCardReserva from './components/ProductCard/ProductCardReserva';
 import Footer from './components/Footer/Footer';
+import Calendario from './components/Calendario/Calendario';
 
 export default function Reserva() {
   return (
@@ -80,8 +79,9 @@ export default function Reserva() {
           <Container className="d-flex align-items-center justify-content-center flex-column align-content-start flex-wrap mt-3">
             <Card className="cardForm w-100">
               <Card.Title>
-                <h1>Selecione a data das reserversas</h1>
+                <h1>Selecione a data da reserva</h1>
               </Card.Title>
+              <Calendario />
               <Form />
             </Card>
           </Container>

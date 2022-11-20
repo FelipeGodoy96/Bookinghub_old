@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as React from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BsArrowReturnLeft } from 'react-icons/bs';
@@ -20,10 +20,6 @@ import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRange } from 'react-date-range';
-import { ptBR } from 'date-fns/locale';
 import Footer from './components/Footer/Footer';
 import CustomGallery from './components/CustomGallery/Gallery';
 import Calendario from './components/Calendario/Calendario';
