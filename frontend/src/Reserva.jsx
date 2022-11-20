@@ -12,6 +12,7 @@ export default function Reserva() {
   return (
     <>
       <div className="d-flex flex-column flex-lg-row flex-md-row align-items-center justify-content-center">
+
         <div className="formContainer d-flex flex-column">
           <Container className=" d-flex align-items-center justify-content-center flex-column align-content-start flex-wrap">
             <Card className="cardForm w-100">
@@ -86,6 +87,7 @@ export default function Reserva() {
             </Card>
           </Container>
         </div>
+
         <ProductCardReserva />
 
       </div>

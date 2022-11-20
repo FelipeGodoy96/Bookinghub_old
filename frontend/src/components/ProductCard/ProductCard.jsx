@@ -32,18 +32,18 @@ export default function ProductCard({ data }) {
             <h3 className="nomeAnunciante">{data.nome}</h3>
           </div>
         </div>
+
         <div className="verMapa mb-4 d-flex flex-row align-items-center justify-content-between">
           <div className="bi bi-geo-alt">
-
             {data.cidade}
           </div>
-
           <Link className="bi bi-pin-map" to="/">
             Ver no mapa
           </Link>
         </div>
-        <p>
-          {data.descricaoProduto?.substring(0, 180)}
+
+        <p className="descricaoAnunciante">
+          {data.descricaoProduto?.substring(0, 170)}
           ....
         </p>
 

@@ -22764,15 +22764,16 @@ textarea.form-control-lg {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.notaParceiro {
+.anuncioCard .notaParceiro {
   color: #FFF;
   padding: 0.3em;
   border-radius: 18px;
   background-color: #383B58;
 }
-
-.classificacaoParceiro {
+.anuncioCard .descricaoAnunciante {
+  text-align: justify;
+}
+.anuncioCard .classificacaoParceiro {
   color: #383B58;
   font-family: "Roboto", sans-serif;
   font-weight: medium;
