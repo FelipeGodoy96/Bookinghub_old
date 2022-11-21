@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,5 +21,32 @@ public class ServiceCliente {
     public List<ClienteDto> findAll(){
         List<Cliente> list = repository.findAll();
         return list.stream().map(x -> new ClienteDto(x)).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public ClienteDto findById (Integer id) {
+        Optional<Cliente> object = repository.findById(id);
+        Cliente entity = object.get();
+        return new ClienteDto(entity);
+    }
+
+    public void delete(Integer id) {
+        repository.deleteById(id);
+    }
+
+    @Transactional
+    public ClienteDto insert(ClienteDto dto) {
+        Cliente entity = new Cliente();
+        entity.setId(dto.getId());
+        entity = repository.save(entity);
+        return new ClienteDto(entity);
+    }
+
+    @Transactional
+    public ClienteDto update(Integer id, ClienteDto dto) {
+        Cliente entity = repository.getReferenceById(id);
+        entity.setId(dto.getId());
+        entity = repository.save(entity);
+        return new ClienteDto(entity);
     }
 }

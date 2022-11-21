@@ -13,10 +13,6 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-//    private List<Usuarios> usuarios;
-
-
     @ManyToMany(fetch = FetchType.EAGER) // Força a busca dos perfis do usuário
     @JoinTable(name = "usuarios_clientes",
             joinColumns = @JoinColumn(name = "cliente_id", referencedColumnName = "id"),

@@ -1,6 +1,5 @@
 package br.com.APIrest.APIrest.controller;
 
-import br.com.APIrest.APIrest.dto.CategoriasDto;
 import br.com.APIrest.APIrest.dto.ImagensDto;
 import br.com.APIrest.APIrest.service.ServiceImagens;
 import org.springframework.beans.factory.annotation.Autowired;

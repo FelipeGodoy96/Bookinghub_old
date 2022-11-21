@@ -1,7 +1,6 @@
 package br.com.APIrest.APIrest.dto;
 
 import br.com.APIrest.APIrest.model.Cliente;
-import br.com.APIrest.APIrest.model.Usuarios;
 
 import java.io.Serializable;
 import java.util.HashSet;

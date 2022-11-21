@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "reservas")
@@ -20,12 +19,6 @@ public class Reservas implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "reservas_produtos")
     private Produtos produtos;
-//    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
-//    private List<Produtos> produtos;
-
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "reservas_usuarios")
-//    private Usuarios usuarios;
 
     public Reservas() {
     }
@@ -65,22 +58,10 @@ public class Reservas implements Serializable {
         this.d_fin_reser = d_fin_reser;
     }
 
-//    public List<Produtos> getProdutos() {
-//        return produtos;
-//    }
-//    public void setProdutos(List<Produtos> produtos) {
-//        this.produtos = produtos;
-//    }
     public Produtos getProdutos() {
         return produtos;
     }
     public void setProdutos(Produtos produtos) {
         this.produtos = produtos;
     }
-//    public Usuarios getUsuarios() {
-//        return usuarios;
-//    }
-//    public void setUsuarios(Usuarios usuarios) {
-//        this.usuarios = usuarios;
-//    }
 }

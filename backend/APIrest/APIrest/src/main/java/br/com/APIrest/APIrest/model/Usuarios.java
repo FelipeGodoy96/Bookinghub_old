@@ -22,9 +22,6 @@ public class Usuarios implements Serializable {
     @OneToMany(mappedBy = "usuarios", fetch = FetchType.LAZY)
     private List<Produtos> produto;
 
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "clientes_usuarios")
-//    private Cliente cliente;
     @ManyToMany(fetch = FetchType.EAGER) // Força a busca dos perfis do usuário
     @JoinTable(name = "usuarios_papeis",
             joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
@@ -81,14 +78,6 @@ public class Usuarios implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-//    public List<Reservas> getReserva() {
-//        return reserva;
-//    }
-//    public void setReserva(List<Reservas> reserva) {
-//        this.reserva = reserva;
-//    }
-
 
     public List<Produtos> getProduto() {
         return produto;

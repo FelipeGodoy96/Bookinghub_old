@@ -88,12 +88,6 @@ public class UsuariosDto implements Serializable {
         this.papeis = papeis;
     }
 
-//    public Set<ReservasDto> getReserva() {
-//        return reserva;
-//    }
-//    public void setReserva(Set<ReservasDto> reserva) {
-//        this.reserva = reserva;
-//    }
     public Set<ProdutosDto> getProduto() {
         return produto;
     }

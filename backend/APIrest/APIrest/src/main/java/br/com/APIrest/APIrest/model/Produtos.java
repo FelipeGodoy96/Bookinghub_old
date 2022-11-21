@@ -29,9 +29,7 @@ public class Produtos implements Serializable {
 
     @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
     private List<Reservas> reserva;
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "produtos_reservas")
-//    private Produtos produtos;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usuarios_produtos")
     private Usuarios usuarios;
@@ -92,12 +90,6 @@ public class Produtos implements Serializable {
         this.cidades = cidades;
     }
 
-//    public Produtos getProdutos() {
-//        return produtos;
-//    }
-//    public void setProdutos(Produtos produtos) {
-//        this.produtos = produtos;
-//    }
     public Usuarios getUsuarios() {
         return usuarios;
     }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,5 +21,38 @@ public class ServiceReservas {
     public List<ReservasDto> findAll(){
         List<Reservas> list = repository.findAll();
         return list.stream().map(x -> new ReservasDto(x)).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public ReservasDto findById (Integer id) {
+        Optional<Reservas> object = repository.findById(id);
+        Reservas entity = object.get();
+        return new ReservasDto(entity);
+    }
+
+    public void delete(Integer id) {
+        repository.deleteById(id);
+    }
+
+    @Transactional
+    public ReservasDto insert(ReservasDto dto) {
+        Reservas entity = new Reservas();
+        entity.setId(dto.getId());
+        entity.setH_inic_reser(dto.getH_inic_reser());
+        entity.setD_inic_reser(dto.getD_inic_reser());
+        entity.setD_fin_reser(dto.getD_fin_reser());
+        entity = repository.save(entity);
+        return new ReservasDto(entity);
+    }
+
+    @Transactional
+    public ReservasDto update(Integer id, ReservasDto dto) {
+        Reservas entity = repository.getReferenceById(id);
+        entity.setId(dto.getId());
+        entity.setH_inic_reser(dto.getH_inic_reser());
+        entity.setD_inic_reser(dto.getD_inic_reser());
+        entity.setD_fin_reser(dto.getD_fin_reser());
+        entity = repository.save(entity);
+        return new ReservasDto(entity);
     }
 }
