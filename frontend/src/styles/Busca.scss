@@ -1,8 +1,12 @@
 .cardContainer{
-    padding: 2.5rem;    
+    padding: 1em;    
     @include card1;
-    width: 55rem;
-  
+    width: 55em;
+    margin: 1rem;
+  &:hover{
+    border: 1px solid rgba( 29, 190, 180, 0.8 );
+
+  }
 .cardImg img{
     width: 15rem;
     height: 15rem;
@@ -54,5 +58,16 @@
     color: red;
  }
 }
+
+.notaParceiro {
+    color: $white;
+    padding: 0.3em;
+    border-radius: 18px;
+    background-color: $secondary-color
+  }
+  .classificacaoParceiro {
+    color: $secondary-color;
+    @include text1;
+  }
 
 

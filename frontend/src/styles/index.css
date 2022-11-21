@@ -22923,14 +22923,18 @@ input[type=date]::-webkit-clear-button {
 }
 
 .cardContainer {
-  padding: 2.5rem;
+  padding: 1em;
   background: rgb(255, 255, 255);
   box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 55rem;
+  width: 55em;
+  margin: 1rem;
+}
+.cardContainer:hover {
+  border: 1px solid rgba(29, 190, 180, 0.8);
 }
 .cardContainer .cardImg img {
   width: 15rem;
@@ -22977,6 +22981,20 @@ input[type=date]::-webkit-clear-button {
 }
 .cardContainer .p4 {
   color: red;
+}
+
+.notaParceiro {
+  color: #FFF;
+  padding: 0.3em;
+  border-radius: 18px;
+  background-color: #383B58;
+}
+
+.classificacaoParceiro {
+  color: #383B58;
+  font-family: "Roboto", sans-serif;
+  font-weight: medium;
+  font-size: 14pt;
 }
 
 /* HTML5 display-role reset for older browsers */
