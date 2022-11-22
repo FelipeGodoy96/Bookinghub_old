@@ -11,9 +11,14 @@ INSERT INTO cidades (nome, pais) VALUES ('nomeTest','paisTest');
 INSERT INTO cidades (nome, pais) VALUES ('nomeTest2','paisTest2');
 INSERT INTO cidades (nome, pais) VALUES ('nomeTest3','paisTest3');
 
-INSERT INTO imagens (titulo, url) VALUES ('tituloTest','urlTest');
-INSERT INTO imagens (titulo, url) VALUES ('tituloTest2','urlTest2');
-INSERT INTO imagens (titulo, url) VALUES ('tituloTest3','urlTest3');
+INSERT INTO imagens_anuncio (titulo, url, url_foto1, url_foto2, url_foto3, url_foto4, url_foto5) VALUES ('tituloTest','urlTest', 'urlTest', 'urlTest', 'urlTest', 'urlTest', 'urlTest');
+INSERT INTO imagens_anuncio (titulo, url, url_foto1, url_foto2, url_foto3, url_foto4, url_foto5) VALUES ('tituloTest','urlTest', 'urlTest', 'urlTest', 'urlTest', 'urlTest', 'urlTest');
+INSERT INTO imagens_anuncio (titulo, url, url_foto1, url_foto2, url_foto3, url_foto4, url_foto5) VALUES ('tituloTest','urlTest', 'urlTest', 'urlTest', 'urlTest', 'urlTest', 'urlTest');
+
+--INSERT INTO produto_imagens_anuncio (produto_id, imagens_anuncio_id) VALUES (1, 1);
+--INSERT INTO produto_imagens_anuncio (produto_id, imagens_anuncio_id) VALUES (2, 2);
+--INSERT INTO produto_imagens_anuncio (produto_id, imagens_anuncio_id) VALUES (3, 3);
+
 
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest','descricaoTest');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest2','descricaoTest2');
@@ -62,9 +67,6 @@ UPDATE reservas SET reservas_produtos = 1 WHERE id = 1
 UPDATE reservas SET reservas_produtos = 2 WHERE id = 3
 UPDATE reservas SET reservas_produtos = 3 WHERE id = 2
 
-
---UPDATE reservas SET reservas_usuarios  = 1 WHERE id = 1
---UPDATE reservas SET reservas_usuarios  = 1 WHERE id = 2
---UPDATE reservas SET reservas_usuarios  = 2 WHERE id = 3
-
---UPDATE produtos SET produtos_reservas = 1 WHERE id = 1
+UPDATE imagens_anuncio SET imagens_produtos = 1 WHERE id = 1
+UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 2
+UPDATE imagens_anuncio SET imagens_produtos = 3 WHERE id = 3

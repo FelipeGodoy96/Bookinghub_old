@@ -30,6 +30,8 @@ public class Produtos implements Serializable {
     @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
     private List<Reservas> reserva;
 
+    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
+    private List<ImagensAnuncio> imagensAnuncio;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "usuarios_produtos")
     private Usuarios usuarios;
@@ -40,6 +42,11 @@ public class Produtos implements Serializable {
     inverseJoinColumns = @JoinColumn(name = "caracteristicaID", referencedColumnName = "id"))
     Set<Caracteristicas> caracteristica = new HashSet<>();
 
+//    @ManyToMany
+//    @JoinTable(name = "produto_imagens_anuncio",
+//            joinColumns = @JoinColumn(name = "produto_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "imagens_anuncio_id", referencedColumnName = "id"))
+//    Set<ImagensAnuncio> imagensAnuncio = new HashSet<>();
     public Produtos() {
     }
 
@@ -47,8 +54,7 @@ public class Produtos implements Serializable {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.caracteristica = caracteristica;
-        }
+    }
 
     public Integer getId() {
         return id;
@@ -102,5 +108,18 @@ public class Produtos implements Serializable {
     }
     public void setReserva(List<Reservas> reserva) {
         this.reserva = reserva;
+    }
+
+//    public Set<ImagensAnuncio> getImagensAnuncios() {
+//        return imagensAnuncio;
+//    }
+//    public void setImagensAnuncios(Set<ImagensAnuncio> imagensAnuncio) {
+//        this.imagensAnuncio = imagensAnuncio;
+//    }
+    public List<ImagensAnuncio> getImagensAnuncios() {
+        return imagensAnuncio;
+    }
+    public void setImagensAnuncios(List<ImagensAnuncio> imagensAnuncio) {
+        this.imagensAnuncio = imagensAnuncio;
     }
 }

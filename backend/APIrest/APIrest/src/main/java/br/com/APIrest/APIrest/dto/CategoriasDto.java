@@ -23,10 +23,10 @@ public class CategoriasDto implements Serializable {
     }
 
     public CategoriasDto(Categorias categorias) {
-        this.id = categorias.getId();
-        this.qualificacao = categorias.getQualificacao();
-        this.descricao = categorias.getDescricao();
-        this.imagem = categorias.getImagem();
+        id = categorias.getId();
+        qualificacao = categorias.getQualificacao();
+        descricao = categorias.getDescricao();
+        imagem = categorias.getImagem();
     }
 
     public Integer getId() {
