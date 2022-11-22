@@ -12,3 +12,7 @@
     height: 183px;
     object-fit: cover;
 }
+
+.m-1{
+    @include button1;
+}

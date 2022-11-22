@@ -1,62 +1,71 @@
-.cardContainer{
-    padding: 1em;    
+.cardContainer {
+    padding: 1em;
     @include card1;
     width: 55em;
     margin: 1rem;
-  &:hover{
-    border: 1px solid rgba( 29, 190, 180, 0.8 );
 
-  }
-.cardImg img{
-    width: 15rem;
-    height: 15rem;
-   }
+    &:hover {
+        border: 1px solid rgba(29, 190, 180, 0.8);
 
-.cardTextContainer{
-    margin-left: 0.5rem
-}  
-.cardText a{
-     color: $azure-radiance;
-    text-decoration: none
-} 
-.cardText h3{
-
-    @include font-small;
-
-    &:hover{
-        color: $malibu;
     }
-}
 
-.descriptionCard{
-    margin-left: 0.3rem;
-    padding: .5rem;
-    border-left: 2px solid rgb(119, 116, 116);
-    margin-top: 1rem;
-   
-}
-.descriptionCard .p1{
-    @include text2;
-    font-size: 0.9em;
-    font-weight: 600;
-   
-    
-}
-.descriptionCard .p2{
-    font-size: 0.8rem;
-    font-weight: 100;
- }
+    .cardImg img {
+        width: 15rem;
+        height: 15rem;
+    }
 
- .descriptionCard .p3, .p4{
-    font-size: 0.9em;
-    font-weight: 600;
- }
- .p3{
-    color: green;
- }
- .p4{
-    color: red;
- }
+    .cardTextContainer {
+        margin-left: 0.5rem
+    }
+
+    .cardText a {
+        color: $azure-radiance;
+        text-decoration: none
+    }
+
+    .cardText h3 {
+
+        @include font-small;
+
+        &:hover {
+            color: $malibu;
+        }
+    }
+
+    .descriptionCard {
+        margin-left: 0.3rem;
+        padding: .5rem;
+        border-left: 2px solid rgb(119, 116, 116);
+        margin-top: 1rem;
+
+    }
+
+    .descriptionCard .p1 {
+        @include text2;
+        font-size: 0.9em;
+        font-weight: 600;
+
+
+    }
+
+    .descriptionCard .p2 {
+        font-size: 0.8rem;
+        font-weight: 100;
+    }
+
+    .descriptionCard .p3,
+    .p4 {
+        font-size: 0.9em;
+        font-weight: 600;
+    }
+
+    .p3 {
+        color: green;
+    }
+
+    .p4 {
+        color: red;
+    }
 }
 
 .notaParceiro {
@@ -64,10 +73,9 @@
     padding: 0.3em;
     border-radius: 18px;
     background-color: $secondary-color
-  }
-  .classificacaoParceiro {
+}
+
+.classificacaoParceiro {
     color: $secondary-color;
     @include text1;
-  }
-
-
+}

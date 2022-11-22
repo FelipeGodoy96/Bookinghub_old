@@ -22214,6 +22214,14 @@ textarea.form-control-lg {
   object-fit: cover;
 }
 
+.m-1 {
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
 .defFooter {
   bottom: 0;
   color: #F3F1ED;
@@ -22732,6 +22740,13 @@ textarea.form-control-lg {
 .NavBar .NavStyle .notLogedNav button a {
   color: #FFF;
 }
+.NavBar .NavStyle .notLogedNav button:hover {
+  background-color: #FFF;
+  border: 1px solid #1DBEB4;
+}
+.NavBar .NavStyle .notLogedNav button:hover a {
+  color: #1DBEB4;
+}
 
 .anuncioCard {
   width: 390px;
@@ -22972,7 +22987,8 @@ input[type=date]::-webkit-clear-button {
   font-size: 0.8rem;
   font-weight: 100;
 }
-.cardContainer .descriptionCard .p3, .cardContainer .p4 {
+.cardContainer .descriptionCard .p3,
+.cardContainer .p4 {
   font-size: 0.9em;
   font-weight: 600;
 }
