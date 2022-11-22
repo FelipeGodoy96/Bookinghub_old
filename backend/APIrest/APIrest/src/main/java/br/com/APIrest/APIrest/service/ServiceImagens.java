@@ -40,11 +40,6 @@ public class ServiceImagens {
         entity.setId(dto.getId());
         entity.setTitulo(dto.getTitulo());
         entity.setUrl(dto.getUrl());
-        entity.setUrlFoto1(dto.getUrlFoto1());
-        entity.setUrlFoto2(dto.getUrlFoto2());
-        entity.setUrlFoto3(dto.getUrlFoto3());
-        entity.setUrlFoto4(dto.getUrlFoto4());
-        entity.setUrlFoto5(dto.getUrlFoto5());
         entity = repository.save(entity);
         return new ImagensAnuncioDto(entity);
     }
@@ -55,11 +50,6 @@ public class ServiceImagens {
         entity.setId(dto.getId());
         entity.setTitulo(dto.getTitulo());
         entity.setUrl(dto.getUrl());
-        entity.setUrlFoto1(dto.getUrlFoto1());
-        entity.setUrlFoto2(dto.getUrlFoto2());
-        entity.setUrlFoto3(dto.getUrlFoto3());
-        entity.setUrlFoto4(dto.getUrlFoto4());
-        entity.setUrlFoto5(dto.getUrlFoto5());
         entity = repository.save(entity);
         return new ImagensAnuncioDto(entity);
     }
