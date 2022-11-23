@@ -18,13 +18,13 @@ INSERT INTO imagens_anuncio (titulo, url) VALUES ('tituloTest','urlTest');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest','descricaoTest');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest2','descricaoTest2');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest3','descricaoTest3');
-
-INSERT INTO papeis (authority) VALUES ('ADMtest');
-INSERT INTO papeis (authority) VALUES ('USERtest');
-
-INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('viniTest', 'felceTest', 'viramos017@gmail.com', 'vinif');
-INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest2', 'sobrenome2', 'email2', 'senha2');
-INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest3', 'sobrenome3', 'email3', 'senha3');
+--
+--INSERT INTO papeis (authority) VALUES ('ADMtest');
+--INSERT INTO papeis (authority) VALUES ('USERtest');
+--
+--INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('viniTest', 'felceTest', 'viramos017@gmail.com', 'vinif');
+--INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest2', 'sobrenome2', 'email2', 'senha2');
+--INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest3', 'sobrenome3', 'email3', 'senha3');
 
 INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('23:18:00', '2023-06-17', '2023-06-20');
 INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('06:00:00', '2022-12-30', '2023-01-05');
@@ -54,14 +54,14 @@ UPDATE produtos SET cidade_mtone = 1 WHERE id = 3
 UPDATE produtos SET cidade_mtone = 2 WHERE id = 2
 UPDATE produtos SET cidade_mtone = 3 WHERE id = 1
 
-UPDATE produtos SET usuarios_produtos = 2 WHERE id = 1
-UPDATE produtos SET usuarios_produtos = 2 WHERE id = 3
-UPDATE produtos SET usuarios_produtos = 3 WHERE id = 2
+--UPDATE produtos SET usuarios_produtos = 2 WHERE id = 1
+--UPDATE produtos SET usuarios_produtos = 2 WHERE id = 3
+--UPDATE produtos SET usuarios_produtos = 3 WHERE id = 2
 
 UPDATE reservas SET reservas_produtos = 1 WHERE id = 1
 UPDATE reservas SET reservas_produtos = 2 WHERE id = 3
 UPDATE reservas SET reservas_produtos = 3 WHERE id = 2
 
---UPDATE imagens_anuncio SET imagens_produtos = 1 WHERE id = 1
---UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 2
---UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 3
+UPDATE imagens_anuncio SET imagens_produtos = 1 WHERE id = 1
+UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 2
+UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 3
