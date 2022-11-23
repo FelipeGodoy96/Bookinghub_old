@@ -30,6 +30,11 @@ export default function Anuncio() {
 
   const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
 
+  // const imagens = anuncioSelected.fotosAnuncio?.forEach((url) => {
+  //   imagens.push(url);
+  // });
+  // console.log(imagens);
+
   const images = [
     {
       original:
