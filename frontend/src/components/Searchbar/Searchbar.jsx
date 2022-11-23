@@ -7,25 +7,27 @@ export default function Searchbar() {
   const ref = useRef();
 
   const { state } = useContext(Context);
-  const { cidades } = state;
+  const { cidades, categorias } = state;
 
   const [Resp, Repos] = useState(cidades);
-  const [resp, repos] = useState(cidades);
+  const [cidadesData, setCidadesData] = useState(cidades);
+  const [categoriasData, setCategoriasData] = useState(categorias);
+  console.log(categoriasData);
 
   const Change = ({ target }) => {
     if (!target.toLowerCase) {
-      repos(Resp);
+      setCidadesData(Resp);
       return;
     }
-    const filterResp = resp.filter(({ nome }) => nome.includes(target.value));
-    repos(filterResp);
+    const filterResp = cidadesData.filter(({ nome }) => nome.includes(target.value));
+    setCidadesData(filterResp);
   };
+
   return (
     <div className="searchBarComponent">
       <div className="d-flex w-100 flex-column flex-lg-row justify-content-center ">
         <div className="form-group has-search m-1 ">
           <span className="bi bi-geo-alt  form-control-feedback" />
-
           <input
             type="text"
             list="data"
@@ -34,13 +36,26 @@ export default function Searchbar() {
             onChange={Change}
           />
           <datalist id="data">
-            {resp.map((respost) => (
-              <Link className="link" key={respost.id} to={`/cidade/${respost.nome}`}>
-                <option value={respost.nome}>{respost.nome}</option>
-              </Link>
+            {cidadesData.map((respost) => (
+              <option value={respost.nome}>{respost.nome}</option>
             ))}
           </datalist>
+        </div>
 
+        <div className="form-group has-search m-1 ">
+          <span className="bi bi-house  form-control-feedback" />
+          <input
+            type="text"
+            list="datacategoria"
+            className="form-control"
+            placeholder="Categoria"
+            onChange={Change}
+          />
+          <datalist id="datacategoria">
+            {categoriasData.map((categoriasRespose) => (
+              <option value={categoriasRespose.descricao}>{categoriasRespose.descricao}</option>
+            ))}
+          </datalist>
         </div>
 
         <div className="calendar-input form-group has-search m-1">

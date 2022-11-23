@@ -22208,7 +22208,7 @@ textarea.form-control-lg {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.categoriesCard .m-1 {
+.categoriesCard button {
   font-family: "Roboto", sans-serif;
   color: #FFF;
   background-color: #1DBEB4;

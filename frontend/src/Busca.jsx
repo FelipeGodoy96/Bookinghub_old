@@ -14,8 +14,8 @@ export default function Busca({ data }) {
         </section>
         <Container className="d-flex flex-column align-items-center">
           <SearchCard />
+          <SearchCard />
         </Container>
-
       </div>
       <Footer />
     </>

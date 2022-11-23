@@ -26,8 +26,7 @@ export default function Categoria() {
         className="categoryPage d-flex flex-column justify-content-center align-items-center "
       >
         <h1 className="text-center">
-          Filtro por categoria:
-          {' '}
+          Todos acomodações em :  &nbsp;
           {nomecategoria}
         </h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
