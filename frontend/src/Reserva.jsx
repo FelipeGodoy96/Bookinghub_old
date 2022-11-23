@@ -22,27 +22,27 @@ export default function Reserva() {
 
               <Form>
                 <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
-                  <Form.Group className="w-100 m-1">
+                  <Form.Group className="w-100">
                     <Form.Label>Nome</Form.Label>
                     <Form.Control type="text" placeholder="Nome" />
                   </Form.Group>
 
-                  <Form.Group className="w-100 m-1">
+                  <Form.Group className="w-100">
                     <Form.Label>Sobrenome</Form.Label>
                     <Form.Control type="text" placeholder="Sobrenome" />
                   </Form.Group>
                 </div>
 
-                <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
-                  <Form.Group className="w-100 m-1">
+                <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between mt-3">
+                  <Form.Group className="w-100">
                     <Form.Label>Confirmar endereço de e-mail</Form.Label>
                     <Form.Control type="email" placeholder="Email" />
-                    <Form.FloatingLabel className="emailObs">
+                    <Form.FloatingLabel className="emailObs mt-1  ">
                       *A confirmação será enviada para esse e-mail
                     </Form.FloatingLabel>
                   </Form.Group>
 
-                  <Form.Group className="w-100 m-1">
+                  <Form.Group className="w-100">
                     <Form.Label>Cidade</Form.Label>
                     <Form.Control type="city" placeholder="Cidade" />
                   </Form.Group>

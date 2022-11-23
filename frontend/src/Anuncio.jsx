@@ -29,45 +29,8 @@ export default function Anuncio() {
   const { anuncios } = state;
 
   const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
-  console.log(anuncioSelected);
-  // const imagens = anuncioSelected.fotosAnuncio?.forEach((url) => {
-  //   imagens.push(url);
-  // });
-  // console.log(imagens);
-  //   const imagens =[]
-  //   if(anuncioSelected) {
-  //     anuncioSelected.fotosAnuncio?.forEach((url) => {
-  //     imagens .push({
-  //       idCategoria: category.id,
-  //       id: product.id,
-  //     })
-  //   }
-  // }
 
-  const images = [
-    {
-      original:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg',
-      thumbnail:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg',
-    },
-    {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },
-    {
-      original: 'https://picsum.photos/200/300',
-      thumbnail: 'https://picsum.photos/200/300',
-    },
-    {
-      original: 'https://picsum.photos/300/300',
-      thumbnail: 'https://picsum.photos/300/300',
-    },
-  ];
+  const images = anuncioSelected.fotosAnuncio.map((m) => ({ original: m.url, thumbnail: m.url }));
 
   const [gallery, setGallery] = React.useState(false);
   const handleOpenGallery = () => {

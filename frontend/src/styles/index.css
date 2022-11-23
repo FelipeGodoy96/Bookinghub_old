@@ -22208,18 +22208,17 @@ textarea.form-control-lg {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-
-.categoriesCard img {
-  height: 183px;
-  object-fit: cover;
-}
-
-.m-1 {
+.categoriesCard .m-1 {
   font-family: "Roboto", sans-serif;
   color: #FFF;
   background-color: #1DBEB4;
   font-size: 14pt;
   font-weight: bold;
+}
+
+.categoriesCard img {
+  height: 183px;
+  object-fit: cover;
 }
 
 .defFooter {
@@ -22933,6 +22932,12 @@ input[type=date]::-webkit-clear-button {
 }
 
 .cardContainer {
+  background: rgb(243, 241, 237);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 1em;
   background: rgb(255, 255, 255);
   box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
@@ -22992,20 +22997,6 @@ input[type=date]::-webkit-clear-button {
 }
 .cardContainer .p4 {
   color: red;
-}
-
-.notaParceiro {
-  color: #FFF;
-  padding: 0.3em;
-  border-radius: 18px;
-  background-color: #383B58;
-}
-
-.classificacaoParceiro {
-  color: #383B58;
-  font-family: "Roboto", sans-serif;
-  font-weight: medium;
-  font-size: 14pt;
 }
 
 /* HTML5 display-role reset for older browsers */

@@ -6,13 +6,12 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
+    .m-1{
+        @include button1;
+    }
 }
 
 .categoriesCard img {
     height: 183px;
     object-fit: cover;
-}
-
-.m-1{
-    @include button1;
 }
