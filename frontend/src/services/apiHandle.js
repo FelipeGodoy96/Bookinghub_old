@@ -1,7 +1,7 @@
 import axios from 'axios';
 import agruparAnuncios from '../utils/agruparAnuncios';
 
-const apiLink = process.env.NODE_ENV === 'development' ? 'http://52.53.186.118:8080' : '';
+const apiLink = process.env.NODE_ENV === 'development' ? 'http://54.183.253.250:8080' : '';
 
 const categoriasData = await axios.get(
   `${apiLink}/categorias`,
