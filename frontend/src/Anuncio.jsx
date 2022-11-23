@@ -29,11 +29,20 @@ export default function Anuncio() {
   const { anuncios } = state;
 
   const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
-
+  console.log(anuncioSelected);
   // const imagens = anuncioSelected.fotosAnuncio?.forEach((url) => {
   //   imagens.push(url);
   // });
   // console.log(imagens);
+  //   const imagens =[]
+  //   if(anuncioSelected) {
+  //     anuncioSelected.fotosAnuncio?.forEach((url) => {
+  //     imagens .push({
+  //       idCategoria: category.id,
+  //       id: product.id,
+  //     })
+  //   }
+  // }
 
   const images = [
     {

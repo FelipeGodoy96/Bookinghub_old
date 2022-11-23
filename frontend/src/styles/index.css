@@ -22325,7 +22325,6 @@ textarea.form-control-lg {
 .image-gallery-right-nav .image-gallery-svg {
   height: 45px;
   width: 45px;
-  background-color: #1DBEB4;
   border-radius: 50%;
 }
 @media (max-width: 768px) {
@@ -22657,10 +22656,6 @@ textarea.form-control-lg {
   font-weight: 700;
   line-height: 1;
   padding: 10px 20px;
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-  top: 101%;
   z-index: 4;
 }
 @media (max-width: 768px) {
