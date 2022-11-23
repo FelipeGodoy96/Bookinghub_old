@@ -15,7 +15,7 @@ export default function ProductCardReserva({ data }) {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src = erroImagem;
         }}
-        src={data.foto ? data.foto : 'Erro Imagem não encontrada'}
+        src={data.fotosAnuncio[1].url ? data.fotosAnuncio[1].url: 'Erro Imagem não encontrada'}
       /> */}
 
       <Card.Img

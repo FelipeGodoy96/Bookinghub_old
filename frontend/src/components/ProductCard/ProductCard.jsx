@@ -17,7 +17,7 @@ export default function ProductCard({ data }) {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src = erroImagem;
         }}
-        src={data.fotoCategoria ? data.fotoCategoria : 'Erro Imagem não encontrada'}
+        src={data.fotosAnuncio[1].url ? data.fotosAnuncio[1].url : 'Erro Imagem não encontrada'}
       />
       <Card.Body className="cardInfo d-flex flex-column">
         <div className="d-flex flex-row flex-column justify-content-between">

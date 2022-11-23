@@ -10,7 +10,7 @@ export default function agruparAnuncios(anuncios = null, cidades = null) {
           descricaoProduto: product.descricao,
           nome: product.nome,
           fotoCategoria: category.imagem,
-          fotosAnuncio: [],
+          fotosAnuncio: product.imagensAnuncio,
           datasDisponiveisAnuncio: [],
           cidade: 'Cidade Teste',
         });
