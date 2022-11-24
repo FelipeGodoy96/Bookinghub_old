@@ -16,14 +16,14 @@ export default function Categoria() {
   const categoriaSelected = anuncios.filter((f) => f?.categoria === nomecategoria);
 
   return (
-    <div className="d-flex flex-column m-0">
-      <section className="d-flex flex-column align-items-center text-center SearchBar">
+    <div className="d-flex flex-column">
+      <section className="d-flex flex-column align-items-center text-center SearchBar ">
         <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
         <Searchbar />
       </section>
       <Container
         fluid
-        className="categoryPage d-flex flex-column justify-content-center align-items-center "
+        className="categoryPage d-flex flex-column justify-content-center align-items-center  m-0"
       >
         <h1 className="text-center">
           Todos acomodações em :  &nbsp;

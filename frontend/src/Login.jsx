@@ -27,54 +27,57 @@ export default function Login() {
 
   if (isLoged) return <Profile user={user} />;
   return (
-    <div className="loginContainer d-flex flex-column m-0 vh-100">
-      <Container fluid className="notLogedLogin d-flex vh-100">
-        <div className="d-flex flex-column text-center login">
-          <span className="content__title">Iniciar sessão</span>
-          <div className="content__form">
-            <Form
-              onSubmit={(event) => {
-                event.preventDefault();
-                logon(email, password);
-              }}
-            >
-              <Form.Group className="mb-3 text-start" controlId="formEmail">
-                <Form.Label>E-mail</Form.Label>
-                <Form.Control
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  placeholder="Insira seu e-mail"
-                />
-              </Form.Group>
-              <Form.Group
-                className="mb-3 text-start"
-                controlId="formPassword"
+    <>
+      <div className="loginContainer d-flex flex-column m-0 vh-100">
+        <Container fluid className="notLogedLogin d-flex vh-100">
+          <div className="d-flex flex-column text-center login">
+            <span className="content__title">Iniciar sessão</span>
+            <div className="content__form">
+              <Form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  logon(email, password);
+                }}
               >
-                <Form.Label>Senha</Form.Label>
-                <Form.Control
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  placeholder="********"
-                />
-              </Form.Group>
-              <div className="loginFail mt-1 mb-2" style={{ visibility: `${isVisible}` }}> Falha nas credenciais de Login</div>
-              <Button type="submit" variant="primary">
-                Entrar
-              </Button>
-            </Form>
-            <div className="d-flex account justify-content-center">
-              <p className="opsLogin">Não tem uma conta?⠀</p>
-              <Link to="/Cadastro">Criar conta</Link>
-            </div>
-            <div className="d-flex account justify-content-center">
-              <p className="opsLogin">Esqueceu sua senha?⠀</p>
-              <Link to="/RedefinirSenha">Redefinir senha</Link>
+                <Form.Group className="mb-3 text-start" controlId="formEmail">
+                  <Form.Label>E-mail</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    placeholder="Insira seu e-mail"
+                  />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3 text-start"
+                  controlId="formPassword"
+                >
+                  <Form.Label>Senha</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    placeholder="********"
+                  />
+                </Form.Group>
+                <div className="loginFail mt-1 mb-2" style={{ visibility: `${isVisible}` }}> Falha nas credenciais de Login</div>
+                <Button type="submit" variant="primary">
+                  Entrar
+                </Button>
+              </Form>
+              <div className="d-flex account justify-content-center">
+                <p className="opsLogin">Não tem uma conta?⠀</p>
+                <Link to="/Cadastro">Criar conta</Link>
+              </div>
+              <div className="d-flex account justify-content-center">
+                <p className="opsLogin">Esqueceu sua senha?⠀</p>
+                <Link to="/RedefinirSenha">Redefinir senha</Link>
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
       <Footer />
-    </div>
+
+    </>
   );
 }
 

@@ -4,9 +4,13 @@ import React, { createContext, useState } from 'react';
 import apiHandle from '../services/apiHandle';
 
 const { categorias, cidades, anuncios } = apiHandle;
+const filtroParametros = {
+  categoriaFilter: '',
+  cidadeFilter: '',
+};
 const DEFAULT_VALUE = {
   state: {
-    categorias, cidades, anuncios,
+    categorias, cidades, anuncios, filtroParametros,
   },
   setState: () => {}, // função de inicialização
 };

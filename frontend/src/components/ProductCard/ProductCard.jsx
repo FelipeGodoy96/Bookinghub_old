@@ -10,7 +10,7 @@ export default function ProductCard({ data }) {
   const navigate = useNavigate();
 
   return (
-    <Card className="anuncioCard d-flex flex-column m-2">
+    <Card className="anuncioCard d-flex flex-column">
       <Card.Img
         variant="top"
         onError={({ currentTarget }) => {

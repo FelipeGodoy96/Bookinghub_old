@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Busca from './Busca';
+import Buscar from './Buscar';
 import Categoria from './Categoria';
 import Home from './Home';
 import Anuncio from './Anuncio';
@@ -18,7 +18,7 @@ export default function Routers() {
       <Route path="/reserva" element={<Reserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
-      <Route path="/buscar/" element={<Busca />} />
+      <Route path="/buscar/" element={<Buscar />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/redefinir-senha" element={<RedefinirSenha />} />

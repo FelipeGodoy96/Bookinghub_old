@@ -1,18 +1,22 @@
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Link, Navigate, useLocation, useNavigate,
+} from 'react-router-dom';
 import Context from '../../Contexts/Context';
 
 export default function Searchbar() {
-  const ref = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const cidadeRef = useRef();
+  const categoriaRef = useRef();
 
-  const { state } = useContext(Context);
-  const { cidades, categorias } = state;
+  const { state, setState } = useContext(Context);
+  const { cidades, categorias, anuncios } = state;
 
   const [Resp, Repos] = useState(cidades);
   const [cidadesData, setCidadesData] = useState(cidades);
   const [categoriasData, setCategoriasData] = useState(categorias);
-  console.log(categoriasData);
 
   const Change = ({ target }) => {
     if (!target.toLowerCase) {
@@ -23,12 +27,23 @@ export default function Searchbar() {
     setCidadesData(filterResp);
   };
 
+  const handleBuscar = () => {
+    const filtroSearchBar = {
+      categoriaFilter: categoriaRef.current.value,
+      cidadeFilter: cidadeRef.current.value,
+    };
+    setState({ ...state, filtroParametros: filtroSearchBar });
+    if (location.pathname !== '/buscar') {
+      navigate('/buscar');
+    }
+  };
   return (
     <div className="searchBarComponent">
       <div className="d-flex w-100 flex-column flex-lg-row justify-content-center ">
         <div className="form-group has-search m-1 ">
           <span className="bi bi-geo-alt  form-control-feedback" />
           <input
+            ref={cidadeRef}
             type="text"
             list="data"
             className="form-control"
@@ -36,8 +51,10 @@ export default function Searchbar() {
             onChange={Change}
           />
           <datalist id="data">
-            {cidadesData.map((respost) => (
-              <option value={respost.nome}>{respost.nome}</option>
+            {cidadesData.map((respost, index) => (
+              <option value={respost.nome} key={index}>
+                {respost.nome}
+              </option>
             ))}
           </datalist>
         </div>
@@ -45,6 +62,7 @@ export default function Searchbar() {
         <div className="form-group has-search m-1 ">
           <span className="bi bi-house  form-control-feedback" />
           <input
+            ref={categoriaRef}
             type="text"
             list="datacategoria"
             className="form-control"
@@ -52,8 +70,10 @@ export default function Searchbar() {
             onChange={Change}
           />
           <datalist id="datacategoria">
-            {categoriasData.map((categoriasRespose) => (
-              <option value={categoriasRespose.descricao}>{categoriasRespose.descricao}</option>
+            {categoriasData.map((categoriasRespose, index) => (
+              <option value={categoriasRespose.descricao} key={index}>
+                {categoriasRespose.descricao}
+              </option>
             ))}
           </datalist>
         </div>
@@ -73,7 +93,6 @@ export default function Searchbar() {
         <div className="calendar-input form-group has-search m-1">
           <span className="bi bi-calendar-week-fill form-control-feedback" />
           <input
-            ref={ref}
             type="text"
             onChange={() => null}
             onFocus={(e) => { (e.target.type = 'date'); }}
@@ -83,7 +102,7 @@ export default function Searchbar() {
           />
         </div>
 
-        <Link to="/"><Button className="m-1">Buscar</Button></Link>
+        <Button className="m-1" onClick={() => handleBuscar()}>Buscar</Button>
       </div>
     </div>
   );

@@ -1,25 +1,34 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-param-reassign */
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/esm/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import ErroImg from '../../assets/img/erro-imagem.png';
+import erroImagem from '../../assets/img/erro-imagem.png';
 
-export default function SearchCard() {
+export default function SearchCard({ data }) {
   const navigate = useNavigate();
 
   return (
-    <div className="cardContainer d-flex ">
-      <div className="cardImg">
-        <img src={ErroImg} alt="Capa Hotel" />
-      </div>
-      <div className="cardTextContainer d-flex">
+    <Card className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center">
+      <Card.Img
+        variant="top"
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null; // prevents looping
+          currentTarget.src = erroImagem;
+        }}
+        src={data.fotosAnuncio[1].url ? data.fotosAnuncio[1].url : 'Erro Imagem não encontrada'}
+      />
+      <Card.Body className="cardTextContainer d-flex flex-column flex-md-row flex-lg-row justify-content-lg-between justify-content-md-between">
         <div className="cardText">
-          <Link to="/">
-            <h3>
-              Hotel Solar de Maria
-            </h3>
-          </Link>
+          <h3 onClick={() => navigate(`/anuncio/${data.id}`)}>
+            {data.nome}
+          </h3>
+
           <p>
-            Ouro Preto
+            {data.cidade}
           </p>
           <Link className="bi bi-pin-map" to="/">
             Ver no mapa
@@ -42,16 +51,15 @@ export default function SearchCard() {
           </div>
 
         </div>
-        <div className=" d-flex flex-column align-items-end">
+        <div className=" d-flex flex-column align-items-center">
           <div className="notaParceiro">8.0</div>
           <div className="classificacaoParceiro">Muito Bom</div>
           <Button className="m-2" onClick={() => navigate(`/anuncio/${data.id}`)}>
             Ver Mais
           </Button>
         </div>
-
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
 
   );
 }

@@ -22945,15 +22945,15 @@ input[type=date]::-webkit-clear-button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 55em;
   margin: 1rem;
 }
 .cardContainer:hover {
   border: 1px solid rgba(29, 190, 180, 0.8);
 }
-.cardContainer .cardImg img {
-  width: 15rem;
-  height: 15rem;
+.cardContainer img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
 .cardContainer .cardTextContainer {
   margin-left: 0.5rem;
@@ -22963,6 +22963,7 @@ input[type=date]::-webkit-clear-button {
   text-decoration: none;
 }
 .cardContainer .cardText h3, .cardContainer .cardText .h3 {
+  cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-size: 14pt;
   font-weight: bold;
