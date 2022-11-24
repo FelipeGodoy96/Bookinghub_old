@@ -14,6 +14,13 @@
     .notLogedNav button {
       height: 2.5rem;
       @include button4;
+      &:hover{
+        background-color: $white;
+        border: 1px solid $primary-color;
+        a{
+          color: $primary-color;
+        }
+      }
     }
   }
 }

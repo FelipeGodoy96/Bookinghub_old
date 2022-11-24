@@ -48,10 +48,11 @@ table {
 @import './Login.scss';
 @import './NavBarDefault.scss';
 @import './ProductCard.scss';
+@import './ProductCardReserva.scss';
 @import './Searchbar.scss';
 @import './ConfirmacaoReserva.scss';
 @import './Reserva.scss';
-
+@import './SearchCard.scss';
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -65,5 +66,5 @@ body {
 
 
 
-
+/*sass index.scss index.css --watch*/  
 

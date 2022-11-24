@@ -11,7 +11,6 @@
     width: 310px
   }
 
-
   img {
     height: 150px;
     object-fit: cover;
@@ -23,20 +22,24 @@
 
   .nomeAnunciante {
     height: 2.3rem;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-}
 
+
+
+  .descricaoAnunciante {
+    text-align: justify;
+  }
+  
+}
 .notaParceiro {
   color: $white;
   padding: 0.3em;
   border-radius: 18px;
   background-color: $secondary-color
 }
-
 .classificacaoParceiro {
   color: $secondary-color;
   @include text1;
