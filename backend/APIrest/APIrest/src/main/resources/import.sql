@@ -18,11 +18,11 @@ INSERT INTO imagens_anuncio (titulo, url) VALUES ('tituloTest','urlTest');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest','descricaoTest');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest2','descricaoTest2');
 INSERT INTO produtos (nome, descricao) VALUES ('nomeTest3','descricaoTest3');
---
+
 --INSERT INTO papeis (authority) VALUES ('ADMtest');
 --INSERT INTO papeis (authority) VALUES ('USERtest');
---
---INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('viniTest', 'felceTest', 'viramos017@gmail.com', 'vinif');
+
+INSERT INTO usuarios (username, senha, nome, sobrenome) VALUES ('viramos017@gmail.com', '$2a$10$KyhZxjXKWO8RJRCXImmyGecGMD75VMMhlGf8OTI2N/4p/kmLPJgn.', 'vinicius',  'felce');
 --INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest2', 'sobrenome2', 'email2', 'senha2');
 --INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest3', 'sobrenome3', 'email3', 'senha3');
 
@@ -34,13 +34,13 @@ INSERT INTO cliente (id) VALUES (1);
 INSERT INTO cliente (id) VALUES (2);
 INSERT INTO cliente (id) VALUES (3);
 
-INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (1, 1);
-INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (2, 2);
-INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (3, 3);
+--INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (1, 1);
+--INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (2, 2);
+--INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (3, 3);
 
-INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (1, 1);
-INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (2, 2);
-INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (3, 2);
+--INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (1, 1);
+--INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (2, 2);
+--INSERT INTO usuarios_papeis (usuario_id, papeis_id) VALUES (3, 2);
 
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (1,1);
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (2,2);

@@ -17,7 +17,7 @@ public class UsuarioLogado implements UserDetails {
 
     public UsuarioLogado(Usuarios usuario) {
         this.usuario = usuario;
-        springUserDetails = new User(usuario.getEmail(), usuario.getSenha(), List.of());
+        springUserDetails = new User(usuario.getUsername(), usuario.getSenha(), List.of());
     }
 
     @Override

@@ -13,15 +13,15 @@ public class UsuariosDto  {
     private Integer id;
     private String nome;
     private String sobrenome;
-    private String email;
+    private String username;
     private Set<ProdutosDto> produto = new HashSet<>();
     private Set<PapeisDto> papeis = new HashSet<>();
 
-    public UsuariosDto(Integer id, String nome, String sobrenome, String email) {
+    public UsuariosDto(Integer id, String nome, String sobrenome, String username) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.email = email;
+        this.username = username;
     }
 
     public UsuariosDto(Usuarios usuarios) {

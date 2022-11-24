@@ -18,7 +18,8 @@ public class Usuarios implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Integer id;
-    private String email;
+
+    private String username;
     private String senha; //criptografado
     private String nome;
     private String sobrenome;
@@ -34,8 +35,8 @@ public class Usuarios implements Serializable {
     public Usuarios() {
     }
 
-    public Usuarios(String email, PlainPassword plainPassword, String nome, String sobrenome) {
-        this.email = email;
+    public Usuarios(String username, PlainPassword plainPassword, String nome, String sobrenome) {
+        this.username = username;
         this.senha = plainPassword.encode();
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -48,11 +49,11 @@ public class Usuarios implements Serializable {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
     public void setEmail(String email) {
-        this.email = email;
+        this.username = username;
     }
 
     public String getSenha() {
@@ -95,7 +96,7 @@ public class Usuarios implements Serializable {
                 this.id,
                 this.nome,
                 this.sobrenome,
-                this.email
+                this.username
         );
     }
 }

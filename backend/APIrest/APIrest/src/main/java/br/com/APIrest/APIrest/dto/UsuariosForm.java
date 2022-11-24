@@ -16,20 +16,20 @@ public class UsuariosForm {
     private String sobrenome;
     @Email(message = "E-mail inválido!")
     @Column(unique = true)
-    private String email;
+    private String username;
     @NotBlank(message = "Senha inválido!")
     private String senha; //criptografado
 
-    public UsuariosForm(String nome, String sobrenome, String email, String senha) {
+    public UsuariosForm(String nome, String sobrenome, String username, String senha) {
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.email = email;
+        this.username = username;
         this.senha = senha;
     }
 
     public Usuarios toEntity(){
         return new Usuarios(
-                this.email,
+                this.username,
                 new PlainPassword(this.senha),
                 this.nome,
                 this.sobrenome

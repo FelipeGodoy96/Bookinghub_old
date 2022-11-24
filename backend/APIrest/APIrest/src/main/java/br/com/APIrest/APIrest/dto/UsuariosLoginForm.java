@@ -24,7 +24,8 @@ public class UsuariosLoginForm {
     }
 
     public UsernamePasswordAuthenticationToken build() {
-        return new UsernamePasswordAuthenticationToken(this.username,
+        return new UsernamePasswordAuthenticationToken(
+                this.username,
                 this.password);
     }
 }

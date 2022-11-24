@@ -41,9 +41,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/usuario").permitAll()
+                .antMatchers(HttpMethod.POST,"/usuarios/**").permitAll()
+                .antMatchers(HttpMethod.DELETE.PUT.POST.GET,
+                        "/caracteristicas/**",
+                                   "/categoria_produtos/**",
+                                   "/cidade_produtos/**",
+                                   "/categorias/**",
+                                   "/cidades/**",
+                                   "/cliente/**",
+                                   "/imagens/**",
+                                   "/papeis/**",
+                                   "/produtos/**",
+                                   "/reservas/**").permitAll()
                 .antMatchers("/auth/**").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/h2/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .headers().frameOptions().disable()
@@ -55,7 +66,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling()
                 .authenticationEntryPoint(new JwtAuthenticationEntryPoint());
-
     }
 
     @Override

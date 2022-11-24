@@ -28,7 +28,7 @@ public class TokenManager {
         final Date expiration = new Date(now.getTime() + this.expirationInMillis);
 
         return Jwts.builder()
-                .setIssuer("MaglianoProductJPA")
+                .setIssuer("DataUser")
                 .setSubject(user.getUsername())
                 .setIssuedAt(now)
                 .setExpiration(expiration)
