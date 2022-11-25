@@ -34,7 +34,7 @@ export default function Home() {
         fluid
         className="anuncios-container d-flex flex-column justify-content-center align-items-center pt-5 pb-5"
       >
-        <h1 className="text-center"> Recomendações</h1>
+        <h1 className="text-center mt-3 mb-5 p-4"> Recomendações</h1>
         <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
           {anuncios.map((m, index) => (
             <ProductCard data={m} key={index} />

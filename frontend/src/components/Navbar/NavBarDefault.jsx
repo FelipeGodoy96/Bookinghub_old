@@ -30,7 +30,7 @@ export default function NavBarDefault() {
               <Nav className="ms-auto gap-2">
                 <Button>
                   <Link className="mx-auto nav-link" to="/login">
-                    Fazer Login
+                    Iniciar Sessão
                   </Link>
                 </Button>
 

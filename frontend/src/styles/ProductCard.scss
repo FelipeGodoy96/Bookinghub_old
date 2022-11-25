@@ -1,4 +1,5 @@
 .anuncioCard {
+  margin: 1rem;
   width: 390px;
   background: rgba(243, 241, 237, 1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -15,9 +16,16 @@
     height: 150px;
     object-fit: cover;
   }
+  a{
+    text-decoration: none;
+  }
 
   button {
+    border: none;
     @include button1;
+    &:hover{
+      background-color: #383B58;
+    }
   }
 
   .nomeAnunciante {
@@ -31,6 +39,8 @@
 
   .descricaoAnunciante {
     text-align: justify;
+    font-size: 1em;
+    font-weight: 100;
   }
   
 }
@@ -43,4 +53,11 @@
 .classificacaoParceiro {
   color: $secondary-color;
   @include text1;
+
+ 
+}
+
+.cidade{
+  font-style: italic;
+
 }
