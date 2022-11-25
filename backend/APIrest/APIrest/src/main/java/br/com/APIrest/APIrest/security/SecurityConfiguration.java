@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                                    "/imagens/**",
                                    "/papeis/**",
                                    "/produtos/**",
-                                   "/reservas/**").permitAll()
+                                   "/reservas/**" ).permitAll()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/h2/**").permitAll()
                 .anyRequest().authenticated()
