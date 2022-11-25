@@ -1,7 +1,21 @@
-# grupo_04_lionsrest
+# Booking Hub Marketplace Project
 
+Projeto Booking Hub em desenvolvimento
 
+Links de testes realizados até a SPRINT 2 (disponibilizados de forma provisória por aqui):
+- TESTES ESTÁTICOS DAS HISTÓRIAS DE USUÁRIO (RODRIGO FERREIRA):
+https://docs.google.com/spreadsheets/d/1FBpUUDMva0doTE-MximLO0SkxCyb8EFg52fSZMTN79o/edit?usp=sharing
 
+- RELATÓRIO DE DEFEITOS (RODRIGO FERREIRA):
+https://docs.google.com/spreadsheets/d/1gdbE3-5aIhFPxwYLzyk5BX8k7VbYs6iboxEjnR5GvmY/edit?usp=sharing
+
+- TESTES DE REGRESSÃO (RODRIGO FERREIRA):
+https://docs.google.com/spreadsheets/d/1mane0v8bkY40g6P62AC-_QmcfY93_ieS/edit?usp=sharing&ouid=101577299723834672478&rtpof=true&sd=true
+
+- TESTES EXPLORATÓRIOS (RODRIGO FERREIRA):
+https://docs.google.com/spreadsheets/d/1xJClrtUS2xrM1rn4G6NbB-eYQB_kV-A6/edit?usp=sharing&ouid=101577299723834672478&rtpof=true&sd=true
+
+------------------------------------------------------------------------------------------
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
