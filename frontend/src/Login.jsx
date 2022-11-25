@@ -6,26 +6,26 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Footer from './components/Footer/Footer';
 import LoginContext from './Contexts/LoginContext';
-import loginAuth from './utils/auth';
+import apiHandle from './services/apiHandle';
 
 export default function Login() {
   const { loginState, setLoginState } = useContext(LoginContext);
-  const { isLoged, user } = loginState;
+  const { token, user } = loginState;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isVisible, setIsVisible] = useState('hidden');
 
-  function logon(emailProps, passwordProps) {
-    const { loged, user: userData } = loginAuth(emailProps, passwordProps);
-    if (loged) {
-      setLoginState({ ...loginState, isLoged: true, user: userData });
+  async function logon(emailProps, passwordProps) {
+    const { token: respostaToken } = await apiHandle.login(emailProps, passwordProps);
+    if (respostaToken) {
+      setLoginState({ ...loginState, token: respostaToken });
     } else {
       setIsVisible('visible');
     }
   }
 
-  if (isLoged) return <Profile user={user} />;
+  if (token) return <Profile user={user} />;
   return (
     <>
       <div className="loginContainer d-flex flex-column m-0 vh-100">

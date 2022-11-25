@@ -14,17 +14,11 @@ import { Icon } from 'react-icons-kit';
 import { eye } from 'react-icons-kit/feather/eye';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import Footer from './components/Footer/Footer';
+import { isEmail, isName } from './utils/validators';
+import apiHandle from './services/apiHandle';
 
 export default function Cadastro() {
   const navigate = useNavigate();
-  function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      email,
-    );
-  }
-  function isName(name) {
-    return /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/gm.test(name);
-  }
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
@@ -39,6 +33,28 @@ export default function Cadastro() {
     setType(!type);
     setIcon(!icon);
   };
+
+  const createUser = async (e) => {
+    e.preventDefault();
+    const formInputsCollection = document.getElementsByTagName('input');
+    const formInputs = Array.from(formInputsCollection);
+    const isValid = formInputs.every((element) => element.classList.contains('is-valid'));
+
+    const newUser = {
+      username: email,
+      nome,
+      sobrenome,
+      senha: pw,
+    };
+
+    if (isValid) {
+      await apiHandle.cadastro(newUser);
+      navigate('/login');
+    } else {
+    // feedback de credenciais inválidas - a implementar
+    }
+  };
+
   return (
     <>
       <div className="d-flex flex-column m-0 vh-100">
@@ -47,28 +63,7 @@ export default function Cadastro() {
             <span className="content__title">Criar conta</span>
             <div className="content__form">
               <Form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  const formInputsCollection = document.getElementsByTagName('input');
-                  const formInputs = Array.from(formInputsCollection);
-                  const isValid = formInputs.every((element) => element.classList.contains('is-valid'));
-
-                  if (isValid) {
-                    const user = {
-                      nome,
-                      sobrenome,
-                      email,
-                      password: pw,
-                    };
-                    window.localStorage.setItem(
-                      user.email,
-                      JSON.stringify(user),
-                    );
-                    navigate('/');
-                  } else {
-                  // feedback de credenciais inválidas - a implementar
-                  }
-                }}
+                onSubmit={(event) => createUser(event)}
               >
                 <Row className="mb-3">
                   <Form.Group
@@ -82,18 +77,14 @@ export default function Cadastro() {
                       required
                       onChange={(e) => {
                         if (
-                          (!isName(e.target.value)
-                            && e.target.value.length > 0)
-                          || e.target.value.length > 20
+                          !isName(e.target.value)
+                          && e.target.value.length > 0
                         ) {
                           e.target.classList.add('is-invalid');
                           e.target.classList.remove('is-valid');
                           setShowTooltip(true);
                           target.current = e.target;
-                        } else if (
-                          isName(e.target.value)
-                          && e.target.value.length <= 20
-                        ) {
+                        } else if (isName(e.target.value)) {
                           e.target.classList.remove('is-invalid');
                           e.target.classList.add('is-valid');
                           setNome(e.target.value);
@@ -107,9 +98,6 @@ export default function Cadastro() {
                           setShowTooltip(false);
                         }
                       }}
-                      onBlur={() => {
-                        target.current = null;
-                      }}
                       type="text"
                       placeholder="Nome"
                     />
@@ -121,22 +109,19 @@ export default function Cadastro() {
                   >
                     <Form.Label>Sobrenome</Form.Label>
                     <Form.Control
+
                       name="sobrenome"
                       required
                       onChange={(e) => {
                         if (
-                          (!isName(e.target.value)
-                            && e.target.value.length > 0)
-                          || e.target.value.length > 20
+                          !isName(e.target.value)
+                          && e.target.value.length > 0
                         ) {
                           e.target.classList.add('is-invalid');
                           e.target.classList.remove('is-valid');
                           setShowTooltip(true);
                           target.current = e.target;
-                        } else if (
-                          isName(e.target.value)
-                          && e.target.value.length <= 20
-                        ) {
+                        } else if (isName(e.target.value)) {
                           e.target.classList.remove('is-invalid');
                           e.target.classList.add('is-valid');
                           setSobrenome(e.target.value);
@@ -149,9 +134,6 @@ export default function Cadastro() {
                           e.target.classList.remove('is-valid');
                           setShowTooltip(false);
                         }
-                      }}
-                      onBlur={() => {
-                        target.current = null;
                       }}
                       type="text"
                       placeholder="Sobrenome"
