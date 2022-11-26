@@ -3,8 +3,6 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import LogomarcaIco from './assets/icon/booking_hub_logo_semfundo.png';
 import Footer from './components/Footer/Footer';
-import Modal from './components/Modal/Modal'
-import ModalLogin from './components/Modal/ModalLogin'
 
 export default function NotFound() {
   return (
@@ -28,10 +26,9 @@ export default function NotFound() {
         <Link className="nav-link d-flex align-items-center" to="/">
           <h3 className="bi bi-house">Retornar para a pagina inicial</h3>
         </Link>
-        <Modal/>
-        <ModalLogin/>
+
       </Container>
-    
+
       <Footer />
     </div>
   );

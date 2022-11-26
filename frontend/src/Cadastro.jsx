@@ -9,16 +9,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Icon } from 'react-icons-kit';
 import { eye } from 'react-icons-kit/feather/eye';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import Footer from './components/Footer/Footer';
 import { isEmail, isName } from './utils/validators';
 import apiHandle from './services/apiHandle';
+import ModalCadastro from './components/Modal/ModalCadastro';
 
 export default function Cadastro() {
-  const navigate = useNavigate();
+  const [modalVisibility, setModalVisibility] = useState(false);
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
@@ -49,9 +50,9 @@ export default function Cadastro() {
 
     if (isValid) {
       await apiHandle.cadastro(newUser);
-      navigate('/login');
+      setModalVisibility(true);
     } else {
-    // feedback de credenciais inválidas - a implementar
+      // feedback de credenciais inválidas - a implementar
     }
   };
 
@@ -302,6 +303,7 @@ export default function Cadastro() {
         </Container>
       </div>
       <Footer />
+      <ModalCadastro visible={modalVisibility} />
     </>
   );
 }

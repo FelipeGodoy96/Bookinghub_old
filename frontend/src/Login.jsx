@@ -21,6 +21,7 @@ export default function Login() {
     const { token: respostaToken } = await apiHandle.login(emailProps, passwordProps);
     if (respostaToken) {
       setLoginState({ ...loginState, token: respostaToken });
+      document.cookie = `token:${respostaToken}`;
     } else {
       setIsVisible('visible');
     }
