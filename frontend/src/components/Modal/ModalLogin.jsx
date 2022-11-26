@@ -1,37 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-export default function ModalLogin() {
+export default function ModalLogin({ visible }) {
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    setShow(visible);
+  }, [visible]);
+  const handleRedirect = (path) => {
+    setShow(false);
+    navigate(path);
+  };
   return (
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+    <Modal className="modal" show={show} onHide={() => setShow(false)}>
+      <Modal.Header closeButton>
+        <Modal.Title>Muito Obrigado!</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="d-flex flex-column align-items-center justify-content-center p-4">
+        <BsFillPatchCheckFill className="checkfill" />
+        Login Efetuado com sucesso, sua conta foi criada com sucesso!
+      </Modal.Body>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title />
-        </Modal.Header>
-        <Modal.Body className="d-flex flex-column align-items-center justify-content-center p-4">
-          <BsFillPatchCheckFill className="checkfill m-2" />
-          Parabéns, sua conta foi criada com sucesso!
-        </Modal.Body>
-        <Modal.Footer>
-          <Button className="btn-1" variant="secondary" onClick={handleClose}>
-            Pagina Inicial
-          </Button>
-          <Button className="btn-1" variant="primary" onClick={handleClose}>
-            Iniciar sessão
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+      <Modal.Footer className="d-flex justify-content-center">
+        <Button className="btn-1" variant="secondary" onClick={() => handleRedirect('/login')}>
+          Fazer Login
+        </Button>
+
+        <Button className="btn-1" variant="secondary" onClick={() => handleRedirect('/')}>
+          Pagina inicial
+        </Button>
+
+      </Modal.Footer>
+    </Modal>
   );
 }
