@@ -34,7 +34,7 @@ export default function ProductCard({ data }) {
         </div>
 
         <div className="verMapa mb-4 d-flex flex-row align-items-center justify-content-between">
-          <div className="bi bi-geo-alt">
+          <div className="bi bi-geo-alt cidade">
             {data.cidade}
           </div>
           <Link className="bi bi-pin-map" to="/">

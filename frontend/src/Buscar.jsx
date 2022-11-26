@@ -19,7 +19,7 @@ export default function Buscar() {
 
     const anunciosFiltrados = todosAnuncios.filter((f) => (
       categoriaSelecionada !== '' ? (f.categoria.toLowerCase().replaceAll(' ', '').includes(categoriaSelecionada.toLowerCase().replaceAll(' ', ''))) : true)
-       && (cidadeSelecionada !== '' ? (f.cidade.toLowerCase().replaceAll(' ', '').includes(cidadeSelecionada.toLowerCase().replaceAll(' ', ''))) : true));
+      && (cidadeSelecionada !== '' ? (f.cidade.toLowerCase().replaceAll(' ', '').includes(cidadeSelecionada.toLowerCase().replaceAll(' ', ''))) : true));
 
     return anunciosFiltrados;
   };
@@ -44,7 +44,10 @@ export default function Buscar() {
 
         </Container>
       </div>
+      
       <Footer />
     </>
+
   );
+
 }
