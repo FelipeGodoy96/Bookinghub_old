@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
 import Footer from './components/Footer/Footer';
 import LoginContext from './Contexts/LoginContext';
 import apiHandle from './services/apiHandle';
 
 export default function Login() {
+  const navigate = useNavigate();
   const { loginState, setLoginState } = useContext(LoginContext);
   const { token, user } = loginState;
 
@@ -18,16 +18,16 @@ export default function Login() {
   const [isVisible, setIsVisible] = useState('hidden');
 
   async function logon(emailProps, passwordProps) {
-    const { token: respostaToken } = await apiHandle.login(emailProps, passwordProps);
+    const { token: respostaToken } = await apiHandle
+      .login({ username: emailProps, password: passwordProps });
     if (respostaToken) {
       setLoginState({ ...loginState, token: respostaToken });
-      document.cookie = `token:${respostaToken}`;
+      document.cookie = `_sessionTokenJWT=${respostaToken}`;
+      navigate('/');
     } else {
       setIsVisible('visible');
     }
   }
-
-  if (token) return <Profile user={user} />;
   return (
     <>
       <div className="loginContainer d-flex flex-column m-0 vh-100">
@@ -66,7 +66,7 @@ export default function Login() {
                 </Button>
               </Form>
 
-              <div className="form-check mt-4">
+              {/* <div className="form-check mt-4">
                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                 <label className="form-check-label text-center" htmlFor="defaultCheck1">
                   <h5>
@@ -76,7 +76,7 @@ export default function Login() {
                     Mantenha-se conectado para que você não precise entrar novamente da próxima vez.
                   </p>
                 </label>
-              </div>
+              </div> */}
 
               <div className="d-flex account justify-content-center">
                 <p className="opsLogin">Não tem uma conta?⠀</p>
@@ -93,26 +93,6 @@ export default function Login() {
       </div>
       <Footer />
 
-    </>
-  );
-}
-
-function Profile({ user }) {
-  const { loginState, setLoginState } = useContext(LoginContext);
-  function logout() {
-    setLoginState({ ...loginState, isLoged: false, user: '' });
-  }
-  return (
-    <>
-      <div className="logedContainer d-flex flex-column m-0 vh-100">
-        <Container fluid className="LogedLogin d-flex flex-column vh-100">
-          <h1 className="mt-5 p-5">{user.email}</h1>
-          <Button type="button" variant="primary" onClick={() => logout()}>
-            Logout
-          </Button>
-        </Container>
-      </div>
-      <Footer />
     </>
   );
 }

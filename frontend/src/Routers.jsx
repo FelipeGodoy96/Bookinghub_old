@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-expressions */
+import React, { useContext, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Buscar from './Buscar';
 import Categoria from './Categoria';
@@ -10,8 +11,20 @@ import Cadastro from './Cadastro';
 import Reserva from './Reserva';
 import ConfirmacaoReserva from './ConfirmacaoReserva';
 import RedefinirSenha from './RedefinirSenha';
+import LoginContext from './Contexts/LoginContext';
 
 export default function Routers() {
+  const { loginState, setLoginState } = useContext(LoginContext);
+
+  useEffect(() => {
+    if (document.cookie.split(';').length > 0) {
+      const tokenFind = document.cookie.split(';')?.find((f) => f?.includes('_sessionTokenJWT='))?.split('=')[1];
+      if (tokenFind) {
+        setLoginState({ ...loginState, token: tokenFind });
+      }
+    }
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
