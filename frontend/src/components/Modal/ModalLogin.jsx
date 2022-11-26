@@ -25,10 +25,6 @@ export default function ModalLogin({ visible }) {
       </Modal.Body>
 
       <Modal.Footer className="d-flex justify-content-center">
-        <Button className="btn-1" variant="secondary" onClick={() => handleRedirect('/login')}>
-          Fazer Login
-        </Button>
-
         <Button className="btn-1" variant="secondary" onClick={() => handleRedirect('/')}>
           Pagina inicial
         </Button>
