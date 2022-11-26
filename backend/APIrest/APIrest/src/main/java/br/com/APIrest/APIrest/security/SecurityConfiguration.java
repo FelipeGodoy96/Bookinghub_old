@@ -75,11 +75,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**",
-                "/configuration/**", "/swagger-resources/**", "/css/**", "/**.ico", "/js/**");
-    }
+//    @Override
+//    public void configure(WebSecurity web) {
+//        web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**",
+//                "/configuration/**", "/swagger-resources/**", "/css/**", "/**.ico", "/js/**");
+//    }
 
     private static class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
