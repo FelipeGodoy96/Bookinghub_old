@@ -41,8 +41,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/usuarios/**", "/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/usuarios/{id}").authenticated()
+                .antMatchers(HttpMethod.POST,"/usuarios/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/usuarios/**").authenticated()
                 .antMatchers(HttpMethod.DELETE.PUT.POST.GET,
                         "/caracteristicas/**",
                                    "/categoria_produtos/**",
@@ -54,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                                    "/papeis/**",
                                    "/produtos/**",
                                    "/reservas/**" ).permitAll()
-              //.antMatchers("/auth/**").permitAll()
+              .antMatchers("/auth/**").permitAll()
                 .antMatchers("/h2/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -90,4 +90,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Você não está autorizado a acessar esse recurso.");
         }
     }
+
 }
