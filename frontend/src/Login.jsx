@@ -65,9 +65,9 @@ export default function Login() {
                 </Button>
               </Form>
 
-              <div className="form-check mt-3">
+              <div className="form-check mt-4">
                 <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                <label className="form-check-label text-start" htmlFor="defaultCheck1">
+                <label className="form-check-label text-center" htmlFor="defaultCheck1">
                   <h5>
                     Continuar conectado?
                   </h5>
