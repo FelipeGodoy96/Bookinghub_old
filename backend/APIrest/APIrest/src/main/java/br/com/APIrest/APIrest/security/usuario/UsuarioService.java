@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
+
 @Service
 public class UsuarioService implements UserDetailsService {
 
@@ -31,10 +32,10 @@ public class UsuarioService implements UserDetailsService {
 
         return userDetailsMapper.map(usuarios);
     }
-//    @Transactional(readOnly = true)
-//    public UsuariosDto findById (Integer id) {
-//        Optional<Usuarios> object = usuariosRepository.findById(id);
-//        Usuarios entity = object.get();
-//        return new UsuariosDto(entity);
-//    }
+
+    public UsuariosDto findById(Integer id){
+        Usuarios usuarios = usuariosRepository.getReferenceById(id);
+        UsuariosDto usuariosDto = usuarios.toDto();
+        return usuariosDto;
+    }
 }

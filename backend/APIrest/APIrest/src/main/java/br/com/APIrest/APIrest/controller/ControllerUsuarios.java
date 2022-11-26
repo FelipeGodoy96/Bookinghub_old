@@ -10,9 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.util.List;
-
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/usuarios")
@@ -32,10 +29,10 @@ public class ControllerUsuarios {
 
         return ResponseEntity.ok(novoUsuario.toDto());
     }
-
-//    @GetMapping(value = "/{id}")
-//    public ResponseEntity<UsuariosDto> findImagensById(@PathVariable Integer id) {
-//        UsuariosDto dto = usuarioService.findById(id);
-//        return ResponseEntity.ok().body(dto);
-//    }
+    @Transactional
+    @GetMapping (value = "/{id}")
+    public ResponseEntity<UsuariosDto> findUsuariosById(@PathVariable Integer id) {
+        UsuariosDto dto = usuarioService.findById(id);
+        return ResponseEntity.ok().body(dto);
+    }
 }
