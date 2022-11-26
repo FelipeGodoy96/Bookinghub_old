@@ -74,6 +74,7 @@ export default function Cadastro() {
                   >
                     <Form.Label>Nome</Form.Label>
                     <Form.Control
+                      id="nomeFormCadastro"
                       name="nome"
                       required
                       onChange={(e) => {
@@ -110,7 +111,7 @@ export default function Cadastro() {
                   >
                     <Form.Label>Sobrenome</Form.Label>
                     <Form.Control
-
+                      id="sobrenomeFormCadastro"
                       name="sobrenome"
                       required
                       onChange={(e) => {
@@ -144,6 +145,7 @@ export default function Cadastro() {
                 <Form.Group className="mb-3 text-start" controlId="formEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control
+                    id="emailFormCadastro"
                     name="email"
                     required
                     onChange={(e) => {
@@ -182,6 +184,7 @@ export default function Cadastro() {
                 >
                   <Form.Label>Senha</Form.Label>
                   <Form.Control
+                    id="senhaFormCadastro"
                     name="senha"
                     required
                     onChange={(e) => {
@@ -242,6 +245,7 @@ export default function Cadastro() {
                 >
                   <Form.Label>Confirmar senha</Form.Label>
                   <Form.Control
+                    id="conformarSenhaFormCadastro"
                     name="confirmarSenha"
                     required
                     onChange={(e) => {
@@ -283,7 +287,7 @@ export default function Cadastro() {
                     placeholder="********"
                   />
                 </Form.Group>
-                <Button type="submit" variant="primary">
+                <Button id="criarContaButtonCadastro" type="submit" variant="primary">
                   Criar conta
                 </Button>
                 <Overlay

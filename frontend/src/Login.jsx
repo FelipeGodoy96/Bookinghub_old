@@ -44,6 +44,7 @@ export default function Login() {
                 <Form.Group className="mb-3 text-start" controlId="formEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control
+                    id="emailFormLogin"
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     placeholder="Insira seu e-mail"
@@ -55,13 +56,14 @@ export default function Login() {
                 >
                   <Form.Label>Senha</Form.Label>
                   <Form.Control
+                    id="passwordFormLogin"
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     placeholder="********"
                   />
                 </Form.Group>
                 <div className="loginFail mt-1 mb-2" style={{ visibility: `${isVisible}` }}> Falha nas credenciais de Login</div>
-                <Button type="submit" variant="primary">
+                <Button id="fazerLoginFormLogin" type="submit" variant="primary">
                   Entrar
                 </Button>
               </Form>
@@ -80,12 +82,12 @@ export default function Login() {
 
               <div className="d-flex account justify-content-center">
                 <p className="opsLogin">Não tem uma conta?⠀</p>
-                <Link to="/Cadastro">Criar conta</Link>
+                <Link id="irParaCadastroFormLogin" to="/cadastro">Criar conta</Link>
               </div>
 
               <div className="d-flex account justify-content-center">
                 <p className="opsLogin">Esqueceu sua senha?⠀</p>
-                <Link to="/RedefinirSenha">Redefinir senha</Link>
+                <Link id="irParaRedefinirSenha" to="/redefinirsenha">Redefinir senha</Link>
               </div>
             </div>
           </div>
