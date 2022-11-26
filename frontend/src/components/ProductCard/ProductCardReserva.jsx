@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function ProductCardReserva({ data }) {
-  
-
-
   return (
     <Card className="anuncioCardReserva d-flex flex-column m-2">
       {/* <Card.Img
@@ -54,8 +51,8 @@ export default function ProductCardReserva({ data }) {
           <Card.Text>Data</Card.Text>
         </div>
 
-        <Button className="m-1" >
-    
+        <Button className="m-1">
+
           Confirmar Reserva
         </Button>
       </Card.Body>

@@ -247,7 +247,7 @@ export default function Anuncio() {
               <h6 className="p-3 ">
                 Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
-              <Button>Reservar agora</Button>
+              <Button id="fazerReservaButtonAnuncio">Reservar agora</Button>
             </Card>
           </div>
         </Container>

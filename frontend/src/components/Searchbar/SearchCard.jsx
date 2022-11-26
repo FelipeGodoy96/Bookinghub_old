@@ -54,7 +54,7 @@ export default function SearchCard({ data }) {
         <div className=" d-flex flex-column align-items-center">
           <div className="notaParceiro mt-3">8.0</div>
           <div className="classificacaoParceiro mt-3">Muito Bom</div>
-          <Button className="m-2" onClick={() => navigate(`/anuncio/${data.id}`)}>
+          <Button className="m-2" id="goToAnuncioButtonSearchCard" onClick={() => navigate(`/anuncio/${data.id}`)}>
             Ver Mais
           </Button>
         </div>

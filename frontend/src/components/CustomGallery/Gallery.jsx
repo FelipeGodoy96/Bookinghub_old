@@ -6,6 +6,7 @@ import ImageGallery from 'react-image-gallery';
 export default function CustomGallery(props) {
   return (
     <ImageGallery
+      id="galeriaDeImagens"
       autoPlay={false}
       showThumbnails
       showPlayButton={false}

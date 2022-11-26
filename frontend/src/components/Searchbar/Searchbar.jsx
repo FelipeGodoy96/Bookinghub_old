@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useRef, useState } from 'react';
 import {
@@ -44,6 +45,7 @@ export default function Searchbar() {
           <span className="bi bi-geo-alt  form-control-feedback" />
           <input
             ref={cidadeRef}
+            id="cidadeFormSearchBar"
             type="text"
             list="data"
             className="form-control"
@@ -63,6 +65,7 @@ export default function Searchbar() {
           <span className="bi bi-house  form-control-feedback" />
           <input
             ref={categoriaRef}
+            id="categoriaFormSearchBar"
             type="text"
             list="datacategoria"
             className="form-control"
@@ -81,6 +84,7 @@ export default function Searchbar() {
         <div className="calendar-input form-group has-search m-1">
           <span className="bi bi-calendar4-week form-control-feedback" />
           <input
+            id="checkInFormSearchBar"
             type="text"
             onChange={() => null}
             onFocus={(e) => { (e.target.type = 'date'); }}
@@ -93,6 +97,7 @@ export default function Searchbar() {
         <div className="calendar-input form-group has-search m-1">
           <span className="bi bi-calendar-week-fill form-control-feedback" />
           <input
+            id="checkOutFormSearchBar"
             type="text"
             onChange={() => null}
             onFocus={(e) => { (e.target.type = 'date'); }}
@@ -102,7 +107,7 @@ export default function Searchbar() {
           />
         </div>
 
-        <Button className="m-1" onClick={() => handleBuscar()}>Buscar</Button>
+        <Button className="m-1" id="buscarButtonSearchBar" onClick={() => handleBuscar()}>Buscar</Button>
       </div>
     </div>
   );

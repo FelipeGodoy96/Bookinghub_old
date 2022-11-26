@@ -25,11 +25,11 @@ export default function ModalCadastro({ visible }) {
       </Modal.Body>
 
       <Modal.Footer className="d-flex justify-content-center">
-        <Button className="btn-1" variant="secondary" onClick={() => handleRedirect('/login')}>
+        <Button className="btn-1" id="loginButtonModal" variant="secondary" onClick={() => handleRedirect('/login')}>
           Fazer Login
         </Button>
 
-        <Button className="btn-1" variant="secondary" onClick={() => handleRedirect('/')}>
+        <Button className="btn-1" id="HomePageButtonModal" variant="secondary" onClick={() => handleRedirect('/')}>
           Pagina inicial
         </Button>
 
