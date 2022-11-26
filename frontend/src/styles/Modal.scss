@@ -1,0 +1,17 @@
+
+
+
+.btn-1{
+    padding: .5rem;
+    border: none;
+    @include button1;
+    &:hover{
+        background-color: #383B58;
+    }
+    .checkfill{
+        margin-bottom: 0.3rem;
+        font-size: 3rem;
+        color: $primary-color;
+    }
+}
+

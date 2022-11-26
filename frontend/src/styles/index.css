@@ -23030,6 +23030,42 @@ input[type=date]::-webkit-clear-button {
   background-color: #383B58;
 }
 
+.btn-1 {
+  padding: 0.5rem;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.btn-1:hover {
+  background-color: #383B58;
+}
+.btn-1 .checkfill {
+  margin-bottom: 0.3rem;
+  font-size: 3rem;
+  color: #1DBEB4;
+}
+
+.btn-1 {
+  padding: 0.5rem;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+}
+.btn-1:hover {
+  background-color: #383B58;
+}
+.btn-1 .checkfill {
+  margin-bottom: 0.3rem;
+  font-size: 3rem;
+  color: #1DBEB4;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
