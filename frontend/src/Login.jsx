@@ -44,7 +44,6 @@ export default function Login() {
                 <Form.Group className="mb-3 text-start" controlId="formEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control
-                    id="emailFormLogin"
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     placeholder="Insira seu e-mail"
@@ -56,7 +55,6 @@ export default function Login() {
                 >
                   <Form.Label>Senha</Form.Label>
                   <Form.Control
-                    id="passwordFormLogin"
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     placeholder="********"
