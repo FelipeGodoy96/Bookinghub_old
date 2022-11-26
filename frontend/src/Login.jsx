@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
 import Footer from './components/Footer/Footer';
 import LoginContext from './Contexts/LoginContext';
 import apiHandle from './services/apiHandle';
@@ -63,10 +64,24 @@ export default function Login() {
                   Entrar
                 </Button>
               </Form>
+
+              <div className="form-check mt-3">
+                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                <label className="form-check-label text-start" htmlFor="defaultCheck1">
+                  <h5>
+                    Continuar conectado?
+                  </h5>
+                  <p>
+                    Mantenha-se conectado para que você não precise entrar novamente da próxima vez.
+                  </p>
+                </label>
+              </div>
+
               <div className="d-flex account justify-content-center">
                 <p className="opsLogin">Não tem uma conta?⠀</p>
                 <Link to="/Cadastro">Criar conta</Link>
               </div>
+
               <div className="d-flex account justify-content-center">
                 <p className="opsLogin">Esqueceu sua senha?⠀</p>
                 <Link to="/RedefinirSenha">Redefinir senha</Link>
