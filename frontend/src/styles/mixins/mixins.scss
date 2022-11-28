@@ -1,31 +1,31 @@
 @use '../variables/variables.scss';
 
 @mixin font-primary {
-  font-style: $font-principal;
+  font-family: $font-principal;
   font-size: 24pt;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 @mixin font-secondary {
-  font-style: $font-principal;
+  font-family: $font-principal;
   font-size: 20pt;
   font-weight: bold;
 }
 
 @mixin font-alternative {
-  font-style: $font-principal;
+  font-family: $font-principal;
   font-size: 16pt;
   font-weight: bold;
 }
 
 @mixin font-small {
-  font-style: $font-principal;
+  font-family: $font-principal;
   font-size: 14pt;
   font-weight: bold;
 }
 
 @mixin button1 {
-  font-style: $font-principal;
+  font-family: $font-principal;
   color: $white;
   background-color: $primary-color;
   font-size: 14pt;
@@ -33,21 +33,47 @@
 }
 
 @mixin button2 {
-  font-style: $font-principal;
+  font-family: $font-principal;
   color: $primary-color;
   background-color: $white;
   font-size: 16pt;
   font-weight: bold;
 }
 
+@mixin button3 {
+  font-family: $font-principal;
+  color: $primary-color;
+  background-color: $white;
+  font-size: 12pt;
+  font-weight: 600;
+}
+
+@mixin button4 {
+  font-family: $font-principal;
+  color: $white;
+  padding: 0.1rem;
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba( 56, 59, 88, 0.95 );
+  backdrop-filter: blur( 16.5px );
+  -webkit-backdrop-filter: blur( 16.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+  a {
+    color: $white;
+  }
+
+}
+
 @mixin text1 {
-  font-style: $font-principal;
+  font-family: $font-principal;
   font-weight: medium;
   font-size: 14pt;
 }
 
 @mixin text2 {
-  font-style: $font-principal;
+  font-family: $font-principal;
   font-weight: medium;
-  font-sizxe: 12pt;
+  font-size: 12pt;
 }

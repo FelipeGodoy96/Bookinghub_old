@@ -37,14 +37,14 @@ public class ControllerCidades {
     }
 
     @PostMapping
-    public ResponseEntity<CidadesDto> inserCategoria(@RequestBody CidadesDto dto) {
+    public ResponseEntity<CidadesDto> inserCidades(@RequestBody CidadesDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<CidadesDto> updateCategoria(@PathVariable Integer id, @RequestBody CidadesDto dto) {
+    public ResponseEntity<CidadesDto> updateCidades(@PathVariable Integer id, @RequestBody CidadesDto dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }

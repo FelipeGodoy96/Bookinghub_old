@@ -1,0 +1,49 @@
+{
+	"id": "3809874d-a1b4-4a12-a658-d3e420c79218",
+	"name": "PUT - LION'S REST - CATEGORIA",
+	"timestamp": "2022-10-25T03:12:07.105Z",
+	"collection_id": "21375452-e4851a52-495b-4fd3-a3af-17ee98ea1a37",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 1,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "e604ce91-8379-446c-9696-59feef26349c",
+			"name": "Editar uma categoria específica",
+			"url": "http://localhost:9000/categorias/4",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"O status de resposta é 200": true
+			},
+			"testPassFailCounts": {
+				"O status de resposta é 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"O status de resposta é 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 43,
+	"collection": {
+		"requests": [
+			{
+				"id": "e604ce91-8379-446c-9696-59feef26349c",
+				"method": "PUT"
+			}
+		]
+	}
+}
