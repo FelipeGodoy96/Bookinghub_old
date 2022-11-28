@@ -12,7 +12,7 @@ public class PlainPassword {
 
     public PlainPassword(@NotBlank @Length(min = 5) String openPassword) {
         Assert.hasLength(openPassword, "Senha não pode ser em branco");
-        Assert.isTrue(openPassword.length()>=5, "Senha precisa ter no mínimo 6 caraceteres");
+        Assert.isTrue(openPassword.length()>=5, "Senha precisa ter no mínimo 5 caraceteres");
         this.password = openPassword;
     }
 
