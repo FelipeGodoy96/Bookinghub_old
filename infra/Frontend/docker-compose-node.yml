@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  node:
+    container_name: frontnode
+    build: . #preciso do Dockerfile para gerar a imagem
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - volnode:/home/node/app
+    ports:
+      - "80:5173"
+    # networks:
+    #   - servers
+    command: "npm run dev"
+
+volumes:
+  volnode:
+
+# networks:
+#   servers:
+#     driver: bridge

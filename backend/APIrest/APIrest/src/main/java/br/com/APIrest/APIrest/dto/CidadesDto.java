@@ -3,6 +3,8 @@ package br.com.APIrest.APIrest.dto;
 import br.com.APIrest.APIrest.model.Cidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CidadesDto implements Serializable {
     private static long serialVersionUID = 1L;
@@ -10,6 +12,8 @@ public class CidadesDto implements Serializable {
     private Integer id;
     private String nome;
     private String pais;
+
+    //private Set<ProdutosDto> produto = new HashSet<>();
 
     public CidadesDto() {
     }
@@ -24,6 +28,7 @@ public class CidadesDto implements Serializable {
         id = cidades.getId();
         nome = cidades.getNome();
         pais = cidades.getPais();
+        //cidades.getProduto().forEach(produtos -> this.produto.add(new ProdutosDto(produtos)));
     }
 
     public Integer getId() {
@@ -46,4 +51,7 @@ public class CidadesDto implements Serializable {
     public void setPais(String pais) {
         this.pais = pais;
     }
+
+    //public Set<ProdutosDto> getProduto() { return produto; }
+    //public void setProduto(Set<ProdutosDto> produto) { this.produto = produto; }
 }

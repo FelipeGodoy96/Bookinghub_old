@@ -44,7 +44,7 @@ public class ControllerProdutos {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ProdutosDto> updateProdutos(@PathVariable Integer id, @RequestBody ProdutosDto dto) {
+    public ResponseEntity<ProdutosDto> updateCategoria(@PathVariable Integer id, @RequestBody ProdutosDto dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }
