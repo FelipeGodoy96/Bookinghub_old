@@ -3,10 +3,12 @@
 import React from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function ProductCardReserva({ data }) {
+  const navigate = useNavigate();
+
   return (
     <Card className="anuncioCardReserva d-flex flex-column m-2">
       {/* <Card.Img
@@ -51,7 +53,7 @@ export default function ProductCardReserva({ data }) {
           <Card.Text>Data</Card.Text>
         </div>
 
-        <Button className="m-1">
+        <Button className="m-1" onClick={() => navigate('/confirmacao-reserva')}>
 
           Confirmar Reserva
         </Button>
