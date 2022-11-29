@@ -13,7 +13,7 @@ import {
   MdCarRental,
   MdDining,
 } from 'react-icons/md';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import Box from '@mui/material/Box';
@@ -27,7 +27,6 @@ export default function Anuncio() {
   const { id } = useParams();
   const { state } = React.useContext(Context);
   const { anuncios } = state;
-  const navigate = useNavigate();
 
   const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
 
@@ -248,9 +247,7 @@ export default function Anuncio() {
               <h6 className="p-3 ">
                 Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
-              <Button id="fazerReservaButtonAnuncio" className="m-1" onClick={() => navigate('/reserva')}>
-                Reservar agora
-              </Button>
+              <Button id="fazerReservaButtonAnuncio">Reservar agora</Button>
             </Card>
           </div>
         </Container>

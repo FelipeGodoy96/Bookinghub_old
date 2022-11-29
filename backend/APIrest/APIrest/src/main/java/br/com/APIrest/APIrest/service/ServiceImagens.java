@@ -1,7 +1,7 @@
 package br.com.APIrest.APIrest.service;
 
-import br.com.APIrest.APIrest.dto.ImagensDto;
-import br.com.APIrest.APIrest.model.Imagens;
+import br.com.APIrest.APIrest.dto.ImagensAnuncioDto;
+import br.com.APIrest.APIrest.model.ImagensAnuncio;
 import br.com.APIrest.APIrest.repository.RepositoryImagens;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,16 @@ public class ServiceImagens {
     private RepositoryImagens repository;
 
     @Transactional(readOnly = true)
-    public List<ImagensDto> findAll(){
-        List<Imagens> list = repository.findAll();
-        return list.stream().map(x -> new ImagensDto(x)).collect(Collectors.toList());
+    public List<ImagensAnuncioDto> findAll(){
+        List<ImagensAnuncio> list = repository.findAll();
+        return list.stream().map(x -> new ImagensAnuncioDto(x)).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public ImagensDto findById (Integer id) {
-        Optional<Imagens> object = repository.findById(id);
-        Imagens entity = object.get();
-        return new ImagensDto(entity);
+    public ImagensAnuncioDto findById (Integer id) {
+        Optional<ImagensAnuncio> object = repository.findById(id);
+        ImagensAnuncio entity = object.get();
+        return new ImagensAnuncioDto(entity);
     }
 
     public void delete(Integer id) {
@@ -35,22 +35,22 @@ public class ServiceImagens {
     }
 
     @Transactional
-    public ImagensDto insert(ImagensDto dto) {
-        Imagens entity = new Imagens();
+    public ImagensAnuncioDto insert(ImagensAnuncioDto dto) {
+        ImagensAnuncio entity = new ImagensAnuncio();
         entity.setId(dto.getId());
         entity.setTitulo(dto.getTitulo());
         entity.setUrl(dto.getUrl());
         entity = repository.save(entity);
-        return new ImagensDto(entity);
+        return new ImagensAnuncioDto(entity);
     }
 
     @Transactional
-    public ImagensDto update(Integer id, ImagensDto dto) {
-        Imagens entity = repository.getReferenceById(id);
+    public ImagensAnuncioDto update(Integer id, ImagensAnuncioDto dto) {
+        ImagensAnuncio entity = repository.getReferenceById(id);
         entity.setId(dto.getId());
         entity.setTitulo(dto.getTitulo());
         entity.setUrl(dto.getUrl());
         entity = repository.save(entity);
-        return new ImagensDto(entity);
+        return new ImagensAnuncioDto(entity);
     }
 }

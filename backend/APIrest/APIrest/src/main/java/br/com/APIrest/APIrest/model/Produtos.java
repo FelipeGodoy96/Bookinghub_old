@@ -3,6 +3,7 @@ package br.com.APIrest.APIrest.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,6 +16,7 @@ public class Produtos implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+    @Column(columnDefinition="TEXT")
     private String descricao;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -25,12 +27,26 @@ public class Produtos implements Serializable {
     @JoinColumn(name = "categoria_onetm")
     private Categorias categorias;
 
+    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
+    private List<Reservas> reserva;
+
+    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
+    private List<ImagensAnuncio> imagensAnuncio;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuarios_produtos")
+    private Usuarios usuarios;
+
     @ManyToMany
     @JoinTable(name = "produtoCaracteristica",
     joinColumns = @JoinColumn(name = "produtoID", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "caracteristicaID", referencedColumnName = "id"))
     Set<Caracteristicas> caracteristica = new HashSet<>();
 
+//    @ManyToMany
+//    @JoinTable(name = "produto_imagens_anuncio",
+//            joinColumns = @JoinColumn(name = "produto_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "imagens_anuncio_id", referencedColumnName = "id"))
+//    Set<ImagensAnuncio> imagensAnuncio = new HashSet<>();
     public Produtos() {
     }
 
@@ -38,8 +54,7 @@ public class Produtos implements Serializable {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.caracteristica = caracteristica;
-        }
+    }
 
     public Integer getId() {
         return id;
@@ -79,5 +94,32 @@ public class Produtos implements Serializable {
     }
     public void setCidades(Cidades cidades) {
         this.cidades = cidades;
+    }
+
+    public Usuarios getUsuarios() {
+        return usuarios;
+    }
+    public void setUsuarios(Usuarios usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public List<Reservas> getReserva() {
+        return reserva;
+    }
+    public void setReserva(List<Reservas> reserva) {
+        this.reserva = reserva;
+    }
+
+//    public Set<ImagensAnuncio> getImagensAnuncios() {
+//        return imagensAnuncio;
+//    }
+//    public void setImagensAnuncios(Set<ImagensAnuncio> imagensAnuncio) {
+//        this.imagensAnuncio = imagensAnuncio;
+//    }
+    public List<ImagensAnuncio> getImagensAnuncios() {
+        return imagensAnuncio;
+    }
+    public void setImagensAnuncios(List<ImagensAnuncio> imagensAnuncio) {
+        this.imagensAnuncio = imagensAnuncio;
     }
 }
