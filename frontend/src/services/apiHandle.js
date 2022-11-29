@@ -3,6 +3,7 @@ import axios from 'axios';
 import agruparAnuncios from '../utils/agruparAnuncios';
 
 const apiLink = process.env.NODE_ENV === 'development' ? 'http://54.219.171.212:8080' : '';
+const apiLinkLogin = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : '';
 
 const categoriasData = await axios.get(
   `${apiLink}/categorias`,
@@ -17,7 +18,7 @@ const anunciosData = await axios.get(
 const login = async (user) => {
   const { username, password } = user;
   try {
-    const response = await axios.post(`${apiLink}/auth`, { username, password });
+    const response = await axios.post(`${apiLinkLogin}/auth`, { username, password });
     return {
       token: response.data,
     };
@@ -32,7 +33,7 @@ const login = async (user) => {
 
 const cadastro = async (newuser) => {
   try {
-    const response = await axios.post(`${apiLink}/usuarios`, newuser);
+    const response = await axios.post(`${apiLinkLogin}/usuarios`, newuser);
     return {
       user: response.data,
     };
