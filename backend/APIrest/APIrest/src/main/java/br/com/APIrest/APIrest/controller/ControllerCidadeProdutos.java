@@ -4,10 +4,11 @@ import br.com.APIrest.APIrest.dto.CidadeProdutosDto;
 import br.com.APIrest.APIrest.service.ServiseCidadeProdutos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
 import java.util.List;
 
 @CrossOrigin
@@ -19,33 +20,8 @@ public class ControllerCidadeProdutos {
     ServiseCidadeProdutos service;
 
     @GetMapping
-    public ResponseEntity<List<CidadeProdutosDto>> findAllCidadeProdutos() {
+    public ResponseEntity<List<CidadeProdutosDto>> findAllCidades() {
         List<CidadeProdutosDto> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
-
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<CidadeProdutosDto> findCidadeProdutosById(@PathVariable Integer id) {
-        CidadeProdutosDto dto = service.findById(id);
-        return ResponseEntity.ok().body(dto);
-    }
-
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Void> deleteCidadeProdutos(@PathVariable Integer id) {
-//        service.delete(id);
-//        return ResponseEntity.noContent().build();
-//    }
-//
-//    @PostMapping
-//    public ResponseEntity<CidadeProdutosDto> inserCidadeProdutos(@RequestBody CidadeProdutosDto dto) {
-//        dto = service.insert(dto);
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
-//        return ResponseEntity.created(uri).body(dto);
-//    }
-//
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<CidadeProdutosDto> updateCidadeProdutos(@PathVariable Integer id, @RequestBody CidadeProdutosDto dto) {
-//        dto = service.update(id, dto);
-//        return ResponseEntity.ok().body(dto);
-//    }
 }

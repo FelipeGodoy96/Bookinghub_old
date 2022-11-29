@@ -21,9 +21,9 @@ public class CaracteristicasDto implements Serializable {
     }
 
     public CaracteristicasDto(Caracteristicas caracteristicas) {
-        id = caracteristicas.getId();
-        nome = caracteristicas.getNome();
-        icone = caracteristicas.getIcone();
+        this.id = caracteristicas.getId();
+        this.nome = caracteristicas.getNome();
+        this.icone = caracteristicas.getIcone();
     }
 
     public Integer getId() {

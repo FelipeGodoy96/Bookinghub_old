@@ -13,9 +13,8 @@ public class ProdutosDto implements Serializable {
     private String nome;
     private String descricao;
 
+    private Set<CategoriasDto> categoria = new HashSet<>();
     private Set<CaracteristicasDto> caracteristica = new HashSet<>();
-    private Set<ReservasDto> reserva = new HashSet<>();
-    private Set<ImagensAnuncioDto> imagensAnuncio = new HashSet<>();
 
     public ProdutosDto() {
     }
@@ -31,9 +30,6 @@ public class ProdutosDto implements Serializable {
         nome = produtos.getNome();
         descricao = produtos.getDescricao();
         produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
-        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservasDto(reservas)));
-        produtos.getImagensAnuncios().forEach(imagensAnuncios -> this.imagensAnuncio.add(new ImagensAnuncioDto(imagensAnuncios)));
-
     }
 
     public Integer getId() {
@@ -62,19 +58,5 @@ public class ProdutosDto implements Serializable {
 
     public Set<CaracteristicasDto> getCaracteristica() {
         return caracteristica;
-    }
-
-    public Set<ReservasDto> getReserva() {
-        return reserva;
-    }
-    public void setReserva(Set<ReservasDto> reserva) {
-        this.reserva = reserva;
-    }
-
-    public Set<ImagensAnuncioDto> getImagensAnuncio() {
-        return imagensAnuncio;
-    }
-    public void setImagensAnuncio(Set<ImagensAnuncioDto> imagensAnuncio) {
-        this.imagensAnuncio = imagensAnuncio;
     }
 }
