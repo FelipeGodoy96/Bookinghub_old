@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import * as React from 'react'
-import { Container, Card, Button } from 'react-bootstrap'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { BsArrowReturnLeft } from 'react-icons/bs'
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
+import { Button, Card, Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { BsArrowReturnLeft } from 'react-icons/bs';
 import {
   MdPets,
   MdWifi,
@@ -12,124 +11,42 @@ import {
   MdAcUnit,
   MdPool,
   MdCarRental,
-  MdDining
-} from 'react-icons/md'
-import { Link, useParams, useNavigate } from 'react-router-dom'
-import Footer from './components/Footer/Footer'
-import ImageGallery from 'react-image-gallery'
-import 'react-image-gallery/styles/css/image-gallery.css'
-import './styles/Anuncio.css'
-import Box from '@mui/material/Box'
-import Modal from '@mui/material/Modal'
-import 'react-date-range/dist/styles.css' // main style file
-import 'react-date-range/dist/theme/default.css' // theme css file
-import { DateRange } from 'react-date-range'
-import { ptBR } from 'date-fns/locale'
-import CustomGallery from './components/CustomGallery/Gallery'
+  MdDining,
+} from 'react-icons/md';
+import { Link, useParams } from 'react-router-dom';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Footer from './components/Footer/Footer';
+import CustomGallery from './components/CustomGallery/Gallery';
+import Calendario from './components/Calendario/Calendario';
+import Context from './Contexts/Context';
 
 export default function Anuncio() {
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const [anuncio, setAnuncio] = useState({
-    idCategoria: 1,
-    id: 1,
-    categoria: '',
-    descricaoProduto: '',
-    nome: '',
-    descricao: '',
-    foto: '',
-    cidade: 'Cidade Teste'
-  })
+  const { id } = useParams();
+  const { state } = React.useContext(Context);
+  const { anuncios } = state;
 
-  async function buscarTodosAnuncios() {
-    try {
-      const anuncioRaw = await axios.get(
-        'http://54.183.252.14:8080/categoria_produtos'
-      )
-      const anunciosAgrupados = agruparAnuncios(anuncioRaw.data)
-      const anunciosFiltrados = anunciosAgrupados.filter(
-        item => item.id.toString() === id
-      )
-      if (anunciosFiltrados.length < 1) {
-        throw 'Anúncio nao encontrado'
-      }
-      setAnuncio(anunciosFiltrados[0])
-    } catch (err) {
-      navigate('/404-NaoEncontrado')
-    }
-  }
+  const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
 
-  function agruparAnuncios(anunciosRaw) {
-    const ctx = []
-    anunciosRaw.forEach(category => {
-      category.produto.forEach(product => {
-        ctx.push({
-          idCategoria: category.id,
-          id: product.id,
-          categoria: category.descricao,
-          descricaoProduto: product.descricao,
-          nome: product.nome,
-          descricao: product.descricao,
-          foto: category.imagem,
-          cidade: 'Cidade Teste'
-        })
-      })
-    })
-    return ctx
-  }
+  const images = anuncioSelected.fotosAnuncio.map((m) => ({ original: m.url, thumbnail: m.url }));
 
-  useEffect(() => {
-    buscarTodosAnuncios()
-  }, [])
-  // checar se existe um anuncio de id 99
-  // navigate pra pagina 404 -> nao encontrado
-  const images = [
-    {
-      original:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg',
-      thumbnail:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/-i---i-_%286288971321%29.jpg/1280px--i---i-_%286288971321%29.jpg'
-    },
-    {
-      original: 'https://picsum.photos/id/1015/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1015/250/150/'
-    },
-    {
-      original: 'https://picsum.photos/id/1019/1000/600/',
-      thumbnail: 'https://picsum.photos/id/1019/250/150/'
-    },
-    {
-      original: 'https://picsum.photos/200/300',
-      thumbnail: 'https://picsum.photos/200/300'
-    },
-    {
-      original: 'https://picsum.photos/300/300',
-      thumbnail: 'https://picsum.photos/300/300'
-    }
-  ]
-
- const [ gallery, setGallery ] = React.useState(false)
- const handleOpenGallery = () => {
-  setGallery(true)
- }
- const handleCloseGallery = () => {
-  setGallery(false)
- }
-
-
-  const [date, setDate] = useState({
-    startDate: new Date(),
-    endDate: new Date(),
-    key: 'selection'
-  })
+  const [gallery, setGallery] = React.useState(false);
+  const handleOpenGallery = () => {
+    setGallery(true);
+  };
+  const handleCloseGallery = () => {
+    setGallery(false);
+  };
 
   return (
     <>
       <section className="subHeader">
         <Container className="d-flex flex-row justify-content-between align-items-center">
           <div className="informacoesAnunciante">
-            <p>{anuncio.categoria}</p>
-            <h3 className="nomeAnunciante">{anuncio.nome}</h3>
+            <p>{anuncioSelected.categoria}</p>
+            <h3 className="nomeAnunciante">{anuncioSelected.nome}</h3>
           </div>
           <Link to="/">
             <BsArrowReturnLeft className="iconeSubHeader" />
@@ -140,13 +57,13 @@ export default function Anuncio() {
       <section className="mapSubHeader">
         <Container className="d-flex flex-row justify-content-between">
           <div className="d-flex flex-column flex-lg-row align-items-center gap-lg-5">
-            <div className="bi bi-geo-alt">Cidade TESTE</div>
+            <div className="bi bi-geo-alt">{anuncioSelected.cidade}</div>
             <Link className="bi bi-pin-map" to="/">
               Ver no mapa
             </Link>
           </div>
 
-          <div className="d-flex flex-column align-items-center">
+          <div className=" d-flex flex-column align-items-end">
             <div className="notaParceiro">8.0</div>
             <div className="classificacaoParceiro">Muito Bom</div>
           </div>
@@ -158,7 +75,7 @@ export default function Anuncio() {
           <div className="c-share">
             <input className="c-share__input" type="checkbox" id="checkbox" />
             <label className="c-share__toggler" htmlFor="checkbox">
-              <span className="c-share__icon"></span>
+              <span className="c-share__icon" />
             </label>
 
             <ul
@@ -172,42 +89,76 @@ export default function Anuncio() {
             </ul>
           </div>
         </Container>
-        <Container className="galleryCentralizer" >
-          <Box className="gallery-wrapper"
+        <Container className="galleryCentralizer">
+          <Box
+            className="gallery-wrapper"
             sx={{
               display: {
                 xs: 'none',
                 sm: 'none',
                 md: 'none',
                 lg: 'block',
-                xl: 'block'
+                xl: 'block',
               },
               height: '25vw',
               // width: '100%',
               marginTop: '1rem',
               marginBottom: '1rem',
             }}
-            >
-           <div className="gallery-grid" >
-                <img className="gallery-main-image" alt="defaultImage" src={images[0]?.original} />
-                <img className="gallery-grid-image" alt="gallery-image" src={images[1]?.original} />
-                <img className="gallery-grid-image" alt="gallery-image" src={images[2]?.original}  />
-                <img className="gallery-grid-image" alt="gallery-image" src={images[3]?.original}  />
-                <img className="gallery-grid-image" alt="gallery-image" src={images[4]?.original}  />
-                <button className="gallery-button-showall" type="button" onClick={handleOpenGallery}>Ver mais</button>
-                <Modal 
-                className="gallery-modal"             
-                sx={{backgroundColor: 'rgb(56, 59, 88, 0.8)'}}
+          >
+            <div className="gallery-grid">
+              <img
+                className="gallery-main-image"
+                alt="defaultImage"
+                src={images[0]?.original}
+              />
+              <img
+                className="gallery-grid-image"
+                alt="Imagem da galeria"
+                src={images[1]?.original}
+              />
+              <img
+                className="gallery-grid-image"
+                alt="Imagem da galeria"
+                src={images[2]?.original}
+              />
+              <img
+                className="gallery-grid-image"
+                alt="Imagem da galeria"
+                src={images[3]?.original}
+              />
+              <img
+                className="gallery-grid-image"
+                alt="Imagem da galeria"
+                src={images[4]?.original}
+              />
+              <button
+                className="gallery-button-showall"
+                type="button"
+                onClick={handleOpenGallery}
+              >
+                Ver mais
+              </button>
+              <Modal
+                className="gallery-modal"
+                sx={{ backgroundColor: 'rgb(56, 59, 88, 0.8)' }}
                 open={gallery}
                 onClose={handleCloseGallery}
+              >
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'white',
+                    borderRadius: '10px',
+                  }}
                 >
-                  <Box
-                  sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', borderRadius: '10px'}}
-                  >
-                    <CustomGallery images={images}/>
-                  </Box>
-                </Modal>
-           </div>
+                  <CustomGallery images={images} />
+                </Box>
+              </Modal>
+            </div>
           </Box>
         </Container>
         <Box
@@ -217,25 +168,25 @@ export default function Anuncio() {
               sm: 'block',
               md: 'block',
               lg: 'none',
-              xl: 'none'
-            }
+              xl: 'none',
+            },
           }}
         >
           <ImageGallery
             className="galeriaMobile"
             slideInterval={5000}
-            autoPlay={true}
+            autoPlay
             showThumbnails={false}
             showPlayButton={false}
             showFullscreenButton={false}
             items={images}
-            showIndex={true}
+            showIndex
           />
         </Box>
 
         <Container className="descripition  d-flex flex-column justify-content-end">
           <h3>Informações sobre esta acomodação</h3>
-          <p>{anuncio.descricao}</p>
+          <p>{anuncioSelected.descricaoProduto}</p>
         </Container>
 
         <Container className="descripition d-flex flex-column justify-content-end">
@@ -286,39 +237,19 @@ export default function Anuncio() {
               </div>
             </Col>
           </Row>
-
-          {/* <div className=" service d-flex flex-wrap justify-content-between align-content-center  ">
-          <div className="cozinha hotelservice col-sm-3 "><MdDining className="m-lg-2"/>Cozinha</div>
-          <div className="estacionamento hotelservice  col-sm-3"><MdCarRental className="m-lg-2"/>Estacionamento</div>
-          <div className="piscina hotelservice col-sm-3"><MdPool className="m-lg-2"/>Piscina</div>
-          <div className="arCondicionado hotelservice col-sm-3 "><MdAcUnit className="m-lg-2"/>Ar Condicionado</div>
-          <div className="tv hotelservice  col-sm-3  "><MdLiveTv className="m-lg-2"/>Televisor</div>
-          <div className="aceitaPets hotelservice  col-sm-3 "><MdPets className="m-lg-2"/>Aceita Pets</div>
-          <div className="wifi hotelservice col-sm-3   "><MdWifi className="m-lg-2"/>Wi-fi</div>   
-             
-          </div> */}
         </Container>
 
-        <Container className="agendaDeReservas d-flex flex-column">
+        <Container className="descripition agendaDeReservas d-flex flex-column align-items-center">
           <h3>Datas disponíveis</h3>
-          <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
-            <Card>
-              <DateRange
-                locale={ptBR}
-                editableDateInputs={true}
-                moveRangeOnFirstSelection={false}
-                ranges={[date]}
-                onChange={ranges => setDate(ranges.selection)}
-              />
-            </Card>
+          <div className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
+            <Calendario />
             <Card className="confirmReserva">
               <h6 className="p-3 ">
-                Adicione as datas da sua estadia para obter a tarifa de
-                hospedagem
+                Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
-              <Button onClick={() => console.log(date)}>Reservar agora</Button>
+              <Button id="fazerReservaButtonAnuncio">Reservar agora</Button>
             </Card>
-          </Container>
+          </div>
         </Container>
 
         <Container className="descripition d-flex flex-column">
@@ -347,5 +278,5 @@ export default function Anuncio() {
       </section>
       <Footer />
     </>
-  )
+  );
 }

@@ -1,12 +1,12 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import '../../styles/Gallery.css';
 import ImageGallery from 'react-image-gallery';
 
 export default function CustomGallery(props) {
   return (
     <ImageGallery
+      id="galeriaDeImagens"
       autoPlay={false}
       showThumbnails
       showPlayButton={false}

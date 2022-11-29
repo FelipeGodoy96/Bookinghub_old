@@ -6,10 +6,13 @@ const DEFAULT_VALUE = {
   state: {
     isLoged: false,
     user: {
-      email: '',
-      password: '',
-      role: '',
+      username: 'teste',
+      nome: 'teste',
+      sobrenome: 'teste',
+      produto: [],
+      papeis: [],
     },
+    token: '',
   },
   setState: () => {}, // função de inicialização
 };

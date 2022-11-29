@@ -6,7 +6,15 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
+    button {
+        border: none;
+        @include button1;
+        &:hover{
+            background-color: #383B58;
+        }
+    }
 }
+
 
 .categoriesCard img {
     height: 183px;

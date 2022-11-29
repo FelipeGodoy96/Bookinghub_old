@@ -1,39 +1,51 @@
+/* eslint-disable react/no-array-index-key */
 import Button from 'react-bootstrap/Button';
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import '../../styles/Searchbar.css';
+import React, { useContext, useRef, useState } from 'react';
+import {
+  Link, Navigate, useLocation, useNavigate,
+} from 'react-router-dom';
+import Context from '../../Contexts/Context';
 
 export default function Searchbar() {
-  const ref = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const cidadeRef = useRef();
+  const categoriaRef = useRef();
 
-  const [Resp, Repos] = useState([]);
-  const [resp, repos] = useState([]);
+  const { state, setState } = useContext(Context);
+  const { cidades, categorias, anuncios } = state;
 
-  useEffect(() => {
-    const FetchResp = async () => {
-      const api = await fetch('http://54.183.252.14:8080/cidade_produtos');
-      const data = await api.json();
-      Repos(data);
-      repos(data);
-    };
-    FetchResp();
-  }, []);
+  const [Resp, Repos] = useState(cidades);
+  const [cidadesData, setCidadesData] = useState(cidades);
+  const [categoriasData, setCategoriasData] = useState(categorias);
+
   const Change = ({ target }) => {
     if (!target.toLowerCase) {
-      repos(Resp);
+      setCidadesData(Resp);
       return;
     }
-    const filterResp = resp.filter(({ nome }) => nome.includes(target.value));
-    repos(filterResp);
+    const filterResp = cidadesData.filter(({ nome }) => nome.includes(target.value));
+    setCidadesData(filterResp);
+  };
+
+  const handleBuscar = () => {
+    const filtroSearchBar = {
+      categoriaFilter: categoriaRef.current.value,
+      cidadeFilter: cidadeRef.current.value,
+    };
+    setState({ ...state, filtroParametros: filtroSearchBar });
+    if (location.pathname !== '/buscar') {
+      navigate('/buscar');
+    }
   };
   return (
     <div className="searchBarComponent">
       <div className="d-flex w-100 flex-column flex-lg-row justify-content-center ">
         <div className="form-group has-search m-1 ">
           <span className="bi bi-geo-alt  form-control-feedback" />
-
           <input
+            ref={cidadeRef}
+            id="cidadeFormSearchBar"
             type="text"
             list="data"
             className="form-control"
@@ -41,18 +53,38 @@ export default function Searchbar() {
             onChange={Change}
           />
           <datalist id="data">
-            {resp.map((respost) => (
-              <Link className="link" to={`/cidade/${respost.nome}`}>
-                <option key={respost.id} value={respost.nome}>{respost.nome}</option>
-              </Link>
+            {cidadesData.map((respost, index) => (
+              <option value={respost.nome} key={index}>
+                {respost.nome}
+              </option>
             ))}
           </datalist>
+        </div>
 
+        <div className="form-group has-search m-1 ">
+          <span className="bi bi-house  form-control-feedback" />
+          <input
+            ref={categoriaRef}
+            id="categoriaFormSearchBar"
+            type="text"
+            list="datacategoria"
+            className="form-control"
+            placeholder="Categoria"
+            onChange={Change}
+          />
+          <datalist id="datacategoria">
+            {categoriasData.map((categoriasRespose, index) => (
+              <option value={categoriasRespose.descricao} key={index}>
+                {categoriasRespose.descricao}
+              </option>
+            ))}
+          </datalist>
         </div>
 
         <div className="calendar-input form-group has-search m-1">
           <span className="bi bi-calendar4-week form-control-feedback" />
           <input
+            id="checkInFormSearchBar"
             type="text"
             onChange={() => null}
             onFocus={(e) => { (e.target.type = 'date'); }}
@@ -65,7 +97,7 @@ export default function Searchbar() {
         <div className="calendar-input form-group has-search m-1">
           <span className="bi bi-calendar-week-fill form-control-feedback" />
           <input
-            ref={ref}
+            id="checkOutFormSearchBar"
             type="text"
             onChange={() => null}
             onFocus={(e) => { (e.target.type = 'date'); }}
@@ -75,7 +107,7 @@ export default function Searchbar() {
           />
         </div>
 
-        <Link to="/cidade"><Button className="m-1">Buscar</Button></Link>
+        <Button className="m-1" id="buscarButtonSearchBar" onClick={() => handleBuscar()}>Buscar</Button>
       </div>
     </div>
   );

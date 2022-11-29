@@ -2,11 +2,9 @@ import React from 'react';
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
-import '../../styles/Footer.css';
-
 export default function Footer() {
   return (
-    <footer className="defFooter w-100 d-flex flex-row justify-content-between align-items-center">
+    <footer className="defFooter mt-3 w-100 d-flex flex-row justify-content-between align-items-center">
       <div className="navFooter px-4">
         ©2022 Booking Hub
       </div>

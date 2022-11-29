@@ -1,0 +1,10 @@
+.confirmationCard {
+   @include card;
+   padding: 1rem;
+}
+
+.checkfill{
+    margin-bottom: 0.3rem;
+    font-size: 3rem;
+    color: $primary-color;
+}

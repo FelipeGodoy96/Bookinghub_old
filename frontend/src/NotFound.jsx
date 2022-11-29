@@ -26,7 +26,9 @@ export default function NotFound() {
         <Link className="nav-link d-flex align-items-center" to="/">
           <h3 className="bi bi-house">Retornar para a pagina inicial</h3>
         </Link>
+
       </Container>
+
       <Footer />
     </div>
   );
