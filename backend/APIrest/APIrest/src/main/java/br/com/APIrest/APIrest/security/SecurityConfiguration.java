@@ -48,8 +48,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/usuarios/**", "/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/usuarios/**").authenticated()
-                .antMatchers(HttpMethod.DELETE.PUT.POST.GET,
+                .antMatchers(HttpMethod.GET,"/usuarios/**").permitAll()
+                .antMatchers(
                         "/caracteristicas/**",
                                    "/categoria_produtos/**",
                                    "/cidade_produtos/**",
@@ -59,7 +59,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                                    "/imagens/**",
                                    "/papeis/**",
                                    "/produtos/**",
-                                   "/reservas/**" ).permitAll()
+                                   "/reservas/produtos/**" ).permitAll()
               //.antMatchers("/auth/**").permitAll()
                 .antMatchers("/h2/**").permitAll()
                 .anyRequest().authenticated()
