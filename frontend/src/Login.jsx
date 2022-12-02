@@ -15,7 +15,7 @@ export default function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isVisible, setIsVisible] = useState('hidden');
+  const [isVisible, setIsVisible] = useState(false);
 
   async function logon(emailProps, passwordProps) {
     const { token: respostaToken } = await apiHandle
@@ -25,7 +25,7 @@ export default function Login() {
       document.cookie = `_sessionTokenJWT=${respostaToken}`;
       navigate('/');
     } else {
-      setIsVisible('visible');
+      setIsVisible(true);
     }
   }
   return (
@@ -60,23 +60,27 @@ export default function Login() {
                     placeholder="********"
                   />
                 </Form.Group>
-                <div className="loginFail mt-1 mb-2" style={{ visibility: `${isVisible}` }}> Falha nas credenciais de Login</div>
+
+                {isVisible ? (
+                  <div className="loginFail mt-2 mb-3">
+                    Infelizmente não foi possível iniciar a sessão.
+                    Verique suas credenciais e tente novamente
+                  </div>
+                ) : null}
+
                 <Button id="fazerLoginFormLogin" type="submit" variant="primary">
                   Entrar
                 </Button>
               </Form>
 
-              {/* <div className="form-check mt-4">
-                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                <label className="form-check-label text-center" htmlFor="defaultCheck1">
-                  <h5>
-                    Continuar conectado?
-                  </h5>
-                  <p>
-                    Mantenha-se conectado para que você não precise entrar novamente da próxima vez.
-                  </p>
+              <div className="form-check mt-4 mb-4 p-0">
+                <label className="form-check-label d-flex align-items-center justify-content-center" htmlFor="keepConected">
+                  <input className="form-check-input m-0 p-0" type="checkbox" value="" id="keepConected" />
+                  <h6 className="p-0 m-0 px-1">
+                    Manter-me conectado
+                  </h6>
                 </label>
-              </div> */}
+              </div>
 
               <div className="d-flex account justify-content-center">
                 <p className="opsLogin">Não tem uma conta?⠀</p>

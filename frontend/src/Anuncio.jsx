@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,7 +13,7 @@ import {
   MdCarRental,
   MdDining,
 } from 'react-icons/md';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import Box from '@mui/material/Box';
@@ -27,10 +27,11 @@ export default function Anuncio() {
   const { id } = useParams();
   const { state } = React.useContext(Context);
   const { anuncios } = state;
+  const navigate = useNavigate();
 
   const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
 
-  const images = anuncioSelected.fotosAnuncio.map((m) => ({ original: m.url, thumbnail: m.url }));
+  const images = anuncioSelected ? anuncioSelected.fotosAnuncio.map((m) => ({ original: m.url, thumbnail: m.url })) : [{ original: '', thumbnail: '' }];
 
   const [gallery, setGallery] = React.useState(false);
   const handleOpenGallery = () => {
@@ -39,6 +40,16 @@ export default function Anuncio() {
   const handleCloseGallery = () => {
     setGallery(false);
   };
+
+  useEffect(() => {
+    if (!anuncioSelected) {
+      navigate('/*');
+    }
+  }, []);
+
+  if (!anuncioSelected) {
+    return null;
+  }
 
   return (
     <>
@@ -247,7 +258,10 @@ export default function Anuncio() {
               <h6 className="p-3 ">
                 Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
-              <Button id="fazerReservaButtonAnuncio">Reservar agora</Button>
+              <Button id="fazerReservaButtonAnuncio" className="m-1" onClick={() => navigate(`/anuncio/reserva/${anuncioSelected.id}`, { state: anuncioSelected })}>
+                Reservar agora
+              </Button>
+
             </Card>
           </div>
         </Container>
