@@ -49,17 +49,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/usuarios/**", "/auth/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/usuarios/**").permitAll()
-                .antMatchers(
-                        "/caracteristicas/**",
-                                   "/categoria_produtos/**",
-                                   "/cidade_produtos/**",
-                                   "/categorias/**",
-                                   "/cidades/**",
-                                   "/cliente/**",
-                                   "/imagens/**",
-                                   "/papeis/**",
-                                   "/produtos/**",
-                                   "/reservas/produtos/**" ).permitAll()
+                .antMatchers(HttpMethod.GET,"/reservas/produtos/**").authenticated()
+                .antMatchers("/caracteristicas/**",
+                                        "/categoria_produtos/**",
+                                        "/cidade_produtos/**",
+                                        "/categorias/**",
+                                        "/cidades/**",
+                                        "/cliente/**",
+                                        "/imagens/**",
+                                        "/papeis/**",
+                                        "/produtos/**"
+                                        ).permitAll()
               //.antMatchers("/auth/**").permitAll()
                 .antMatchers("/h2/**").permitAll()
                 .anyRequest().authenticated()
