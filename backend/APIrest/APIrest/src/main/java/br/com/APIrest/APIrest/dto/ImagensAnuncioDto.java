@@ -1,29 +1,28 @@
 package br.com.APIrest.APIrest.dto;
 
-import br.com.APIrest.APIrest.model.Imagens;
+import br.com.APIrest.APIrest.model.ImagensAnuncio;
 
 import java.io.Serializable;
 
-public class ImagensDto implements Serializable {
+public class ImagensAnuncioDto implements Serializable {
     private static long serialVersionUID = 1L;
 
     private Integer id;
     private String titulo;
     private String url;
-
-    public ImagensDto() {
+    public ImagensAnuncioDto() {
     }
 
-    public ImagensDto(Integer id, String titulo, String url) {
+    public ImagensAnuncioDto(Integer id, String titulo, String url) {
         this.id = id;
         this.titulo = titulo;
         this.url = url;
     }
 
-    public ImagensDto(Imagens imagens) {
-        this.id = imagens.getId();
-        this.titulo = imagens.getTitulo();
-        this.url = imagens.getUrl();
+    public ImagensAnuncioDto(ImagensAnuncio imagens) {
+        id = imagens.getId();
+        titulo = imagens.getTitulo();
+        url = imagens.getUrl();
     }
 
     public Integer getId() {
@@ -46,4 +45,4 @@ public class ImagensDto implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
-}
+ }
