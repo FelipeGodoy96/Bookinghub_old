@@ -1,7 +1,10 @@
 package br.com.APIrest.APIrest.controller;
 
+import br.com.APIrest.APIrest.dto.UsuariosForm;
 import br.com.APIrest.APIrest.dto.UsuariosLoginForm;
+import br.com.APIrest.APIrest.model.Usuarios;
 import br.com.APIrest.APIrest.security.TokenManager;
+import br.com.APIrest.APIrest.security.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
