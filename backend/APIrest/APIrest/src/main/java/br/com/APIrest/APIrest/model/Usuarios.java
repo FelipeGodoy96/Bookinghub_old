@@ -1,71 +1,70 @@
 package br.com.APIrest.APIrest.model;
 
-import br.com.APIrest.APIrest.dto.UsuariosDto;
-import br.com.APIrest.APIrest.security.PlainPassword;
-
 import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDateTime;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "usuarios")
-public class Usuarios implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Table(name = "usuarios", uniqueConstraints = { @UniqueConstraint(columnNames = "username") })
+public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
-    private Integer id;
-
-    private String username;
-    private String senha; //criptografado
+    private Long id;
+    @NotBlank(message = "E-mail obrigatório!")
+    @Email(message = "E-mail inválido!")
+    @Column(unique = true)
+    private String username; //username = Email
+    @NotBlank(message = "Nome obrigatório!")
     private String nome;
     private String sobrenome;
-    private LocalDateTime dataCriacao = LocalDateTime.now();
-    @OneToMany(mappedBy = "usuarios", fetch = FetchType.LAZY)
-    private List<Produtos> produto;
-    @ManyToMany(fetch = FetchType.EAGER) // Força a busca dos perfis do usuário
-    @JoinTable(name = "usuarios_papeis",
-            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "papeis_id", referencedColumnName = "id"))
-    private Set<Papeis> papeis = new HashSet<>();
+    @NotBlank(message = "Senha obrigatório!")
+    private String password;// Criptografado
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "usuario_papeis",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "papeis_id"))
+    private Set<Role> roles = new HashSet<>();
 
     public Usuarios() {
     }
 
-    public Usuarios(String username, PlainPassword plainPassword, String nome, String sobrenome) {
+    public Usuarios(Long id, String username, String nome, String sobrenome, String password) {
+        this.id = id;
         this.username = username;
-        this.senha = plainPassword.encode();
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this.password = password;
     }
 
-    public Integer getId() {
+    public Usuarios(String username, String nome, String sobrenome, String password) {
+        this.username = username;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.password = password;
+    }
+
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getUsername() {
         return username;
     }
-    public void setEmail(String email) {
-        this.username = username;
-    }
 
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -73,30 +72,24 @@ public class Usuarios implements Serializable {
     public String getSobrenome() {
         return sobrenome;
     }
+
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
     }
 
-    public List<Produtos> getProduto() {
-        return produto;
-    }
-    public void setProduto(List<Produtos> produto) {
-        this.produto = produto;
+    public String getPassword() {
+        return password;
     }
 
-    public Set<Papeis> getPapeis() {
-        return papeis;
-    }
-    public void setPapeis(Set<Papeis> papeis) {
-        this.papeis = papeis;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public UsuariosDto toDto() {
-        return new UsuariosDto(
-                this.id,
-                this.nome,
-                this.sobrenome,
-                this.username
-        );
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

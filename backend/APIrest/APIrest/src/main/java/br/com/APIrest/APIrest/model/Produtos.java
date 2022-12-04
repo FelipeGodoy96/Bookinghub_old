@@ -32,9 +32,9 @@ public class Produtos implements Serializable {
 
     @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
     private List<ImagensAnuncio> imagensAnuncio;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuarios_produtos")
-    private Usuarios usuarios;
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "usuarios_produtos")
+//    private Usuarios usuarios;
 
     @ManyToMany
     @JoinTable(name = "produtoCaracteristica",
@@ -96,12 +96,12 @@ public class Produtos implements Serializable {
         this.cidades = cidades;
     }
 
-    public Usuarios getUsuarios() {
-        return usuarios;
-    }
-    public void setUsuarios(Usuarios usuarios) {
-        this.usuarios = usuarios;
-    }
+//    public Usuarios getUsuarios() {
+//        return usuarios;
+//    }
+//    public void setUsuarios(Usuarios usuarios) {
+//        this.usuarios = usuarios;
+//    }
 
     public List<Reservas> getReserva() {
         return reserva;

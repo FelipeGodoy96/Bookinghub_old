@@ -22,7 +22,7 @@ INSERT INTO produtos (nome, descricao) VALUES ('nomeTest3','descricaoTest3');
 --INSERT INTO papeis (authority) VALUES ('ADMtest');
 --INSERT INTO papeis (authority) VALUES ('USERtest');
 
-INSERT INTO usuarios (username, senha, nome, sobrenome) VALUES ('viramos017@gmail.com', '$2a$10$KyhZxjXKWO8RJRCXImmyGecGMD75VMMhlGf8OTI2N/4p/kmLPJgn.', 'vinicius',  'felce');
+--INSERT INTO usuarios (username, senha, nome, sobrenome) VALUES ('viramos017@gmail.com', '$2a$10$KyhZxjXKWO8RJRCXImmyGecGMD75VMMhlGf8OTI2N/4p/kmLPJgn.', 'vinicius',  'felce');
 --INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest2', 'sobrenome2', 'email2', 'senha2');
 --INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest3', 'sobrenome3', 'email3', 'senha3');
 
@@ -30,9 +30,9 @@ INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('23:18:00',
 INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('06:00:00', '2022-12-30', '2023-01-05');
 INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('20:10:00', '2023-01-10', '2023-01-15');
 
-INSERT INTO cliente (id) VALUES (1);
-INSERT INTO cliente (id) VALUES (2);
-INSERT INTO cliente (id) VALUES (3);
+--INSERT INTO cliente (id) VALUES (1);
+--INSERT INTO cliente (id) VALUES (2);
+--INSERT INTO cliente (id) VALUES (3);
 
 --INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (1, 1);
 --INSERT INTO usuarios_clientes (cliente_id, usuarios_id) VALUES (2, 2);
@@ -45,6 +45,10 @@ INSERT INTO cliente (id) VALUES (3);
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (1,1);
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (2,2);
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (3,3);
+
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
 UPDATE produtos SET categoria_onetm = 1 WHERE id = 3
 UPDATE produtos SET categoria_onetm = 2 WHERE id = 2

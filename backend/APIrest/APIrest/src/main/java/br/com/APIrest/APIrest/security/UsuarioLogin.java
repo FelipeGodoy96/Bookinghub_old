@@ -1,8 +1,6 @@
-package br.com.APIrest.APIrest.dto;
+package br.com.APIrest.APIrest.security;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-
-public class UsuariosLoginForm {
+public class UsuarioLogin {
 
     private String username;
     private String password;
@@ -21,11 +19,5 @@ public class UsuariosLoginForm {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public UsernamePasswordAuthenticationToken build() {
-        return new UsernamePasswordAuthenticationToken(
-                this.username,
-                this.password);
     }
 }
