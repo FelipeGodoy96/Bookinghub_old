@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,6 +22,9 @@ public class Usuarios {
     private String sobrenome;
     @NotBlank(message = "Senha obrigatório!")
     private String password;// Criptografado
+
+    @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Reservas> reserva;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "usuario_papeis",
             joinColumns = @JoinColumn(name = "usuario_id"),
@@ -83,6 +87,13 @@ public class Usuarios {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Reservas> getReserva() {
+        return reserva;
+    }
+    public void setReserva(List<Reservas> reserva) {
+        this.reserva = reserva;
     }
 
     public Set<Role> getRoles() {

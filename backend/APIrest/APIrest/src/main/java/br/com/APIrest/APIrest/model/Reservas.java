@@ -19,6 +19,9 @@ public class Reservas implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "reservas_produtos")
     private Produtos produtos;
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "usuario_id", nullable = true)
+    private Usuarios usuarios;
 
     public Reservas() {
     }
@@ -63,5 +66,12 @@ public class Reservas implements Serializable {
     }
     public void setProdutos(Produtos produtos) {
         this.produtos = produtos;
+    }
+
+    public Usuarios getUsuarios() {
+        return usuarios;
+    }
+    public void setUsuario(Usuarios usuarios) {
+        this.usuarios = usuarios;
     }
 }
