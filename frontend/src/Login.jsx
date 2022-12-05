@@ -11,18 +11,24 @@ import apiHandle from './services/apiHandle';
 export default function Login() {
   const navigate = useNavigate();
   const { loginState, setLoginState } = useContext(LoginContext);
-  const { token, user } = loginState;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isVisible, setIsVisible] = useState(false);
 
+  const [keepConected, setKeepConected] = useState(false);
+
   async function logon(emailProps, passwordProps) {
-    const { token: respostaToken } = await apiHandle
+    const userData = await apiHandle
       .login({ username: emailProps, password: passwordProps });
-    if (respostaToken) {
-      setLoginState({ ...loginState, token: respostaToken });
-      document.cookie = `_sessionTokenJWT=${respostaToken}`;
+    if (userData.token) {
+      setLoginState({ ...loginState, token: userData.token, user: userData });
+      if (keepConected) {
+        localStorage.setItem('sessionTokenJWT', `${userData.token}`);
+      } else {
+        sessionStorage.setItem('sessionTokenJWT', `${userData.token}`);
+      }
+
       navigate('/');
     } else {
       setIsVisible(true);
@@ -75,7 +81,7 @@ export default function Login() {
 
               <div className="form-check mt-4 mb-4 p-0">
                 <label className="form-check-label d-flex align-items-center justify-content-center" htmlFor="keepConected">
-                  <input className="form-check-input m-0 p-0" type="checkbox" value="" id="keepConected" />
+                  <input className="form-check-input m-0 p-0" type="checkbox" value="" id="keepConected" onChange={() => setKeepConected(!keepConected)} />
                   <h6 className="p-0 m-0 px-1">
                     Manter-me conectado
                   </h6>

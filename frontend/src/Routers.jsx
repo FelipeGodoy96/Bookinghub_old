@@ -18,7 +18,7 @@ export default function Routers() {
 
   useEffect(() => {
     if (document.cookie.split(';').length > 0) {
-      const tokenFind = document.cookie.split(';')?.find((f) => f?.includes('_sessionTokenJWT='))?.split('=')[1];
+      const tokenFind = localStorage.getItem('sessionTokenJWT');
       if (tokenFind) {
         setLoginState({ ...loginState, token: tokenFind });
       }
