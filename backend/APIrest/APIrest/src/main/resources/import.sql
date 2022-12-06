@@ -26,9 +26,9 @@ INSERT INTO produtos (nome, descricao) VALUES ('nomeTest3','descricaoTest3');
 --INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest2', 'sobrenome2', 'email2', 'senha2');
 --INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES ('nomeTest3', 'sobrenome3', 'email3', 'senha3');
 
-INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('23:18:00', '2023-06-17', '2023-06-20');
-INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('06:00:00', '2022-12-30', '2023-01-05');
-INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('20:10:00', '2023-01-10', '2023-01-15');
+--INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('23:18:00', '2023-06-17', '2023-06-20');
+--INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('06:00:00', '2022-12-30', '2023-01-05');
+--INSERT INTO reservas(h_inic_reser, d_inic_reser, d_fin_reser) VALUES('20:10:00', '2023-01-10', '2023-01-15');
 
 --INSERT INTO cliente (id) VALUES (1);
 --INSERT INTO cliente (id) VALUES (2);
@@ -62,9 +62,9 @@ UPDATE produtos SET cidade_mtone = 3 WHERE id = 1
 --UPDATE produtos SET usuarios_produtos = 2 WHERE id = 3
 --UPDATE produtos SET usuarios_produtos = 3 WHERE id = 2
 
-UPDATE reservas SET reservas_produtos = 1 WHERE id = 1
-UPDATE reservas SET reservas_produtos = 2 WHERE id = 3
-UPDATE reservas SET reservas_produtos = 3 WHERE id = 2
+--UPDATE reservas SET reservas_produtos = 1 WHERE id = 1
+--UPDATE reservas SET reservas_produtos = 2 WHERE id = 3
+--UPDATE reservas SET reservas_produtos = 3 WHERE id = 2
 
 UPDATE imagens_anuncio SET imagens_produtos = 1 WHERE id = 1
 UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 2

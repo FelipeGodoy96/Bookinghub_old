@@ -1,11 +1,17 @@
 package br.com.APIrest.APIrest.service;
 
 import br.com.APIrest.APIrest.dto.CaracteristicasDto;
+import br.com.APIrest.APIrest.dto.ImagensAnuncioDto;
 import br.com.APIrest.APIrest.dto.ProdutosDto;
+import br.com.APIrest.APIrest.dto.ReservaProdutosDto;
 import br.com.APIrest.APIrest.model.Caracteristicas;
+import br.com.APIrest.APIrest.model.ImagensAnuncio;
 import br.com.APIrest.APIrest.model.Produtos;
+import br.com.APIrest.APIrest.model.Reservas;
 import br.com.APIrest.APIrest.repository.RepositoryCaracteristicas;
+import br.com.APIrest.APIrest.repository.RepositoryImagens;
 import br.com.APIrest.APIrest.repository.RepositoryProdutos;
+import br.com.APIrest.APIrest.repository.RepositoryReservas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,10 +25,14 @@ public class ServiceProdutos {
 
     @Autowired
     private RepositoryProdutos repository;
-
+    @Autowired
+    private RepositoryCaracteristicas repositoryCaracteristicas;
 
     @Autowired
-    private RepositoryCaracteristicas caracrepository;
+    RepositoryReservas repositoryReservas;
+
+    @Autowired
+    RepositoryImagens repositoryImagens;
 
     @Transactional(readOnly = true)
     public List<ProdutosDto> findAll(){
@@ -60,10 +70,22 @@ public class ServiceProdutos {
     private void copyDtoForEntity(ProdutosDto dto, Produtos entity) {
         entity.setNome(dto.getNome());
         entity.setDescricao(dto.getDescricao());
+
         entity.getCaracteristica().clear();
-        for (CaracteristicasDto caracDto : dto.getCaracteristica()) {
-            Caracteristicas caracteristicas = caracrepository.getReferenceById(caracDto.getId());
+        for (CaracteristicasDto caracteristicasDto : dto.getCaracteristica()) {
+            Caracteristicas caracteristicas = repositoryCaracteristicas.getReferenceById(caracteristicasDto.getId());
             entity.getCaracteristica().add(caracteristicas);
         }
+        entity.getImagens().clear();
+        for(ImagensAnuncioDto imagensAnuncioDto : dto.getImagens()) {
+             ImagensAnuncio imagensAnuncio = repositoryImagens.getReferenceById(imagensAnuncioDto.getId());
+             entity.getImagens().add(imagensAnuncio);
+            }
+        entity.getReserva().clear();
+        for (ReservaProdutosDto reservaProdutosDto : dto.getReserva()) {
+            Reservas reservas = repositoryReservas.getReferenceById(reservaProdutosDto.getId());
+            entity.getReserva().add(reservas);
+        }
+
     }
 }

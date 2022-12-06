@@ -24,7 +24,8 @@ public class Usuarios {
     private String password;// Criptografado
 
     @OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Reservas> reserva;
+    private Set<Reservas> reservas = new HashSet<>();
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "usuario_papeis",
             joinColumns = @JoinColumn(name = "usuario_id"),
@@ -89,11 +90,11 @@ public class Usuarios {
         this.password = password;
     }
 
-    public List<Reservas> getReserva() {
-        return reserva;
+    public Set<Reservas> getReservas() {
+        return reservas;
     }
-    public void setReserva(List<Reservas> reserva) {
-        this.reserva = reserva;
+    public void setReservas(Set<Reservas> reservas) {
+        this.reservas = reservas;
     }
 
     public Set<Role> getRoles() {

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/auth")
 public class ControllerUsuariosRegister {
 
@@ -28,19 +28,19 @@ public class ControllerUsuariosRegister {
     PasswordEncoder encoder;
 
         @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody UsuariosRegister signUpRequest) {
-        if (repositoryUsuarios.existsByUsername(signUpRequest.getUsername())) {
+    public ResponseEntity<?> registerUser(@RequestBody UsuariosRegister usuariosRegister) {
+        if (repositoryUsuarios.existsByUsername(usuariosRegister.getUsername())) {
             return ResponseEntity
                     .badRequest()
                     .body(new InfoRequisicao("Erro: O Email já está Registrado!"));
         }
 
-        Usuarios usuarios = new Usuarios(signUpRequest.getUsername(),
-                signUpRequest.getNome(),
-                signUpRequest.getSobrenome(),
-                encoder.encode(signUpRequest.getPassword()));
+        Usuarios usuarios = new Usuarios(usuariosRegister.getUsername(),
+                usuariosRegister.getNome(),
+                usuariosRegister.getSobrenome(),
+                encoder.encode(usuariosRegister.getPassword()));
 
-        Set<String> strRoles = signUpRequest.getRole();
+        Set<String> strRoles = usuariosRegister.getRole();
         Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {

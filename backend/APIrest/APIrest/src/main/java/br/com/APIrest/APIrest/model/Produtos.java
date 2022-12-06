@@ -27,14 +27,11 @@ public class Produtos implements Serializable {
     @JoinColumn(name = "categoria_onetm")
     private Categorias categorias;
 
-    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
-    private List<Reservas> reserva;
+    @OneToMany(mappedBy = "produtos", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Reservas> reserva = new HashSet<>();
 
-    @OneToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
-    private List<ImagensAnuncio> imagensAnuncio;
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "usuarios_produtos")
-//    private Usuarios usuarios;
+    @OneToMany(mappedBy = "produtos", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<ImagensAnuncio> imagens = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "produtoCaracteristica",
@@ -42,11 +39,6 @@ public class Produtos implements Serializable {
     inverseJoinColumns = @JoinColumn(name = "caracteristicaID", referencedColumnName = "id"))
     Set<Caracteristicas> caracteristica = new HashSet<>();
 
-//    @ManyToMany
-//    @JoinTable(name = "produto_imagens_anuncio",
-//            joinColumns = @JoinColumn(name = "produto_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "imagens_anuncio_id", referencedColumnName = "id"))
-//    Set<ImagensAnuncio> imagensAnuncio = new HashSet<>();
     public Produtos() {
     }
 
@@ -96,30 +88,17 @@ public class Produtos implements Serializable {
         this.cidades = cidades;
     }
 
-//    public Usuarios getUsuarios() {
-//        return usuarios;
-//    }
-//    public void setUsuarios(Usuarios usuarios) {
-//        this.usuarios = usuarios;
-//    }
-
-    public List<Reservas> getReserva() {
+    public Set<Reservas> getReserva() {
         return reserva;
     }
-    public void setReserva(List<Reservas> reserva) {
+    public void setReserva(Set<Reservas> reserva) {
         this.reserva = reserva;
     }
 
-//    public Set<ImagensAnuncio> getImagensAnuncios() {
-//        return imagensAnuncio;
-//    }
-//    public void setImagensAnuncios(Set<ImagensAnuncio> imagensAnuncio) {
-//        this.imagensAnuncio = imagensAnuncio;
-//    }
-    public List<ImagensAnuncio> getImagensAnuncios() {
-        return imagensAnuncio;
+    public Set<ImagensAnuncio> getImagens() {
+        return imagens;
     }
-    public void setImagensAnuncios(List<ImagensAnuncio> imagensAnuncio) {
-        this.imagensAnuncio = imagensAnuncio;
+    public void setImages(Set<ImagensAnuncio> imagens) {
+        this.imagens = imagens;
     }
 }
