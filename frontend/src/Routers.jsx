@@ -12,6 +12,7 @@ import Reserva from './Reserva';
 import ConfirmacaoReserva from './ConfirmacaoReserva';
 import RedefinirSenha from './RedefinirSenha';
 import LoginContext from './Contexts/LoginContext';
+import CriarProduto from './CriarProduto';
 
 export default function Routers() {
   const { loginState, setLoginState } = useContext(LoginContext);
@@ -36,6 +37,7 @@ export default function Routers() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/" element={<CriarProduto />} />
       <Route path="/anuncio/reserva/:id" element={<Reserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />

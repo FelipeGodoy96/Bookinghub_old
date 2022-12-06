@@ -37,17 +37,19 @@ export default function Buscar() {
           <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
           <Searchbar />
         </section>
+
         <Container className="d-flex flex-column">
+          <div>teste victor</div>
+
           {resultadoBuscar?.map((m, index) => (
             <SearchCard data={m} key={index} />
           ))}
 
         </Container>
       </div>
-      
+
       <Footer />
     </>
 
   );
-
 }
