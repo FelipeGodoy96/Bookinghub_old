@@ -22,11 +22,15 @@ export default function Login() {
     const userData = await apiHandle
       .login({ username: emailProps, password: passwordProps });
     if (userData.token) {
-      setLoginState({ ...loginState, token: userData.token, user: userData });
+      setLoginState({
+        ...loginState, token: userData.token, user: userData, isLoged: true,
+      });
       if (keepConected) {
         localStorage.setItem('sessionTokenJWT', `${userData.token}`);
+        localStorage.setItem('localUser', JSON.stringify(userData));
       } else {
         sessionStorage.setItem('sessionTokenJWT', `${userData.token}`);
+        sessionStorage.setItem('localUser', JSON.stringify(userData));
       }
 
       navigate('/');

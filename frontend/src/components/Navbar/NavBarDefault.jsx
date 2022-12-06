@@ -2,13 +2,23 @@ import React, { useContext } from 'react';
 import {
   Container, Navbar, Nav, Button,
 } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LogomarcaIco from '../../assets/icon/booking_hub_logo_semfundo.png';
-import LoginContext from '../../Contexts/LoginContext';
+import LoginContext, { DEFAULT_VALUE_LOGIN } from '../../Contexts/LoginContext';
 
 export default function NavBarDefault() {
-  const { loginState } = useContext(LoginContext);
-  const { isLoged } = loginState;
+  const { loginState, setLoginState } = useContext(LoginContext);
+  const { isLoged, user } = loginState;
+  const navigate = useNavigate();
+  const logout = () => {
+    setLoginState(DEFAULT_VALUE_LOGIN);
+    localStorage.removeItem('sessionTokenJWT');
+    localStorage.removeItem('localUser');
+    sessionStorage.removeItem('sessionTokenJWT');
+    sessionStorage.removeItem('localUser');
+
+    navigate('/');
+  };
 
   return (
     <header className="NavBar">
@@ -42,6 +52,7 @@ export default function NavBarDefault() {
               </Nav>
             </Navbar.Collapse>
           )}
+
           {isLoged && (
             <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
               <Nav className="ms-auto gap-2">
@@ -52,9 +63,21 @@ export default function NavBarDefault() {
                 <div className="mx-auto nav-link" to="/login">
                   Olá,
                   <br />
-                  Fulano
+                  {user.nome}
                 </div>
+                <Button>
+                  <Link className="mx-auto nav-link" to="/" id="pedidosButtonNavBar">
+                    Meus Pedidos
+                  </Link>
+                </Button>
+                <Button onClick={() => logout()}>
+                  <p className="mx-auto nav-link" id="logOutButtonNavBar">
+                    Desconectar Conta
+                  </p>
+                </Button>
+
               </Nav>
+
             </Navbar.Collapse>
           )}
         </Container>

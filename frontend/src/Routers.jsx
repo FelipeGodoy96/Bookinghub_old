@@ -17,11 +17,19 @@ export default function Routers() {
   const { loginState, setLoginState } = useContext(LoginContext);
 
   useEffect(() => {
-    if (document.cookie.split(';').length > 0) {
-      const tokenFind = localStorage.getItem('sessionTokenJWT');
-      if (tokenFind) {
-        setLoginState({ ...loginState, token: tokenFind });
-      }
+    const tokenFindLocal = localStorage.getItem('sessionTokenJWT');
+    const userFindLocal = localStorage.getItem('localUser');
+    const tokenFindSession = sessionStorage.getItem('sessionTokenJWT');
+    const userFindSession = sessionStorage.getItem('localUser');
+
+    if (tokenFindLocal) {
+      setLoginState({
+        ...loginState, token: tokenFindLocal, user: JSON.parse(userFindLocal), isLoged: true,
+      });
+    } else if (tokenFindSession) {
+      setLoginState({
+        ...loginState, token: tokenFindSession, user: JSON.parse(userFindSession), isLoged: true,
+      });
     }
   }, []);
 

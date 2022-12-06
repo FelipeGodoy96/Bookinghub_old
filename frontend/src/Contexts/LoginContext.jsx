@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useState } from 'react';
 
-const DEFAULT_VALUE = {
+const DEFAULT_VALUE_LOGIN = {
   state: {
     isLoged: false,
     user: {
@@ -18,10 +18,10 @@ const DEFAULT_VALUE = {
   },
   setState: () => {}, // função de inicialização
 };
-const LoginContext = createContext(DEFAULT_VALUE);
+const LoginContext = createContext(DEFAULT_VALUE_LOGIN);
 
 function LoginProvider({ children }) {
-  const [loginState, setLoginState] = useState(DEFAULT_VALUE.state);
+  const [loginState, setLoginState] = useState(DEFAULT_VALUE_LOGIN.state);
 
   return (
     <LoginContext.Provider value={{ loginState, setLoginState }}>
@@ -30,5 +30,5 @@ function LoginProvider({ children }) {
   );
 }
 
-export { LoginProvider };
+export { LoginProvider, DEFAULT_VALUE_LOGIN };
 export default LoginContext;
