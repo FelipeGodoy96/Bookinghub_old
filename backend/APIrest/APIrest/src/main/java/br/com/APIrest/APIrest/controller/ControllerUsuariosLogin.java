@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/auth")
 public class ControllerUsuariosLogin {
     @Autowired

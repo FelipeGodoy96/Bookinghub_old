@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/auth")
 public class ControllerUsuariosRegister {
 
