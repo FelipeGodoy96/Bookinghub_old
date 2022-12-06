@@ -13,7 +13,7 @@ import ConfirmacaoReserva from './ConfirmacaoReserva';
 import RedefinirSenha from './RedefinirSenha';
 import LoginContext from './Contexts/LoginContext';
 import CriarProduto from './CriarProduto';
-
+import ProductNotFound from './components/ProductNotFound/ProductNotFound'  //apenas para teste :>
 export default function Routers() {
   const { loginState, setLoginState } = useContext(LoginContext);
 
@@ -48,6 +48,7 @@ export default function Routers() {
       <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
       <Route path="/404-NaoEncontrado" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404-NaoEncontrado" />} />
+      <Route path='/productnotfound' element={<ProductNotFound/>}/>
     </Routes>
   );
 }

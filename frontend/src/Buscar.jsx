@@ -12,6 +12,7 @@ export default function Buscar() {
 
   const [resultadoBuscar, setResultadoBuscar] = useState([]);
 
+
   const filtroAnuncios = (categoriaSelecionada, cidadeSelecionada, todosAnuncios) => {
     if (categoriaSelecionada === null) return;
     if (cidadeSelecionada === null) return;
@@ -38,9 +39,8 @@ export default function Buscar() {
           <Searchbar />
         </section>
 
-        <Container className="d-flex flex-column">
-          <div>teste victor</div>
-
+        <Container className="d-flex flex-column mt-5 mb-5 ">
+        
           {resultadoBuscar?.map((m, index) => (
             <SearchCard data={m} key={index} />
           ))}
