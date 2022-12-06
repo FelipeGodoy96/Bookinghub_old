@@ -72,7 +72,7 @@ public class ServiceReservas {
     public ReservasDto update(Integer id, ReservasDto dto) {
         Reservas entity = repository.getReferenceById(id);
         entity.setId(dto.getId());
-        entity.setH_inic_reser(dto.getH_inic_reser());
+      //entity.setH_inic_reser(dto.getH_inic_reser());
         entity.setD_inic_reser(dto.getD_inic_reser());
         entity.setD_fin_reser(dto.getD_fin_reser());
         entity = repository.save(entity);
@@ -80,7 +80,7 @@ public class ServiceReservas {
     }
 
     public void copyDtoForEntity(ReservasDto reservasDto, Reservas reservas) {
-        reservas.setH_inic_reser(reservasDto.getH_inic_reser());
+      //reservas.setH_inic_reser(reservasDto.getH_inic_reser());
         reservas.setD_inic_reser(reservasDto.getD_inic_reser());
         reservas.setD_fin_reser(reservasDto.getD_fin_reser());
 
