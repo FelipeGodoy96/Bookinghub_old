@@ -17,5 +17,14 @@
     hr.solid {
         border-top: 3px solid #bbb;
       }
+
+      @media only screen and (min-width: 300px) and (max-width: 900px){
+            width: 100%;
+            margin: 1rem;
+            label{
+                margin-top: .8rem;
+            }
+           
+    }
 } 
 

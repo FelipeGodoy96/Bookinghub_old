@@ -29,7 +29,7 @@ export default function Categoria() {
           Todos acomodações em :  &nbsp;
           {nomecategoria}
         </h1>
-        <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center mt-5 mb-5">
+        <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center mt-5 mb-5 vh-100">
           {categoriaSelected?.map((m, index) => (
             <ProductCard data={m} key={index} />
           ))}

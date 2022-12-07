@@ -22978,6 +22978,15 @@ input[type=date]::-webkit-clear-button {
 .formContainer hr.solid {
   border-top: 3px solid #bbb;
 }
+@media only screen and (min-width: 300px) and (max-width: 900px) {
+  .formContainer {
+    width: 100%;
+    margin: 1rem;
+  }
+  .formContainer label {
+    margin-top: 0.8rem;
+  }
+}
 
 .cardContainer {
   background: rgb(243, 241, 237);
