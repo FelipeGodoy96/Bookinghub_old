@@ -1,80 +1,38 @@
 package br.com.APIrest.APIrest.controller;
 
-import br.com.APIrest.APIrest.security.EPermits;
-import br.com.APIrest.APIrest.model.Role;
+import br.com.APIrest.APIrest.dto.UsuariosDto;
+import br.com.APIrest.APIrest.dto.UsuariosForm;
 import br.com.APIrest.APIrest.model.Usuarios;
 import br.com.APIrest.APIrest.repository.RepositoryUsuarios;
-import br.com.APIrest.APIrest.repository.RepositoryRole;
-import br.com.APIrest.APIrest.security.InfoRequisicao;
-import br.com.APIrest.APIrest.security.UsuariosRegister;
+import br.com.APIrest.APIrest.security.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
+@CrossOrigin
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/api/auth")
-public class ControllerUsuariosRegister {
+@RequestMapping(value = "/usuarios")
+public class ControllerUsuarios {
 
     @Autowired
-    RepositoryUsuarios repositoryUsuarios;
+    RepositoryUsuarios usuariosRepository;
     @Autowired
-    RepositoryRole repositoryRole;
-    @Autowired
-    PasswordEncoder encoder;
+    UsuarioService usuarioService;
 
-        @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody UsuariosRegister usuariosRegister) {
-        if (repositoryUsuarios.existsByUsername(usuariosRegister.getUsername())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new InfoRequisicao("Erro: O Email já está Registrado!"));
-        }
+    @PostMapping
+    @Transactional
+    public ResponseEntity<UsuariosDto> cadastra(@RequestBody UsuariosForm usuarioForm){
 
-        Usuarios usuarios = new Usuarios(usuariosRegister.getUsername(),
-                usuariosRegister.getNome(),
-                usuariosRegister.getSobrenome(),
-                encoder.encode(usuariosRegister.getPassword()));
+        Usuarios novoUsuario = usuarioForm.toEntity();
+        usuariosRepository.save(novoUsuario);
 
-        Set<String> strRoles = usuariosRegister.getRole();
-        Set<Role> roles = new HashSet<>();
-
-        if (strRoles == null) {
-            Role userRole = repositoryRole.findByName(EPermits.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Erro: a Função" +
-                            "" +
-                            " não encontrado."));
-            roles.add(userRole);
-        } else {
-            strRoles.forEach(role -> {
-                switch (role) {
-                    case "admin":
-                        Role adminRole = repositoryRole.findByName(EPermits.ROLE_ADMIN)
-                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
-                        roles.add(adminRole);
-
-                        break;
-                    case "mod":
-                        Role modRole = repositoryRole.findByName(EPermits.ROLE_MODERATOR)
-                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
-                        roles.add(modRole);
-
-                        break;
-                    default:
-                        Role userRole = repositoryRole.findByName(EPermits.ROLE_USER)
-                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
-                        roles.add(userRole);
-                }
-            });
-        }
-
-        usuarios.setRoles(roles);
-        repositoryUsuarios.save(usuarios);
-
-        return ResponseEntity.ok(new InfoRequisicao("Usuario Registrado com sucesso."));
+        return ResponseEntity.ok(novoUsuario.toDto());
+    }
+    @Transactional
+    @GetMapping (value = "/{id}")
+    public ResponseEntity<UsuariosDto> findUsuariosById(@PathVariable Integer id) {
+        UsuariosDto dto = usuarioService.findById(id);
+        return ResponseEntity.ok().body(dto);
     }
 }
