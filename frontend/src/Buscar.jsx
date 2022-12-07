@@ -1,9 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable consistent-return */
 import React, { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/esm/Container';
 import Footer from './components/Footer/Footer';
-import { SearchNotFound } from './components/LottieAnimations/SearchNotFound';
-import ModalProduto from './components/Modal/ModalProduto';
+import SearchNotFound from './components/LottieAnimations/SearchNotFound';
+
 import Searchbar from './components/Searchbar/Searchbar';
 import SearchCard from './components/Searchbar/SearchCard';
 import Context from './Contexts/Context';
@@ -13,7 +14,6 @@ export default function Buscar() {
   const { anuncios, filtroParametros } = state;
 
   const [resultadoBuscar, setResultadoBuscar] = useState([]);
-
 
   const filtroAnuncios = (categoriaSelecionada, cidadeSelecionada, todosAnuncios) => {
     if (categoriaSelecionada === null) return;
@@ -42,25 +42,18 @@ export default function Buscar() {
         </section>
 
         <Container className="d-flex flex-column mt-5 mb-5 ">
-          
-          <div className='d-flex row text-center justify-content-center align-content-center'>
-            <h2>
-            Ops... Não encontramos nada
-            </h2>
-            <SearchNotFound/>
-            <h2>Tente em outra data ou categoria</h2>
-           
-          </div>
-         
-                {resultadoBuscar?.map((m, index) => (
-                  <SearchCard data={m} key={index} />
-                ))}
 
-              </Container>
-          </div>
+          <SearchNotFound />
 
-          <Footer />
-        </>
+          {resultadoBuscar?.map((m, index) => (
+            <SearchCard data={m} key={index} />
+          ))}
 
-        );
+        </Container>
+      </div>
+
+      <Footer />
+    </>
+
+  );
 }

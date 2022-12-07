@@ -5,13 +5,12 @@ import Footer from './components/Footer/Footer';
 export default function CriarProduto() {
   return (
     <>
-    <Container>
-      
-    </Container>
+      <Container>
+        <div>teste</div>
+      </Container>
 
-     <Footer />
+      <Footer />
     </>
 
-   
   );
 }

@@ -1,0 +1,78 @@
+.cardContainerMinhasReservas {
+    background: rgba(243, 241, 237, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1em;
+    @include card1;
+   
+    margin: 1.5rem;
+    &:hover {
+        border: 1px solid rgba(29, 190, 180, 0.8);
+    }
+    img{
+        width: 250px;
+        height: 250px;  
+        object-fit: cover;
+    }
+
+    .cardTextContainerMinhasReservas {
+        margin-left: 0.5rem
+    }
+
+    .cardText a {
+        color: $azure-radiance;
+        text-decoration: none
+    }
+
+    .cardText h3 {
+        cursor: pointer;
+        @include font-small;
+
+        &:hover {
+            color: $malibu;
+        }
+    }
+
+    .descriptionCard {
+        margin-left: 0.3rem;
+        padding: .5rem;
+        border-left: 2px solid rgb(119, 116, 116);
+        margin-top: 1rem;
+    }
+
+    .descriptionCard .p1 {
+        @include text2;
+        font-size: 0.9em;
+        font-weight: 600;
+    }
+
+    .descriptionCard .p2 {
+        font-size: 0.8rem;
+        font-weight: 100;
+    }
+
+    .descriptionCard .p3,
+    .p4 {
+        font-size: 0.9em;
+        font-weight: 600;
+    }
+
+    .p3 {
+        color: green;
+    }
+
+    .p4 {
+        color: red;
+    }
+    button{
+        border: none;
+        @include button1;
+        &:hover{
+            background-color: #383B58;
+        }
+    }
+}
+

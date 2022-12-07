@@ -15,7 +15,6 @@ export default function NotFound() {
         <div className="d-flex flex-column justify-content-center align-items-center">
           <img width="60" height="auto" src={LogomarcaIco} alt="logomarca do site" />
           <h1 style={{ textAlign: 'center' }}>
-            {' '}
             Erro 404
             <br />
             <br />

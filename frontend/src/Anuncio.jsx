@@ -254,8 +254,8 @@ export default function Anuncio() {
           <h3>Datas disponíveis</h3>
           <div className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
             <Calendario />
-            <Card className="confirmReserva">
-              <h6 className="p-3 ">
+            <Card className="confirmReserva w-75">
+              <h6 className="p-3 text-center">
                 Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
               <Button id="fazerReservaButtonAnuncio" className="m-1" onClick={() => navigate(`/anuncio/reserva/${anuncioSelected.id}`, { state: anuncioSelected })}>

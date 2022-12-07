@@ -8,11 +8,13 @@ import Anuncio from './Anuncio';
 import NotFound from './NotFound';
 import Login from './Login';
 import Cadastro from './Cadastro';
-import Reserva from './Reserva';
+import FazerReserva from './FazerReserva';
 import ConfirmacaoReserva from './ConfirmacaoReserva';
 import RedefinirSenha from './RedefinirSenha';
 import LoginContext from './Contexts/LoginContext';
 import CriarProduto from './CriarProduto';
+import MinhasReservas from './MinhasReservas';
+
 export default function Routers() {
   const { loginState, setLoginState } = useContext(LoginContext);
 
@@ -37,17 +39,18 @@ export default function Routers() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/" element={<CriarProduto />} />
-      <Route path="/anuncio/reserva/:id" element={<Reserva />} />
+      <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />
+      <Route path="/minhasreservas" element={<MinhasReservas />} />
+      <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
       <Route path="/buscar/" element={<Buscar />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/redefinir-senha" element={<RedefinirSenha />} />
-      <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
-      <Route path="/404-NaoEncontrado" element={<NotFound />} />
+      <Route path="/404naoencontrado" element={<NotFound />} />
+      <Route path="/criarproduto" element={<CriarProduto />} />
       <Route path="*" element={<Navigate to="/404-NaoEncontrado" />} />
-      <Route path='/criarproduto' element={<CriarProduto/>} />
     </Routes>
   );
 }

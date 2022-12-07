@@ -25,7 +25,7 @@ export default function Categoria() {
         fluid
         className="categoryPage d-flex flex-column justify-content-center align-items-center  m-0"
       >
-        <h1 className="text-center">
+        <h1 className="text-center mt-5">
           Todos acomodações em :  &nbsp;
           {nomecategoria}
         </h1>
