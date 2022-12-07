@@ -46,6 +46,10 @@ INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (1,1);
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (2,2);
 INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (3,3);
 
+INSERT INTO roles(name) VALUES('ROLE_USER');
+INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
+INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+
 UPDATE produtos SET categoria_onetm = 1 WHERE id = 3
 UPDATE produtos SET categoria_onetm = 2 WHERE id = 2
 UPDATE produtos SET categoria_onetm = 3 WHERE id = 3
@@ -65,7 +69,3 @@ UPDATE produtos SET cidade_mtone = 3 WHERE id = 1
 UPDATE imagens_anuncio SET imagens_produtos = 1 WHERE id = 1
 UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 2
 UPDATE imagens_anuncio SET imagens_produtos = 2 WHERE id = 3
-
-INSERT INTO roles(name) VALUES('ROLE_USER');
-INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
-INSERT INTO roles(name) VALUES('ROLE_ADMIN');

@@ -1,5 +1,6 @@
 package br.com.APIrest.APIrest.controller;
 
+import br.com.APIrest.APIrest.dto.ImagensAnuncioDto;
 import br.com.APIrest.APIrest.dto.ReservasDto;
 import br.com.APIrest.APIrest.service.ServiceReservas;
 import org.springframework.beans.factory.annotation.Autowired;

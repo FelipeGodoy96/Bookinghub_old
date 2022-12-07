@@ -4,19 +4,19 @@ import br.com.APIrest.APIrest.model.Produtos;
 
 import java.io.Serializable;
 
-public class IdProdutoDto implements Serializable {
+public class ProdutoImagensDto implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private Integer id;
 
-    public IdProdutoDto() {
+    public ProdutoImagensDto() {
     }
 
-    public IdProdutoDto(Integer id) {
+    public ProdutoImagensDto(Integer id) {
         this.id = id;
     }
 
-    public IdProdutoDto(Produtos produtos) {
+    public ProdutoImagensDto(Produtos produtos) {
         this.id = produtos.getId();
     }
 

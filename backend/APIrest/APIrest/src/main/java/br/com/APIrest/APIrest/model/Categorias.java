@@ -11,11 +11,13 @@ public class Categorias implements Serializable {
 
     @Id
     @SequenceGenerator(name = "categorias_sequence", sequenceName = "categorias_sequence")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String qualificacao;
     private String descricao;
     private String imagem;
+
     @OneToMany(mappedBy = "categorias", fetch = FetchType.LAZY)
     private List<Produtos> produto;
 
