@@ -49,7 +49,7 @@ export default function Routers() {
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/redefinir-senha" element={<RedefinirSenha />} />
       <Route path="/404naoencontrado" element={<NotFound />} />
-      <Route path="/criarproduto" element={<CriarProduto />} />
+      <Route path="/criar-produto" element={<CriarProduto />} />
       <Route path="*" element={<Navigate to="/404-NaoEncontrado" />} />
     </Routes>
   );

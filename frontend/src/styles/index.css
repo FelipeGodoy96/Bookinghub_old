@@ -23202,6 +23202,43 @@ input[type=date]::-webkit-clear-button {
   color: #1DBEB4;
 }
 
+.formContainer {
+  padding-top: 8rem;
+}
+.formContainer h1, .formContainer .h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20pt;
+  font-weight: bold;
+}
+.formContainer .cardForm {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 6em;
+}
+.formContainer .control {
+  width: 30rem;
+}
+.formContainer .group {
+  padding: 2rem;
+  margin-left: 3rem;
+}
+.formContainer .select {
+  width: 30rem;
+}
+@media only screen and (min-width: 300px) and (max-width: 900px) {
+  .formContainer {
+    width: 100%;
+    margin: 1rem;
+  }
+  .formContainer label {
+    margin-top: 0.8rem;
+  }
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
