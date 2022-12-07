@@ -1,6 +1,6 @@
 package br.com.APIrest.APIrest.controller;
 
-import br.com.APIrest.APIrest.dto.ImagensAnuncioDto;
+import br.com.APIrest.APIrest.dto.ImagensDto;
 import br.com.APIrest.APIrest.service.ServiceImagens;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +19,14 @@ public class ControllerImagens {
     ServiceImagens service;
 
     @GetMapping
-    public ResponseEntity<List<ImagensAnuncioDto>> findAllImagens() {
-        List<ImagensAnuncioDto> list = service.findAll();
+    public ResponseEntity<List<ImagensDto>> findAllImagens() {
+        List<ImagensDto> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ImagensAnuncioDto> findImagensById(@PathVariable Integer id) {
-        ImagensAnuncioDto dto = service.findById(id);
+    public ResponseEntity<ImagensDto> findImagensById(@PathVariable Integer id) {
+        ImagensDto dto = service.findById(id);
         return ResponseEntity.ok().body(dto);
     }
 
@@ -37,14 +37,14 @@ public class ControllerImagens {
     }
 
     @PostMapping
-    public ResponseEntity<ImagensAnuncioDto> inserImagens(@RequestBody ImagensAnuncioDto dto) {
+    public ResponseEntity<ImagensDto> inserImagens(@RequestBody ImagensDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ImagensAnuncioDto> updateImegens(@PathVariable Integer id, @RequestBody ImagensAnuncioDto dto) {
+    public ResponseEntity<ImagensDto> updateImegens(@PathVariable Integer id, @RequestBody ImagensDto dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }
