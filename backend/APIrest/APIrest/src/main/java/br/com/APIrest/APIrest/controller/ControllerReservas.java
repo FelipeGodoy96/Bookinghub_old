@@ -10,8 +10,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
-@CrossOrigin
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/reservas")
 public class ControllerReservas {
     @Autowired
@@ -35,13 +35,18 @@ public class ControllerReservas {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping(value = "/produtos/{id}")
-    public ResponseEntity<ReservasDto> inserReservas(@PathVariable("id") Integer idProduto, @RequestBody ReservasDto dto) {
-        dto = service.insert(dto, idProduto);
+//    @PostMapping(value = "/produtos/{id}")
+//    public ResponseEntity<ReservasDto> inserReservas(@PathVariable("id") Integer idProduto, @RequestBody ReservasDto dto) {
+//        dto = service.insert(dto, idProduto);
+//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+//        return ResponseEntity.created(uri).body(dto);
+//    }
+    @PostMapping
+    public ResponseEntity<ReservasDto> inserReservas(@RequestBody ReservasDto dto) {
+        dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
-
     @PutMapping(value = "/{id}")
     public ResponseEntity<ReservasDto> updateReservas(@PathVariable Integer id, @RequestBody ReservasDto dto) {
         dto = service.update(id, dto);

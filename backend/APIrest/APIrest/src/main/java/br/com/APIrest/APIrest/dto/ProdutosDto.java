@@ -3,7 +3,9 @@ package br.com.APIrest.APIrest.dto;
 import br.com.APIrest.APIrest.model.Produtos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProdutosDto implements Serializable {
@@ -13,9 +15,12 @@ public class ProdutosDto implements Serializable {
     private String nome;
     private String descricao;
 
+    private List<ReservaProdutosDto> reserva = new ArrayList<>();
+
+    private List<ImagensDto> imagens = new ArrayList<>();
+
     private Set<CaracteristicasDto> caracteristica = new HashSet<>();
-    private Set<ReservasDto> reserva = new HashSet<>();
-    private Set<ImagensAnuncioDto> imagensAnuncio = new HashSet<>();
+
 
     public ProdutosDto() {
     }
@@ -30,9 +35,9 @@ public class ProdutosDto implements Serializable {
         id = produtos.getId();
         nome = produtos.getNome();
         descricao = produtos.getDescricao();
+        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservaProdutosDto(reservas)));
+        produtos.getImagens().forEach(imagensAnuncio -> this.imagens.add(new ImagensDto(imagensAnuncio)));
         produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
-        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservasDto(reservas)));
-        produtos.getImagensAnuncios().forEach(imagensAnuncios -> this.imagensAnuncio.add(new ImagensAnuncioDto(imagensAnuncios)));
 
     }
 
@@ -64,17 +69,19 @@ public class ProdutosDto implements Serializable {
         return caracteristica;
     }
 
-    public Set<ReservasDto> getReserva() {
+    public List<ReservaProdutosDto> getReserva() {
         return reserva;
     }
-    public void setReserva(Set<ReservasDto> reserva) {
+    public void setReserva(List<ReservaProdutosDto> reserva) {
         this.reserva = reserva;
     }
 
-    public Set<ImagensAnuncioDto> getImagensAnuncio() {
-        return imagensAnuncio;
+    public List<ImagensDto> getImagens() {
+        return imagens;
     }
-    public void setImagensAnuncio(Set<ImagensAnuncioDto> imagensAnuncio) {
-        this.imagensAnuncio = imagensAnuncio;
+    public void setImagens(List<ImagensDto> imagens) {
+        this.imagens = imagens;
     }
+
+
 }
