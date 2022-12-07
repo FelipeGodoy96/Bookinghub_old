@@ -15,7 +15,7 @@ public class ProdutosDto implements Serializable {
     private String nome;
     private String descricao;
 
-    private List<ReservaProdutosDto> reserva = new ArrayList<>();
+    private List<ReservaDto> reserva = new ArrayList<>();
 
     private List<ImagensDto> imagens = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class ProdutosDto implements Serializable {
         id = produtos.getId();
         nome = produtos.getNome();
         descricao = produtos.getDescricao();
-        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservaProdutosDto(reservas)));
+        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservaDto(reservas)));
         produtos.getImagens().forEach(imagensAnuncio -> this.imagens.add(new ImagensDto(imagensAnuncio)));
         produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
 
@@ -69,10 +69,10 @@ public class ProdutosDto implements Serializable {
         return caracteristica;
     }
 
-    public List<ReservaProdutosDto> getReserva() {
+    public List<ReservaDto> getReserva() {
         return reserva;
     }
-    public void setReserva(List<ReservaProdutosDto> reserva) {
+    public void setReserva(List<ReservaDto> reserva) {
         this.reserva = reserva;
     }
 
