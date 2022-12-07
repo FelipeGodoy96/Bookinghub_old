@@ -1,10 +1,8 @@
 package br.com.APIrest.APIrest.service;
 
-import br.com.APIrest.APIrest.dto.ImagensAnuncioDto;
-import br.com.APIrest.APIrest.dto.ProdutoImagensDto;
+import br.com.APIrest.APIrest.dto.IdProdutoDto;
 import br.com.APIrest.APIrest.dto.ReservasDto;
-import br.com.APIrest.APIrest.dto.ReservasUsuarioDto;
-import br.com.APIrest.APIrest.model.ImagensAnuncio;
+import br.com.APIrest.APIrest.dto.IdUsuarioDto;
 import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.model.Reservas;
 import br.com.APIrest.APIrest.model.Usuarios;
@@ -72,7 +70,7 @@ public class ServiceReservas {
     public ReservasDto update(Integer id, ReservasDto dto) {
         Reservas entity = repository.getReferenceById(id);
         entity.setId(dto.getId());
-      //entity.setH_inic_reser(dto.getH_inic_reser());
+        entity.setH_inic_reser(dto.getH_inic_reser());
         entity.setD_inic_reser(dto.getD_inic_reser());
         entity.setD_fin_reser(dto.getD_fin_reser());
         entity = repository.save(entity);
@@ -80,16 +78,16 @@ public class ServiceReservas {
     }
 
     public void copyDtoForEntity(ReservasDto reservasDto, Reservas reservas) {
-      //reservas.setH_inic_reser(reservasDto.getH_inic_reser());
+        reservas.setH_inic_reser(reservasDto.getH_inic_reser());
         reservas.setD_inic_reser(reservasDto.getD_inic_reser());
         reservas.setD_fin_reser(reservasDto.getD_fin_reser());
 
-        ReservasUsuarioDto reservasUsuarioDto = reservasDto.getUsuario();
-        Usuarios usuarios = repositoryUsuarios.getReferenceById(reservasUsuarioDto.getId());
+        IdUsuarioDto idUsuarioDto = reservasDto.getUsuario();
+        Usuarios usuarios = repositoryUsuarios.getReferenceById(idUsuarioDto.getId());
         reservas.setUsuario(usuarios);
 
-        ProdutoImagensDto produtoImagensDto = reservasDto.getProdutos();
-        Produtos produtos = repositoryProdutos.getReferenceById(produtoImagensDto.getId());
+        IdProdutoDto idProdutoDto = reservasDto.getProdutos();
+        Produtos produtos = repositoryProdutos.getReferenceById(idProdutoDto.getId());
         reservas.setProdutos(produtos);
     }
 }

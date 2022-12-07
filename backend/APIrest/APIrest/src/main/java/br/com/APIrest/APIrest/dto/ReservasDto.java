@@ -1,8 +1,6 @@
 package br.com.APIrest.APIrest.dto;
 
-import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.model.Reservas;
-import br.com.APIrest.APIrest.model.Usuarios;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -14,8 +12,8 @@ public class ReservasDto implements Serializable {
     private Time h_inic_reser;
     private Date d_inic_reser;
     private Date d_fin_reser;
-    private ReservasUsuarioDto usuario;
-    private ProdutoImagensDto produtos;
+    private IdUsuarioDto usuario;
+    private IdProdutoDto produtos;
 
     public ReservasDto() {
     }
@@ -32,9 +30,8 @@ public class ReservasDto implements Serializable {
         h_inic_reser = reservas.getH_inic_reser();
         d_inic_reser = reservas.getD_inic_reser();
         d_fin_reser = reservas.getD_fin_reser();
-        this.usuario = new ReservasUsuarioDto(reservas.getUsuarios());
-        this.produtos = new ProdutoImagensDto(reservas.getProdutos());
-
+        this.usuario = new IdUsuarioDto(reservas.getUsuarios());
+        this.produtos = new IdProdutoDto(reservas.getProdutos());
     }
 
 
@@ -66,17 +63,17 @@ public class ReservasDto implements Serializable {
         this.d_fin_reser = d_fin_reser;
     }
 
-    public ReservasUsuarioDto getUsuario() {
+    public IdUsuarioDto getUsuario() {
         return usuario;
     }
-    public void setUsuario(ReservasUsuarioDto usuario) {
+    public void setUsuario(IdUsuarioDto usuario) {
         this.usuario = usuario;
     }
 
-    public ProdutoImagensDto getProdutos() {
+    public IdProdutoDto getProdutos() {
         return produtos;
     }
-    public void setProdutos(ProdutoImagensDto produtos) {
+    public void setProdutos(IdProdutoDto produtos) {
         this.produtos = produtos;
     }
 }

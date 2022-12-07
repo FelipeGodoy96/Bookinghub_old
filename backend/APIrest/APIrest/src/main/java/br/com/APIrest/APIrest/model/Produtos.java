@@ -3,7 +3,6 @@ package br.com.APIrest.APIrest.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,27 +11,21 @@ public class Produtos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @SequenceGenerator(name = "produto_sequence", sequenceName = "produto_sequence")
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_generator")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     @Column(columnDefinition="TEXT")
     private String descricao;
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "cidade_mtone")
     private Cidades cidades;
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_onetm")
     private Categorias categorias;
-
     @OneToMany(mappedBy = "produtos", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Reservas> reserva = new HashSet<>();
-
     @OneToMany(mappedBy = "produtos", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ImagensAnuncio> imagens = new HashSet<>();
-
+    private Set<Imagens> imagens = new HashSet<>();
     @ManyToMany
     @JoinTable(name = "produtoCaracteristica",
     joinColumns = @JoinColumn(name = "produtoID", referencedColumnName = "id"),
@@ -95,10 +88,10 @@ public class Produtos implements Serializable {
         this.reserva = reserva;
     }
 
-    public Set<ImagensAnuncio> getImagens() {
+    public Set<Imagens> getImagens() {
         return imagens;
     }
-    public void setImages(Set<ImagensAnuncio> imagens) {
+    public void setImages(Set<Imagens> imagens) {
         this.imagens = imagens;
     }
 }
