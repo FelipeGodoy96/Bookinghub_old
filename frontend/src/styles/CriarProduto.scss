@@ -1,23 +1,32 @@
 .formContainer{
-    padding-top: 8rem;
+    padding-top: 8em;
     h1{
         @include font-secondary;
     }
     .cardForm{
         @include card;
-    
         padding: 6em;
+        @media only screen and (min-width: 300px) and (max-width: 900px){
+            width: 100%;
+            margin: 1rem;}
     }
     .control{
-        width: 30rem;
+        width: 30em;
     }
    .group{
-        padding: 2rem;
-        margin-left: 3rem;
+        padding: 2em;
+        margin-left: 3em;
 
    }
    .select{
-    width: 30rem;
+    width: 30em;
+   }
+
+   .textarea{
+    padding: 1.5rem;
+    resize: none;
+    width: 60em;
+    
    }
    
 
@@ -27,7 +36,7 @@
             label{
                 margin-top: .8rem;
             }
-           
+            
     }
 } 
 

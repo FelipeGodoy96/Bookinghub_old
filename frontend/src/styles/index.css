@@ -23203,7 +23203,7 @@ input[type=date]::-webkit-clear-button {
 }
 
 .formContainer {
-  padding-top: 8rem;
+  padding-top: 8em;
 }
 .formContainer h1, .formContainer .h1 {
   font-family: "Roboto", sans-serif;
@@ -23219,15 +23219,26 @@ input[type=date]::-webkit-clear-button {
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 6em;
 }
+@media only screen and (min-width: 300px) and (max-width: 900px) {
+  .formContainer .cardForm {
+    width: 100%;
+    margin: 1rem;
+  }
+}
 .formContainer .control {
-  width: 30rem;
+  width: 30em;
 }
 .formContainer .group {
-  padding: 2rem;
-  margin-left: 3rem;
+  padding: 2em;
+  margin-left: 3em;
 }
 .formContainer .select {
-  width: 30rem;
+  width: 30em;
+}
+.formContainer .textarea {
+  padding: 1.5rem;
+  resize: none;
+  width: 60em;
 }
 @media only screen and (min-width: 300px) and (max-width: 900px) {
   .formContainer {
