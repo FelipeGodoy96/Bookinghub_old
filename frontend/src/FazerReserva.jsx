@@ -96,7 +96,7 @@ export default function Reserva() {
             <Container className="d-flex align-items-center justify-content-center flex-column align-content-start flex-wrap mt-3">
               <Card className="cardForm w-100">
                 <Card.Title>
-                  <h1>Selecione a data da reserva</h1>
+                  <h1 className='text-center'>Selecione a data da reserva</h1>
                 </Card.Title>
                 <Calendario />
                 <Form />

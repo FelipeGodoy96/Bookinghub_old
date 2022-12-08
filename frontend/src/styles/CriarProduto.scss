@@ -6,17 +6,20 @@
     .cardForm{
         @include card;
     
-        padding: 4em;
+        padding: 6em;
     }
-    .emailObs{
-        color: #6b6b6bb0;
+    .control{
+        width: 30rem;
     }
-    .checkBox{
-        padding-top: 12px;
-    }
-    hr.solid {
-        border-top: 3px solid #bbb;
-      }
+   .group{
+        padding: 2rem;
+        margin-left: 3rem;
+
+   }
+   .select{
+    width: 30rem;
+   }
+   
 
       @media only screen and (min-width: 300px) and (max-width: 900px){
             width: 100%;

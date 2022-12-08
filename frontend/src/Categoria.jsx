@@ -25,11 +25,11 @@ export default function Categoria() {
         fluid
         className="categoryPage d-flex flex-column justify-content-center align-items-center  m-0"
       >
-        <h1 className="text-center mt-5">
+        <h1 className="text-center text-categoria">
           Todos acomodações em :  &nbsp;
           {nomecategoria}
         </h1>
-        <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center">
+        <div className="d-flex flex-column flex-lg-row gap-3 flex-wrap justify-content-center align-items-center mt-5 mb-5 vh-100">
           {categoriaSelected?.map((m, index) => (
             <ProductCard data={m} key={index} />
           ))}

@@ -41,7 +41,7 @@ export default function Buscar() {
           <Searchbar />
         </section>
 
-        <Container className="d-flex flex-column mt-5 mb-5 ">
+        <Container className="d-flex flex-column mt-5 mb-5 vh-100 ">
 
           <SearchNotFound />
 
