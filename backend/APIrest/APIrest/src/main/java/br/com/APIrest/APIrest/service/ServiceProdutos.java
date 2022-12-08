@@ -3,7 +3,7 @@ package br.com.APIrest.APIrest.service;
 import br.com.APIrest.APIrest.dto.CaracteristicasDto;
 import br.com.APIrest.APIrest.dto.ImagensDto;
 import br.com.APIrest.APIrest.dto.ProdutosDto;
-import br.com.APIrest.APIrest.dto.ReservaDto;
+import br.com.APIrest.APIrest.dto.ReservaProdutosDto;
 import br.com.APIrest.APIrest.model.Caracteristicas;
 import br.com.APIrest.APIrest.model.Imagens;
 import br.com.APIrest.APIrest.model.Produtos;
@@ -82,8 +82,8 @@ public class ServiceProdutos {
              entity.getImagens().add(imagens);
             }
         entity.getReserva().clear();
-        for (ReservaDto reservaDto : dto.getReserva()) {
-            Reservas reservas = repositoryReservas.getReferenceById(reservaDto.getId());
+        for (ReservaProdutosDto reservaProdutosDto : dto.getReserva()) {
+            Reservas reservas = repositoryReservas.getReferenceById(reservaProdutosDto.getId());
             entity.getReserva().add(reservas);
         }
 

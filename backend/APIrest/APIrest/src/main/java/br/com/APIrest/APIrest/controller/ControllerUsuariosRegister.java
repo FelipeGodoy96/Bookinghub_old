@@ -43,34 +43,34 @@ public class ControllerUsuariosRegister {
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 
-        if (strRoles == null) {
-            Role userRole = repositoryRole.findByName(EPermits.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Erro: a Função" +
-                            "" +
-                            " não encontrado."));
-            roles.add(userRole);
-        } else {
-            strRoles.forEach(role -> {
-                switch (role) {
-                    case "admin":
-                        Role adminRole = repositoryRole.findByName(EPermits.ROLE_ADMIN)
-                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
-                        roles.add(adminRole);
-
-                        break;
-                    case "mod":
-                        Role modRole = repositoryRole.findByName(EPermits.ROLE_MODERATOR)
-                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
-                        roles.add(modRole);
-
-                        break;
-                    default:
-                        Role userRole = repositoryRole.findByName(EPermits.ROLE_USER)
-                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
-                        roles.add(userRole);
-                }
-            });
-        }
+//        if (strRoles == null) {
+//            Role userRole = repositoryRole.findByName(EPermits.ROLE_USER)
+//                    .orElseThrow(() -> new RuntimeException("Erro: a Função" +
+//                            "" +
+//                            " não encontrado."));
+//            roles.add(userRole);
+//        } else {
+//            strRoles.forEach(role -> {
+//                switch (role) {
+//                    case "admin":
+//                        Role adminRole = repositoryRole.findByName(EPermits.ROLE_ADMIN)
+//                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
+//                        roles.add(adminRole);
+//
+//                        break;
+//                    case "mod":
+//                        Role modRole = repositoryRole.findByName(EPermits.ROLE_MODERATOR)
+//                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
+//                        roles.add(modRole);
+//
+//                        break;
+//                    default:
+//                        Role userRole = repositoryRole.findByName(EPermits.ROLE_USER)
+//                                .orElseThrow(() -> new RuntimeException("Erro: Função não encontrada."));
+//                        roles.add(userRole);
+//                }
+//            });
+//        }
 
         usuarios.setRoles(roles);
         repositoryUsuarios.save(usuarios);

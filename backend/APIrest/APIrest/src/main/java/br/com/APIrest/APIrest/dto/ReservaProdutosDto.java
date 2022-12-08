@@ -10,7 +10,7 @@ public class ReservaProdutosDto implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private Integer id;
-  //private Time h_inic_reser;
+    private Time h_inic_reser;
     private Date d_inic_reser;
     private Date d_fin_reser;
 
@@ -19,14 +19,14 @@ public class ReservaProdutosDto implements Serializable {
 
     public ReservaProdutosDto(Integer id, Time h_inic_reser, Date d_inic_reser, Date d_fin_reser) {
         this.id = id;
-      //this.h_inic_reser = h_inic_reser;
+        this.h_inic_reser = h_inic_reser;
         this.d_inic_reser = d_inic_reser;
         this.d_fin_reser = d_fin_reser;
     }
 
     public ReservaProdutosDto(Reservas reservas) {
         id = reservas.getId();
-      //h_inic_reser = reservas.getH_inic_reser();
+        h_inic_reser = reservas.getH_inic_reser();
         d_inic_reser = reservas.getD_inic_reser();
         d_fin_reser = reservas.getD_fin_reser();
     }
@@ -38,12 +38,12 @@ public class ReservaProdutosDto implements Serializable {
         this.id = id;
     }
 
-//    public Time getH_inic_reser() {
-//        return h_inic_reser;
-//    }
-//    public void setH_inic_reser(Time h_inic_reser) {
-//        this.h_inic_reser = h_inic_reser;
-//    }
+    public Time getH_inic_reser() {
+        return h_inic_reser;
+    }
+    public void setH_inic_reser(Time h_inic_reser) {
+        this.h_inic_reser = h_inic_reser;
+    }
 
     public Date getD_inic_reser() {
         return d_inic_reser;
