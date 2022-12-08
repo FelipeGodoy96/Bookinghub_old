@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -40,6 +41,16 @@ public class ServiceReservas {
         Optional<Reservas> object = repository.findById(id);
         Reservas entity = object.get();
         return new ReservasDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ReservasDto> BuscarReservaPorUsuario(Long usuarioId) {
+        List<Reservas> bookingList = repository.findAllReservasByUsuariosId(usuarioId);
+        List<ReservasDto> BookingDtoList = new ArrayList<>();
+        for (Reservas reservas : bookingList) {
+            BookingDtoList.add(new ReservasDto(reservas));
+        }
+        return BookingDtoList;
     }
 
     public void delete(Integer id) {

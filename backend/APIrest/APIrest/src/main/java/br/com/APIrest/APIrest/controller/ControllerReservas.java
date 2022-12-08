@@ -28,6 +28,11 @@ public class ControllerReservas {
         ReservasDto dto = service.findById(id);
         return ResponseEntity.ok().body(dto);
     }
+    @GetMapping(value = "/usuario_id/{usuarioId}")
+    public ResponseEntity<List<ReservasDto>> BuscarReservaPorUsuario(@PathVariable Long usuarioId) {
+        List<ReservasDto> bookingDtoList = service.BuscarReservaPorUsuario(usuarioId);
+        return ResponseEntity.ok().body(bookingDtoList);
+    }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteReservas(@PathVariable Integer id) {

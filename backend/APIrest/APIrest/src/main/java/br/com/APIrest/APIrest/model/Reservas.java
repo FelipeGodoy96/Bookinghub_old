@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "reservas")
@@ -16,7 +15,7 @@ public class Reservas implements Serializable {
     private Time h_inic_reser;
     private Date d_inic_reser;
     private Date d_fin_reser;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "reservas_produtos")
     private Produtos produtos;
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
