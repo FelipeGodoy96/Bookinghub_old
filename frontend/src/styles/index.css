@@ -23202,13 +23202,11 @@ input[type=date]::-webkit-clear-button {
   color: #1DBEB4;
 }
 
-.formContainer {
-  padding-top: 8em;
-}
 .formContainer h1, .formContainer .h1 {
   font-family: "Roboto", sans-serif;
   font-size: 20pt;
   font-weight: bold;
+  color: #545776;
 }
 .formContainer .cardForm {
   background: rgb(255, 255, 255);
@@ -23217,28 +23215,96 @@ input[type=date]::-webkit-clear-button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 6em;
 }
-@media only screen and (min-width: 300px) and (max-width: 900px) {
-  .formContainer .cardForm {
-    width: 100%;
-    margin: 1rem;
-  }
+.formContainer label {
+  color: #383B58;
 }
 .formContainer .control {
-  width: 30em;
-}
-.formContainer .group {
-  padding: 2em;
-  margin-left: 3em;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #1DBEB4;
+  max-width: 100%;
+  min-width: 25vw;
 }
 .formContainer .select {
-  width: 30em;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #1DBEB4;
+  max-width: 100%;
+  min-width: 25vw;
 }
 .formContainer .textarea {
-  padding: 1.5rem;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #1DBEB4;
   resize: none;
-  width: 60em;
+  max-width: 100%;
+  min-width: 55vw;
+}
+.formContainer .plus-button {
+  border: 2px solid #1DBEB4;
+  background-color: #FFF;
+  font-size: 16px;
+  height: 2.5em;
+  width: 2.5em;
+  border-radius: 999px #1DBEB4;
+  position: relative;
+  -webkit-border-radius: 999px #1DBEB4;
+  -moz-border-radius: 999px #1DBEB4;
+  -ms-border-radius: 999px #1DBEB4;
+  -o-border-radius: 999px #1DBEB4;
+}
+.formContainer .plus-button:after, .formContainer .plus-button:before {
+  content: "";
+  display: block;
+  background-color: #1DBEB4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.formContainer .plus-button:before {
+  height: 1em;
+  width: 0.2em;
+}
+.formContainer .plus-button:after {
+  height: 0.2em;
+  width: 1em;
+}
+.formContainer .textarea-group {
+  max-width: 100%;
+  min-width: 20vw;
+  max-height: 100%;
+  min-height: 25vh;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #1DBEB4;
+  resize: none;
+  padding: 1rem;
+}
+.formContainer h4, .formContainer .h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20pt;
+  font-weight: bold;
+  color: #545776;
+  font-size: 1.5em;
+  text-align: center;
 }
 @media only screen and (min-width: 300px) and (max-width: 900px) {
   .formContainer {
