@@ -42,6 +42,21 @@ const cadastro = async (newuser) => {
   }
 };
 
+const fazerReserva = async (newReserva) => {
+  try {
+    const response = await axios.post(`${apiLinkLogin}/reservas`, newReserva);
+    return {
+      reservaData: response.data,
+    };
+  } catch (error) {
+    console.trace(error);
+
+    return {
+      user: null,
+    };
+  }
+};
+
 const anuncios = agruparAnuncios(anunciosData.data, cidadesData.data);
 
 const apiHandle = {
