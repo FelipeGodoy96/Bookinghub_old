@@ -15,21 +15,30 @@
     }
     .control {
         @include card1;
-        border: 1px solid $primary-color;
+        border: 1px solid $secondary-color;
+        &:focus{
+            border: 2px solid $alternative-color;
+        }
         max-width: 100%;
         min-width: 25vw;
     }
 
     .select {
         @include card1;
-        border: 1px solid $primary-color;
+        border: 1px solid $secondary-color;
+        &:focus{
+            border: 2px solid $alternative-color;
+        }
         max-width: 100%;
         min-width: 25vw;
     }
 
     .textarea {
         @include card1;
-        border: 1px solid $primary-color;
+        border: 1px solid $secondary-color;
+        &:focus{
+            border: 2px solid $alternative-color;
+        }
         resize: none;
         max-width: 100%;
         min-width: 55vw;
@@ -81,7 +90,10 @@
         max-height: 100%;
         min-height: 25vh;
          @include card1;
-        border: 1px solid $primary-color;
+        border: 1px solid $secondary-color;
+        &:focus{
+            border: 2px solid $alternative-color;
+        }
         resize: none;
         padding: 1rem;
        

@@ -23226,9 +23226,12 @@ input[type=date]::-webkit-clear-button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border: 1px solid #1DBEB4;
+  border: 1px solid #383B58;
   max-width: 100%;
   min-width: 25vw;
+}
+.formContainer .control:focus {
+  border: 2px solid #545776;
 }
 .formContainer .select {
   background: rgb(255, 255, 255);
@@ -23237,9 +23240,12 @@ input[type=date]::-webkit-clear-button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border: 1px solid #1DBEB4;
+  border: 1px solid #383B58;
   max-width: 100%;
   min-width: 25vw;
+}
+.formContainer .select:focus {
+  border: 2px solid #545776;
 }
 .formContainer .textarea {
   background: rgb(255, 255, 255);
@@ -23248,10 +23254,13 @@ input[type=date]::-webkit-clear-button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border: 1px solid #1DBEB4;
+  border: 1px solid #383B58;
   resize: none;
   max-width: 100%;
   min-width: 55vw;
+}
+.formContainer .textarea:focus {
+  border: 2px solid #545776;
 }
 .formContainer .plus-button {
   border: 2px solid #1DBEB4;
@@ -23294,9 +23303,12 @@ input[type=date]::-webkit-clear-button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border: 1px solid #1DBEB4;
+  border: 1px solid #383B58;
   resize: none;
   padding: 1rem;
+}
+.formContainer .textarea-group:focus {
+  border: 2px solid #545776;
 }
 .formContainer h4, .formContainer .h4 {
   font-family: "Roboto", sans-serif;
