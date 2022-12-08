@@ -28,19 +28,19 @@ public class ControllerUsuariosRegister {
     PasswordEncoder encoder;
 
         @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody UsuariosRegister usuariosRegister) {
-        if (repositoryUsuarios.existsByUsername(usuariosRegister.getUsername())) {
+    public ResponseEntity<?> registerUser(@RequestBody UsuariosRegister signUpRequest) {
+        if (repositoryUsuarios.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
                     .body(new InfoRequisicao("Erro: O Email já está Registrado!"));
         }
 
-        Usuarios usuarios = new Usuarios(usuariosRegister.getUsername(),
-                usuariosRegister.getNome(),
-                usuariosRegister.getSobrenome(),
-                encoder.encode(usuariosRegister.getPassword()));
+        Usuarios usuarios = new Usuarios(signUpRequest.getUsername(),
+                signUpRequest.getNome(),
+                signUpRequest.getSobrenome(),
+                encoder.encode(signUpRequest.getPassword()));
 
-        Set<String> strRoles = usuariosRegister.getRole();
+        Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {
