@@ -51,9 +51,7 @@ public class ServiceCidades {
     @Transactional
     public CidadesDto update(Integer id, CidadesDto dto) {
         Cidades entity = repository.getReferenceById(id);
-        entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setPais(dto.getPais());
+        copyDtoForEntity(dto, entity);
         entity = repository.save(entity);
         return new CidadesDto(entity);
     }

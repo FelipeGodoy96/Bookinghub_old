@@ -54,10 +54,7 @@ public class ServiceCategorias {
     @Transactional
     public CategoriasDto update(Integer id, CategoriasDto dto) {
         Categorias entity = repository.getReferenceById(id);
-        entity.setId(dto.getId());
-        entity.setQualificacao(dto.getQualificacao());
-        entity.setDescricao(dto.getDescricao());
-        entity.setImagem(dto.getImagem());
+        copyDtoForEntity(dto, entity);
         entity = repository.save(entity);
         return new CategoriasDto(entity);
     }

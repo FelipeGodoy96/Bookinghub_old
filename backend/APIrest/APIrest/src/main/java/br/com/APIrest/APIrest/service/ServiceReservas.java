@@ -45,12 +45,12 @@ public class ServiceReservas {
 
     @Transactional(readOnly = true)
     public List<ReservasDto> BuscarReservaPorUsuario(Long usuarioId) {
-        List<Reservas> bookingList = repository.findAllReservasByUsuariosId(usuarioId);
-        List<ReservasDto> BookingDtoList = new ArrayList<>();
-        for (Reservas reservas : bookingList) {
-            BookingDtoList.add(new ReservasDto(reservas));
+        List<Reservas> entity = repository.findAllReservasByUsuariosId(usuarioId);
+        List<ReservasDto> entityList = new ArrayList<>();
+        for (Reservas reservas : entity) {
+            entityList.add(new ReservasDto(reservas));
         }
-        return BookingDtoList;
+        return entityList;
     }
 
     public void delete(Integer id) {

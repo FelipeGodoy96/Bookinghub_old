@@ -30,8 +30,8 @@ public class ControllerReservas {
     }
     @GetMapping(value = "/usuario_id/{usuarioId}")
     public ResponseEntity<List<ReservasDto>> BuscarReservaPorUsuario(@PathVariable Long usuarioId) {
-        List<ReservasDto> bookingDtoList = service.BuscarReservaPorUsuario(usuarioId);
-        return ResponseEntity.ok().body(bookingDtoList);
+        List<ReservasDto> entityList = service.BuscarReservaPorUsuario(usuarioId);
+        return ResponseEntity.ok().body(entityList);
     }
 
     @DeleteMapping(value = "/{id}")
