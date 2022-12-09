@@ -52,7 +52,7 @@ const fazerReserva = async (newReserva) => {
     console.trace(error);
 
     return {
-      user: null,
+      reservaData: null,
     };
   }
 };
@@ -65,6 +65,7 @@ const apiHandle = {
   anuncios,
   login,
   cadastro,
+  fazerReserva,
 };
 
 export default apiHandle;

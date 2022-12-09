@@ -1,14 +1,35 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import erroImagem from '../../assets/img/erro-imagem.png';
+import apiHandle from '../../services/apiHandle';
+import ModalReservaConfirmada from '../Modal/ModalReservaConfirmada';
 
-export default function ProductCardReserva({ dadosDoAnuncioReserva }) {
+export default function ProductCardReserva({ dadosDoAnuncioReserva, dadosDaReserva }) {
   const navigate = useNavigate();
+  const [isVisibleModalConfirmacaoReserva, setIsVisibleModalConfirmacaoReserva] = useState(false);
+  const [mensagemConfirmacaoReserva, setMensagemConfirmacaoReserva] = useState({});
+
+  const salvarReserva = async () => {
+    const { reservaData } = await apiHandle.fazerReserva(dadosDaReserva);
+    if (reservaData) {
+      setMensagemConfirmacaoReserva({
+        title: 'Muito Obrigado!',
+        description: 'Sua reserva foi confirmada com sucesso!',
+      });
+      setIsVisibleModalConfirmacaoReserva(true);
+    } else {
+      setMensagemConfirmacaoReserva({
+        title: 'Ops, algo deu errado',
+        description: 'Infelizmente não foi possivel realizar sua reserva',
+      });
+      setIsVisibleModalConfirmacaoReserva(true);
+    }
+  };
 
   return (
     <Card className="anuncioCardReserva d-flex flex-column m-2">
@@ -58,11 +79,15 @@ export default function ProductCardReserva({ dadosDoAnuncioReserva }) {
           <Card.Text>R$ XXX.XX</Card.Text>
         </div>
 
-        <Button className="m-1" onClick={() => navigate('/confirmacao-reserva')}>
-
+        <Button className="m-1" onClick={() => salvarReserva()}>
           Confirmar Reserva
         </Button>
+
       </Card.Body>
+      <ModalReservaConfirmada
+        visible={isVisibleModalConfirmacaoReserva}
+        mensagem={mensagemConfirmacaoReserva}
+      />
     </Card>
   );
 }

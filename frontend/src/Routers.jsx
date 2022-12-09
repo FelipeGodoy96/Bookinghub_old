@@ -39,8 +39,10 @@ export default function Routers() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/" element={<CriarProduto />} />
-      <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />
-      <Route path="/minhasreservas" element={<MinhasReservas />} />
+
+      {loginState?.isLoged && <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />}
+      {loginState?.isLoged && <Route path="/minhasreservas" element={<MinhasReservas />} />}
+
       <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
@@ -50,7 +52,7 @@ export default function Routers() {
       <Route path="/redefinir-senha" element={<RedefinirSenha />} />
       <Route path="/404naoencontrado" element={<NotFound />} />
       <Route path="/criar-produto" element={<CriarProduto />} />
-      <Route path="*" element={<Navigate to="/404-NaoEncontrado" />} />
+      <Route path="*" element={<Navigate to="/404naoencontrado" />} />
     </Routes>
   );
 }

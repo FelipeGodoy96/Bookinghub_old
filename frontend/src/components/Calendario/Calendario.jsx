@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -5,7 +6,7 @@ import { DateRange } from 'react-date-range';
 import { ptBR } from 'date-fns/locale';
 import { Card, Container } from 'react-bootstrap';
 
-export default function Calendario() {
+export default function Calendario({ ...props }) {
   const [date, setDate] = useState({
     startDate: new Date(),
     endDate: new Date(),
@@ -16,6 +17,7 @@ export default function Calendario() {
     <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
       <Card>
         <DateRange
+          {...props}
           locale={ptBR}
           editableDateInputs
           moveRangeOnFirstSelection={false}
