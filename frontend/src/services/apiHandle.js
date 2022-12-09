@@ -57,6 +57,21 @@ const fazerReserva = async (newReserva) => {
   }
 };
 
+const listarReserva = async (newReserva) => {
+  try {
+    const response = await axios.get(`${apiLinkLogin}/reservas`, newReserva);
+    return {
+      reservaData: response.data,
+    };
+  } catch (error) {
+    console.trace(error);
+
+    return {
+      reservaData: null,
+    };
+  }
+};
+
 const anuncios = agruparAnuncios(anunciosData.data, cidadesData.data);
 
 const apiHandle = {
@@ -66,6 +81,7 @@ const apiHandle = {
   login,
   cadastro,
   fazerReserva,
+  listarReserva,
 };
 
 export default apiHandle;

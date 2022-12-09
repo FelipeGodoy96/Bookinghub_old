@@ -14,6 +14,7 @@ export default function ProductCardReserva({ dadosDoAnuncioReserva, dadosDaReser
   const [isVisibleModalConfirmacaoReserva, setIsVisibleModalConfirmacaoReserva] = useState(false);
   const [mensagemConfirmacaoReserva, setMensagemConfirmacaoReserva] = useState({});
 
+  console.log('data fim', dadosDaReserva.d_fin_reser.toISOString().substring(0, 10));
   const salvarReserva = async () => {
     const { reservaData } = await apiHandle.fazerReserva(dadosDaReserva);
     if (reservaData) {
@@ -67,13 +68,21 @@ export default function ProductCardReserva({ dadosDoAnuncioReserva, dadosDaReser
         </div>
         <div className="d-flex flwx-row justify-content-between">
           <Card.Title>Check-in</Card.Title>
-          <Card.Text>Data</Card.Text>
+          <Card.Text>{dadosDaReserva.d_inic_reser.toISOString().substring(0, 10)}</Card.Text>
+        </div>
+        <div className="d-flex flwx-row justify-content-between">
+          <Card.Title>Horário do check-in</Card.Title>
+          <Card.Text>
+            12:00 PM
+
+          </Card.Text>
         </div>
 
         <div className="d-flex flwx-row justify-content-between">
           <Card.Title>Check-out</Card.Title>
-          <Card.Text>Data</Card.Text>
+          <Card.Text>{dadosDaReserva.d_fin_reser.toISOString().substring(0, 10)}</Card.Text>
         </div>
+
         <div className="d-flex flwx-row justify-content-between">
           <Card.Title>Valor Final</Card.Title>
           <Card.Text>R$ XXX.XX</Card.Text>
