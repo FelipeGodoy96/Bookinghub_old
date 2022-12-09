@@ -10,7 +10,7 @@ public class ImagensDto implements Serializable {
     private Integer id;
     private String titulo;
     private String url;
-    private IdProdutoDto produto;
+    private ProdutosDto_Id produto;
 
     public ImagensDto() {
     }
@@ -25,7 +25,7 @@ public class ImagensDto implements Serializable {
         id = imagens.getId();
         titulo = imagens.getTitulo();
         url = imagens.getUrl();
-        this.produto = new IdProdutoDto(imagens.getProdutos());
+        this.produto = new ProdutosDto_Id(imagens.getProdutos());
     }
 
     public Integer getId() {
@@ -49,10 +49,10 @@ public class ImagensDto implements Serializable {
         this.url = url;
     }
 
-    public IdProdutoDto getProduto() {
+    public ProdutosDto_Id getProduto() {
         return produto;
     }
-    public void setProduto(IdProdutoDto produto) {
+    public void setProduto(ProdutosDto_Id produto) {
         this.produto = produto;
     }
 }

@@ -1,8 +1,14 @@
 package br.com.APIrest.APIrest.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "cidades")
@@ -14,8 +20,9 @@ public class Cidades implements Serializable {
     private Integer id;
     private String nome;
     private String pais;
-    @OneToMany(mappedBy = "cidades", fetch = FetchType.LAZY)
-    private List<Produtos> produto;
+    @OneToMany(mappedBy = "cidades", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    private Set<Produtos> produtos = new HashSet<>();
 
     public Cidades() {
     }
@@ -47,10 +54,10 @@ public class Cidades implements Serializable {
         this.pais = pais;
     }
 
-    public List<Produtos> getProduto() {
-        return produto;
+    public Set<Produtos> getProdutos() {
+        return produtos;
     }
-    public void setProduto(List<Produtos> produto) {
-        this.produto = produto;
+    public void setProdutos(Set<Produtos> produtos) {
+        this.produtos = produtos;
     }
 }

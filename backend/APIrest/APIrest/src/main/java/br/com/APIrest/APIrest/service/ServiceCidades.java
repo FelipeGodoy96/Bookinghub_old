@@ -1,8 +1,11 @@
 package br.com.APIrest.APIrest.service;
 
 import br.com.APIrest.APIrest.dto.CidadesDto;
+import br.com.APIrest.APIrest.dto.ProdutosDto;
 import br.com.APIrest.APIrest.model.Cidades;
+import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.repository.RepositoryCidades;
+import br.com.APIrest.APIrest.repository.RepositoryProdutos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +19,9 @@ public class ServiceCidades {
 
     @Autowired
     private RepositoryCidades repository;
+
+    @Autowired
+    private RepositoryProdutos repositoryProdutos;
 
     @Transactional(readOnly = true)
     public List<CidadesDto> findAll(){
@@ -37,9 +43,7 @@ public class ServiceCidades {
     @Transactional
     public CidadesDto insert(CidadesDto dto) {
         Cidades entity = new Cidades();
-        entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setPais(dto.getPais());
+        copyDtoForEntity(dto, entity);
         entity = repository.save(entity);
         return new CidadesDto(entity);
     }
@@ -52,5 +56,16 @@ public class ServiceCidades {
         entity.setPais(dto.getPais());
         entity = repository.save(entity);
         return new CidadesDto(entity);
+    }
+
+    private void copyDtoForEntity(CidadesDto dto, Cidades entity) {
+        entity.setNome(dto.getNome());
+        entity.setPais(dto.getPais());
+
+        entity.getProdutos().clear();
+        for (ProdutosDto produtosDto : dto.getProdutos()) {
+            Produtos produtos = repositoryProdutos.getReferenceById(produtosDto.getId());
+            entity.getProdutos().add(produtos);
+        }
     }
 }

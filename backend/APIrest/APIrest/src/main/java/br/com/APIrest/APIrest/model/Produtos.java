@@ -16,8 +16,8 @@ public class Produtos implements Serializable {
     private String nome;
     @Column(columnDefinition="TEXT")
     private String descricao;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "cidade_mtone")
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "cidade_mtone", nullable = true)
     private Cidades cidades;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_onetm")

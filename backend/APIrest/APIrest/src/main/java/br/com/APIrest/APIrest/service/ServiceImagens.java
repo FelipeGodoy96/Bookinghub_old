@@ -1,7 +1,7 @@
 package br.com.APIrest.APIrest.service;
 
 import br.com.APIrest.APIrest.dto.ImagensDto;
-import br.com.APIrest.APIrest.dto.IdProdutoDto;
+import br.com.APIrest.APIrest.dto.ProdutosDto_Id;
 import br.com.APIrest.APIrest.model.Imagens;
 import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.repository.RepositoryImagens;
@@ -60,8 +60,8 @@ public class ServiceImagens {
         imagens.setTitulo(imagensDto.getTitulo());
         imagens.setUrl(imagensDto.getUrl());
 
-        IdProdutoDto idProdutoDto = imagensDto.getProduto();
-        Produtos produtos = repositoryProdutos.getReferenceById(idProdutoDto.getId());
+        ProdutosDto_Id produtosDtoId = imagensDto.getProduto();
+        Produtos produtos = repositoryProdutos.getReferenceById(produtosDtoId.getId());
         imagens.setProdutos(produtos);
     }
 }

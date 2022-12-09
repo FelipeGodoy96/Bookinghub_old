@@ -1,8 +1,11 @@
 package br.com.APIrest.APIrest.service;
 
 import br.com.APIrest.APIrest.dto.CategoriasDto;
+import br.com.APIrest.APIrest.dto.ProdutosDto;
 import br.com.APIrest.APIrest.model.Categorias;
+import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.repository.RepositoryCategorias;
+import br.com.APIrest.APIrest.repository.RepositoryProdutos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +19,9 @@ public class ServiceCategorias {
 
     @Autowired
     private RepositoryCategorias repository;
+
+    @Autowired
+    private RepositoryProdutos repositoryProdutos;
 
     @Transactional(readOnly = true)
     public List<CategoriasDto> findAll(){
@@ -55,4 +61,17 @@ public class ServiceCategorias {
         entity = repository.save(entity);
         return new CategoriasDto(entity);
     }
+
+    private void copyDtoForEntity(CategoriasDto dto, Categorias entity) {
+        entity.setQualificacao(dto.getQualificacao());
+        entity.setDescricao(dto.getDescricao());
+        entity.setImagem(dto.getImagem());
+
+        entity.getProduto().clear();
+        for (ProdutosDto produtosDto : dto.getProdutos()) {
+            Produtos produtos = repositoryProdutos.getReferenceById(produtosDto.getId());
+            entity.getProduto().add(produtos);
+        }
+    }
+
 }

@@ -4,20 +4,20 @@ import br.com.APIrest.APIrest.model.Usuarios;
 
 import java.io.Serializable;
 
-public class IdUsuarioDto implements Serializable {
+public class UsuariosDto_Id implements Serializable {
     public static final long serialVersionUID = 1L;
 
     private Long id;
 
 
-    public IdUsuarioDto() {
+    public UsuariosDto_Id() {
     }
 
-    public IdUsuarioDto(Long id) {
+    public UsuariosDto_Id(Long id) {
         this.id = id;
     }
 
-    public IdUsuarioDto(Usuarios usuarios) {
+    public UsuariosDto_Id(Usuarios usuarios) {
         id = usuarios.getId();
     }
 

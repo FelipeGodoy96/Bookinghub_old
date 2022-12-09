@@ -12,8 +12,8 @@ public class ReservasDto implements Serializable {
     private Time h_inic_reser;
     private Date d_inic_reser;
     private Date d_fin_reser;
-    private IdUsuarioDto usuario;
-    private IdProdutoDto produtos;
+    private UsuariosDto_Id usuario;
+    private ProdutosDto_Id produtos;
 
     public ReservasDto() {
     }
@@ -30,8 +30,8 @@ public class ReservasDto implements Serializable {
         h_inic_reser = reservas.getH_inic_reser();
         d_inic_reser = reservas.getD_inic_reser();
         d_fin_reser = reservas.getD_fin_reser();
-        this.usuario = new IdUsuarioDto(reservas.getUsuarios());
-        this.produtos = new IdProdutoDto(reservas.getProdutos());
+        this.usuario = new UsuariosDto_Id(reservas.getUsuarios());
+        this.produtos = new ProdutosDto_Id(reservas.getProdutos());
     }
 
 
@@ -63,17 +63,17 @@ public class ReservasDto implements Serializable {
         this.d_fin_reser = d_fin_reser;
     }
 
-    public IdUsuarioDto getUsuario() {
+    public UsuariosDto_Id getUsuario() {
         return usuario;
     }
-    public void setUsuario(IdUsuarioDto usuario) {
+    public void setUsuario(UsuariosDto_Id usuario) {
         this.usuario = usuario;
     }
 
-    public IdProdutoDto getProdutos() {
+    public ProdutosDto_Id getProdutos() {
         return produtos;
     }
-    public void setProdutos(IdProdutoDto produtos) {
+    public void setProdutos(ProdutosDto_Id produtos) {
         this.produtos = produtos;
     }
 }

@@ -1,6 +1,6 @@
 package br.com.APIrest.APIrest.service;
 
-import br.com.APIrest.APIrest.dto.CidadeProdutosDto;
+import br.com.APIrest.APIrest.dto.CidadesDto_Id;
 import br.com.APIrest.APIrest.model.Cidades;
 import br.com.APIrest.APIrest.repository.RepositoryCidades;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,39 +18,15 @@ public class ServiseCidadeProdutos {
     private RepositoryCidades repository;
 
     @Transactional(readOnly = true)
-    public List<CidadeProdutosDto> findAll(){
+    public List<CidadesDto_Id> findAll(){
         List<Cidades> list = repository.findAll();
-        return list.stream().map(x -> new CidadeProdutosDto(x)).collect(Collectors.toList());
+        return list.stream().map(x -> new CidadesDto_Id(x)).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public CidadeProdutosDto findById (Integer id) {
+    public CidadesDto_Id findById (Integer id) {
         Optional<Cidades> object = repository.findById(id);
         Cidades entity = object.get();
-        return new CidadeProdutosDto(entity);
+        return new CidadesDto_Id(entity);
     }
-
-//    public void delete(Integer id) {
-//        repository.deleteById(id);
-//    }
-//
-//    @Transactional
-//    public CidadeProdutosDto insert(CidadeProdutosDto dto) {
-//        Cidades entity = new Cidades();
-//        entity.setId(dto.getId());
-//        entity.setNome(dto.getNome());
-//        entity.setPais(dto.getPais());
-//        entity = repository.save(entity);
-//        return new CidadeProdutosDto(entity);
-//    }
-//
-//    @Transactional
-//    public CidadeProdutosDto update(Integer id, CidadeProdutosDto dto) {
-//        Cidades entity = repository.getReferenceById(id);
-//        entity.setId(dto.getId());
-//        entity.setNome(dto.getNome());
-//        entity.setPais(dto.getPais());
-//        entity = repository.save(entity);
-//        return new CidadeProdutosDto(entity);
-//    }
 }

@@ -1,17 +1,8 @@
 package br.com.APIrest.APIrest.service;
 
-import br.com.APIrest.APIrest.dto.CaracteristicasDto;
-import br.com.APIrest.APIrest.dto.ImagensDto;
-import br.com.APIrest.APIrest.dto.ProdutosDto;
-import br.com.APIrest.APIrest.dto.ReservaProdutosDto;
-import br.com.APIrest.APIrest.model.Caracteristicas;
-import br.com.APIrest.APIrest.model.Imagens;
-import br.com.APIrest.APIrest.model.Produtos;
-import br.com.APIrest.APIrest.model.Reservas;
-import br.com.APIrest.APIrest.repository.RepositoryCaracteristicas;
-import br.com.APIrest.APIrest.repository.RepositoryImagens;
-import br.com.APIrest.APIrest.repository.RepositoryProdutos;
-import br.com.APIrest.APIrest.repository.RepositoryReservas;
+import br.com.APIrest.APIrest.dto.*;
+import br.com.APIrest.APIrest.model.*;
+import br.com.APIrest.APIrest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +18,12 @@ public class ServiceProdutos {
     private RepositoryProdutos repository;
     @Autowired
     private RepositoryCaracteristicas repositoryCaracteristicas;
+
+    @Autowired
+    private RepositoryCidades repositoryCidades;
+
+    @Autowired
+    RepositoryCategorias repositoryCategorias;
 
     @Autowired
     RepositoryReservas repositoryReservas;
@@ -82,10 +79,17 @@ public class ServiceProdutos {
              entity.getImagens().add(imagens);
             }
         entity.getReserva().clear();
-        for (ReservaProdutosDto reservaProdutosDto : dto.getReserva()) {
-            Reservas reservas = repositoryReservas.getReferenceById(reservaProdutosDto.getId());
+        for (ReservasDto_Id reservasDtoId : dto.getReserva()) {
+            Reservas reservas = repositoryReservas.getReferenceById(reservasDtoId.getId());
             entity.getReserva().add(reservas);
         }
+        CidadesDto_Id cidadesDtoId = dto.getCidades();
+        Cidades cidades = repositoryCidades.getReferenceById(cidadesDtoId.getId());
+        entity.setCidades(cidades);
+
+        CategoriasDto_Id categoriaDtoId = dto.getCategoria();
+        Categorias categorias = repositoryCategorias.getReferenceById(categoriaDtoId.getId());
+        entity.setCategorias(categorias);
 
     }
 }
