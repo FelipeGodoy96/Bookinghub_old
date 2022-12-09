@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { Card, Container } from 'react-bootstrap';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { DateRange } from 'react-date-range';
-import { ptBR } from 'date-fns/locale';
+import { pt } from 'date-fns/locale';
 import ProductCardReserva from './components/ProductCard/ProductCardReserva';
 import Footer from './components/Footer/Footer';
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -20,7 +20,7 @@ export default function Reserva() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { loginState } = useContext(LoginContext);
-  const { width, height, viewPort } = useWindowDimensions();
+  const { viewPort } = useWindowDimensions();
   const [disabledDates, setDisabledDates] = useState([]);
 
   const [date, setDate] = useState({
@@ -47,7 +47,7 @@ export default function Reserva() {
       const response = await apiHandle.listarReserva();
       if (response) {
         const reservaDatas = response.reservaData
-          .filter((f) => f.produtos.id === parseInt(id));
+          .filter((f) => f.produtos.id === parseInt(id, 10));
         const getRange = reservaDatas
           .map((m) => getDateRangeReserva(m.d_inic_reser, m.d_fin_reser, 'days'));
         const flatdates = getRange.flat();
@@ -142,9 +142,9 @@ export default function Reserva() {
                 <Container className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
                   <Card>
                     <DateRange
-                      disabledDates={disabledDates.map((date) => new Date(date))}
+                      disabledDates={disabledDates.map((todasDatas) => new Date(todasDatas))}
                       minDate={new Date()}
-                      locale={ptBR}
+                      locale={pt}
                       editableDateInputs
                       moveRangeOnFirstSelection={false}
                       ranges={[date]}

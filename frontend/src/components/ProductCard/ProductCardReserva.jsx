@@ -14,7 +14,6 @@ export default function ProductCardReserva({ dadosDoAnuncioReserva, dadosDaReser
   const [isVisibleModalConfirmacaoReserva, setIsVisibleModalConfirmacaoReserva] = useState(false);
   const [mensagemConfirmacaoReserva, setMensagemConfirmacaoReserva] = useState({});
 
-  console.log('data fim', dadosDaReserva.d_fin_reser.toISOString().substring(0, 10));
   const salvarReserva = async () => {
     const { reservaData } = await apiHandle.fazerReserva(dadosDaReserva);
     if (reservaData) {

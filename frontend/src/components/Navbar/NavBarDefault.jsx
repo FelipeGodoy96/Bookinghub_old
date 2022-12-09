@@ -3,8 +3,8 @@ import {
   Container, Navbar, Nav, Button,
 } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { BsFillPersonFill } from 'react-icons/bs';
 import LogomarcaIco from '../../assets/icon/booking_hub_logo_semfundo.png';
-import { BsFillPersonFill } from "react-icons/bs";
 import LoginContext, { DEFAULT_VALUE_LOGIN } from '../../Contexts/LoginContext';
 
 export default function NavBarDefault() {
@@ -58,9 +58,7 @@ export default function NavBarDefault() {
             <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
               <Nav className="ms-auto gap-2">
                 <div className="mx-auto mt-2">
-                 <BsFillPersonFill className='icon-person'/>
-                  
-              
+                  <BsFillPersonFill className="icon-person" />
                 </div>
 
                 <div className="mx-auto nav-link" to="/login">
@@ -69,12 +67,12 @@ export default function NavBarDefault() {
                   {user.nome}
                 </div>
                 <Button>
-                  <Link className="mx-auto nav-link " to="/" id="pedidosButtonNavBar">
+                  <Link className="mx-auto nav-link " to="/minhasreservas" id="meuspedidosButtonNavBar">
                     Meus Pedidos
                   </Link>
                 </Button>
                 <Button onClick={() => logout()}>
-                  <p className="mx-auto nav-link "  id="logOutButtonNavBar">
+                  <p className="mx-auto nav-link " id="logOutButtonNavBar">
                     Desconectar Conta
                   </p>
                 </Button>

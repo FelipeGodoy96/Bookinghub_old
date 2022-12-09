@@ -9,7 +9,6 @@ import NotFound from './NotFound';
 import Login from './Login';
 import Cadastro from './Cadastro';
 import FazerReserva from './FazerReserva';
-import ConfirmacaoReserva from './ConfirmacaoReserva';
 import RedefinirSenha from './RedefinirSenha';
 import LoginContext from './Contexts/LoginContext';
 import CriarProduto from './CriarProduto';
@@ -43,7 +42,6 @@ export default function Routers() {
       {loginState?.isLoged && <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />}
       {loginState?.isLoged && <Route path="/minhasreservas" element={<MinhasReservas />} />}
 
-      <Route path="/confirmacao-reserva" element={<ConfirmacaoReserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
       <Route path="/buscar/" element={<Buscar />} />
