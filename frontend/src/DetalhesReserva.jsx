@@ -16,7 +16,6 @@ export default function DetalhesReserva() {
                 <h1>Detalhes da reserva</h1>
               </Card.Title>
 
-
               <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
 
               </div>
