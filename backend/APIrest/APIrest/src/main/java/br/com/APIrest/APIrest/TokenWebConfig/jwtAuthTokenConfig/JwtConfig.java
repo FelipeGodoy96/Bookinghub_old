@@ -1,6 +1,6 @@
 package br.com.APIrest.APIrest.TokenWebConfig.jwtAuthTokenConfig;
 
-import br.com.APIrest.APIrest.service.ServiceUsuariosDetailsImplement;
+import br.com.APIrest.APIrest.service.ServiceUsuariosDetailsImp;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class JwtConfig {
 
     public String generateJwtToken(Authentication authentication) {
 
-        ServiceUsuariosDetailsImplement userPrincipal = (ServiceUsuariosDetailsImplement) authentication.getPrincipal();
+        ServiceUsuariosDetailsImp userPrincipal = (ServiceUsuariosDetailsImp) authentication.getPrincipal();
 
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))

@@ -18,8 +18,7 @@ public class ProdutosDto implements Serializable {
     private CategoriasDto_Id categoria;
     private List<ReservasDto_Id> reserva = new ArrayList<>();
     private List<ImagensDto> imagens = new ArrayList<>();
-    private Set<CaracteristicasDto> caracteristica = new HashSet<>();
-
+    private List<CaracteristicasDto> caracteristicas = new ArrayList<>();
     public ProdutosDto() {
     }
 
@@ -37,7 +36,7 @@ public class ProdutosDto implements Serializable {
         this.categoria = new CategoriasDto_Id(produtos.getCategorias());
         produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservasDto_Id(reservas)));
         produtos.getImagens().forEach(imagensAnuncio -> this.imagens.add(new ImagensDto(imagensAnuncio)));
-        produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
+        produtos.getCaracteristicas().forEach(caracteristica -> this.caracteristicas.add(new CaracteristicasDto(caracteristica)));
     }
 
     public Integer getId() {
@@ -62,10 +61,6 @@ public class ProdutosDto implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Set<CaracteristicasDto> getCaracteristica() {
-        return caracteristica;
     }
 
     public List<ReservasDto_Id> getReserva() {
@@ -95,4 +90,14 @@ public class ProdutosDto implements Serializable {
     public void setCategoria(CategoriasDto_Id categoria) {
         this.categoria = categoria;
     }
+
+    public List<CaracteristicasDto> getCaracteristicas() {
+        return caracteristicas;
+    }
+    public void setCaracteristicas(List<CaracteristicasDto> caracteristicas) {
+        this.caracteristicas = caracteristicas;
+    }
 }
+
+
+

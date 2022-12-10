@@ -2,7 +2,9 @@ package br.com.APIrest.APIrest.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -30,7 +32,7 @@ public class Produtos implements Serializable {
     @JoinTable(name = "produtoCaracteristica",
     joinColumns = @JoinColumn(name = "produtoID", referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "caracteristicaID", referencedColumnName = "id"))
-    Set<Caracteristicas> caracteristica = new HashSet<>();
+    private List<Caracteristicas> caracteristicas = new ArrayList<>();
 
     public Produtos() {
     }
@@ -69,11 +71,6 @@ public class Produtos implements Serializable {
         this.categorias = categorias;
     }
 
-    public Set<Caracteristicas> getCaracteristica() {
-        return caracteristica;
-    }
-    public void setCaracteristica(Set<Caracteristicas> caracteristica) { this.caracteristica = caracteristica; }
-
     public Cidades getCidades() {
         return cidades;
     }
@@ -93,5 +90,12 @@ public class Produtos implements Serializable {
     }
     public void setImages(Set<Imagens> imagens) {
         this.imagens = imagens;
+    }
+
+    public List<Caracteristicas> getCaracteristicas() {
+        return caracteristicas;
+    }
+    public void setCaracteristicas(List<Caracteristicas> caracteristicas) {
+        this.caracteristicas = caracteristicas;
     }
 }

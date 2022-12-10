@@ -92,6 +92,10 @@ public class ServiceReservas {
         entity.setH_inic_reser(dto.getH_inic_reser());
         entity.setD_inic_reser(dto.getD_inic_reser());
         entity.setD_fin_reser(dto.getD_fin_reser());
+        entity.setHospede_nome(dto.getHospede_nome());
+        entity.setHospede_sobrenome(dto.getHospede_sobrenome());
+        entity.setHospede_email(dto.getHospede_email());
+        entity.setHospede_cidade(dto.getHospede_cidade());
 
         UsuariosDto_Id usuariosDtoId = dto.getUsuario();
         Usuarios usuarios = repositoryUsuarios.getReferenceById(usuariosDtoId.getId());

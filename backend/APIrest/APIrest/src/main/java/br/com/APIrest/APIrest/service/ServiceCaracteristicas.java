@@ -34,9 +34,7 @@ public class ServiceCaracteristicas {
     @Transactional
     public CaracteristicasDto insert(CaracteristicasDto dto) {
         Caracteristicas entity = new Caracteristicas();
-        entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setIcone(dto.getIcone());
+        copyDtoForEntity(dto, entity);
         entity = repository.save(entity);
         return new CaracteristicasDto(entity);
     }
@@ -44,10 +42,14 @@ public class ServiceCaracteristicas {
         @Transactional
         public CaracteristicasDto update(Integer id, CaracteristicasDto dto) {
             Caracteristicas entity = repository.getReferenceById(id);
-            entity.setId(dto.getId());
-            entity.setNome(dto.getNome());
-            entity.setIcone(dto.getIcone());
+            copyDtoForEntity(dto, entity);
             entity = repository.save(entity);
             return new CaracteristicasDto(entity);
         }
+
+    private void copyDtoForEntity(CaracteristicasDto dto, Caracteristicas entity) {
+        entity.setNome(dto.getNome());
+        entity.setIcone(dto.getIcone());
+    }
+
 }

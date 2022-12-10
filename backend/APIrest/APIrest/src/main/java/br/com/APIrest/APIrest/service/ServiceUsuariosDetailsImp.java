@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class ServiceUsuariosDetailsImplement implements UserDetails {
+public class ServiceUsuariosDetailsImp implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -23,8 +23,8 @@ public class ServiceUsuariosDetailsImplement implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public ServiceUsuariosDetailsImplement(Long id, String username, String nome, String sobrenome, String password,
-                                           Collection<? extends GrantedAuthority> authorities) {
+    public ServiceUsuariosDetailsImp(Long id, String username, String nome, String sobrenome, String password,
+                                     Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.nome = nome;
@@ -33,12 +33,12 @@ public class ServiceUsuariosDetailsImplement implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static ServiceUsuariosDetailsImplement build(Usuarios usuarios) {
+    public static ServiceUsuariosDetailsImp build(Usuarios usuarios) {
         List<GrantedAuthority> authorities = usuarios.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
 
-        return new ServiceUsuariosDetailsImplement(
+        return new ServiceUsuariosDetailsImp(
                 usuarios.getId(),
                 usuarios.getUsername(),
                 usuarios.getNome(),
@@ -101,7 +101,7 @@ public class ServiceUsuariosDetailsImplement implements UserDetails {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        ServiceUsuariosDetailsImplement user = (ServiceUsuariosDetailsImplement) o;
+        ServiceUsuariosDetailsImp user = (ServiceUsuariosDetailsImp) o;
         return Objects.equals(id, user.id);
     }
 }

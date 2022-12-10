@@ -20,6 +20,6 @@ public class ServiceUsuarios implements UserDetailsService {
         Usuarios usuarios = repositoryUsuarios.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Email Não encontrado: " + username));
 
-        return ServiceUsuariosDetailsImplement.build(usuarios);
+        return ServiceUsuariosDetailsImp.build(usuarios);
     }
 }
