@@ -1,24 +1,42 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Footer from './components/Footer/Footer';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import Form from 'react-bootstrap/Form'
+import 'react-bootstrap'
+import { useState, useEffect } from "react"
+import Button from "react-bootstrap/Button"
+import Modal from 'react-bootstrap/Modal'
+import axios from "axios";
+import { useContext } from "react";
+import Context from "../../Contexts/Context";
 import Card from 'react-bootstrap/Card';
+import  Container from 'react-bootstrap/Container'
 
 
-export default function CriarProduto() {
+
+
+export default function AddProduct (props) {
+  const [ title, setTitle ] = useState("")
+  const { state } = React.useContext(Context)
+  const [ categories, setCategories ] = useState([])
+  
+  
+  
+
+  
   return (
-    <>
-      <div className="d-flex flex-column flex-lg-row flex-md-row align-items-center justify-content-center">
-
-        <div className="formContainer d-flex flex-column">
-          <Container className=" d-flex align-items-center justify-content-center flex-column ">
-            <Card className="cardForm p-0">
+    <Modal {...props} size="lg" centered >
+      <Modal.Header >
+        <Modal.Title className="modalTitle">
+          Criar produto
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+            <Card className="p-0">
               <Card.Title>
-                <h1 className='text-center mt-5'>Criar propriedade</h1>
+                <span className="cardTitle"></span>
               </Card.Title>
-
-              <Form className='d-flex flex-column flex-wrap p-3'>
+              <Form className='d-flex flex-column flex-wrap p-3' onSubmit={() => {
+                {'lógica de envio do formulario aqui'}
+              }}>
                 <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
 
                   <Form.Group className=" group m-3 ">
@@ -73,13 +91,13 @@ export default function CriarProduto() {
 
              
 
-              </Form>
-            </Card>
-            <Card className="cardForm p-0 mt-5">
+            
+          
+            
                   <Card.Title>
-                    <h1 className='text-center mt-5'>Adicionar atributos</h1>
+                    <span className="cardTitle">Adicionar atributos</span>
                   </Card.Title>
-                  <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
+                 
                     <Form.Group className=" group m-3 ">
                       <Form.Label>Nome</Form.Label>
                       <Form.Control className='control' type="text" placeholder="Nome do atributo" />
@@ -90,22 +108,22 @@ export default function CriarProduto() {
                       <Form.Label>Icone</Form.Label>
                       <div className='d-flex flex-row align-items-center'>
                       <Form.Control className='control ' type="text" placeholder="Icone" />
-                      <button class="plus-button mx-3"></button>
+                      <button className="plus-button mx-3"></button>
                        </div>
                     </Form.Group>
                    
-                  </div>
+               
                  
-                </Card>
+               
 
-                <Card className='cardForm p-1 mt-5'>
+               
                 <Card.Title>
-                    <h1 className='text-center mt-5'>Politicas do produto </h1>
+                    <span className="cardTitle">Políticas do produto</span>
                   </Card.Title>
                   <div className='d-flex flex-wrap justify-content-center '>
                   <div className='regras mt-5'>
                      <h4>Regras da casa</h4> 
-                     <Card className='cardForm p-0 mx-3' >
+                    
                      <Form.Group className="group  d-flex flex-column m-3 ">
                     <Form.Label>Descrição</Form.Label>
                     <Form.Control
@@ -113,11 +131,11 @@ export default function CriarProduto() {
                       placeholder="Leave a comment here"
                     />
                   </Form.Group>
-                  </Card>
+                 
                   </div>
                   <div className='regras mt-5'>
-                    <h4>Saùde e segurança</h4>
-                    <Card className='cardForm p-0 mx-3' >
+                    <h4>Saúde e segurança</h4>
+                   
                     <Form.Group className="group  d-flex flex-column m-3 ">
                     <Form.Label>Descrição</Form.Label>
                     <Form.Control
@@ -125,12 +143,12 @@ export default function CriarProduto() {
                       placeholder="Leave a comment here"
                     />
                   </Form.Group>
-                  </Card>
+                  
                   </div>
 
                   <div className='regras mt-5'>
                     <h4>Politica de cancelamento</h4>
-                    <Card className='cardForm p-0 mx-3' >
+                  
                     <Form.Group className="group  d-flex flex-column m-3 ">
                     <Form.Label>Descrição</Form.Label>
                     <Form.Control
@@ -138,18 +156,12 @@ export default function CriarProduto() {
                       placeholder="Leave a comment here"
                     />
                   </Form.Group>
-                  </Card>
+                 
                   </div>
-                  </div>
+                  </div><button className="createProduct">Criar</button>
+                  </Form>
                 </Card>
-
-          </Container>
-
-        </div>
-
-      </div>
-      <Footer />
-    </>
-  );
-
+      </Modal.Body>
+    </Modal>
+  )
 }

@@ -1,0 +1,21 @@
+.modal-content {
+  background-color: $bg3-color;
+}
+
+.modalTitle {
+  color: $secondary-color;
+  @include font-secondary;
+}
+
+.cardTitle {
+  @include font-alternative;
+}
+
+.createProduct {
+  @include button1;
+  width: 20rem;
+  height: 2.5rem;
+  align-self: center;
+  border: none;
+  border-radius: 3px;
+}
