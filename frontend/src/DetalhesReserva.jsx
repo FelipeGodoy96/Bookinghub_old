@@ -3,34 +3,41 @@ import Footer from './components/Footer/Footer';
 import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import LogomarcaIco from './assets/icon/booking_hub_logo_semfundo.png'
+import Erroimg from './assets/img/erro-imagem.png';
 export default function DetalhesReserva() {
   return (
     <>
-      <div className="d-flex flex-column flex-lg-row flex-md-row align-items-center justify-content-center">
+        <Container>
+         
+          <div className='logoBooking  d-flex align-items-center'>
+          <img width="60" height="auto" src={LogomarcaIco} alt="logomarcaIcone" id="logomarcaIcone"/>
+              <p className="textIcon" style={{ margin: '0' }}>
+                Booking Hub
+              </p>
+          </div>
+          
 
-        <div className="formContainer d-flex flex-column">
-          <Container className=" d-flex align-items-center justify-content-center flex-column align-content-start flex-wrap">
-            <Card className="cardForm w-100">
-              <Card.Title>
-                <h1>Detalhes da reserva</h1>
-              </Card.Title>
+        
+               <Card className='cardContainer-1 p-2 d-flex flex-column flex-md-row flex-lg-row  align-items-center'>
+                <Card.Img src={Erroimg}/>
+                    
+                    <Card.Body className='d-flex flex-column flex-md-row'>´
+                      <div className='textCard d-flex flex-column'>
+                      <h6><b>Ibis Hotel</b></h6>
+                      <p><b>Endereço: </b>Vila Sésamo</p>
+                      <p><b>Telefone: </b>(xxx) x xxxx-xxxx</p>
+                      </div>
+                      <div className='entradaSaida mx-auto '>
+                      
+                        <p className='mx-4 p-2'>6</p>
 
-              <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
-
-              </div>
-
-
-
-
-
-            </Card>
+                      </div>
+                    </Card.Body>
+               </Card>
+             
+      
           </Container>
-
-        </div>
-
-      </div>
-
       <Footer />
     </>
   );

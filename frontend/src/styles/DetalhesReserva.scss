@@ -1,0 +1,32 @@
+
+.logoBooking{
+    padding-top: 8rem;
+
+}
+
+.cardContainer-1{
+    @include card1;
+    border: 1px solid $alternative-color;
+    img{
+        width: 100px;
+        height: 100px;  
+        object-fit: cover;
+    }
+    body{
+        h6{
+            @include font-alternative;
+        }
+        p{
+            @include text1;
+        }
+        
+    }
+    .entradaSaida{
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        
+        p{
+         font-size: 2rem;
+        }
+    }
+}

@@ -23241,6 +23241,42 @@ input[type=date]::-webkit-clear-button {
   background-color: #545776;
 }
 
+.logoBooking {
+  padding-top: 8rem;
+}
+
+.cardContainer-1 {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #545776;
+}
+.cardContainer-1 img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.cardContainer-1 body h6, .cardContainer-1 body .h6 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.cardContainer-1 body p {
+  font-family: "Roboto", sans-serif;
+  font-weight: medium;
+  font-size: 14pt;
+}
+.cardContainer-1 .entradaSaida {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+.cardContainer-1 .entradaSaida p {
+  font-size: 2rem;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {

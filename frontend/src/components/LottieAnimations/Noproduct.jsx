@@ -8,7 +8,7 @@ export default function Noproduct() {
   const navigate = useNavigate();
 
   const defaultOptions = {
-    loop: true,
+    loop: false,
     autoplay: true,
     animationData: NoproductJson,
   };
