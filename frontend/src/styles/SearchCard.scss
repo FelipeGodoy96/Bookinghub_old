@@ -7,7 +7,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 1em;
     @include card1;
-   
+   cursor: pointer;
     margin: 1.5rem;
     &:hover {
         border: 1px solid rgba(29, 190, 180, 0.8);
