@@ -12,7 +12,7 @@ export default function MinhasReservasCard() {
   const navigate = useNavigate();
 
   return (
-    <Card className="cardContainerMinhasReservas d-flex flex-column flex-md-row flex-lg-row  align-items-center">
+    <Card className="cardContainerMinhasReservas d-flex flex-column flex-md-row flex-lg-row  align-items-center mt-5 mb-5">
       <Card.Img
         variant="top"
         // onError={({ currentTarget }) => {

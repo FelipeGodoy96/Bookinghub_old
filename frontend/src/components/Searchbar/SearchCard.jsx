@@ -12,7 +12,7 @@ export default function SearchCard({ data }) {
   const navigate = useNavigate();
 
   return (
-    <Card className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center">
+    <Card  onClick={() => navigate(`/anuncio/${data.id}`)} className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center"  >
       <Card.Img
         variant="top"
         onError={({ currentTarget }) => {
@@ -21,7 +21,7 @@ export default function SearchCard({ data }) {
         }}
         src={data.fotosAnuncio[1].url ? data.fotosAnuncio[1].url : 'Erro Imagem não encontrada'}
       />
-      <Card.Body className="cardTextContainer d-flex flex-column flex-md-row flex-lg-row justify-content-lg-between justify-content-md-between">
+      <Card.Body  className="cardTextContainer d-flex flex-column flex-md-row flex-lg-row justify-content-lg-between justify-content-md-between">
         <div className="cardText">
           <h3 onClick={() => navigate(`/anuncio/${data.id}`)}>
             {data.nome}
