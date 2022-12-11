@@ -9,7 +9,7 @@ export default function MinhasReservas() {
     <>
       <div className="d-flex flex-column">
         <Container className="d-flex flex-column mb-5 mt-5   ">
-          <Noproduct/>
+          <Noproduct />
           <MinhasReservasCard />
         </Container>
       </div>

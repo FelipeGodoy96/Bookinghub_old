@@ -5,7 +5,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/esm/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function MinhasReservasCard() {
@@ -33,7 +33,7 @@ export default function MinhasReservasCard() {
           </p>
         </div>
         <div className=" d-flex flex-column align-items-center">
-          <Button className="m-2" id="goToAnuncioButtonSearchCard" onClick={() => navigate('/')}>
+          <Button className="m-2" id="goToAnuncioButtonSearchCard" onClick={() => navigate('/minhasreservas/detalhes')}>
             Ver Detalhes da Reserva
           </Button>
         </div>

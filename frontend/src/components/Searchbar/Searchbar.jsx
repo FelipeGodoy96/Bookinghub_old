@@ -1,9 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useRef, useState } from 'react';
-import {
-  Link, Navigate, useLocation, useNavigate,
-} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Context from '../../Contexts/Context';
 
 export default function Searchbar() {

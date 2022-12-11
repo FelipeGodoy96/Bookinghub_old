@@ -45,7 +45,7 @@ export default function Routers() {
 
       <Route path="/minhasreservas" element={<MinhasReservas />} />
       <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />
-      <Route path="/detalhes" element={<DetalhesReserva />} />
+      <Route path="/minhasreservas/detalhes" element={<DetalhesReserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
       <Route path="/buscar/" element={<Buscar />} />
