@@ -16,7 +16,7 @@ export default function SearchNotFound() {
         Ops... Não encontramos nada
       </h2>
       <Lottie options={defaultOptions} width={250} height={250} />
-      <h2>Tente em outra data ou categoria</h2>
+      <h2>Tente em outra cidade, data ou categoria</h2>
 
     </div>
   );

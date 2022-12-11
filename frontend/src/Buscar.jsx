@@ -26,7 +26,6 @@ export default function Buscar() {
 
     return anunciosFiltrados;
   };
-
   useEffect(() => {
     const { categoriaFilter, cidadeFilter } = filtroParametros;
     const buscaEfetuada = filtroAnuncios(categoriaFilter, cidadeFilter, anuncios);
@@ -42,10 +41,7 @@ export default function Buscar() {
         </section>
 
         <Container className="d-flex flex-column mt-5 mb-5 vh-100 ">
-
-          <SearchNotFound />
-
-          {resultadoBuscar?.map((m, index) => (
+          {resultadoBuscar.length === 0 ? <SearchNotFound /> : resultadoBuscar?.map((m, index) => (
             <SearchCard data={m} key={index} />
           ))}
 
