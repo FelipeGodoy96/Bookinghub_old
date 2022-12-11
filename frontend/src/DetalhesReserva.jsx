@@ -30,7 +30,7 @@ export default function DetalhesReserva() {
                       </div>
                       <div className='entradaSaida mx-auto '>
                       
-                        <p className='mx-4 p-2'>6</p>
+                        <p className='mx-4 p-2 d-flex'>6 Dezembro</p>
 
                       </div>
                     </Card.Body>
