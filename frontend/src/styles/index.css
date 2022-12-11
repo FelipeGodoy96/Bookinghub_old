@@ -23274,6 +23274,19 @@ input[type=date]::-webkit-clear-button {
   border-right: 1px solid black;
 }
 .cardContainer-1 .entradaSaida p {
+  font-size: 1rem;
+}
+.cardContainer-1 .entradaSaida .p-title {
+  font-size: 0.8rem;
+}
+.cardContainer-1 .entradaSaida .subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.cardContainer-1 .entradaSaida .horario {
+  font-size: 0.9rem;
+}
+.cardContainer-1 .entradaSaida-2 p {
   font-size: 2rem;
 }
 
