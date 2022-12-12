@@ -56,12 +56,12 @@ public class ServiceImagens {
         return new ImagensDto(entity);
     }
 
-    private void copyDtoForEntity(ImagensDto imagensDto, Imagens imagens) {
-        imagens.setTitulo(imagensDto.getTitulo());
-        imagens.setUrl(imagensDto.getUrl());
+    private void copyDtoForEntity(ImagensDto dto, Imagens entity) {
+        entity.setTitulo(dto.getTitulo());
+        entity.setUrl(dto.getUrl());
 
-        ProdutosDto_Id produtosDtoId = imagensDto.getProduto();
+        ProdutosDto_Id produtosDtoId = dto.getProduto();
         Produtos produtos = repositoryProdutos.getReferenceById(produtosDtoId.getId());
-        imagens.setProdutos(produtos);
+        entity.setProdutos(produtos);
     }
 }

@@ -79,10 +79,10 @@ INSERT INTO imagens_anuncio (titulo, url, imagens_produtos) VALUES ('Balneário 
 INSERT INTO imagens_anuncio (titulo, url, imagens_produtos) VALUES ('Balneário Rio de Pedras04', 'https://grupo4-bookinghub.s3.us-west-1.amazonaws.com/Rio+de+Pedras/samba-itabirito-rio-de.jpg', 3);
 INSERT INTO imagens_anuncio (titulo, url, imagens_produtos) VALUES ('Balneário Rio de Pedras05', 'https://grupo4-bookinghub.s3.us-west-1.amazonaws.com/Rio+de+Pedras/w1013h485x1y1-54690172.jpg', 3);
 
---INSERT INTO caracteristicas (nome, icone) VALUES ('nomeTest','iconeTest');
---INSERT INTO caracteristicas (nome, icone) VALUES ('nomeTest2','iconeTest2');
---INSERT INTO caracteristicas (nome, icone) VALUES ('nomeTest3','iconeTest3');
---
+INSERT INTO caracteristicas (nome, icone) VALUES ('nomeTest','iconeTest');
+INSERT INTO caracteristicas (nome, icone) VALUES ('nomeTest2','iconeTest2');
+INSERT INTO caracteristicas (nome, icone) VALUES ('nomeTest3','iconeTest3');
+
 --INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (1,1);
 --INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (2,2);
 --INSERT INTO produto_caracteristica (produtoID, caracteristicaID) VALUES (3,3);

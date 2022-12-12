@@ -1,8 +1,11 @@
 package br.com.APIrest.APIrest.service;
 
 import br.com.APIrest.APIrest.dto.CaracteristicasDto;
+import br.com.APIrest.APIrest.dto.ProdutosDto_Id;
 import br.com.APIrest.APIrest.model.Caracteristicas;
+import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.repository.RepositoryCaracteristicas;
+import br.com.APIrest.APIrest.repository.RepositoryProdutos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +53,10 @@ public class ServiceCaracteristicas {
     private void copyDtoForEntity(CaracteristicasDto dto, Caracteristicas entity) {
         entity.setNome(dto.getNome());
         entity.setIcone(dto.getIcone());
+
+//        ProdutosDto_Id produtosDtoId = dto.get();
+//        Produtos produtos = repositoryProdutos.getReferenceById(produtosDtoId.getId());
+//        entity.setProdutos(produtos);
     }
 
 }
