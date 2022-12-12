@@ -13,9 +13,13 @@
 
 .createProduct {
   @include button1;
-  width: 20rem;
+  width: 18rem;
   height: 2.5rem;
   align-self: center;
   border: none;
   border-radius: 3px;
+}
+
+.plus-button {
+  @include button1;
 }

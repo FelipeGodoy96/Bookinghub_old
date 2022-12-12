@@ -10,66 +10,47 @@ import Context from "../../Contexts/Context";
 import Card from 'react-bootstrap/Card';
 import  Container from 'react-bootstrap/Container'
 import { apiLink } from '../../services/apiHandle'
+import  Table  from "react-bootstrap/Table";
 
-
-
-export default function AddProduct (props) {
-  const [ title, setTitle ] = useState("")
-  const { state } = React.useContext(Context)
-  const [ categories, setCategories ] = useState([])
+export default function UpdateProduct(props) {
+  const [ product, setProduct ] = useState(null)
   const [ name, setName ] = useState("")
-  const [ category, setCategory ] = useState("")
   const [ city, setCity ] = useState("")
   const [ description, setDescription ] = useState("")
-  const [ icon, setIcon ] = useState("")
-  const [ iconName, setIconName ] =  useState("")
-  const [ newCity, setNewCity ] = useState("")
-  const [ imagens, setImagens ] = useState([])
+  const [ images, setImages ] = useState(null)
 
+  useEffect(() => {
+    console.log(props)
+    const fetchProduct = async () => {
+      try {
+        
+        const req = await axios.get(`${apiLink}/produtos/${props.id}`)
+        console.log(req)
+        setProduct(req.data)
+        setName(req.data.nome)
+        // setCity(req.data.cidade)
+        setDescription(req.data.descricao)
+        setImages(req.data.imagens)
 
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const newCityData = {
-      nome: city,
-      pais: ''
+      }
+      catch (error) {
+        console.error(error)
+      }
     }
-    const newProductData = {
-      nome: name,
-      categoria_onetm: category,
-      cidade_mtone: newCity,
-      descricao: description,
-    }
-
-    try {
-      await axios.post(`${apiLink}/cidades`, newCityData)
-      .then((res) => {
-        setNewCity(res.data.id)
-      })
-    } catch (error) {
-      console.error(error)
-    }
-    try {
-      await axios.post(`${apiLink}/produtos`, newProductData)
-    } catch (error) {
-      console.error(error)
-    }
+    fetchProduct()
+  }, [props.id])
+  const handleUpdate = async (id) => {
+    console.log('test')
   }
-
-
-  
-  
-
-  
   return (
-    <Modal {...props} size="lg" centered >
-      <Modal.Header >
+    <Modal {...props} size="lg" centered>
+       <Modal.Header >
         <Modal.Title className="modalTitle">
-          Criar produto
+          Atualizar produto
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-            <Card className="p-0">
+            <Card className="p-0 overflow-hidden">
               <Card.Title>
                 <span className="cardTitle"></span>
               </Card.Title>
@@ -78,7 +59,7 @@ export default function AddProduct (props) {
 
                   <Form.Group className="group m-3">
                     <Form.Label>Nome da propriedade</Form.Label>
-                    <Form.Control className='control' type="text" placeholder="" onChange={(e) => {
+                    <Form.Control value={name || ""} className='control' type="text" placeholder="" onChange={(e) => {
                       setName(e.target.value)
                     }}/>
                   </Form.Group>
@@ -98,16 +79,11 @@ export default function AddProduct (props) {
                       
                     </Form.Select>
 
-                  </Form.Group>
-                {/* </div> */}
-
-                {/* <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between"> */}
-
-                  
+                  </Form.Group>                
 
                   <Form.Group className=" group m-3">
                     <Form.Label>Cidade</Form.Label>
-                    <Form.Control className='control' type="text" placeholder="" onChange={(e) => {
+                    <Form.Control value={""} className='control' type="text" placeholder="" onChange={(e) => {
                       setCity(e.target.value)
                     }}/>
                   </Form.Group>
@@ -119,15 +95,14 @@ export default function AddProduct (props) {
                   <Form.Group className="group m-3 d-flex flex-column mt-2 ">
                     <Form.Label>Descrição</Form.Label>
                     <Form.Control
-                      as="textarea" className='textarea'  style={{minHeight: "150px"}}
+                      as="textarea" className='textarea' value={description || ""} style={{minHeight: "150px"}}
                       placeholder=""
                       onChange={(e) => {setDescription(e.target.value)}}
-
                     />
                   </Form.Group>
                 </div>
                   <Card.Title>
-                    <span className="cardTitle">Adicionar atributos</span>
+                    <span className="cardTitle">Editar atributos</span>
                   </Card.Title>
                   <div className='d-flex flex-row align-items-center'>
                     <Form.Group className="group m-3" style={{width: "35%"}}>
@@ -148,8 +123,32 @@ export default function AddProduct (props) {
                     
                     </div>
                     <Card.Title>
-                    <span className="cardTitle">Adicionar imagens</span>
+                    <span className="cardTitle">Editar imagens</span>
                   </Card.Title>
+                  <div>
+                    <Table>
+                      <thead>
+                        <tr>
+                          <th style={{width: "5%"}}>id</th>
+                          <th style={{width: "25%"}}>nome</th>
+                          <th style={{width: "70%"}}>URL</th>
+                        </tr>
+                      </thead>
+                      <tbody >
+                        {console.log(product)}
+                {product && product.imagens.map(element => {
+                  return (
+                    <tr key={element.id}>
+                      <td>{element.id}</td>
+                      <td>{element.titulo}</td>
+                      <td>{element.url}</td>
+                      
+                    </tr>
+                  )
+                })}
+              </tbody>
+                    </Table>
+                  </div>
                   <div className="d-flex flex-row">
                   <Form.Group className="group m-3" style={{width: "25%"}}>
                       <Form.Label>Imagem</Form.Label>
@@ -165,49 +164,7 @@ export default function AddProduct (props) {
                       </Form.Group>
                       <button type="button" className="plus-button mt-5 mb-5">+</button>
                   </div>
-                {/* <Card.Title>
-                    <span className="cardTitle">Políticas do produto</span>
-                  </Card.Title> */}
-                  {/* <div className='d-flex flex-wrap justify-content-center '>
-                  <div className='regras mt-5'>
-                     <h4>Regras da casa</h4> 
-                    
-                     <Form.Group className="group  d-flex flex-column m-3 ">
-                    <Form.Label>Descrição</Form.Label>
-                    <Form.Control
-                      as="textarea" className='textarea-group '
-                      placeholder="Leave a comment here"
-                    />
-                  </Form.Group>
-                 
-                  </div>
-                  <div className='regras mt-5'>
-                    <h4>Saúde e segurança</h4>
-                   
-                    <Form.Group className="group  d-flex flex-column m-3 ">
-                    <Form.Label>Descrição</Form.Label>
-                    <Form.Control
-                      as="textarea" className='textarea-group '
-                      placeholder="Leave a comment here"
-                    />
-                  </Form.Group>
-                  
-                  </div>
-
-                  <div className='regras mt-5'>
-                    <h4>Politica de cancelamento</h4>
-                  
-                    <Form.Group className="group  d-flex flex-column m-3 ">
-                    <Form.Label>Descrição</Form.Label>
-                    <Form.Control
-                      as="textarea" className='textarea-group '
-                      placeholder="Leave a comment here"
-                    />
-                  </Form.Group>
-                 
-                  </div>
-                  </div>*/}
-                  <button type="button" onClick={handleSubmit} className="createProduct">Criar</button>
+                  <button type="button" onClick={handleUpdate} className="createProduct">Confirmar mudanças</button>
                   </Form>
                   
                 </Card>

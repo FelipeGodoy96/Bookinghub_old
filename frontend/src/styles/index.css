@@ -23232,7 +23232,7 @@ input[type=date]::-webkit-clear-button {
   margin-top: 1.5rem;
   margin-left: 3rem;
   margin-right: 3rem;
-  height: 40%;
+  height: 180px;
   border-radius: 10px;
 }
 
@@ -23262,6 +23262,14 @@ input[type=date]::-webkit-clear-button {
   border-radius: 10px;
 }
 
+.products-list {
+  margin-left: 3rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  overflow-y: scroll;
+  max-height: 35vh;
+}
+
 .modal-content {
   background-color: #EEEEF1;
 }
@@ -23285,11 +23293,19 @@ input[type=date]::-webkit-clear-button {
   background-color: #1DBEB4;
   font-size: 14pt;
   font-weight: bold;
-  width: 20rem;
+  width: 18rem;
   height: 2.5rem;
   align-self: center;
   border: none;
   border-radius: 3px;
+}
+
+.plus-button {
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
 }
 
 /* HTML5 display-role reset for older browsers */
