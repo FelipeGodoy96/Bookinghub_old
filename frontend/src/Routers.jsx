@@ -11,7 +11,7 @@ import Cadastro from './Cadastro';
 import FazerReserva from './FazerReserva';
 import RedefinirSenha from './RedefinirSenha';
 import LoginContext from './Contexts/LoginContext';
-import CriarProduto from './CriarProduto';
+import AdminPanel from './AdminPanel';
 import MinhasReservas from './MinhasReservas';
 import DetalhesReserva from './DetalhesReserva';
 
@@ -38,7 +38,6 @@ export default function Routers() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/" element={<CriarProduto />} />
 
       {/* {loginState?.isLoged &&
         <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />} */}
@@ -53,7 +52,6 @@ export default function Routers() {
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/redefinir-senha" element={<RedefinirSenha />} />
       <Route path="/404naoencontrado" element={<NotFound />} />
-      <Route path="/criar-produto" element={<CriarProduto />} />
       <Route path="*" element={<Navigate to="/404naoencontrado" />} />
     </Routes>
   );
