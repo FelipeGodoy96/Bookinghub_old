@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import moment from 'moment';
 
 export default function getDateRangeReserva(startDate, endDate, type) {

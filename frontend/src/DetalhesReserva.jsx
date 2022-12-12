@@ -55,15 +55,15 @@ export default function DetalhesReserva() {
               <p className=" mt-1 p-1 bi-clock horario">a partir das 15:00</p>
             </div>
 
-            <div className=" unidade d-flex flex-wrap flex-row  ">
-              <div className="d-flex flex-column">
-                <p className="p-title mx-2">Unidade</p>
-                <p className="  text-center ">1 /</p>
+            <div className=" unidade d-flex flex-wrap flex-column mx-2  justify-content-center align-items-stretch">
+
+              <div className="d-flex flex-column text-center">
+                <p className="p-title ">Numero de diárias: 1 </p>
               </div>
 
-              <div className="d-flex flex-column flex-row">
-                <p className="  subtitle ">Diaria</p>
-                <p className=" text-center ">2</p>
+              <div className="d-flex flex-column text-center ">
+                <p className="  subtitle "> Valor por Diária:R$XX,XX </p>
+                <p className="  subtitle "> Valor Total:R$XX,XX</p>
               </div>
             </div>
           </Card.Body>
