@@ -27,12 +27,12 @@ export default function DetalhesReserva() {
               <div className="textCard d-flex flex-column flex-wrap mx-2  " style={{ width: '25%' }}>
                 <h6><b>Ibis Hotel</b></h6>
                 <p>
-                  <b>Endereço: </b>
+                  <b>Cidade: </b>
                   Vila Sésamo
                 </p>
                 <p>
-                  <b>Telefone: </b>
-                  (xxx) x xxxx-xxxx
+                  <b>Email: </b>
+                  emailtal@tal.com
                 </p>
               </div>
 
