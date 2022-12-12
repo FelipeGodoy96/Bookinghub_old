@@ -23302,7 +23302,19 @@ input[type=date]::-webkit-clear-button {
   font-size: 0.8rem;
 }
 .cardContainer-1 .politica-preco h2, .cardContainer-1 .politica-preco .h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
   font-size: 1rem;
+}
+.cardContainer-1 .politaPreco h2, .cardContainer-1 .politaPreco .h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.cardContainer-1 .politaPreco p {
+  font-size: 0.9em;
 }
 @media only screen and (min-width: 300px) and (max-width: 1024px) {
   .cardContainer-1 {
