@@ -47,11 +47,11 @@ export default function Routers() {
       <Route path="/minhasreservas/detalhes" element={<DetalhesReserva />} />
       <Route path="/categoria/:nomecategoria" element={<Categoria />} />
       <Route path="/anuncio/:id" element={<Anuncio />} />
-      <Route path="/buscar/" element={<Buscar />} />
+      <Route path="/buscar" element={<Buscar />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/admin" element={<AdminPanel />} />
-      <Route path="/redefinir-senha" element={<RedefinirSenha />} />
+      <Route path="/redefinirsenha" element={<RedefinirSenha />} />
       <Route path="/404naoencontrado" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404naoencontrado" />} />
     </Routes>

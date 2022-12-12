@@ -23191,6 +23191,102 @@ input[type=date]::-webkit-clear-button {
   color: #1DBEB4;
 }
 
+.no-product-btn {
+  font-family: "Roboto", sans-serif;
+  color: #FFF;
+  background-color: #1DBEB4;
+  font-size: 14pt;
+  font-weight: bold;
+  border: none;
+  width: 12em;
+}
+.no-product-btn:hover {
+  background-color: #545776;
+}
+
+.logoBooking {
+  padding-top: 8rem;
+}
+
+.cardContainer-1 {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid #545776;
+}
+.cardContainer-1 img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.cardContainer-1 body h6, .cardContainer-1 body .h6 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.cardContainer-1 body p {
+  font-family: "Roboto", sans-serif;
+  font-weight: medium;
+  font-size: 14pt;
+}
+.cardContainer-1 .entradaSaida {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .cardContainer-1 .entradaSaida {
+    min-width: 100%;
+    border: none;
+  }
+}
+.cardContainer-1 .entradaSaida p {
+  font-size: 1rem;
+}
+.cardContainer-1 .entradaSaida .p-title {
+  font-size: 0.8rem;
+}
+.cardContainer-1 .entradaSaida .subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.cardContainer-1 .entradaSaida .horario {
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .cardContainer-1 .unidade {
+    min-width: 100%;
+    border: none;
+  }
+}
+.cardContainer-1 .unidade .p-title {
+  font-size: 0.8rem;
+}
+.cardContainer-1 .politica-preco h2, .cardContainer-1 .politica-preco .h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.cardContainer-1 .politaPreco h2, .cardContainer-1 .politaPreco .h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.cardContainer-1 .politaPreco p {
+  font-size: 0.9em;
+}
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .cardContainer-1 {
+    min-width: 100%;
+    margin: 1rem;
+    display: flex;
+  }
+}
+
 #root > div > div.wrapper.d-flex.flex-column.vh-100 {
   padding-top: 5.25rem;
 }
@@ -23291,102 +23387,6 @@ input[type=date]::-webkit-clear-button {
   background-color: #1DBEB4;
   font-size: 14pt;
   font-weight: bold;
-}
-
-.no-product-btn {
-  font-family: "Roboto", sans-serif;
-  color: #FFF;
-  background-color: #1DBEB4;
-  font-size: 14pt;
-  font-weight: bold;
-  border: none;
-  width: 12em;
-}
-.no-product-btn:hover {
-  background-color: #545776;
-}
-
-.logoBooking {
-  padding-top: 8rem;
-}
-
-.cardContainer-1 {
-  background: rgb(255, 255, 255);
-  box-shadow: 0 8px 8px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border: 1px solid #545776;
-}
-.cardContainer-1 img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-.cardContainer-1 body h6, .cardContainer-1 body .h6 {
-  font-family: "Roboto", sans-serif;
-  font-size: 16pt;
-  font-weight: bold;
-}
-.cardContainer-1 body p {
-  font-family: "Roboto", sans-serif;
-  font-weight: medium;
-  font-size: 14pt;
-}
-.cardContainer-1 .entradaSaida {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-}
-@media only screen and (min-width: 300px) and (max-width: 1024px) {
-  .cardContainer-1 .entradaSaida {
-    min-width: 100%;
-    border: none;
-  }
-}
-.cardContainer-1 .entradaSaida p {
-  font-size: 1rem;
-}
-.cardContainer-1 .entradaSaida .p-title {
-  font-size: 0.8rem;
-}
-.cardContainer-1 .entradaSaida .subtitle {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.cardContainer-1 .entradaSaida .horario {
-  font-size: 0.9rem;
-}
-@media only screen and (min-width: 300px) and (max-width: 1024px) {
-  .cardContainer-1 .unidade {
-    min-width: 100%;
-    border: none;
-  }
-}
-.cardContainer-1 .unidade .p-title {
-  font-size: 0.8rem;
-}
-.cardContainer-1 .politica-preco h2, .cardContainer-1 .politica-preco .h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 16pt;
-  font-weight: bold;
-  font-size: 1rem;
-}
-.cardContainer-1 .politaPreco h2, .cardContainer-1 .politaPreco .h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 16pt;
-  font-weight: bold;
-  font-size: 1.3em;
-}
-.cardContainer-1 .politaPreco p {
-  font-size: 0.9em;
-}
-@media only screen and (min-width: 300px) and (max-width: 1024px) {
-  .cardContainer-1 {
-    min-width: 100%;
-    margin: 1rem;
-    display: flex;
-  }
 }
 
 /* HTML5 display-role reset for older browsers */
