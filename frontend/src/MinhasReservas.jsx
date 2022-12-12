@@ -11,6 +11,7 @@ export default function MinhasReservas() {
         <Container className="d-flex flex-column mb-5 mt-5   ">
           <Noproduct />
           <MinhasReservasCard />
+          
         </Container>
       </div>
       <Footer />
