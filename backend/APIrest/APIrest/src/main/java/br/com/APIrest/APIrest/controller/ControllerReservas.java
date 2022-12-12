@@ -45,7 +45,7 @@ public class ControllerReservas {
 //        dto = service.insert(dto, idProduto);
 //        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 //        return ResponseEntity.created(uri).body(dto);
-//    }
+//    } test
     @PostMapping
     public ResponseEntity<ReservasDto> inserReservas(@RequestBody ReservasDto dto) {
         dto = service.insert(dto);
