@@ -8,7 +8,7 @@ import Erroimg from './assets/img/erro-imagem.png';
 export default function DetalhesReserva() {
   return (
     <>
-      <Container className='vh-100'>
+      <Container className="vh-100">
         <div className="logoBooking  d-flex align-items-center">
           <img width="60" height="auto" src={LogomarcaIco} alt="logomarcaIcone" id="logomarcaIcone" />
           <p className="textIcon" style={{ margin: '0' }}>
@@ -18,10 +18,8 @@ export default function DetalhesReserva() {
 
         <Card className="cardContainer-1 p-0 m-0">
 
-          <Card.Body className='' >
-
-
-            <div className='d-flex  flex-wrap flex-column flex-lg-row' style={{ borderBottom: '1px solid' }}>
+          <Card.Body>
+            <div className="d-flex  flex-wrap flex-column flex-lg-row" style={{ borderBottom: '1px solid' }}>
               <Card.Img src={Erroimg} />
 
               <div className="textCard d-flex flex-column flex-wrap mx-2  " style={{ width: '25%' }}>
@@ -68,45 +66,51 @@ export default function DetalhesReserva() {
                   <p className="p-title">Diárias:</p>
                   <p className="text-center">4</p>
                 </div>
-
               </div>
-
             </div>
-            <div className='politica-preco mt-5' style={{ borderBottom: '1px solid' }}>
-              <div className='d-flex justify-content-between'>
+
+            <div className="politica-preco mt-5" style={{ borderBottom: '1px solid' }}>
+              <div className="d-flex justify-content-between">
                 <h2>Taxa de Serviço: </h2>
                 <p>2%</p>
               </div>
 
-              <div className='d-flex justify-content-between'>
+              <div className="d-flex justify-content-between">
                 <p>Preço: </p>
                 <p>R$XX,XX </p>
               </div>
 
             </div>
-            <div className='mt-4 politaPreco' style={{ borderBottom: '1px solid' }}>
+            <div className="mt-4 politaPreco" style={{ borderBottom: '1px solid' }}>
               <h2>Preço</h2>
-              <p>O preço final exibido é o valor que você vai pagar à acomodação.
-                A Booking Hub não cobra dos hóspedes nenhuma taxa de reserva, administrativa ou de qualquer outro tipo.
-                O emissor do seu cartão pode cobrar uma taxa de transação internacional.</p>
+              <p>
+                O preço final exibido é o valor que você vai pagar à acomodação.
+                A Booking Hub não cobra dos hóspedes nenhuma taxa de reserva,
+                administrativa ou de qualquer outro tipo.
+                O emissor do seu cartão pode cobrar uma taxa de transação internacional.
+              </p>
             </div>
 
-            <div className='mt-4 politaPreco' style={{ borderBottom: '1px solid' }}>
+            <div className="mt-4 politaPreco" style={{ borderBottom: '1px solid' }}>
               <h2>Informação sobre pagamentos</h2>
               <p>Esta propriedade aceita as seguintes formas de pagamento: </p>
             </div>
 
-            <div className='mt-4 politaPreco' >
+            <div className="mt-4 politaPreco">
               <h2>Outras informações</h2>
-              <p>Por favor, observe que pedidos adicionais (por exemplo, cama extra) não estão incluídos neste valor.<br/>
-                Impostos adicionais ainda poderão ser cobrados pela acomodação se você não comparecer ou cancelar.<br/>
-                Por favor, lembre-se de ler as Informações importantes abaixo, pois podem conter dados importantes que não foram mencionados aqui.</p>
+              <p>
+                Por favor, observe que pedidos adicionais (por exemplo, cama extra)
+                não estão incluídos neste valor.
+                <br />
+                Impostos adicionais ainda poderão ser cobrados
+                pela acomodação se você não comparecer ou cancelar.
+                <br />
+                Por favor, lembre-se de ler as Informações importantes abaixo,
+                pois podem conter dados importantes que não foram mencionados aqui.
+              </p>
             </div>
 
-           
-
           </Card.Body>
-
         </Card>
       </Container>
       <Footer />
