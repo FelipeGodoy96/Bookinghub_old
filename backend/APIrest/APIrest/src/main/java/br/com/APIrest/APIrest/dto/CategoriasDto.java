@@ -3,6 +3,8 @@ package br.com.APIrest.APIrest.dto;
 import br.com.APIrest.APIrest.model.Categorias;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoriasDto implements Serializable {
     private static long serialVersionUID = 1L;
@@ -11,6 +13,7 @@ public class CategoriasDto implements Serializable {
     private String qualificacao;
     private String descricao;
     private String imagem;
+    private List<ProdutosDto> produtos = new ArrayList<>();
 
     public CategoriasDto() {
     }
@@ -27,6 +30,7 @@ public class CategoriasDto implements Serializable {
         qualificacao = categorias.getQualificacao();
         descricao = categorias.getDescricao();
         imagem = categorias.getImagem();
+        categorias.getProduto().forEach(produto -> this.produtos.add(new ProdutosDto(produto)));
     }
 
     public Integer getId() {
@@ -56,4 +60,11 @@ public class CategoriasDto implements Serializable {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
+    public List<ProdutosDto> getProdutos() {
+        return produtos;
     }
+    public void setProdutos(List<ProdutosDto> produtos) {
+        this.produtos = produtos;
+    }
+}

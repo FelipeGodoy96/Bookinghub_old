@@ -2,6 +2,7 @@ package br.com.APIrest.APIrest.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class Categorias implements Serializable {
     private String descricao;
     private String imagem;
     @OneToMany(mappedBy = "categorias", fetch = FetchType.LAZY)
-    private List<Produtos> produto;
+    private List<Produtos> produto = new ArrayList<>();
 
     public Categorias() {
     }

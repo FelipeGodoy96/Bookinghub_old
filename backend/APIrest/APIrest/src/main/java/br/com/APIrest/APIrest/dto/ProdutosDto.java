@@ -14,14 +14,11 @@ public class ProdutosDto implements Serializable {
     private Integer id;
     private String nome;
     private String descricao;
-
-    private List<ReservaProdutosDto> reserva = new ArrayList<>();
-
+    private CidadesDto_Id cidades;
+    private CategoriasDto_Id categoria;
+    private List<ReservasDto_Id> reserva = new ArrayList<>();
     private List<ImagensDto> imagens = new ArrayList<>();
-
-    private Set<CaracteristicasDto> caracteristica = new HashSet<>();
-
-
+    private List<CaracteristicasDto> caracteristicas = new ArrayList<>();
     public ProdutosDto() {
     }
 
@@ -35,10 +32,11 @@ public class ProdutosDto implements Serializable {
         id = produtos.getId();
         nome = produtos.getNome();
         descricao = produtos.getDescricao();
-        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservaProdutosDto(reservas)));
+        this.cidades = new CidadesDto_Id(produtos.getCidades());
+        this.categoria = new CategoriasDto_Id(produtos.getCategorias());
+        produtos.getReserva().forEach(reservas -> this.reserva.add(new ReservasDto_Id(reservas)));
         produtos.getImagens().forEach(imagensAnuncio -> this.imagens.add(new ImagensDto(imagensAnuncio)));
-        produtos.getCaracteristica().forEach(caracteristicas -> this.caracteristica.add(new CaracteristicasDto(caracteristicas)));
-
+        produtos.getCaracteristicas().forEach(caracteristica -> this.caracteristicas.add(new CaracteristicasDto(caracteristica)));
     }
 
     public Integer getId() {
@@ -65,14 +63,10 @@ public class ProdutosDto implements Serializable {
         this.descricao = descricao;
     }
 
-    public Set<CaracteristicasDto> getCaracteristica() {
-        return caracteristica;
-    }
-
-    public List<ReservaProdutosDto> getReserva() {
+    public List<ReservasDto_Id> getReserva() {
         return reserva;
     }
-    public void setReserva(List<ReservaProdutosDto> reserva) {
+    public void setReserva(List<ReservasDto_Id> reserva) {
         this.reserva = reserva;
     }
 
@@ -83,5 +77,27 @@ public class ProdutosDto implements Serializable {
         this.imagens = imagens;
     }
 
+    public CidadesDto_Id getCidades() {
+        return cidades;
+    }
+    public void setCidades(CidadesDto_Id cidades) {
+        this.cidades = cidades;
+    }
 
+    public CategoriasDto_Id getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(CategoriasDto_Id categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<CaracteristicasDto> getCaracteristicas() {
+        return caracteristicas;
+    }
+    public void setCaracteristicas(List<CaracteristicasDto> caracteristicas) {
+        this.caracteristicas = caracteristicas;
+    }
 }
+
+
+

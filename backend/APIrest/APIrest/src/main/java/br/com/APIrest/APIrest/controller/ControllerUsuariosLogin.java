@@ -3,7 +3,7 @@ package br.com.APIrest.APIrest.controller;
 import br.com.APIrest.APIrest.TokenWebConfig.jwtAuthTokenConfig.JwtConfig;
 import br.com.APIrest.APIrest.security.JwtRequisicao;
 import br.com.APIrest.APIrest.security.UsuarioLogin;
-import br.com.APIrest.APIrest.service.ServiceUsuariosDetailsImplement;
+import br.com.APIrest.APIrest.service.ServiceUsuariosDetailsImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,7 +33,7 @@ public class ControllerUsuariosLogin {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = this.jwtConfig.generateJwtToken(authentication);
 
-        ServiceUsuariosDetailsImplement userDetails = (ServiceUsuariosDetailsImplement) authentication.getPrincipal();
+        ServiceUsuariosDetailsImp userDetails = (ServiceUsuariosDetailsImp) authentication.getPrincipal();
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());

@@ -1,21 +1,14 @@
 package br.com.APIrest.APIrest.service;
 
-import br.com.APIrest.APIrest.dto.CaracteristicasDto;
-import br.com.APIrest.APIrest.dto.ImagensDto;
-import br.com.APIrest.APIrest.dto.ProdutosDto;
-import br.com.APIrest.APIrest.dto.ReservaProdutosDto;
-import br.com.APIrest.APIrest.model.Caracteristicas;
-import br.com.APIrest.APIrest.model.Imagens;
-import br.com.APIrest.APIrest.model.Produtos;
-import br.com.APIrest.APIrest.model.Reservas;
-import br.com.APIrest.APIrest.repository.RepositoryCaracteristicas;
-import br.com.APIrest.APIrest.repository.RepositoryImagens;
-import br.com.APIrest.APIrest.repository.RepositoryProdutos;
-import br.com.APIrest.APIrest.repository.RepositoryReservas;
+import br.com.APIrest.APIrest.dto.*;
+import br.com.APIrest.APIrest.model.*;
+import br.com.APIrest.APIrest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.PreRemove;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,6 +20,12 @@ public class ServiceProdutos {
     private RepositoryProdutos repository;
     @Autowired
     private RepositoryCaracteristicas repositoryCaracteristicas;
+
+    @Autowired
+    private RepositoryCidades repositoryCidades;
+
+    @Autowired
+    RepositoryCategorias repositoryCategorias;
 
     @Autowired
     RepositoryReservas repositoryReservas;
@@ -46,9 +45,23 @@ public class ServiceProdutos {
         Produtos entity = object.get();
         return new ProdutosDto(entity);
     }
-
+    @PreRemove
     public void delete(Integer id) {
-        repository.deleteById(id);
+        Produtos produtosReturn = repository.findById(id).orElseThrow(EntityNotFoundException::new);
+        produtosReturn.getCaracteristicas().clear();
+        produtosReturn.getImagens().clear();
+        Categorias categoriasReturn = repositoryCategorias.findById(produtosReturn.getCategorias().getId())
+                .orElseThrow(EntityNotFoundException::new);
+
+        categoriasReturn.getProduto().remove(produtosReturn);
+        repositoryCategorias.save(categoriasReturn);
+        Cidades cidadesReturn = repositoryCidades.findById(produtosReturn.getCidades().getId())
+                .orElseThrow(EntityNotFoundException::new);
+
+        cidadesReturn.getProdutos().remove(produtosReturn);
+        repositoryCidades.save(cidadesReturn);
+        repository.saveAndFlush(produtosReturn);
+        repository.delete(produtosReturn);
     }
 
     @Transactional
@@ -71,10 +84,10 @@ public class ServiceProdutos {
         entity.setNome(dto.getNome());
         entity.setDescricao(dto.getDescricao());
 
-        entity.getCaracteristica().clear();
-        for (CaracteristicasDto caracteristicasDto : dto.getCaracteristica()) {
+        entity.getCaracteristicas().clear();
+        for (CaracteristicasDto caracteristicasDto : dto.getCaracteristicas()) {
             Caracteristicas caracteristicas = repositoryCaracteristicas.getReferenceById(caracteristicasDto.getId());
-            entity.getCaracteristica().add(caracteristicas);
+            entity.getCaracteristicas().add(caracteristicas);
         }
         entity.getImagens().clear();
         for(ImagensDto imagensDto : dto.getImagens()) {
@@ -82,10 +95,17 @@ public class ServiceProdutos {
              entity.getImagens().add(imagens);
             }
         entity.getReserva().clear();
-        for (ReservaProdutosDto reservaProdutosDto : dto.getReserva()) {
-            Reservas reservas = repositoryReservas.getReferenceById(reservaProdutosDto.getId());
+        for (ReservasDto_Id reservasDtoId : dto.getReserva()) {
+            Reservas reservas = repositoryReservas.getReferenceById(reservasDtoId.getId());
             entity.getReserva().add(reservas);
         }
+        CidadesDto_Id cidadesDtoId = dto.getCidades();
+        Cidades cidades = repositoryCidades.getReferenceById(cidadesDtoId.getId());
+        entity.setCidades(cidades);
+
+        CategoriasDto_Id categoriaDtoId = dto.getCategoria();
+        Categorias categorias = repositoryCategorias.getReferenceById(categoriaDtoId.getId());
+        entity.setCategorias(categorias);
 
     }
 }

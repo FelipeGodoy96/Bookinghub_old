@@ -1,7 +1,7 @@
 package br.com.APIrest.APIrest.service;
 
 import br.com.APIrest.APIrest.dto.ImagensDto;
-import br.com.APIrest.APIrest.dto.IdProdutoDto;
+import br.com.APIrest.APIrest.dto.ProdutosDto_Id;
 import br.com.APIrest.APIrest.model.Imagens;
 import br.com.APIrest.APIrest.model.Produtos;
 import br.com.APIrest.APIrest.repository.RepositoryImagens;
@@ -56,12 +56,12 @@ public class ServiceImagens {
         return new ImagensDto(entity);
     }
 
-    private void copyDtoForEntity(ImagensDto imagensDto, Imagens imagens) {
-        imagens.setTitulo(imagensDto.getTitulo());
-        imagens.setUrl(imagensDto.getUrl());
+    private void copyDtoForEntity(ImagensDto dto, Imagens entity) {
+        entity.setTitulo(dto.getTitulo());
+        entity.setUrl(dto.getUrl());
 
-        IdProdutoDto idProdutoDto = imagensDto.getProduto();
-        Produtos produtos = repositoryProdutos.getReferenceById(idProdutoDto.getId());
-        imagens.setProdutos(produtos);
+        ProdutosDto_Id produtosDtoId = dto.getProduto();
+        Produtos produtos = repositoryProdutos.getReferenceById(produtosDtoId.getId());
+        entity.setProdutos(produtos);
     }
 }

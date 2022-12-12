@@ -28,6 +28,11 @@ public class ControllerReservas {
         ReservasDto dto = service.findById(id);
         return ResponseEntity.ok().body(dto);
     }
+    @GetMapping(value = "/usuario_id/{usuarioId}")
+    public ResponseEntity<List<ReservasDto>> BuscarReservaPorUsuario(@PathVariable Long usuarioId) {
+        List<ReservasDto> entityList = service.BuscarReservaPorUsuario(usuarioId);
+        return ResponseEntity.ok().body(entityList);
+    }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteReservas(@PathVariable Integer id) {
@@ -40,7 +45,7 @@ public class ControllerReservas {
 //        dto = service.insert(dto, idProduto);
 //        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 //        return ResponseEntity.created(uri).body(dto);
-//    }
+//    } test
     @PostMapping
     public ResponseEntity<ReservasDto> inserReservas(@RequestBody ReservasDto dto) {
         dto = service.insert(dto);
