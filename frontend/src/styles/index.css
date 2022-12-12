@@ -23273,6 +23273,12 @@ input[type=date]::-webkit-clear-button {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .cardContainer-1 .entradaSaida {
+    min-width: 100%;
+    border: none;
+  }
+}
 .cardContainer-1 .entradaSaida p {
   font-size: 1rem;
 }
@@ -23286,8 +23292,24 @@ input[type=date]::-webkit-clear-button {
 .cardContainer-1 .entradaSaida .horario {
   font-size: 0.9rem;
 }
-.cardContainer-1 .entradaSaida-2 p {
-  font-size: 2rem;
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .cardContainer-1 .unidade {
+    min-width: 100%;
+    border: none;
+  }
+}
+.cardContainer-1 .unidade .p-title {
+  font-size: 0.8rem;
+}
+.cardContainer-1 .politica-preco h2, .cardContainer-1 .politica-preco .h2 {
+  font-size: 1rem;
+}
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
+  .cardContainer-1 {
+    min-width: 100%;
+    margin: 1rem;
+    display: flex;
+  }
 }
 
 /* HTML5 display-role reset for older browsers */
