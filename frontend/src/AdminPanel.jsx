@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-
 import axios from 'axios';
-
 import Table from 'react-bootstrap/Table';
 import { BiPencil } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
@@ -30,10 +25,8 @@ export default function AdminPanel() {
   const [updateProductModal, setUpdateProductModal] = useState(false);
 
   const handleDelete = async (id) => {
-    try {
-      const req = await axios.delete(`${apiLink}/produtos/${id}`);
-    } catch (error) {
-
+    try { await axios.delete(`${apiLink}/produtos/${id}`); } catch (error) {
+      return null;
     }
   };
 
