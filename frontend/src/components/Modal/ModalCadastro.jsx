@@ -20,16 +20,16 @@ export default function ModalCadastro({ visible }) {
         <Modal.Title>Muito Obrigado!</Modal.Title>
       </Modal.Header>
       <Modal.Body className="d-flex flex-column align-items-center justify-content-center p-4">
-        <BsFillPatchCheckFill className="checkfill" />
+      <BsFillPatchCheckFill className="checkfill-1 mb-3" />
         Parabéns, sua conta foi criada com sucesso!
       </Modal.Body>
 
       <Modal.Footer className="d-flex justify-content-center">
-        <Button className="btn-1" id="loginButtonModal" variant="secondary" onClick={() => handleRedirect('/login')}>
+        <Button className="btn-2" id="loginButtonModal" variant="secondary" onClick={() => handleRedirect('/login')}>
           Fazer Login
         </Button>
 
-        <Button className="btn-1" id="HomePageButtonModal" variant="secondary" onClick={() => handleRedirect('/')}>
+        <Button className="btn-2" id="HomePageButtonModal" variant="secondary" onClick={() => handleRedirect('/')}>
           Pagina inicial
         </Button>
 

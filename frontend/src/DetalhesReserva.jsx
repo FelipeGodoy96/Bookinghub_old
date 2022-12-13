@@ -1,11 +1,17 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useContext } from 'react';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/Card';
 import { useParams } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import LogomarcaIco from './assets/icon/booking_hub_logo_semfundo.png';
-
 import Context from './Contexts/Context';
+import Cripto from './assets/img/criptomoeda.png';
+import Visa from './assets/img/logotipo-visa.png';
+import Pix from './assets/img/logo-pix.png';
+import Boleto from './assets/img/Boleto-Bancario.png';
+import American from './assets/img/american-credit-card.png';
+import Blue from './assets/img/credit-card-blue.png';
 
 export default function DetalhesReserva() {
   const { id } = useParams();
@@ -101,7 +107,16 @@ export default function DetalhesReserva() {
 
             <div className="mt-4 politaPreco" style={{ borderBottom: '1px solid' }}>
               <h2>Informação sobre pagamentos</h2>
-              <p>Esta propriedade aceita as seguintes formas de pagamento: </p>
+              <div className="d-flex flex-wrap">
+                <p>Esta propriedade aceita as seguintes formas de pagamento:  </p>
+                <img className="mx-1" src={Cripto} style={{ width: '35px', height: '35px ' }} />
+                <img className="mx-1" src={Visa} style={{ width: '35px', height: '35px ' }} />
+                <img className="mx-1" src={Pix} style={{ width: '60px ', height: '35px ' }} />
+                <img className="mx-1" src={Boleto} style={{ width: '35px ', height: '35px ' }} />
+                <img className="mx-1" src={American} style={{ width: '35px ', height: '35px ' }} />
+                <img className="mx-1" src={Blue} style={{ width: '35px ', height: '35px ' }} />
+              </div>
+
             </div>
 
             <div className="mt-4 politaPreco">
