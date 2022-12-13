@@ -8,6 +8,8 @@ import Cripto from './assets/img/criptomoeda.png';
 import Visa from './assets/img/logotipo-visa.png'
 import Pix from './assets/img/logo-pix.png'
 import Boleto from './assets/img/Boleto-Bancario.png'
+import American from './assets/img/american-credit-card.png'
+import Blue from './assets/img/credit-card-blue.png'
 export default function DetalhesReserva() {
   return (
     <>
@@ -102,6 +104,8 @@ export default function DetalhesReserva() {
               <img className='mx-1'  src={Visa} style={{width:'35px', height:'35px '}} />
               <img className='mx-1'  src={Pix} style={{width:'60px ', height:'35px '}} />
               <img className='mx-1'  src={Boleto} style={{width:'35px ', height:'35px '}} />
+              <img className='mx-1'  src={American} style={{width:'35px ', height:'35px '}} />
+              <img className='mx-1'  src={Blue} style={{width:'35px ', height:'35px '}} />
               </div>
              
             </div>
