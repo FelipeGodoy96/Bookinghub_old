@@ -17,7 +17,7 @@ import getDateRangeReserva from './utils/getDateRangeReserva';
 import apiHandle from './services/apiHandle';
 
 export default function Reserva() {
-  const { id } = useParams();
+  const { idAnuncio } = useParams();
   const navigate = useNavigate();
   const { loginState } = useContext(LoginContext);
   const { viewPort } = useWindowDimensions();
@@ -34,8 +34,12 @@ export default function Reserva() {
     h_inic_reser: '12:00:00',
     d_inic_reser: date.startDate,
     d_fin_reser: date.endDate,
+    hospede_nome: '',
+    hospede_sobrenome: '',
+    hospede_email: 'test@email.com',
+    hospede_cidade: '',
     produtos: {
-      id,
+      id: parseInt(idAnuncio, 10),
     },
     usuario: {
       id: loginState.user.id,
@@ -47,7 +51,7 @@ export default function Reserva() {
       const response = await apiHandle.listarReserva();
       if (response) {
         const reservaDatas = response.reservaData
-          .filter((f) => f.produtos.id === parseInt(id, 10));
+          .filter((f) => f.produtos.id === parseInt(idAnuncio, 10));
         const getRange = reservaDatas
           .map((m) => getDateRangeReserva(m.d_inic_reser, m.d_fin_reser, 'days'));
         const flatdates = getRange.flat();
@@ -57,8 +61,8 @@ export default function Reserva() {
     };
     todasReservas();
     if (!dadosDoAnuncioReserva || !dadosDoAnuncioReserva.state) {
-      if (id) {
-        navigate(`/anuncio/${id}`);
+      if (idAnuncio) {
+        navigate(`/anuncio/${idAnuncio}`);
       } else {
         navigate('/*');
       }

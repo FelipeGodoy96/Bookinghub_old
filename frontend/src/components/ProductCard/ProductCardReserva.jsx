@@ -1,18 +1,23 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import erroImagem from '../../assets/img/erro-imagem.png';
+import Context from '../../Contexts/Context';
 import apiHandle from '../../services/apiHandle';
 import ModalReservaConfirmada from '../Modal/ModalReservaConfirmada';
 
 export default function ProductCardReserva({ dadosDoAnuncioReserva, dadosDaReserva }) {
   const navigate = useNavigate();
+  const { filters } = useContext(Context);
   const [isVisibleModalConfirmacaoReserva, setIsVisibleModalConfirmacaoReserva] = useState(false);
   const [mensagemConfirmacaoReserva, setMensagemConfirmacaoReserva] = useState({});
+
+  const cidadeFiltrada = filters.getCidadeByID(dadosDoAnuncioReserva.idCidade);
+  const categoriaFiltrada = filters.getCategoriaByID(dadosDoAnuncioReserva.idCategoria);
 
   const salvarReserva = async () => {
     const { reservaData } = await apiHandle.fazerReserva(dadosDaReserva);
@@ -46,19 +51,19 @@ export default function ProductCardReserva({ dadosDoAnuncioReserva, dadosDaReser
         <div className="d-flex flex-row flex-column justify-content-between">
           <div className="d-flex justify-content-between align-items-center">
             <p>
-              {dadosDoAnuncioReserva.categoria}
+              {categoriaFiltrada.nomeCategoria}
             </p>
           </div>
           <div>
             <h3 className="nomeAnuncianteReserva">
-              {dadosDoAnuncioReserva.nome}
+              {dadosDoAnuncioReserva.nomeAnuncio}
             </h3>
           </div>
         </div>
         <hr className="solid" />
         <div className="verMapa mb-4 d-flex flex-row align-items-center justify-content-between">
           <div className="bi bi-geo-alt">
-            {dadosDoAnuncioReserva.cidade}
+            {cidadeFiltrada.nomeCidade}
           </div>
 
           <Link className="bi bi-pin-map" to="/">

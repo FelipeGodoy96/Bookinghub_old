@@ -2,7 +2,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Buscar from './Buscar';
-import Categoria from './Categoria';
 import Home from './Home';
 import Anuncio from './Anuncio';
 import NotFound from './NotFound';
@@ -43,11 +42,10 @@ export default function Routers() {
         <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />} */}
 
       <Route path="/minhasreservas" element={<MinhasReservas />} />
-      <Route path="/anuncio/reserva/:id" element={<FazerReserva />} />
-      <Route path="/minhasreservas/detalhes" element={<DetalhesReserva />} />
-      <Route path="/categoria/:nomecategoria" element={<Categoria />} />
-      <Route path="/anuncio/:id" element={<Anuncio />} />
-      <Route path="/buscar" element={<Buscar />} />
+      <Route path="/anuncio/reserva/:idAnuncio" element={<FazerReserva />} />
+      <Route path="/minhasreservas/detalhes/:id" element={<DetalhesReserva />} />
+      <Route path="/anuncio/:idAnuncio" element={<Anuncio />} />
+      <Route path="/buscar/:parametro" element={<Buscar />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/admin" element={<AdminPanel />} />

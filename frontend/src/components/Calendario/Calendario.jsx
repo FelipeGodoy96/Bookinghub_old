@@ -22,6 +22,7 @@ export default function Calendario() {
   useEffect(() => {
     const todasReservas = async () => {
       const response = await apiHandle.listarReserva();
+
       if (response) {
         const reservaDatas = response.reservaData
           .filter((f) => f.produtos.id === parseInt(id, 10));

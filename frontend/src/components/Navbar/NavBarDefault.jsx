@@ -57,6 +57,7 @@ export default function NavBarDefault() {
           {isLoged && (
             <Navbar.Collapse className="logedNav " id="basic-navbar-nav">
               <Nav className="ms-auto gap-2">
+
                 <div className="mx-auto mt-2">
                   <BsFillPersonFill className="icon-person" />
                 </div>
@@ -66,6 +67,11 @@ export default function NavBarDefault() {
                   <br />
                   {user.nome}
                 </div>
+                <Button>
+                  <Link className="mx-auto nav-link " to="/admin" id="adminButtonNavBar">
+                    Administrar
+                  </Link>
+                </Button>
                 <Button>
                   <Link className="mx-auto nav-link " to="/minhasreservas" id="meuspedidosButtonNavBar">
                     Meus Pedidos
