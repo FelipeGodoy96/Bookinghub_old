@@ -23,4 +23,30 @@
       }
     }
   }
+
+
+  .logedNav button{
+    
+    height: 2.5rem;
+    p{
+      color: $white;
+    }
+      @include button4;
+      &:hover{
+        background-color: $white;
+        border: 1px solid $primary-color;
+        a, p{
+          color: $primary-color;
+        }
+       
+      
+      }
+      
+  }
+ 
+  .icon-person{
+    font-size: 2rem;
+  }
+
 }
+

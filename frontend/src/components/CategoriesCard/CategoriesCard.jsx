@@ -9,6 +9,7 @@ import erroImagem from '../../assets/img/erro-imagem.png';
 
 export default function CategoriesCard({ data }) {
   const navigate = useNavigate();
+
   return (
     <Card className="categoriesCard" style={{ width: '19rem' }}>
       <Card.Img
@@ -18,15 +19,15 @@ export default function CategoriesCard({ data }) {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src = erroImagem;
         }}
-        src={data.imagem}
+        src={data.fotoCategoria}
       />
       <Card.Body className="d-flex flex-column align-items-center">
-        <Card.Title>{data.descricao}</Card.Title>
+        <Card.Title>{data.descricaoCategoria}</Card.Title>
         <Card.Text>Mais de 1.000 encontrados</Card.Text>
         <Button
           id="buttonMoveToCategory"
           className="m-1"
-          onClick={() => navigate(`/categoria/${data.descricao}`)}
+          onClick={() => navigate(`/buscar/${data.descricaoCategoria}`)}
         >
           Ver todos
         </Button>

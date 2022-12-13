@@ -1,9 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useRef, useState } from 'react';
-import {
-  Link, Navigate, useLocation, useNavigate,
-} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Context from '../../Contexts/Context';
 
 export default function Searchbar() {
@@ -11,13 +9,12 @@ export default function Searchbar() {
   const location = useLocation();
   const cidadeRef = useRef();
   const categoriaRef = useRef();
-
   const { state, setState } = useContext(Context);
-  const { cidades, categorias, anuncios } = state;
+  const { cidades, categorias } = state;
 
-  const [Resp, Repos] = useState(cidades);
+  const [Resp] = useState(cidades);
   const [cidadesData, setCidadesData] = useState(cidades);
-  const [categoriasData, setCategoriasData] = useState(categorias);
+  const [categoriasData] = useState(categorias);
 
   const Change = ({ target }) => {
     if (!target.toLowerCase) {
@@ -32,10 +29,15 @@ export default function Searchbar() {
     const filtroSearchBar = {
       categoriaFilter: categoriaRef.current.value,
       cidadeFilter: cidadeRef.current.value,
+
     };
     setState({ ...state, filtroParametros: filtroSearchBar });
-    if (location.pathname !== '/buscar') {
-      navigate('/buscar');
+    if (filtroSearchBar.categoriaFilter === '' && filtroSearchBar.cidadeFilter === '') {
+      if (location.pathname !== '/buscar') {
+        navigate('/buscar/todos');
+      }
+    } else if (location.pathname !== '/buscar') {
+      navigate('/buscar/filtro');
     }
   };
   return (
@@ -47,15 +49,15 @@ export default function Searchbar() {
             ref={cidadeRef}
             id="cidadeFormSearchBar"
             type="text"
-            list="data"
+            list="dataCidade"
             className="form-control"
             placeholder="Onde Vamos?"
             onChange={Change}
           />
-          <datalist id="data">
+          <datalist id="dataCidade">
             {cidadesData.map((respost, index) => (
-              <option value={respost.nome} key={index}>
-                {respost.nome}
+              <option value={respost.nomeCidade} key={index}>
+                {respost.nomeCidade}
               </option>
             ))}
           </datalist>
@@ -74,8 +76,8 @@ export default function Searchbar() {
           />
           <datalist id="datacategoria">
             {categoriasData.map((categoriasRespose, index) => (
-              <option value={categoriasRespose.descricao} key={index}>
-                {categoriasRespose.descricao}
+              <option value={categoriasRespose.descricaoCategoria} key={index}>
+                {categoriasRespose.descricaoCategoria}
               </option>
             ))}
           </datalist>

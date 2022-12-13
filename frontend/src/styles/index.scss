@@ -50,11 +50,19 @@ table {
 @import './ProductCard.scss';
 @import './ProductCardReserva.scss';
 @import './Searchbar.scss';
-@import './ConfirmacaoReserva.scss';
-@import './Reserva.scss';
+@import './FazerReserva.scss';
 @import './SearchCard.scss';
+@import './MinhasReservasCard.scss';
 @import './Modal.scss';
 @import './ModalLogin.scss';
+@import './ModalProduto.scss';
+@import './Noproduct.scss';
+@import './DetalhesReserva.scss';
+@import './AdminPanel.scss';
+@import './AdminModals.scss';
+@import './ModalCadastro.scss';
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -64,7 +72,7 @@ body {
 	line-height: 1;
   background-color: $bg-color;
   font-family: $font-principal !important;
-}
+} 
 
 
 

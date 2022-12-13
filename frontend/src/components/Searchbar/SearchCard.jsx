@@ -12,7 +12,7 @@ export default function SearchCard({ data }) {
   const navigate = useNavigate();
 
   return (
-    <Card className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center">
+    <Card onClick={() => navigate(`/anuncio/${data.id}`)} className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center">
       <Card.Img
         variant="top"
         onError={({ currentTarget }) => {
@@ -43,7 +43,6 @@ export default function SearchCard({ data }) {
             </p>
             <p className="p3">
               Pequeno-almoço incluído
-
             </p>
             <p className="p4">
               Restam apenas 2 quartos a este preço no nosso website

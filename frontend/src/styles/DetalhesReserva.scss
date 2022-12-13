@@ -1,0 +1,91 @@
+.logoBooking {
+    padding-top: 8rem;
+
+}
+
+.cardContainer-1 {
+
+    @include card1;
+    border: 1px solid $alternative-color;
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    body {
+
+        h6 {
+            @include font-alternative;
+        }
+
+        p {
+            @include text1;
+        }
+
+    }
+
+    .entradaSaida {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+
+        @media only screen and (min-width: 300px) and (max-width: 1024px) {
+            min-width: 100%;
+            border: none;  
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .p-title {
+            font-size: 0.8rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .horario {
+            font-size: 0.9rem;
+        }
+    }
+
+    .unidade {
+        @media only screen and (min-width: 300px) and (max-width: 1024px) {
+            min-width: 100%;
+            border: none;
+     
+        }
+        .p-title {
+            font-size: 0.8rem;
+        }
+    }
+
+    .politica-preco {
+        h2 {
+            @include font-alternative;
+            font-size: 1rem;
+        }
+
+    }
+    .politaPreco{
+        h2{
+            @include font-alternative;
+             font-size: 1.3em;
+          
+    }
+
+    p{
+        font-size: .9em;
+       }
+}
+
+    @media only screen and (min-width: 300px) and (max-width: 1024px) {
+        min-width: 100%;
+        margin: 1rem;
+        display: flex;  
+    }
+}

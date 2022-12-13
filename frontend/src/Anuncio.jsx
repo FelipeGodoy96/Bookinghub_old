@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -24,16 +24,17 @@ import Calendario from './components/Calendario/Calendario';
 import Context from './Contexts/Context';
 
 export default function Anuncio() {
-  const { id } = useParams();
-  const { state } = React.useContext(Context);
-  const { anuncios } = state;
+  const { idAnuncio } = useParams();
+  const { filters } = useContext(Context);
+  const anuncioSelected = filters.getAnuncioByID(parseInt(idAnuncio, 10));
+  const cidadeFiltrada = filters.getCidadeByID(anuncioSelected.idCidade);
+  const categoriaFiltrada = filters.getCategoriaByID(anuncioSelected.idCategoria);
+
   const navigate = useNavigate();
 
-  const [anuncioSelected] = anuncios.filter((f) => f?.id === parseInt(id, 10));
+  const images = anuncioSelected ? anuncioSelected.fotosAnuncio.map((m) => ({ original: m.url, thumbnail: m.url })) : [{ original: '', thumbnail: '' }];
 
-  const images = anuncioSelected.fotosAnuncio.map((m) => ({ original: m.url, thumbnail: m.url }));
-
-  const [gallery, setGallery] = React.useState(false);
+  const [gallery, setGallery] = useState(false);
   const handleOpenGallery = () => {
     setGallery(true);
   };
@@ -41,13 +42,23 @@ export default function Anuncio() {
     setGallery(false);
   };
 
+  useEffect(() => {
+    if (!anuncioSelected) {
+      navigate('/*');
+    }
+  }, []);
+
+  if (!anuncioSelected) {
+    return null;
+  }
+
   return (
     <>
       <section className="subHeader">
         <Container className="d-flex flex-row justify-content-between align-items-center">
           <div className="informacoesAnunciante">
-            <p>{anuncioSelected.categoria}</p>
-            <h3 className="nomeAnunciante">{anuncioSelected.nome}</h3>
+            <p>{categoriaFiltrada.descricaoCategoria}</p>
+            <h3 className="nomeAnunciante">{anuncioSelected.nomeAnuncio}</h3>
           </div>
           <Link to="/">
             <BsArrowReturnLeft className="iconeSubHeader" />
@@ -58,7 +69,7 @@ export default function Anuncio() {
       <section className="mapSubHeader">
         <Container className="d-flex flex-row justify-content-between">
           <div className="d-flex flex-column flex-lg-row align-items-center gap-lg-5">
-            <div className="bi bi-geo-alt">{anuncioSelected.cidade}</div>
+            <div className="bi bi-geo-alt">{cidadeFiltrada.nomeCidade}</div>
             <Link className="bi bi-pin-map" to="/">
               Ver no mapa
             </Link>
@@ -187,7 +198,7 @@ export default function Anuncio() {
 
         <Container className="descripition  d-flex flex-column justify-content-end">
           <h3>Informações sobre esta acomodação</h3>
-          <p>{anuncioSelected.descricaoProduto}</p>
+          <p>{anuncioSelected.descricaoAnuncio}</p>
         </Container>
 
         <Container className="descripition d-flex flex-column justify-content-end">
@@ -244,13 +255,14 @@ export default function Anuncio() {
           <h3>Datas disponíveis</h3>
           <div className="d-flex  flex-lg-row flex-column justify-content-center align-items-center">
             <Calendario />
-            <Card className="confirmReserva">
-              <h6 className="p-3 ">
+            <Card className="confirmReserva w-75">
+              <h6 className="p-3 text-center">
                 Adicione as datas da sua estadia para obter a tarifa de hospedagem
               </h6>
-              <Button id="fazerReservaButtonAnuncio" className="m-1" onClick={() => navigate('/reserva')}>
+              <Button id="fazerReservaButtonAnuncio" className="m-1" onClick={() => navigate(`/anuncio/reserva/${idAnuncio}`, { state: anuncioSelected })}>
                 Reservar agora
               </Button>
+
             </Card>
           </div>
         </Container>

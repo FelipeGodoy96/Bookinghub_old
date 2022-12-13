@@ -1,14 +1,17 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 import Card from 'react-bootstrap/esm/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import erroImagem from '../../assets/img/erro-imagem.png';
+import Context from '../../Contexts/Context';
 
 export default function ProductCard({ data }) {
   const navigate = useNavigate();
-
+  const { filters } = useContext(Context);
+  const cidadeFiltrada = filters.getCidadeByID(data.idCidade);
+  const categoriaFiltrada = filters.getCategoriaByID(data.idCategoria);
   return (
     <Card className="anuncioCard d-flex flex-column">
       <Card.Img
@@ -22,20 +25,20 @@ export default function ProductCard({ data }) {
       <Card.Body className="cardInfo d-flex flex-column">
         <div className="d-flex flex-row flex-column justify-content-between">
           <div className=" d-flex  justify-content-between align-items-center">
-            <p>{data.categoria}</p>
+            <p>{categoriaFiltrada.descricaoCategoria}</p>
             <div className=" d-flex flex-column align-items-end">
               <div className="notaParceiro">8.0</div>
               <div className="classificacaoParceiro">Muito Bom</div>
             </div>
           </div>
           <div>
-            <h3 className="nomeAnunciante">{data.nome}</h3>
+            <h3 className="nomeAnunciante">{data.nomeAnuncio}</h3>
           </div>
         </div>
 
         <div className="verMapa mb-4 d-flex flex-row align-items-center justify-content-between">
           <div className="bi bi-geo-alt cidade">
-            {data.cidade}
+            {cidadeFiltrada.nomeCidade}
           </div>
           <Link className="bi bi-pin-map" to="/">
             Ver no mapa
@@ -43,11 +46,11 @@ export default function ProductCard({ data }) {
         </div>
 
         <p className="descricaoAnunciante">
-          {data.descricaoProduto?.substring(0, 170)}
+          {data.descricaoAnuncio?.substring(0, 170)}
           ....
         </p>
 
-        <Button className="m-1" onClick={() => navigate(`/anuncio/${data.id}`)}>
+        <Button className="m-1" onClick={() => navigate(`/anuncio/${data.idAnuncio}`)}>
           Ver Mais
         </Button>
       </Card.Body>

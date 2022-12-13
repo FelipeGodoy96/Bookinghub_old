@@ -1,0 +1,8 @@
+.no-product-btn{
+    @include button1;
+    border: none;
+    width: 12em;
+    &:hover{
+       background-color: $alternative-color;
+    }
+}

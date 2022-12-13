@@ -1,32 +1,58 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable consistent-return */
 import React, { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/esm/Container';
+import { useParams } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
+import SearchNotFound from './components/LottieAnimations/SearchNotFound';
 import Searchbar from './components/Searchbar/Searchbar';
 import SearchCard from './components/Searchbar/SearchCard';
 import Context from './Contexts/Context';
 
 export default function Buscar() {
-  const { state } = useContext(Context);
+  const { parametro } = useParams();
+  const { state, filters } = useContext(Context);
   const { anuncios, filtroParametros } = state;
 
   const [resultadoBuscar, setResultadoBuscar] = useState([]);
 
-  const filtroAnuncios = (categoriaSelecionada, cidadeSelecionada, todosAnuncios) => {
+  const condicaoFiltro = (cidade, categoria, anunciosTodos) => {
+    const dataSearch = anunciosTodos.filter((f) => (categoria !== '' ? filters.getCategoriaByID(f.idCategoria).descricaoCategoria.toLowerCase().replaceAll(' ', '').includes(categoria.toLowerCase().replaceAll(' ', '')) : true)
+    && (categoria !== cidade ? (cidade !== '' ? filters.getCidadeByID(f.idCidade).nomeCidade.toLowerCase().replaceAll(' ', '').includes(cidade.toLowerCase().replaceAll(' ', '')) : true) : true));
+    return dataSearch;
+  };
+
+  const filtroAnuncios = (
+    categoriaSelecionada,
+    cidadeSelecionada,
+    todosAnuncios,
+    buscaparametro,
+  ) => {
+    let anunciosFiltrados = todosAnuncios;
+    if (buscaparametro === 'todos') return anunciosFiltrados;
+
     if (categoriaSelecionada === null) return;
     if (cidadeSelecionada === null) return;
     if (todosAnuncios === null) return;
-
-    const anunciosFiltrados = todosAnuncios.filter((f) => (
-      categoriaSelecionada !== '' ? (f.categoria.toLowerCase().replaceAll(' ', '').includes(categoriaSelecionada.toLowerCase().replaceAll(' ', ''))) : true)
-      && (cidadeSelecionada !== '' ? (f.cidade.toLowerCase().replaceAll(' ', '').includes(cidadeSelecionada.toLowerCase().replaceAll(' ', ''))) : true));
-
+    if (buscaparametro === 'filtro') {
+      anunciosFiltrados = condicaoFiltro(cidadeSelecionada, categoriaSelecionada, todosAnuncios);
+    } else {
+      anunciosFiltrados = condicaoFiltro(buscaparametro, buscaparametro, todosAnuncios);
+    }
     return anunciosFiltrados;
   };
 
+  // useEffect(() => {
+  //   if (parametro) {
+  //     const buscaEfetuada = filtroAnuncios('', '', anuncios, parametro);
+  //     setResultadoBuscar(buscaEfetuada);
+  //   }
+  // }, []);
+
   useEffect(() => {
     const { categoriaFilter, cidadeFilter } = filtroParametros;
-    const buscaEfetuada = filtroAnuncios(categoriaFilter, cidadeFilter, anuncios);
+    const buscaEfetuada = filtroAnuncios(categoriaFilter, cidadeFilter, anuncios, parametro);
     setResultadoBuscar(buscaEfetuada);
   }, [filtroParametros]);
 
@@ -37,17 +63,17 @@ export default function Buscar() {
           <h1>Buscar ofertas em hotéis, casas e muito mais</h1>
           <Searchbar />
         </section>
-        <Container className="d-flex flex-column">
-          {resultadoBuscar?.map((m, index) => (
+
+        <Container className="d-flex flex-column mt-5 mb-5 vh-100 ">
+          {resultadoBuscar?.length === 0 ? <SearchNotFound /> : resultadoBuscar?.map((m, index) => (
             <SearchCard data={m} key={index} />
           ))}
 
         </Container>
       </div>
-      
+
       <Footer />
     </>
 
   );
-
 }

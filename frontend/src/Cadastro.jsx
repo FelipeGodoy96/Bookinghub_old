@@ -45,7 +45,7 @@ export default function Cadastro() {
       username: email,
       nome,
       sobrenome,
-      senha: pw,
+      password: pw,
     };
 
     if (isValid) {

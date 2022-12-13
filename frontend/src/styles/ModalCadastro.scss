@@ -1,0 +1,15 @@
+.btn-2{
+    padding: .5rem;
+    border: none;
+    @include button1;
+    &:hover{
+        background-color: #383B58;
+    }
+   
+}
+.checkfill-1{
+   
+    font-size: 3rem;
+    color: $primary-color;
+}
+

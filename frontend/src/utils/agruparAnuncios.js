@@ -1,5 +1,6 @@
 export default function agruparAnuncios(anuncios = null, cidades = null) {
   const ctx = [];
+
   if (anuncios) {
     anuncios?.forEach((category) => {
       category.produto?.forEach((product) => {
@@ -10,8 +11,7 @@ export default function agruparAnuncios(anuncios = null, cidades = null) {
           descricaoProduto: product.descricao,
           nome: product.nome,
           fotoCategoria: category.imagem,
-          fotosAnuncio: product.imagensAnuncio,
-          datasDisponiveisAnuncio: [],
+          fotosAnuncio: product.imagens,
           cidade: 'Cidade Teste',
         });
       });
