@@ -1,116 +1,120 @@
 /* eslint-disable no-return-await */
-import axios from 'axios';
+import axios from 'axios'
 
-export const apiLink = process.env.NODE_ENV === 'development' ? 'http://13.57.207.104:8080' : '';
-const apiLinkLogin = process.env.NODE_ENV === 'development' ? 'http://13.57.207.104:8080' : '';
+export const apiLink =
+  process.env.NODE_ENV === 'development' ? 'http://13.57.207.104:8080' : ''
+const apiLinkLogin =
+  process.env.NODE_ENV === 'development' ? 'http://13.57.207.104:8080' : ''
 
-const login = async (user) => {
-  const { username, password } = user;
+const login = async user => {
+  const { username, password } = user
   try {
     const response = await axios.post(`${apiLinkLogin}/api/auth/login`, {
       username,
-      password,
-    });
-    return response.data;
+      password
+    })
+    return response.data
   } catch (error) {
-    console.trace(error);
+    console.trace(error)
 
-    return null;
+    return null
   }
-};
+}
 const getAnuncios = async () => {
-  const anunciosData = await axios.get(`${apiLink}/produtos`);
-  return anunciosData.data.map((m) => ({
+  const anunciosData = await axios.get(`${apiLink}/produtos`)
+  return anunciosData.data.map(m => ({
     idCategoria: m.categoria.id,
     idAnuncio: m.id,
     descricaoAnuncio: m.descricao,
     nomeAnuncio: m.nome,
     fotosAnuncio: m.imagens,
-    idCidade: m.cidades.id,
-  }));
-};
+    idCidade: m.cidades?.id
+  }))
+}
 const getCategorias = async () => {
-  const categoriasData = await axios.get(`${apiLink}/categorias`);
-  return categoriasData.data.map((m) => ({
+  const categoriasData = await axios.get(`${apiLink}/categorias`)
+  return categoriasData.data.map(m => ({
     idCategoria: m.id,
     fotoCategoria: m.imagem,
-    descricaoCategoria: m.descricao,
-  }));
-};
+    descricaoCategoria: m.descricao
+  }))
+}
 
 const getCidades = async () => {
-  const cidadesData = await axios.get(`${apiLink}/cidades`);
-  return cidadesData.data.map((m) => ({
+  const cidadesData = await axios.get(`${apiLink}/cidades`)
+  return cidadesData.data.map(m => ({
     idCidade: m.id,
     nomeCidade: m.nome,
-    pais: m.pais,
-  }));
-};
+    pais: m.pais
+  }))
+}
 
-const cadastro = async (newuser) => {
+const cadastro = async newuser => {
   try {
     const response = await axios.post(
       `${apiLinkLogin}/api/auth/register`,
-      newuser,
-    );
+      newuser
+    )
     return {
-      user: response.data,
-    };
+      user: response.data
+    }
   } catch (error) {
-    console.trace(error);
+    console.trace(error)
 
     return {
-      user: null,
-    };
+      user: null
+    }
   }
-};
+}
 
-const fazerReserva = async (newReserva) => {
+const fazerReserva = async newReserva => {
   try {
-    const response = await axios.post(`${apiLinkLogin}/reservas`, newReserva);
+    const response = await axios.post(`${apiLinkLogin}/reservas`, newReserva)
     return {
-      reservaData: response.data,
-    };
+      reservaData: response.data
+    }
   } catch (error) {
-    console.trace(error);
+    console.trace(error)
 
     return {
-      reservaData: null,
-    };
+      reservaData: null
+    }
   }
-};
+}
 const getReservasUsuario = async () => {
-  let userData = null;
-  const sessionUserData = sessionStorage.getItem('localUser');
-  const locaStorageUserData = localStorage.getItem('localUser');
+  let userData = null
+  const sessionUserData = sessionStorage.getItem('localUser')
+  const locaStorageUserData = localStorage.getItem('localUser')
   if (sessionUserData) {
-    userData = JSON.parse(sessionUserData);
+    userData = JSON.parse(sessionUserData)
   } else {
-    userData = JSON.parse(locaStorageUserData);
+    userData = JSON.parse(locaStorageUserData)
   }
 
   try {
-    const response = await axios.get(`${apiLinkLogin}/reservas/usuario_id/${userData.id}`);
-    return response.data;
+    const response = await axios.get(
+      `${apiLinkLogin}/reservas/usuario_id/${userData.id}`
+    )
+    return response.data
   } catch (error) {
-    return null;
+    return null
   }
-};
+}
 
-const listarReserva = async (newReserva) => {
+const listarReserva = async newReserva => {
   try {
-    const response = await axios.get(`${apiLinkLogin}/reservas`, newReserva);
+    const response = await axios.get(`${apiLinkLogin}/reservas`, newReserva)
     return {
-      reservaData: response.data,
-    };
+      reservaData: response.data
+    }
   } catch (error) {
-    console.trace(error);
+    console.trace(error)
 
     return {
-      reservaData: null,
-    };
+      reservaData: null
+    }
   }
-};
+}
 
 const apiHandle = {
   getCategorias,
@@ -120,7 +124,7 @@ const apiHandle = {
   cadastro,
   fazerReserva,
   listarReserva,
-  getReservasUsuario,
-};
+  getReservasUsuario
+}
 
-export default apiHandle;
+export default apiHandle

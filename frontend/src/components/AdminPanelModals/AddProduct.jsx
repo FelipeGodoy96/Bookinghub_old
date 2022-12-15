@@ -10,8 +10,10 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Context from '../../Contexts/Context';
 import { apiLink } from '../../services/apiHandle';
+import ModalProduto from '../Modal/ModalProduto';
 
 export default function AddProduct(props) {
+  const [ modalVisibility, setModalVisibility ] = useState(false)
   const [title, setTitle] = useState('');
   const { state } = React.useContext(Context);
   const [categories, setCategories] = useState([]);
@@ -29,28 +31,36 @@ export default function AddProduct(props) {
     const newCityData = {
       nome: city,
       pais: '',
-    };
+    }
     const newProductData = {
       nome: name,
-      categoria_onetm: category,
-      cidade_mtone: newCity,
       descricao: description,
+      categoria: {"id": category},
+      cidades: {"id": newCity}
     };
-
     try {
       await axios.post(`${apiLink}/cidades`, newCityData)
         .then((res) => {
-          setNewCity(res.data.id);
-        });
+             setNewCity(res.data.id)
+        })
     } catch (error) {
-      console.error(error);
+      console.trace(error);
     }
     try {
-      await axios.post(`${apiLink}/produtos`, newProductData);
+      await axios.post(`${apiLink}/produtos`, newProductData)
+      .then((res) => {
+        if (res.status == 201) {
+          setModalVisibility(true)
+          setTimeout(() => {
+            setModalVisibility(false)
+            props.onHide()
+          },3000)
+        }
+      })
     } catch (error) {
-      console.error(error);
+      console.trace(error);
     }
-  };
+  }
 
   return (
     <Modal {...props} size="lg" centered>
@@ -70,6 +80,7 @@ export default function AddProduct(props) {
               <Form.Group className="group m-3">
                 <Form.Label>Nome da propriedade</Form.Label>
                 <Form.Control
+                  required
                   className="control"
                   type="text"
                   placeholder=""
@@ -82,6 +93,7 @@ export default function AddProduct(props) {
               <Form.Group className="group m-3">
                 <Form.Label>Categoria</Form.Label>
                 <Form.Select
+                  required
                   className="select "
                   onChange={(e) => {
                     setCategory(e.target.selectedOptions[0].value);
@@ -104,6 +116,7 @@ export default function AddProduct(props) {
               <Form.Group className=" group m-3">
                 <Form.Label>Cidade</Form.Label>
                 <Form.Control
+                  required
                   className="control"
                   type="text"
                   placeholder=""
@@ -119,6 +132,7 @@ export default function AddProduct(props) {
               <Form.Group className="group m-3 d-flex flex-column mt-2 ">
                 <Form.Label>Descrição</Form.Label>
                 <Form.Control
+                  required
                   as="textarea"
                   className="textarea"
                   style={{ minHeight: '150px' }}
@@ -207,7 +221,7 @@ export default function AddProduct(props) {
                   </div> */}
             <button type="button" onClick={handleSubmit} className="createProduct">Criar</button>
           </Form>
-
+          <ModalProduto visible={modalVisibility} />
         </Card>
       </Modal.Body>
     </Modal>

@@ -9,23 +9,38 @@ import Footer from './components/Footer/Footer';
 import AddProduct from './components/AdminPanelModals/AddProduct';
 import { apiLink } from './services/apiHandle';
 
-export default function AdminPanel() {
-  // const apiLink = process.env.NODE_ENV === 'development' ? 'http://13.57.207.104:8080' : '';
-  const [products, setProducts] = useState(null);
-  useEffect(() => {
-    const getData = async () => {
-      const req = await fetch(`${apiLink}/produtos`);
-      const res = await req.json();
-      setProducts(res);
-    };
-    getData();
-  }, []);
 
+
+
+export default function AdminPanel() {
+  const [ products, setProducts ] = useState([])
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      await axios.get(`${apiLink}/produtos`)
+      .then((response) => {
+        setProducts(response.data)
+      })
+    } catch (error) {
+      console.trace(error)
+    }
+  }
+  fetchData()
+}, [])
   const [productModal, setProductModal] = useState(false);
   const [updateProductModal, setUpdateProductModal] = useState(false);
 
   const handleDelete = async (id) => {
-    try { await axios.delete(`${apiLink}/produtos/${id}`); } catch (error) {
+    try { 
+      await axios.delete(`${apiLink}/produtos/${id}`)
+      .then((res) => {
+        if (res.status == 204) {
+          setProducts(products.filter(product => {
+            return product.id !== id
+          }))
+        }
+      })
+    } catch (error) {
       return null;
     }
   };
@@ -44,19 +59,14 @@ export default function AdminPanel() {
                 show={productModal}
                 onHide={() => setProductModal(false)}
               />
+            
               <UpdateProduct
                 show={updateProductModal}
                 onHide={() => setUpdateProductModal(undefined)}
                 id={updateProductModal}
               />
             </div>
-            <div className="Categorias">
-              <button className="admButton">
-                Adicionar categoria
-              </button>
-
-            </div>
-          </div>
+          {/* </div> */}
 
           <div className="products-list">
             <Table
@@ -92,6 +102,7 @@ export default function AdminPanel() {
                     </td>
                     <td>
                       <Button
+                        disabled
                         variant="danger"
                         onClick={() => {
                           handleDelete(element.id);
@@ -104,6 +115,7 @@ export default function AdminPanel() {
                 ))}
               </tbody>
             </Table>
+          </div>
           </div>
 
         </div>
