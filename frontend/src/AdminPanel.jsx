@@ -26,7 +26,7 @@ useEffect(() => {
     }
   }
   fetchData()
-}, [products.length])
+}, [])
   const [productModal, setProductModal] = useState(false);
   const [updateProductModal, setUpdateProductModal] = useState(false);
 

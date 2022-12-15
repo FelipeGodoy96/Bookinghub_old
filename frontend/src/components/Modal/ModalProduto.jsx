@@ -25,7 +25,11 @@ export default function ModalProduto({ visible }) {
         Produto criado com sucesso!
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center">
-        <Button className="btn-1" id="NavegarButtonModal" variant="secondary" onClick={() => handleRedirect('/admin')}>
+        <Button className="btn-1" id="NavegarButtonModal" variant="secondary" onClick={() => {
+          handleRedirect('/admin')
+          // return props.props.onHide()
+        }
+      }>
           Continuar Navegando
         </Button>
       </Modal.Footer>

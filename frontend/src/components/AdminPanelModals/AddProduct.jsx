@@ -51,7 +51,10 @@ export default function AddProduct(props) {
       .then((res) => {
         if (res.status == 201) {
           setModalVisibility(true)
-          return props.onHide()
+          setTimeout(() => {
+            setModalVisibility(false)
+            props.onHide()
+          },3000)
         }
       })
     } catch (error) {
