@@ -18,6 +18,7 @@
 
 .buttons {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   background-color: $white;
   margin-top: 1.5rem;
@@ -54,6 +55,6 @@
   margin-right: 2rem;
   margin-top: 2rem;
   overflow-y: scroll;
-  max-height: 35vh;
+  max-height: 50vh;
 }
 
