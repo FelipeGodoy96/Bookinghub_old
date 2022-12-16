@@ -24,8 +24,8 @@ export default function NotFound() {
     
 
       </Container>
-
-      <Footer />
+{/* 
+      <Footer /> */}
     </div>
   );
 }

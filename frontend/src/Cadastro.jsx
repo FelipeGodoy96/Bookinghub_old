@@ -301,7 +301,7 @@ export default function Cadastro() {
           </div>
         </Container>
       </div>
-      <Footer />
+      {/* <Footer /> */}
       <ModalCadastro visible={modalVisibility} />
     </>
   );
