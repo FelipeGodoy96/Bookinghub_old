@@ -12,24 +12,21 @@ export default function SearchCard({ data }) {
   const navigate = useNavigate();
 
   return (
-    <Card onClick={() => navigate(`/anuncio/${data.id}`)} className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center">
+    <Card 
+     className="cardContainer d-flex flex-column flex-md-row flex-lg-row  align-items-center">
       <Card.Img
         variant="top"
         onError={({ currentTarget }) => {
           currentTarget.onerror = null; // prevents looping
           currentTarget.src = erroImagem;
         }}
-        src={data.fotosAnuncio[1].url ? data.fotosAnuncio[1].url : 'Erro Imagem não encontrada'}
+        src={data.fotosAnuncio[0]?.url ? data.fotosAnuncio[0].url : 'Erro Imagem não encontrada'}
       />
       <Card.Body className="cardTextContainer d-flex flex-column flex-md-row flex-lg-row justify-content-lg-between justify-content-md-between">
         <div className="cardText">
-          <h3 onClick={() => navigate(`/anuncio/${data.id}`)}>
-            {data.nome}
+          <h3>
+         {data.nomeAnuncio}
           </h3>
-
-          <p>
-            {data.cidade}
-          </p>
           <Link className="bi bi-pin-map" to="/">
             Ver no mapa
           </Link>
@@ -53,7 +50,11 @@ export default function SearchCard({ data }) {
         <div className=" d-flex flex-column align-items-center">
           <div className="notaParceiro mt-3">8.0</div>
           <div className="classificacaoParceiro mt-3">Muito Bom</div>
-          <Button className="m-2" id="goToAnuncioButtonSearchCard" onClick={() => navigate(`/anuncio/${data.id}`)}>
+          <Button className="m-2" id="goToAnuncioButtonSearchCard" onClick={(params) => {
+            console.log(params)
+            navigate(`/anuncio/${data.idAnuncio}`)
+          }
+            }>
             Ver Mais
           </Button>
         </div>
