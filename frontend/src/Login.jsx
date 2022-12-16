@@ -105,7 +105,7 @@ export default function Login() {
           </div>
         </Container>
       </div>
-      <Footer />
+      {/* <Footer /> */}
 
     </>
   );

@@ -136,7 +136,7 @@ export default function DetalhesReserva() {
           </Card.Body>
         </Card>
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

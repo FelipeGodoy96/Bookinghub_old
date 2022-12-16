@@ -19,7 +19,7 @@ export default function MinhasReservas() {
           ))}
         </Container>
       </div>
-      <Footer />
+  
     </>
   );
 }
