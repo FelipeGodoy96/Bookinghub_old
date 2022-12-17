@@ -83,19 +83,19 @@ export default function Reserva() {
 
                 <Form>
                   <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between">
-                    <Form.Group className="w-100">
+                    <Form.Group className="w-100 mx-2">
                       <Form.Label>Nome</Form.Label>
                       <Form.Control type="text" placeholder="Nome" required />
                     </Form.Group>
 
-                    <Form.Group className="w-100">
+                    <Form.Group className="w-100 mx-2">
                       <Form.Label>Sobrenome</Form.Label>
                       <Form.Control type="text" placeholder="Sobrenome" required />
                     </Form.Group>
                   </div>
 
                   <div className="d-flex flex-column flex-lg-row flex-md-row justify-content-between mt-3">
-                    <Form.Group className="w-100">
+                    <Form.Group className="w-100 mx-2">
                       <Form.Label>Confirmar endereço de e-mail</Form.Label>
                       <Form.Control type="email" placeholder="Email" required />
                       <Form.FloatingLabel className="emailObs mt-1  ">
@@ -103,7 +103,7 @@ export default function Reserva() {
                       </Form.FloatingLabel>
                     </Form.Group>
 
-                    <Form.Group className="w-100">
+                    <Form.Group className="w-100 mx-2">
                       <Form.Label>Cidade</Form.Label>
                       <Form.Control type="city" placeholder="Cidade" required />
                     </Form.Group>
