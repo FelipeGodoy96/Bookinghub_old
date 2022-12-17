@@ -22,7 +22,7 @@ export default function ModalReservaConfirmada({ visible, mensagem }) {
         <Modal.Title>{mensagem?.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body className="d-flex flex-column align-items-center justify-content-center p-4">
-        <BsFillPatchCheckFill className="checkfill" />
+        <BsFillPatchCheckFill className="checkfill-2" />
         {mensagem?.description}
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center">
