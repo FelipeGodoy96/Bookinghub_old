@@ -22,27 +22,41 @@ export default function AddProduct(props) {
   const [category, setCategory] = useState('');
   const [city, setCity] = useState('');
   const [description, setDescription] = useState('');
-  const [icon, setIcon] = useState('');
-  const [iconName, setIconName] = useState('');
   const [newCity, setNewCity] = useState('');
   const [ imagesCollection, setImagesCollection ] = useState([])
   const [ imageName, setImageName ] = useState("")
   const [ imageURL, setImageURL ] = useState("")
-  class Item {
+  const [ attrCollection, setAttrCollection ] = useState([])
+  const [ iconName, setIconName ] = useState('')
+  const [icon, setIcon] = useState('');
+  class Image {
     constructor(name, url) {
       this.imageName = name;
       this.imgURL = url;
     }
   }
 
+  class Icon {
+    constructor(name, icon) {
+      this.iconName = name;
+      this.icon = icon
+    }
+  }
+
   const handleAddImagesToCollection = (e) => {
     e.preventDefault()
-    const item = new Item(imageName,imageURL)
-    // setImagesCollection([...imagesCollection, item])
-    setImagesCollection() 
-    console.log(imagesCollection)
- 
+    const item = new Image(imageName,imageURL)
+    const list = [...imagesCollection]
+    list.push(item)
+    setImagesCollection(list)
+  }
 
+  const handleAddIconsToCollection = (e) => {
+    e.preventDefault()
+    const item = new Icon(iconName,icon)
+    const list = [...attrCollection]
+    list.push(item)
+    setAttrCollection(list)
   }
 
   const handleSubmit = async (e) => {
@@ -163,20 +177,42 @@ export default function AddProduct(props) {
             <Card.Title>
               <span className="cardTitle">Adicionar atributos</span>
             </Card.Title>
+            <div>
+              <Table>
+                <thead>
+                  <tr>
+                    <th style={{width: '30%'}}>Nome</th>
+                    <th style={{width: '70%'}}>Ícone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {attrCollection.map((element, index) => (
+                    <tr key={index}>
+                      <td>{element.iconName}</td>
+                      <td>{element.icon}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
             <div className="d-flex flex-row align-items-center">
               <Form.Group className="group m-3" style={{ width: '35%' }}>
                 <Form.Label>Nome</Form.Label>
 
-                <Form.Control className="control" type="text" placeholder="" />
+                <Form.Control className="control" type="text" placeholder="" onChange={(e) => {
+                  setIconName(e.target.value)
+                }}/>
               </Form.Group>
 
               <Form.Group className="group m-3" style={{ width: '25%' }}>
                 <Form.Label>Icone</Form.Label>
 
-                <Form.Control className="control" type="text" placeholder="Ex.: fa fa-wifi" />
+                <Form.Control className="control" type="text" placeholder="Ex.: fa fa-wifi" onChange={(e) => {
+                  setIcon(e.target.value)
+                }}/>
 
               </Form.Group>
-              <button type="button" className="plus-button mt-4">+</button>
+              <button type="button" onClick={handleAddIconsToCollection} className="plus-button mt-4">+</button>
 
             </div>
             <Card.Title>
@@ -191,7 +227,12 @@ export default function AddProduct(props) {
                   </tr>
                 </thead>
                 <tbody>
-                    
+                  {imagesCollection.map((element, index) => (
+                    <tr key={index}>
+                      <td>{element.imageName}</td>
+                      <td>{element.imgURL}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </Table>
             </div>
