@@ -65,14 +65,18 @@ export default function Buscar() {
         </section>
 
         <Container className="d-flex flex-column mt-5 mb-5 vh-100 ">
-          {resultadoBuscar?.length === 0 ? <SearchNotFound /> : resultadoBuscar?.map((m, index) => (
-            <SearchCard data={m} key={index} />
-          ))}
+          {resultadoBuscar?.length === 0 ? <SearchNotFound /> : resultadoBuscar?.map((m, index) => {
+            console.log(m)
+            return (
+               <SearchCard data={m} key={index} />
+            )
+          }
+            )}
 
         </Container>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
 
   );

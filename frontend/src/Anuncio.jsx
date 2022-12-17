@@ -291,7 +291,7 @@ export default function Anuncio() {
           </div>
         </Container>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

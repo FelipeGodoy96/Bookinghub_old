@@ -22230,7 +22230,7 @@ textarea.form-control-lg {
 }
 
 .defFooter {
-  position: static;
+  position: fixed;
   bottom: 0;
   color: #F3F1ED;
   height: 58px;
@@ -22783,6 +22783,7 @@ textarea.form-control-lg {
 .anuncioCard {
   margin: 1rem;
   width: 390px;
+  min-height: 440px;
   background: rgb(243, 241, 237);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);

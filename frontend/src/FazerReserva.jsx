@@ -171,7 +171,7 @@ export default function Reserva() {
           />
 
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }
