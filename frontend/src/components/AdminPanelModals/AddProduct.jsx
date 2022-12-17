@@ -11,6 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Context from '../../Contexts/Context';
 import { apiLink } from '../../services/apiHandle';
 import ModalProduto from '../Modal/ModalProduto';
+import { Table } from 'react-bootstrap';
 
 export default function AddProduct(props) {
   const [ modalVisibility, setModalVisibility ] = useState(false)
@@ -24,7 +25,25 @@ export default function AddProduct(props) {
   const [icon, setIcon] = useState('');
   const [iconName, setIconName] = useState('');
   const [newCity, setNewCity] = useState('');
-  const [imagens, setImagens] = useState([]);
+  const [ imagesCollection, setImagesCollection ] = useState([])
+  const [ imageName, setImageName ] = useState("")
+  const [ imageURL, setImageURL ] = useState("")
+  class Item {
+    constructor(name, url) {
+      this.imageName = name;
+      this.imgURL = url;
+    }
+  }
+
+  const handleAddImagesToCollection = (e) => {
+    e.preventDefault()
+    const item = new Item(imageName,imageURL)
+    // setImagesCollection([...imagesCollection, item])
+    setImagesCollection() 
+    console.log(imagesCollection)
+ 
+
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -163,19 +182,40 @@ export default function AddProduct(props) {
             <Card.Title>
               <span className="cardTitle">Adicionar imagens</span>
             </Card.Title>
+            <div>
+              <Table>
+                <thead>
+                  <tr>
+                    <th style={{width: '30%'}}>Nome</th>
+                    <th style={{width: '70%'}}>URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+              </Table>
+            </div>
             <div className="d-flex flex-row">
               <Form.Group className="group m-3" style={{ width: '25%' }}>
                 <Form.Label>Imagem</Form.Label>
 
-                <Form.Control className="control" type="text" placeholder="" />
+                <Form.Control id="addImageName" className="control" type="text" placeholder="" onChange={(e) => {
+                  setImageName(e.target.value)
+                }}/>
               </Form.Group>
 
-              <Form.Group className="group m-3" style={{ width: '65%' }}>
+              <Form.Group id="wtf" className="group m-3" style={{ width: '65%' }}>
                 <Form.Label>Endereço URL</Form.Label>
 
-                <Form.Control className="control" type="text" placeholder="Ex.: https://grupo4-bookinghub.s3.us-west-1.amazonaws.com/nomedaimagem/arquivo.jpg" />
+                <Form.Control className="control" type="text" placeholder="Ex.: https://grupo4-bookinghub.s3.us-west-1.amazonaws.com/nomedaimagem/arquivo.jpg" onChange={(e) => {
+                  setImageURL(e.target.value)
+                }}/>
               </Form.Group>
-              <button type="button" className="plus-button mt-5 mb-5">+</button>
+             
+              <button type="button" onClick={handleAddImagesToCollection}
+             
+
+               className="plus-button mt-5 mb-5">+</button>
             </div>
             {/* <Card.Title>
                     <span className="cardTitle">Políticas do produto</span>

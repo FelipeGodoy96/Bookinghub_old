@@ -146,7 +146,6 @@ export default function UpdateProduct(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {console.log(product)}
                   {product && product.imagens.map((element) => (
                     <tr key={element.id}>
                       <td>{element.id}</td>
