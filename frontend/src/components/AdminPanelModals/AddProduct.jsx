@@ -71,6 +71,9 @@ export default function AddProduct(props) {
       categoria: {"id": category},
       cidades: {"id": newCity}
     };
+    const newAttrData = {
+
+    }
     try {
       await axios.post(`${apiLink}/cidades`, newCityData)
         .then((res) => {
@@ -79,6 +82,14 @@ export default function AddProduct(props) {
     } catch (error) {
       console.trace(error);
     }
+    try {
+      await axios.post(`${apiLink}/caracteristicas`, newAttrData)
+      .then((res) => {
+        setNewAttr(res.data.id)
+      })
+    }  catch (error) {
+        console.trace(error)
+      }
     try {
       await axios.post(`${apiLink}/produtos`, newProductData)
       .then((res) => {
@@ -93,6 +104,13 @@ export default function AddProduct(props) {
     } catch (error) {
       console.trace(error);
     }
+
+
+
+
+
+    setAttrCollection("")
+    setImagesCollection("")
   }
 
   return (
