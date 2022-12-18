@@ -23350,7 +23350,8 @@ input[type=date]::-webkit-clear-button {
   background-color: #1DBEB4;
   font-size: 14pt;
   font-weight: bold;
-  height: 100px;
+  padding: 1rem;
+  border: none;
   border-radius: 10px;
 }
 

@@ -49,7 +49,8 @@
 
 .admButton {
   @include button1;
-  height: 100px;
+  padding: 1rem;
+  border: none;
   border-radius: 10px;
 
 }
