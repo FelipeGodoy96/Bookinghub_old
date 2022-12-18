@@ -22241,6 +22241,10 @@ textarea.form-control-lg {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.navFooter p {
+  font-size: 0.9rem;
+}
+
 .socialIco {
   margin-left: 1rem;
   color: #F3F1ED;
