@@ -74,12 +74,12 @@ export default function NavBarDefault() {
                 </Button>
                 <Button>
                   <Link className="mx-auto nav-link " to="/minhasreservas" id="meuspedidosButtonNavBar">
-                    Meus Pedidos
+                    Minhas Reservas
                   </Link>
                 </Button>
                 <Button onClick={() => logout()}>
                   <p className="mx-auto nav-link " id="logOutButtonNavBar">
-                    Desconectar Conta
+                    Sair
                   </p>
                 </Button>
 

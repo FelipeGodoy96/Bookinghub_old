@@ -69,7 +69,7 @@ const cadastro = async newuser => {
 
 const fazerReserva = async newReserva => {
   try {
-    const response = await axios.post(`${apiLinkLogin}/reservas`, newReserva)
+    const response = await axios.post(`${apiLink}/reservas`, newReserva)
     return {
       reservaData: response.data
     }
@@ -93,7 +93,7 @@ const getReservasUsuario = async () => {
 
   try {
     const response = await axios.get(
-      `${apiLinkLogin}/reservas/usuario_id/${userData.id}`
+      `${apiLink}/reservas/usuario_id/${userData.id}`
     )
     return response.data
   } catch (error) {
@@ -103,7 +103,7 @@ const getReservasUsuario = async () => {
 
 const listarReserva = async newReserva => {
   try {
-    const response = await axios.get(`${apiLinkLogin}/reservas`, newReserva)
+    const response = await axios.get(`${apiLink}/reservas`, newReserva)
     return {
       reservaData: response.data
     }

@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <footer className="defFooter mt-3 w-100 d-flex flex-row justify-content-between align-items-center">
-      <div className="navFooter px-4">
+      <div className="navFooter px-4 pt-3">
+        <p>
         ©2022 Booking Hub
+        </p>
+       
       </div>
 
       <div className="SocialMidia gap-3 mx-3 d-flex flex-row align-items-center">
