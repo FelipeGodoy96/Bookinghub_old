@@ -57,7 +57,7 @@ e) Por padrão, a branch main está configurada para o deploy na infraestrutura 
 2)MySQL 
 
 
-a) Baixe e instale o [MySQL Installer 8.0.31](dev.mysql.com/downloads/installer) na opção "Developer Default".
+a) Baixe e instale o [MySQL Installer 8.0.31](http://dev.mysql.com/downloads/installer) na opção "Developer Default".
 
 b) Após a conclusão, abra o MySQL Workbench conecte-se na instância local com seu usuário root e a senha definida durante a instalação.
 
