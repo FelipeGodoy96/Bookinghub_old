@@ -8,6 +8,13 @@ O projeto possui um modelo de negócio similar ao [Booking](booking.com).
 
 ## Screenshots
 
+![](./Screenshot_1.jpg)
+![](./Screenshot_2.jpg)
+![](./Screenshot_3.jpg)
+![](./Screenshot_4.jpg)
+![](./Screenshot_5.jpg)
+![](./Screenshot_6.jpg)
+![](./Screenshot_8.jpg)
 
 
 ## Instalação
