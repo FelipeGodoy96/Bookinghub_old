@@ -1,92 +1,63 @@
-# grupo_04_lionsrest
+# Bookinghub
+
+
+## O que é?
+
+O Bookighub é um projeto fullstack de ecommerce que atua como uma plataforma de anúncios de locações de estadias temporárias, ou seja, um intermediador entre cliente e proprietário de imóvel para locação. O projeto foca na acessibilidade, dispondo de ferramenta para leitura/usabilidade em Libras, garantindo uma experiência inclusiva.
+O projeto possui um modelo de negócio similar ao [Booking](booking.com).
+
+## Screenshots
 
 
 
-## Getting started
+## Instalação
+###  Como funciona?
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+O bookinghub pode ser configurado para ambiente de desenvolvimento/localmente e ambiente de deploy/online.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+#### AWS
+Para rodar o projeto na infraestrutura da AWS é necessário várias etapas de configuração e criação de instâncias. 
+O projeto conta com uma pipeline automatizadora do versionamento em infraestrutura.
+Entretanto, o foco deste tutorial será na instalação local.
 
-## Add your files
+#### Localmente 
+Para rodar o projeto localmente é necessário a instalação de alguns programas e ferramentas. Vamos separar por partes.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+BACKEND
+1)Java Web Server
+a) Baixe e instale o editor de texto para Java. No exemplo usaremos [InteliJ](www.jetbrains.com/pt-br/idea/download/#section=windows), mas você pode usar outros como Eclipse ou NetBeans. 
+b) Baixe e instale o [JDK 17](https://www.jetbrains.com/help/idea/sdk.html#define-sdk) em seu InteliJ.
+c) Baixe o arquivo ZIP deste repositório. Extraia o conteúdo do arquivo em uma pasta no local que desejar.
+d) Navegue até a pasta e clique com o botão direito no arquivo pom.xml e selecione a opção "Editar com InteliJ"
+e) Por padrão, a branch main está configurada para o deploy na infraestrutura da AWS, então será necessário algumas configurações: 
+	I - navegue até a pasta src/main/resources, abra o arquivo `application.properties` e verifique se o `spring.profiles.active` está setado para `dev`. Caso não, mude para dev.
+	II - abra o arquivo `application-dev.properties`, comente a linha 10 e descomente a linha 11.
+	III - na linha 12 mude de `admin` para `root` e na linha 13 coloque a senha que criou em seu MySQL Server + Workbench (veremos a seguir).
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/lion_rent_cars/grupo_04_lionsrest.git
-git branch -M main
-git push -uf origin main
-```
+2)MySQL 
+a) Baixe e instale o [MySQL Installer 8.0.31](dev.mysql.com/downloads/installer) na opção "Developer Default".
+b) Após a conclusão, abra o MySQL Workbench conecte-se na instância local com seu usuário root e a senha definida durante a instalação.
+c) Na aba de `queries`, crie um banco de dados de nome bookinghub_db. Você pode usar o comando `CREATE DATABASE bookinghub_db;`
+d) Navegue até a pasta backend, abra o arquivo seeding.txt, copie todo o conteúdo e cole na query do workbench, execute.
 
-## Integrate with your tools
+Feito essas etapas, volte para o InteliJ e navegue até a pasta src/main/java/br.com.APIrest.APIrest, clique com o botão direito no arquivo APIrestApplication.java e selecione Run ou pressione o atalho Ctrl + Shift + F10. Pronto, a API já está online e comunicando-se com o banco de dados.
 
-- [ ] [Set up project integrations](https://gitlab.com/lion_rent_cars/grupo_04_lionsrest/-/settings/integrations)
+FRONTEND
+1)Vite App Server
+a) Baixe e instale o editor de texto para JavaScript. No exemplo usaremos [VSCode](code.visualstudio.com/download).
+b) Baixe e instale o [NodeJS](nodejs.org/en/). Marque a opção para instalação do Chocolatey.
+c) Navegue até a pasta frontend, abra o terminal (Ctrl + ') e execute o comando `npm install --global yarn`, depois `yarn install`.
+d) Navegue até a pasta frontend/src/services, abra o arquivo apiHandle.JS e mude os endereços da linha 5 e 7 para localhost:8080
 
-## Collaborate with your team
+## Suporte
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Se você tiver alguma dúvida ou dificuldade técnica com a instalação entre outras ocorrências, você pode entrar em contato através do linkedin dos responsáveis por este projeto.
+[Felipe Godoy](www.linkedin.com/in/felipe-godoy-00186812b/
 
-## Test and Deploy
+## Autores
+[Felipe Godoy](https://github.com/FelipeGodoy96)
+[Matheus Emanoel](https://github.com/fehbr800)
+[Rodrigo Ferreira](https://github.com/rllimaferreira)
+[Victor Luz](https://github.com/vitinop)
+[Vinicius Felce](https://github.com/ViniciusFelce)
 
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
