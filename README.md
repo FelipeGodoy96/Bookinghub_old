@@ -77,7 +77,7 @@ FRONTEND
 
 a) Baixe e instale o editor de texto para JavaScript. No exemplo usaremos [VSCode](code.visualstudio.com/download).
 
-b) Baixe e instale o [NodeJS](nodejs.org/en/). Marque a opção para instalação do Chocolatey.
+b) Baixe e instale o [NodeJS](http://nodejs.org/en/). Marque a opção para instalação do Chocolatey.
 
 c) Navegue até a pasta frontend, abra o terminal (Ctrl + ') e execute o comando `npm install --global yarn`, depois `yarn install`.
 
