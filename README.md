@@ -24,9 +24,15 @@ Entretanto, o foco deste tutorial será na instalação local.
 Para rodar o projeto localmente é necessário a instalação de alguns programas e ferramentas. Vamos separar por partes.
 
 BACKEND
+
+
 1)Java Web Server
+
+
 a) Baixe e instale o editor de texto para Java. No exemplo usaremos [InteliJ](www.jetbrains.com/pt-br/idea/download/#section=windows), mas você pode usar outros como Eclipse ou NetBeans. 
+
 b) Baixe e instale o [JDK 17](https://www.jetbrains.com/help/idea/sdk.html#define-sdk) em seu InteliJ.
+
 c) Baixe o arquivo ZIP deste repositório. Extraia o conteúdo do arquivo em uma pasta no local que desejar.
 d) Navegue até a pasta e clique com o botão direito no arquivo pom.xml e selecione a opção "Editar com InteliJ"
 e) Por padrão, a branch main está configurada para o deploy na infraestrutura da AWS, então será necessário algumas configurações: 
