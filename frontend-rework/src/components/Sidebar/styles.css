@@ -1,0 +1,13 @@
+.loginState {
+    width: 100%;
+    height: 10.9375rem;
+    background-color: #1DBEB4;
+}
+
+.colored {
+    color: #1DBEB4;
+}
+
+.closed {
+    right: -100%;
+}
