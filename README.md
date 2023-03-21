@@ -96,8 +96,6 @@ Feito essas etapas, volte para o InteliJ e navegue até a pasta src/main/java/br
 ### Frontend
 
 
-1)Vite App Server
-
 
 a) Baixe e instale o editor de texto para JavaScript. No exemplo usaremos [VSCode](code.visualstudio.com/download).
 
