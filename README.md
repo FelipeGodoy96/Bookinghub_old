@@ -21,21 +21,38 @@ O projeto possui um modelo de negócio similar ao [Booking](https://www.booking.
 ![Product Detail 2](./Screenshot_6.jpg)
 ![Register](./Screenshot_8.jpg)
 
+## Tecnologias Utilizadas
+### Backend
+- Java
+- Spring Boot
+- Hibernate / JPA
+- Web Security / JWT
+- Maven
+
+### Frontend
+- HTML / CSS / JavaScript 
+- Vite
+- ReactJS
+- TailwindCSS
+- Stylized Components
+
+### Infraestrutura
+- AWS: S3, EC2, RDS (MySQL)
+- Ansible
+- Terraform
+- Docker, Docker Compose
+
+
+## Implantação em produção
+- Backend: Dockerfile em EC2 da AWS.
+- Frontend: Dockerfile em EC2 da AWS.
+- Banco de dados: AWS RDS.
+
 
 ## Instalação
 ###  Como funciona?
 
-O bookinghub pode ser configurado para ambiente de desenvolvimento/localmente e ambiente de deploy/online.
-
-#### AWS
-Para rodar o projeto na infraestrutura da AWS é necessário várias etapas de configuração e criação de instâncias. 
-O projeto conta com uma pipeline automatizadora do versionamento em infraestrutura.
-Entretanto, o foco deste tutorial será na instalação local.
-
-#### Localmente 
-Para rodar o projeto localmente é necessário a instalação de alguns programas e ferramentas. Vamos separar por partes.
-
-BACKEND
+#### Backend
 
 
 
@@ -95,17 +112,5 @@ Se você tiver alguma dúvida ou dificuldade técnica com a instalação entre o
 [Felipe Godoy](www.linkedin.com/in/felipe-godoy-00186812b/)
 
 ## Autores
-[Felipe Godoy](https://github.com/FelipeGodoy96)
-
-
-[Matheus Emanoel](https://github.com/fehbr800)
-
-
-[Rodrigo Ferreira](https://github.com/rllimaferreira)
-
-
-[Victor Luz](https://github.com/vitinop)
-
-
-[Vinicius Felce](https://github.com/ViniciusFelce)
+[Felipe Godoy](https://www.linkedin.com/in/felipegodoy-dev)
 
