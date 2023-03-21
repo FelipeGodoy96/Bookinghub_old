@@ -51,6 +51,8 @@ O projeto possui um modelo de negócio similar ao [Booking](https://www.booking.
 
 ## Instalação
 ###  Como funciona?
+Clone o repositório 
+`git clone https://github.com/FelipeGodoy96/Bookinghub.git`
 
 #### Backend
 
@@ -76,7 +78,7 @@ e) Por padrão, a branch main está configurada para o deploy na infraestrutura 
 	III - na linha 12 mude de `admin` para `root` e na linha 13 coloque a senha que criou em seu MySQL Server + Workbench (veremos a seguir).
 	
 
-2)MySQL 
+### MySQL 
 
 
 a) Baixe e instale o [MySQL Installer 8.0.31](http://dev.mysql.com/downloads/installer) na opção "Developer Default".
@@ -91,7 +93,7 @@ d) Navegue até a pasta backend, abra o arquivo seeding.txt, copie todo o conte�
 Feito essas etapas, volte para o InteliJ e navegue até a pasta src/main/java/br.com.APIrest.APIrest, clique com o botão direito no arquivo APIrestApplication.java e selecione Run ou pressione o atalho Ctrl + Shift + F10. Pronto, a API já está online e comunicando-se com o banco de dados.
 
 
-FRONTEND
+### Frontend
 
 
 1)Vite App Server
@@ -104,6 +106,8 @@ b) Baixe e instale o [NodeJS](http://nodejs.org/en/). Marque a opção para inst
 c) Navegue até a pasta frontend, abra o terminal (Ctrl + ') e execute o comando `npm install --global yarn`, depois `yarn install`.
 
 d) Navegue até a pasta frontend/src/services, abra o arquivo apiHandle.JS e mude os endereços da linha 5 e 7 para localhost:8080
+
+f) Volte para a pasta frontend, abra o terminal e execute `yarn run dev`.
 
 
 ## Suporte
