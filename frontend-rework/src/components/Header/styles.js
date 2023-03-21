@@ -10,4 +10,5 @@ export const HeaderComponent = styled.header`
     position: fixed;
     width: 100%;
     padding: 1.25rem 0.8275rem 1.25rem 0.690rem;
+    z-index: 1;
 `

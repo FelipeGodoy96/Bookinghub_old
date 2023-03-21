@@ -1,0 +1,9 @@
+/* 
+    Header height: 5.8125rem
+    Footer height: 3.625rem
+*/
+
+.login {
+    background-color: #F3F1ED;
+    height: calc(100% - 5.8125rem - 3.625rem);
+}

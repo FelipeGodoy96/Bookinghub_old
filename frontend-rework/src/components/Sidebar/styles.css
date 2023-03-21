@@ -10,4 +10,10 @@
 
 .closed {
     right: -100%;
+    transition: 650ms;
+}
+
+.opened {
+    right: 0;
+    transition: 400ms;
 }

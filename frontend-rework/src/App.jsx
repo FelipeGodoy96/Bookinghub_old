@@ -15,10 +15,13 @@ export default function App() {
         <GlobalStyles />
         <Header sidebar={sidebar} setSidebar={setSidebar} login={login} setLogin={setLogin} />
         <Sidebar sidebar={sidebar} setSidebar={setSidebar} login={login} setLogin={setLogin} />
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-        </Routes>
+        <div className="wrapper">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </div>
+        
         <Footer />
         </>
     )
