@@ -3,19 +3,23 @@
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/FelipeGodoy96/Bookinghub/blob/main/LICENSE)
 
 ## O que é?
+
 https://bookinghub-godoynetworks.netlify.app
-O Bookighub é um projeto fullstack de ecommerce que atua como uma plataforma de anúncios de locações de estadias temporárias, ou seja, um intermediador entre cliente e proprietário de imóvel para locação. O projeto foca na acessibilidade, dispondo de ferramenta para leitura/usabilidade em Libras, garantindo uma experiência inclusiva.
-O projeto possui um modelo de negócio similar ao [Booking](booking.com).
+
+O Bookighub é uma aplicação fullstack web e mobile, que atua como uma plataforma de anúncios de locações para estadias temporárias, ou seja, um intermediador entre cliente e proprietário de imóvel, realizado como projeto de conclusão de curso Certified Tech Developer.
+
+O projeto possui um diferencial que é a acessibilidade, dispondo de ferramenta para leitura/usabilidade em Libras, garantindo uma experiência inclusiva.
+O projeto possui um modelo de negócio similar ao [Booking](https://www.booking.com).
 
 ## Screenshots
 
-![](./Screenshot_1.jpg)
-![](./Screenshot_2.jpg)
-![](./Screenshot_3.jpg)
-![](./Screenshot_4.jpg)
-![](./Screenshot_5.jpg)
-![](./Screenshot_6.jpg)
-![](./Screenshot_8.jpg)
+![Homepage](./Screenshot_1.jpg)
+![Homepage 2](./Screenshot_2.jpg)
+![Search](./Screenshot_3.jpg)
+![Product Detail](./Screenshot_4.jpg)
+![Product Gallery](./Screenshot_5.jpg)
+![Product Detail 2](./Screenshot_6.jpg)
+![Register](./Screenshot_8.jpg)
 
 
 ## Instalação
