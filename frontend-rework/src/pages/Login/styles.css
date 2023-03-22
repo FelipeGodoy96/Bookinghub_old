@@ -3,7 +3,24 @@
     Footer height: 3.625rem
 */
 
-.login {
+.login-section {
     background-color: #F3F1ED;
     height: calc(100% - 5.8125rem - 3.625rem);
+}
+
+.login-content {
+    font-size: 16pt;
+}
+
+.login-text {
+    color: #1DBEB4;
+    font-size: 20pt;
+}
+
+.login-form {
+    width: 250px;
+}
+
+.login-form > div > input { 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
 }
