@@ -6,6 +6,7 @@ import GlobalStyles from './styles'
 import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
 import { useState } from 'react'
+import { Searchbar } from "./components/Searchbar";
 
 export default function App() {
     const [ login, setLogin ] = useState(false)

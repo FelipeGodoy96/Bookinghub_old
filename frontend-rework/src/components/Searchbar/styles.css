@@ -1,0 +1,7 @@
+.searchbar {
+    background-color: #545776;
+}
+
+.searchbar-text {
+    transform: translateY(0.625rem);
+}
