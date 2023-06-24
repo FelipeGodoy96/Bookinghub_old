@@ -1,8 +1,9 @@
 import { CategoryCard } from "../../components/CategoryCard";
+import { ProductCard } from "../../components/ProductCard";
 import { Searchbar } from "../../components/Searchbar";
 import "./styles.css";
 
-const products = [
+const categories = [
   {
     id: 1,
     categoria: "Hotéis",
@@ -33,20 +34,25 @@ const products = [
   },
 ];
 
+const products = [{id: 1, nome: 'Hermitage Hotel', tipo: 'hotel', pontuacao: 8, estrelas: 5, descricao: 'No coração de San Telmo, desfrute de uma pousada inspirada nas paixões de Buenos Aires, com 2 piscinas impressionantes, uma no terraço e outra ao ar livre; quartos privados (alguns Lorem Ipsum sit Amet )', source: 'https://img.freepik.com/fotos-gratis/luxo-classico-moderno-quarto-suite-em-hotel_105762-1787.jpg?w=1380&t=st=1687564479~exp=1687565079~hmac=c93b429cfef584600b5205cf4ede95a089a83798015e36e388de68507e074b3e'}]
+
 export const Home = () => {
   return (
     <>
       <Searchbar />
-      <section className="category my-8 mx-2 flex flex-col gap-6">
-        <h1 className="title font-semibold text-2xl text-slate-500">
+      <section className="category my-8 mx-2 flex flex-col gap-6 p-2">
+        <h1 className="category-title font-semibold text-2xl text-slate-500">
           Buscar por tipo de acomodação
         </h1>
-        {products.map((product) => (
-          <CategoryCard product={product} key={product.id} />
+        {categories.map((category) => (
+          <CategoryCard category={category} key={category.id} />
         ))}
       </section>
-      <section className="recommendations my-8 mx-2 flex flex-col gap-6">
-            <h1 className="title font-semibold text-2xl text-white bg-slate-900">Recomendações</h1>
+      <section className="recommendations my-8 mx-2 flex flex-col gap-6 p-2 h-auto">
+            <h1 className="recommendation-title font-semibold text-2xl text-white pt-4">Recomendações</h1>
+            {products.map((product) => (
+                <ProductCard product={product} />
+            ))}
       </section>
     </>
   );

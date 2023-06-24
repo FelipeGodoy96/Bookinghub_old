@@ -1,0 +1,7 @@
+.recommendations {
+    background-color: #545776;
+}
+
+.recommendation-title {
+    transform: translateY(0.625rem);
+}
