@@ -51,7 +51,7 @@ export const Home = () => {
       <section className="recommendations my-8 mx-2 flex flex-col gap-6 p-2 h-auto">
             <h1 className="recommendation-title font-semibold text-2xl text-white pt-4">Recomendações</h1>
             {products.map((product) => (
-                <ProductCard product={product} />
+                <ProductCard product={product} key={product.id} />
             ))}
       </section>
     </>
