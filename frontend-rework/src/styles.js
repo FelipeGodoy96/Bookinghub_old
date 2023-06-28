@@ -4,6 +4,10 @@ export default createGlobalStyle`
     body {
         font-family: 'Roboto', sans-serif;
         background-color: #FFF;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     .wrapper {
@@ -12,4 +16,5 @@ export default createGlobalStyle`
         padding-top: 5.8125rem;
         padding-bottom: 3.625rem;   
     }
+
 `

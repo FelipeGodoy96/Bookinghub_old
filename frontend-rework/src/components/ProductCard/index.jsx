@@ -1,5 +1,4 @@
 import "./styles.css";
-import star from '../../assets/img/star.svg'
 
 
 export const ProductCard = ({ product }) => {

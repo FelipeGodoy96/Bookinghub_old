@@ -16,7 +16,7 @@ const categories = [
     categoria: "Hostels",
     quantidade: 782384,
     source:
-      "https://img.freepik.com/fotos-gratis/quarto-do-hotel-com-cama-de-casal-mesa-e-tv_1262-3034.jpg?w=1380&t=st=1687480751~exp=1687481351~hmac=741105c9f487d9a3e85dd47e024fdde5e6741870a1c734531014a4a709f30513",
+      "https://img.freepik.com/fotos-gratis/quarto-do-hotel-com-cama-de-casal-mesa-e-tv_1262-3034.jpg?w=1380&t=st=1687910501~exp=1687911101~hmac=d70ddc6eb3bc246c73f8139cec44c7b4cbedb2eda84cb66818bc0284d98738f0",
   },
   {
     id: 3,
