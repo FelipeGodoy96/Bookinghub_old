@@ -6,10 +6,10 @@
 
 https://bookinghub-godoynetworks.netlify.app
 
-O Bookighub é uma aplicação fullstack web e mobile, que atua como uma plataforma de anúncios de locações para estadias temporárias, ou seja, um intermediador entre cliente e proprietário de imóvel, realizado como projeto de conclusão de curso Certified Tech Developer.
+O Bookighub é uma aplicação fullstack web e mobile, que atua como uma plataforma de anúncios de locações para estadias temporárias, ou seja, um intermediador entre cliente e proprietário de imóvel, realizado como bootcamp do MercadoLivre em parceria com a Globant, através da Digital House.
 
-O projeto possui um diferencial que é a acessibilidade, dispondo de ferramenta para leitura/usabilidade em Libras, garantindo uma experiência inclusiva.
-O projeto possui um modelo de negócio similar ao [Booking](https://www.booking.com).
+O projeto possui um diferencial que busca acessibilidade ao usuário, disponibilizando de ferramenta para leitura/usabilidade em Libras.
+O projeto em si possui um modelo de negócio similar ao [Booking](https://www.booking.com).
 
 ## Screenshots
 
