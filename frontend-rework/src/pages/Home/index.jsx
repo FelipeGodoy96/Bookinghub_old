@@ -34,7 +34,7 @@ const categories = [
   },
 ];
 
-const products = [{id: 1, nome: 'Hermitage Hotel', tipo: 'hotel', pontuacao: 8, estrelas: 5, centro: 800, descricao: 'No coração de San Telmo, desfrute de uma pousada inspirada nas paixões de Buenos Aires, com 2 piscinas impressionantes, uma no terraço e outra ao ar livre; quartos privados (alguns Lorem Ipsum sit Amet )', source: 'https://img.freepik.com/fotos-gratis/luxo-classico-moderno-quarto-suite-em-hotel_105762-1787.jpg?w=1380&t=st=1687564479~exp=1687565079~hmac=c93b429cfef584600b5205cf4ede95a089a83798015e36e388de68507e074b3e'}]
+const products = [{id: 1, nome: 'Hermitage Hotel', tipo: 'hotel', pontuacao: 8, estrelas: 5, centro: 800, mapslink: " sa", descricao: 'No coração de San Telmo, desfrute de uma pousada inspirada nas paixões de Buenos Aires, com 2 piscinas impressionantes, uma no terraço e outra ao ar livre; quartos privados (alguns Lorem Ipsum sit Amet )', source: 'https://img.freepik.com/fotos-gratis/luxo-classico-moderno-quarto-suite-em-hotel_105762-1787.jpg?w=1380&t=st=1687564479~exp=1687565079~hmac=c93b429cfef584600b5205cf4ede95a089a83798015e36e388de68507e074b3e'}]
 
 export const Home = () => {
   return (

@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-const media = {
-    tablet: '@media(min-width: 640px)',
-    laptop: '@media(min-width: 1024px)',
-    desktop: '@media(min-width: 1280px)',
-}
 
 export const ButtonComponent = styled.button`
     background-color: ${props => props.variant == 'primary' ? "#1DBEB4" : props.variant == 'secondary' ? "#F3F1ED" : props.variant == 'alternative' ? "#FFF" : "#FFF"};

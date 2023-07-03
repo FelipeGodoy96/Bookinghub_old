@@ -1086,6 +1086,11 @@ react-router@6.9.0:
   dependencies:
     "@remix-run/router" "1.4.0"
 
+react-text-expander@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-text-expander/-/react-text-expander-1.0.0.tgz#7e927fd47baafcb842af056b6ae8e6e033b8581c"
+  integrity sha512-8tf9N53AhUOMMOZu8dvdXPZogq00OSTcNj4nuO/PCb3aShyuyJqs55Rw6qZPcb+22HVK3FPzG3+NrTSn84Famw==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
