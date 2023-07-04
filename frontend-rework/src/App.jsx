@@ -6,7 +6,7 @@ import GlobalStyles from './styles'
 import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
 import { useState } from 'react'
-import { Searchbar } from "./components/Searchbar";
+import { Register } from "./pages/Register";
 
 export default function App() {
     const [ login, setLogin ] = useState(false)
@@ -20,6 +20,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register/>} />
             </Routes>
         </div>
         

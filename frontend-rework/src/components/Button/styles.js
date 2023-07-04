@@ -6,7 +6,7 @@ export const ButtonComponent = styled.button`
     color: ${props => props.variant == 'primary' ? "#FFF" : props.variant == 'secondary' ? "#1DBEB4" : props.variant == 'alternative' ? "#1DBEB4" : "#FFF"};
     border: ${props => props.variant == 'primary' ? "none" : props.variant == 'secondary' ? "1px solid #1DBEB4" : props.variant == 'alternative' ? "1px solid #545776" : "none"};
     border-radius: 0.3125rem;
-    font-size: 16pt;
+    font-size: ${props => props.fontSize == "" ? "16pt" : props.fontSize};
     height: 2.5rem;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     width: ${props => props.width};

@@ -34,11 +34,11 @@ export const Sidebar = ({sidebar, setSidebar, login, setLogin}) => {
                 <ul className='text-black'>
             {!login ? (<>
                         <li className='mr-4 my-5'>
-                            <Link to="/register">Criar conta</Link>
+                            <Link onClick={() => {setSidebar(false)}} to="/register">Criar conta</Link>
                         </li>
                         <hr className='h-px mx-2 bg-gray-700 border-0'/>
                         <li className='mr-4 my-5'>
-                            <Link to="/login">Fazer login</Link>
+                            <Link onClick={() => {setSidebar(false)}} to="/login">Fazer login</Link>
                         </li>
                         </>) : (<>
                         <li className='mr-4 mt-96 mb-1 text-right'>

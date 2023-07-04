@@ -1,0 +1,21 @@
+.register {
+    background-color: #F3F1ED;
+    height: calc(100% - 5.8125rem - 3.625rem);
+}
+
+/* .register_content {
+    font-size: 16pt;
+} */
+
+.content_text {
+    color: #1DBEB4;
+    font-size: 20pt;
+}
+
+.register-form {
+    width: 250px;
+}
+
+.register-form > div > input { 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+}
