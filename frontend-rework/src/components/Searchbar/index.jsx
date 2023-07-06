@@ -1,7 +1,21 @@
 import "./styles.css";
 import { Button } from "../Button";
+import { useState } from "react";
+import { useEffect } from "react";
+
 
 export const Searchbar = () => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [suggestions, setSuggestions] = useState([])
+
+  useEffect(() => {
+    fetch('/api/frequentsearchterms')
+    .then(response => response.json())
+    .then(data => setSuggestions(data))
+  }, [])
+
+
+
   return (
     <div className="searchbar flex flex-col justify-center gap-2 text-center px-2 text-white font-bold h-auto">
       <div className="searchbar-text text-3xl lg:text-4xl py-4">
@@ -9,9 +23,11 @@ export const Searchbar = () => {
       </div>
       <div className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 lg:mx-32 md:mx-6 relative">
         <input
+          onFocus={{}}
           placeholder="Onde vamos?"
           className="search-location rounded h-10 pl-10 text-sm font-semibold lg:w-1/3"
         />
+        
         <div className="location-icon absolute left-2 top-6">
           <svg
             className="icon-svg w-6"
