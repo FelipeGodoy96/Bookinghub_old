@@ -8,13 +8,6 @@ export const Searchbar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // This will be used when the implementation on backend is finished
-  // useEffect(() => {
-  //   fetch("/api/frequentsearchterms")
-  //     .then((response) => response.json())
-  //     .then((data) => setSuggestions(data));
-  // }, []);
-
   const frequentSearchTerms = [
     {
       destino: "San Carlos de Bariloche",
@@ -31,30 +24,38 @@ export const Searchbar = () => {
     {
       destino: "Córdoba",
       pais: "Argentina",
-    }
+    },
   ];
 
-
-  // Used to test 
+  // Used to test, this will be implemented with a backend endpoint when finished
   useEffect(() => {
-    setSuggestions(frequentSearchTerms);
+    // setting the maximum suggestions elements to 4
+    const maxElements = 4;
+    // slicing the array, limiting to maxElements
+    const limitedSuggestions = frequentSearchTerms.slice(0, maxElements);
+    // setting the suggestions array
+    setSuggestions(limitedSuggestions);
   }, []);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
     // Filtering the frequent search terms based on the user's input
-    const filteredSuggestions = frequentSearchTerms.filter((term) => term.destino.toLowerCase().includes(value.toLowerCase()))
-    setSuggestions(filteredSuggestions)
+    const filteredSuggestions = frequentSearchTerms.filter((term) =>
+      term.destino.toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions);
   };
 
   const handleInputFocus = () => {
     setShowDropdown(true);
   };
 
-  const handleInputBlur = () => {
-    setShowDropdown(false);
-  };
+
+  // Here lies a bug, onBlur event unstack the handleOptionClick, must fix later
+  // const handleInputBlur = () => {
+  //   setShowDropdown(false);
+  // };
 
   const handleOptionClick = (option) => {
     setSearchTerm(option.target.textContent);
@@ -77,17 +78,15 @@ export const Searchbar = () => {
           className="search-location rounded h-10 pl-10 text-sm font-semibold lg:w-1/3 text-slate-500"
         />
         {showDropdown && (
-          <div className="dropdown relative overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full">
+          <div className="dropdown absolute overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full top-16">
             <ul className="mx-2 text-center">
               {suggestions.map((option, index) => (
-                <>
+                <div key={index}>
                   <li
                     className="text-black flex justify-start gap-4 items-center my-4"
-                    key={index}
                     onClick={handleOptionClick}
                   >
                     <svg
-                      key={index}
                       className="icon-svg w-6"
                       viewBox="0 0 24 24"
                       fill="none"
@@ -118,10 +117,7 @@ export const Searchbar = () => {
                         ></path>{" "}
                       </g>
                     </svg>
-                    <p className="text-slate-700">
-                      {option.destino}
-                    </p>
-                    
+                    <p className="text-slate-700">{option.destino}</p>
                   </li>
                   <hr
                     className={
@@ -130,12 +126,11 @@ export const Searchbar = () => {
                         : "" + "mx-1 bg-cyan-500 h-0.5 "
                     }
                   />
-                </>
+                </div>
               ))}
             </ul>
           </div>
         )}
-
         <div className="location-icon absolute left-2 top-6">
           <svg
             className="icon-svg w-6"
