@@ -31,16 +31,15 @@ export const Searchbar = () => {
   // Used to test, this will be implemented with a backend endpoint when finished
   useEffect(() => {
     const getSuggestions = async () => {
-      await axios
-        .get("/api/search-suggestions")
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+      const response = await axios.get("/api/search-suggestions")
+      setSuggestions(response.data)
       // setting the maximum suggestions elements to 4
       const maxElements = 4;
       // slicing the array, limiting to maxElements
       const limitedSuggestions = suggestions.slice(0, maxElements);
       // setting the suggestions array
       setSuggestions(limitedSuggestions);
+      console.log(suggestions)
     };
     getSuggestions();
   }, []);
