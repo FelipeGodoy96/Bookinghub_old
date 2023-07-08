@@ -28,21 +28,22 @@ export const Searchbar = () => {
   //   },
   // ];
 
-  // Used to test, this will be implemented with a backend endpoint when finished
   useEffect(() => {
-    const getSuggestions = async () => {
-      const response = await axios.get("/api/search-suggestions")
-      setSuggestions(response.data)
-      // setting the maximum suggestions elements to 4
-      const maxElements = 4;
-      // slicing the array, limiting to maxElements
-      const limitedSuggestions = suggestions.slice(0, maxElements);
-      // setting the suggestions array
-      setSuggestions(limitedSuggestions);
-      console.log(suggestions)
-    };
-    getSuggestions();
+    setSuggestions(() => {
+      axios.get('/api/search-suggestions/frequent?limit=20&offset=0')
+    })
   }, []);
+
+  // useEffect(() => {
+  //   // setting the maximum suggestions elements to 4
+  //   const maxElements = 4;
+  //   // slicing the array, limiting to maxElements
+  //   const limitedSuggestions = suggestions.slice(0, maxElements);
+  //   // setting the suggestions array if it has changed
+  //   if (limitedSuggestions.length !== suggestions.length) {
+  //     setSuggestions(limitedSuggestions);
+  //   }
+  // }, [suggestions]);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -86,7 +87,7 @@ export const Searchbar = () => {
         {showDropdown && (
           <div className="dropdown absolute overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full top-16">
             <ul className="mx-2 text-center">
-              {suggestions.map((option, index) => (
+              {suggestions?.map((option, index) => (
                 <div key={index}>
                   <li
                     className="text-black flex justify-start gap-4 items-center my-4"
