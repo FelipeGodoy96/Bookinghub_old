@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom'
 export const Register = () => {
     return (
         <section className='register absolute w-full flex justify-center items-center align-center overflow-hidden'>
-            <div className='register_content text-center'>
-            <span className='login_content-text font-bold my-6'>Criar conta</span>
+            <div className='register_content flex flex-col mx-10 w-full text-center'>
+            <span className='register_content-text font-bold my-6'>Criar conta</span>
                 <form className='register_content-form flex flex-col justify-between items-center w-full gap-4 text-base' onSubmit={(event) => {
                     event.preventDefault()
                 }}>
                     <div className='register-email w-full text-left flex flex-col gap-1'>
-                        <label htmlFor='email' className='px-1'>Nome</label>
+                        <label htmlFor='email' className='px-1'>Nome completo</label>
                         <input type="email" name="email" className='w-full rounded-md h-8 appearance-none py-3 px-2'/>
                     </div>
                     <div className='register-password w-full text-left flex flex-col gap-1'>
-                        <label htmlFor='password' className='px-1'>Sobrenome</label>
+                        <label htmlFor='password' className='px-1'>Nome de exibição <i>?</i></label>
                         <input type="password" name="password" className='w-full rounded-md h-8 appearance-none py-3 px-2'/>
                     </div>
                     <div className='register-password w-full text-left flex flex-col gap-1'>

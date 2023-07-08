@@ -7,9 +7,10 @@
     font-size: 16pt;
 } */
 
-.login_content-text {
+.register_content-text {
     color: #1DBEB4;
     font-size: 20pt;
+    transform: translateY(-1rem);
 }
 
 .register_content-form {

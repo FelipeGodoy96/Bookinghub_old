@@ -2,46 +2,54 @@ import "./styles.css";
 import { Button } from "../Button";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "../../apiHandle.js/config";
 
 export const Searchbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const frequentSearchTerms = [
-    {
-      destino: "San Carlos de Bariloche",
-      pais: "Argentina",
-    },
-    {
-      destino: "Buenos Aires",
-      pais: "Argentina",
-    },
-    {
-      destino: "Mendoza",
-      pais: "Argentina",
-    },
-    {
-      destino: "Córdoba",
-      pais: "Argentina",
-    },
-  ];
+  // const frequentSearchTerms = [
+  //   {
+  //     destino: "San Carlos de Bariloche",
+  //     pais: "Argentina",
+  //   },
+  //   {
+  //     destino: "Buenos Aires",
+  //     pais: "Argentina",
+  //   },
+  //   {
+  //     destino: "Mendoza",
+  //     pais: "Argentina",
+  //   },
+  //   {
+  //     destino: "Córdoba",
+  //     pais: "Argentina",
+  //   },
+  // ];
 
   // Used to test, this will be implemented with a backend endpoint when finished
   useEffect(() => {
-    // setting the maximum suggestions elements to 4
-    const maxElements = 4;
-    // slicing the array, limiting to maxElements
-    const limitedSuggestions = frequentSearchTerms.slice(0, maxElements);
-    // setting the suggestions array
-    setSuggestions(limitedSuggestions);
+    const getSuggestions = async () => {
+      await axios
+        .get("/api/search-suggestions")
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+      // setting the maximum suggestions elements to 4
+      const maxElements = 4;
+      // slicing the array, limiting to maxElements
+      const limitedSuggestions = suggestions.slice(0, maxElements);
+      // setting the suggestions array
+      setSuggestions(limitedSuggestions);
+    };
+    getSuggestions();
   }, []);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
     // Filtering the frequent search terms based on the user's input
-    const filteredSuggestions = frequentSearchTerms.filter((term) =>
+    const filteredSuggestions = suggestions.filter((term) =>
       term.destino.toLowerCase().includes(value.toLowerCase())
     );
     setSuggestions(filteredSuggestions);
@@ -50,7 +58,6 @@ export const Searchbar = () => {
   const handleInputFocus = () => {
     setShowDropdown(true);
   };
-
 
   // Here lies a bug, onBlur event unstack the handleOptionClick, must fix later
   // const handleInputBlur = () => {
