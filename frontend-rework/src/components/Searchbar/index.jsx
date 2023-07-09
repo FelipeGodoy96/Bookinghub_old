@@ -29,10 +29,21 @@ export const Searchbar = () => {
   // ];
 
   useEffect(() => {
-    setSuggestions(() => {
-      axios.get('/api/search-suggestions/frequent?limit=20&offset=0')
-    })
-  }, []);
+    if (searchTerm !== '') {
+          fetchSearchSuggestions()
+    } else {
+      setSuggestions([])
+    }
+  }, [searchTerm]);
+
+  const fetchSearchSuggestions = async () => {
+    try {
+      const response = await axios.get('/api/search-suggestions/frequent')
+      setSuggestions(response.data)
+    } catch (error) {
+      console.error('Error fetching suggestion results', error)
+    }
+  }
 
   // useEffect(() => {
   //   // setting the maximum suggestions elements to 4
@@ -48,11 +59,6 @@ export const Searchbar = () => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
-    // Filtering the frequent search terms based on the user's input
-    const filteredSuggestions = suggestions.filter((term) =>
-      term.destino.toLowerCase().includes(value.toLowerCase())
-    );
-    setSuggestions(filteredSuggestions);
   };
 
   const handleInputFocus = () => {
@@ -124,7 +130,7 @@ export const Searchbar = () => {
                         ></path>{" "}
                       </g>
                     </svg>
-                    <p className="text-slate-700">{option.destino}</p>
+                    <p className="text-slate-700">{option.term}</p>
                   </li>
                   <hr
                     className={
