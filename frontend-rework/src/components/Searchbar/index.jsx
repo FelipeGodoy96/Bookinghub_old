@@ -59,7 +59,8 @@ export const Searchbar = () => {
   // }, [suggestions]);
 
   const handleInputChange = (event) => {
-    const value = event.target.value;
+    // const value = event.target.value.replace(/^\s{2}/, '')
+    const value = event.target.value
     setSearchTerm(value);
   };
 
@@ -73,7 +74,7 @@ export const Searchbar = () => {
   // };
 
   const handleOptionClick = (option) => {
-    setSearchTerm(option.target.textContent);
+    setSearchTerm(option.target.innerText);
     setShowDropdown(false);
   };
 
