@@ -6,44 +6,46 @@ import axios from "../../apiHandle.js/config";
 
 export const Searchbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  const [dropdownSuggestions, setDropdownSuggestions] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // const frequentSearchTerms = [
-  //   {
-  //     destino: "San Carlos de Bariloche",
-  //     pais: "Argentina",
-  //   },
-  //   {
-  //     destino: "Buenos Aires",
-  //     pais: "Argentina",
-  //   },
-  //   {
-  //     destino: "Mendoza",
-  //     pais: "Argentina",
-  //   },
-  //   {
-  //     destino: "Córdoba",
-  //     pais: "Argentina",
-  //   },
-  // ];
 
-  useEffect(() => {
-    if (searchTerm !== '') {
-          fetchSearchSuggestions()
-    } else {
-      setSuggestions([])
-    }
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   if (searchTerm !== '') {
+  //         fetchSearchSuggestions()
+  //   } else {
+  //     setSuggestions([])
+  //   }
+  // }, [searchTerm]);
 
+  // Creating the function to retrieve data from API
   const fetchSearchSuggestions = async () => {
     try {
-      const response = await axios.get('/api/search-suggestions/frequent')
-      setSuggestions(response.data)
+      // By default, this URL is fetching 20 itens, offset 0
+      // The quantity of items can be changed by giving parameter limit
+      // Example: [...]/frequent?limit=10&offset=5
+      const response = await axios.get("/api/search-suggestions/frequent");
+      setSearchResults(response.data);
     } catch (error) {
-      console.error('Error fetching suggestion results', error)
+      console.error("Error fetching suggestion results", error);
     }
-  }
+  };
+
+  // Retrieving data from API
+  useEffect(() => {
+    fetchSearchSuggestions();
+  }, []);
+
+  useEffect(() => {
+    // setting the maximum suggestions elements to 4
+    const maxElements = 5;
+    // slicing the array, limiting to maxElements
+    const limitedSuggestions = searchResults.slice(0, maxElements);
+    // setting the search results array if it has changed
+    setDropdownSuggestions(limitedSuggestions);
+  }, [searchTerm]);
+
 
   // useEffect(() => {
   //   // setting the maximum suggestions elements to 4
@@ -93,7 +95,10 @@ export const Searchbar = () => {
         {showDropdown && (
           <div className="dropdown absolute overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full top-16">
             <ul className="mx-2 text-center">
-              {suggestions?.map((option, index) => (
+              {dropdownSuggestions
+              .filter((suggestion) => suggestion.term.toLowerCase()
+              .includes(searchTerm.toLowerCase()))
+              .map((option, index) => (
                 <div key={index}>
                   <li
                     className="text-black flex justify-start gap-4 items-center my-4"
@@ -134,7 +139,7 @@ export const Searchbar = () => {
                   </li>
                   <hr
                     className={
-                      index + 1 == suggestions.length
+                      index + 1 == searchResults.length
                         ? "hidden"
                         : "" + "mx-1 bg-cyan-500 h-0.5 "
                     }
