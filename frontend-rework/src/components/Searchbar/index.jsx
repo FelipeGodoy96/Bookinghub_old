@@ -8,6 +8,7 @@ export const Searchbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [dropdownSuggestions, setDropdownSuggestions] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  // const [selectedOption, setSelectedOption] = useState(null)
   const [showDropdown, setShowDropdown] = useState(false);
 
 
@@ -59,6 +60,7 @@ export const Searchbar = () => {
   // }, [suggestions]);
 
   const handleInputChange = (event) => {
+    setShowDropdown(true)
     // const value = event.target.value.replace(/^\s{2}/, '')
     const value = event.target.value
     setSearchTerm(value);
@@ -66,15 +68,26 @@ export const Searchbar = () => {
 
   const handleInputFocus = () => {
     setShowDropdown(true);
+    // setSelectedOption("")
   };
 
-  // Here lies a bug, onBlur event unstack the handleOptionClick, must fix later
-  // const handleInputBlur = () => {
-  //   setShowDropdown(false);
-  // };
+  // // Here lies a bug, onBlur event unstack the handleOptionClick
+  // // Using the timeOut worked, it can lead to more bugs, but will be kept 'til later and better fix
+  const handleInputBlur = () => {
+    // Trying to fix delaying its execution
+    setTimeout(() => {
+      setShowDropdown(false);
+    }, 200)
+  };
+
+  // const handleDropdownBlur = () => {
+  //   setSelectedOption(null)
+  // }
 
   const handleOptionClick = (option) => {
-    setSearchTerm(option.target.innerText);
+    const value = option.target.innerText
+    setSearchTerm(value);
+    // setSelectedOption(value)
     setShowDropdown(false);
   };
 
@@ -83,17 +96,21 @@ export const Searchbar = () => {
       <div className="searchbar-text text-3xl lg:text-4xl py-4">
         <p>Buscar ofertas em hotéis, casas e muito mais</p>
       </div>
-      <div className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 lg:mx-32 md:mx-6 relative">
+      <div className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 lg:mx-32 md:mx-6 relative" 
+      // onBlur={handleDropdownBlur}
+      >
         <input
           type="text"
           value={searchTerm}
           onChange={handleInputChange}
           onFocus={handleInputFocus}
-          // onBlur={handleInputBlur}
+          onBlur={handleInputBlur}
           placeholder="Onde vamos?"
           className="search-location rounded h-10 pl-10 text-sm font-semibold lg:w-1/3 text-slate-500"
         />
-        {showDropdown && (
+        {showDropdown && 
+        // selectedOption && 
+        (
           <div className="dropdown absolute overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full top-16">
             <ul className="mx-2 text-center">
               {dropdownSuggestions
@@ -140,7 +157,7 @@ export const Searchbar = () => {
                   </li>
                   <hr
                     className={
-                      index + 1 == searchResults.length
+                      index + 1 == dropdownSuggestions.length
                         ? "hidden"
                         : "" + "mx-1 bg-cyan-500 h-0.5 "
                     }
