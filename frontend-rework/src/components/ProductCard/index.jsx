@@ -54,7 +54,9 @@ export const ProductCard = ({ product }) => {
           <h1 className="font-bold text-2xl flex justify-between items-center">
             {product.nome}{" "}
             <span className="text-sm font-semibold">
-              {product.pontuacao >= 8
+              {product.pontuacao >= 9
+                ? "Excelente"
+                : product.pontuacao >= 8
                 ? "Muito bom"
                 : product.pontuacao >= 5
                 ? "Bom"
@@ -117,7 +119,7 @@ export const ProductCard = ({ product }) => {
           </p>
         </div>
         <div className="c-content_button text-center my-2">
-              <Button variant="primary" text="Ver mais" width="100%"/>
+          <Button variant="primary" text="Ver mais" width="100%" />
         </div>
       </div>
     </div>
