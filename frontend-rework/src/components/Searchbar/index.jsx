@@ -5,9 +5,14 @@ import { useEffect } from "react";
 import axios from "../../apiHandle.js/config";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./custom-react-datepicker.css"
+import { ptBR } from "date-fns/locale";
+
+
 
 
 export const Searchbar = () => {
+  console.log(ptBR)
   // --- Searchbar/Suggestions Dropdown logic ---
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -211,6 +216,8 @@ export const Searchbar = () => {
           className="search-date rounded h-10 pl-10 text-sm font-semibold lg:w-1/3"
         /> */}
         <DatePicker
+          // blur() on onFocus makes to hide the mobile keyboard that pops automatically
+          onFocus={(e) => e.target.blur()}
           className="search-date rounded h-10 pl-10 text-sm font-semibold lg:w-1/3 text-slate-500 w-full"
           selectsRange={true}
           showPopperArrow={false}
@@ -220,7 +227,10 @@ export const Searchbar = () => {
           onChange={(update) => {
             setDateRange(update);
           }}
-          // isClearable={true}
+          isClearable={true}
+          // locale="pt-PT"
+          dateFormat="dd/MM"
+          locale={ptBR}
         />
 
         <div className="date-icon absolute left-2 top-18">
