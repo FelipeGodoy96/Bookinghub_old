@@ -1,13 +1,12 @@
 package br.com.bookinghubgodoynetworks.api.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 
+@Entity
 public class Housing implements Serializable {
 
     private static final Long serialVersionUID = 1L;
@@ -20,6 +19,19 @@ public class Housing implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String description;
     private Double rating;
+
+    private Double dailyCost;
+
+    private String address;
+
+    private int capacity;
+
+    @OneToMany
+    @JoinColumn(name = "booking_id")
+    private HashSet<Booking> bookings = new HashSet<>();
+
+    @ManyToOne
+    private Category category;
 
     public Housing() {
     }
