@@ -27,7 +27,7 @@ public class Housing implements Serializable {
     private int capacity;
 
     @OneToMany
-    @JoinColumn(name = "booking_id")
+//    @JoinColumn(name = "booking_id")
     private HashSet<Booking> bookings = new HashSet<>();
 
     @ManyToOne

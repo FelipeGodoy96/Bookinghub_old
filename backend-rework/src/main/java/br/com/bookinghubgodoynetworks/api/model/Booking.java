@@ -17,7 +17,7 @@ public class Booking implements Serializable {
     private String status;
 
     @OneToOne
-    @JoinColumn(name = "housing_id")
+//    @JoinColumn(name = "housing_id")
     private Housing housing;
 
     private LocalDate checkIn;
@@ -27,8 +27,8 @@ public class Booking implements Serializable {
     private int numberOfGuests;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+//    @JoinColumn(name = "client_id")
+    private Client client;
 
     public Long getId() {
         return id;
@@ -78,25 +78,25 @@ public class Booking implements Serializable {
         this.numberOfGuests = numberOfGuests;
     }
 
-    public User getUser() {
-        return user;
+    public Client getClient() {
+        return client;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Booking() {
     }
 
-    public Booking(Long id, String status, Housing housing, LocalDate checkIn, LocalDate checkOut, int numberOfGuests, User user) {
+    public Booking(Long id, String status, Housing housing, LocalDate checkIn, LocalDate checkOut, int numberOfGuests, Client client) {
         this.id = id;
         this.status = status;
         this.housing = housing;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.numberOfGuests = numberOfGuests;
-        this.user = user;
+        this.client = client;
     }
 
     @Override

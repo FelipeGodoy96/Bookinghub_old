@@ -2,7 +2,7 @@ package br.com.bookinghubgodoynetworks.api.dto;
 
 import br.com.bookinghubgodoynetworks.api.model.Booking;
 import br.com.bookinghubgodoynetworks.api.model.Housing;
-import br.com.bookinghubgodoynetworks.api.model.User;
+import br.com.bookinghubgodoynetworks.api.model.Client;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -23,7 +23,7 @@ public class BookingDTO implements Serializable {
 
     private int numberOfGuests;
 
-    private User user;
+    private Client client;
 
     public Long getId() {
         return id;
@@ -73,25 +73,25 @@ public class BookingDTO implements Serializable {
         this.numberOfGuests = numberOfGuests;
     }
 
-    public User getUser() {
-        return user;
+    public Client getClient() {
+        return client;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public BookingDTO() {
     }
 
-    public BookingDTO(Long id, String status, Housing housing, LocalDate checkIn, LocalDate checkOut, int numberOfGuests, User user) {
+    public BookingDTO(Long id, String status, Housing housing, LocalDate checkIn, LocalDate checkOut, int numberOfGuests, Client client) {
         this.id = id;
         this.status = status;
         this.housing = housing;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.numberOfGuests = numberOfGuests;
-        this.user = user;
+        this.client = client;
     }
 
     public BookingDTO(Booking booking) {
@@ -101,6 +101,6 @@ public class BookingDTO implements Serializable {
         checkIn = booking.getCheckIn();
         checkOut = booking.getCheckOut();
         numberOfGuests = booking.getNumberOfGuests();
-        user = booking.getUser();
+        client = booking.getClient();
     }
 }
