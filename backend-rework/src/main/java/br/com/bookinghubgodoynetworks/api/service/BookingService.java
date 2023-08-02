@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class BookingService {
 
     @Autowired
-    BookingRepository repository;
+    private BookingRepository repository;
 
     /**
      * Method to retrieve all bookings.

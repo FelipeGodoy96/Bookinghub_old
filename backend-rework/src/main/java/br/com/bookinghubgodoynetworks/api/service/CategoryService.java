@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class CategoryService {
 
     @Autowired
-    CategoryRepository repository;
+    private CategoryRepository repository;
 
     /**
      * Method to retrieve all categories.

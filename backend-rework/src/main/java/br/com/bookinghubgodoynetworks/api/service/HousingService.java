@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class HousingService {
 
     @Autowired
-    HousingRepository repository;
+    private HousingRepository repository;
 
     /**
      * Method to retrieve all housings.

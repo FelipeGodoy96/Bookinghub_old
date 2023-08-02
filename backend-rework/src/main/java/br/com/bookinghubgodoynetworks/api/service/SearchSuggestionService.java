@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class SearchSuggestionService {
 
     @Autowired
-    SearchSuggestionRepository repository;
+    private SearchSuggestionRepository repository;
 
 
     /**

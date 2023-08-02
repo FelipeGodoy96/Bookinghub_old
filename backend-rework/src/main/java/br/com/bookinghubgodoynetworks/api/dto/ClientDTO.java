@@ -1,27 +1,21 @@
-package br.com.bookinghubgodoynetworks.api.model;
+package br.com.bookinghubgodoynetworks.api.dto;
 
-import jakarta.persistence.*;
+
+import br.com.bookinghubgodoynetworks.api.model.Client;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Objects;
 
-
-@Entity
-public class User implements Serializable {
+public class ClientDTO implements Serializable {
 
     private static final Long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String firstName;
 
     private String lastName;
 
-    @Column(unique = true)
     private String email;
 
     private String password;
@@ -76,10 +70,10 @@ public class User implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public User() {
+    public ClientDTO() {
     }
 
-    public User(Long id, String firstName, String lastName, String email, String password, LocalDate birthDate) {
+    public ClientDTO(Long id, String firstName, String lastName, String email, String password, LocalDate birthDate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -88,16 +82,12 @@ public class User implements Serializable {
         this.birthDate = birthDate;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public ClientDTO(Client client){
+        id = client.getId();
+        firstName = client.getFirstName();
+        lastName = client.getLastName();
+        email = client.getEmail();
+        password = client.getPassword();
+        birthDate = client.getBirthDate();
     }
 }
