@@ -1,0 +1,45 @@
+/* 
+    Header height: 5.8125rem
+    Footer height: 3.625rem
+*/
+
+.login {
+    background-color: #F3F1ED;
+    height: calc(100% - 5.8125rem - 3.625rem);
+}
+
+.login_content {
+    font-size: 16pt;
+}
+
+.login_content-text {
+    color: #1DBEB4;
+    font-size: 20pt;
+    transform: translateY(-7rem);
+}
+
+.login_content-form {
+    width: 250px;
+}
+
+.login_content-form > div > input { 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+
+.content_form-register {
+    transform: translateY(-0.675rem);
+}
+
+@media (max-height: 720px) {
+    .login_content-form {
+        gap: 0.25rem !important;
+    }
+    .login_content-text {
+        transform: translateY(-2rem);
+    }
+    .login-button {
+        margin-top: 0.25rem !important;
+    }
+    
+}

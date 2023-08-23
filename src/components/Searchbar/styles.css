@@ -1,0 +1,30 @@
+.searchbar {
+    background-color: #545776;
+}
+
+.searchbar-text {
+    transform: translateY(0.625rem);
+}
+
+/* @media medium (min-width: 768px) {
+    .date-icon {
+        transform: translateX(0.25rem);
+    }
+} */
+
+/* .dropdown {
+    top: 4.375rem;
+} */
+
+/* .location-icon {
+    top: 1.5rem;
+    left: 0.5rem;
+    z-index: 2;
+}
+
+.date-icon {
+    top: 4.5rem;
+    left: 0.5rem;
+    z-index: 2;
+} */
+
