@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 @RestController
-@CrossOrigin(origins = "https://bookinghub-godoynetworks.netlify.app")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/categories")
 public class CategoryController {
 

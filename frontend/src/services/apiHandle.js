@@ -2,9 +2,9 @@
 import axios from 'axios'
 
 export const apiLink =
-  process.env.NODE_ENV === 'development' ? 'http://api.godoynetworks.com' : ''
+  process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : ''
 const apiLinkLogin =
-  process.env.NODE_ENV === 'development' ? 'http://api.godoynetworks.com' : ''
+  process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : ''
 
 const login = async user => {
   const { username, password } = user

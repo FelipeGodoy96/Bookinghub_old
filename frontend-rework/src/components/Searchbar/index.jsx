@@ -2,17 +2,17 @@ import "./styles.css";
 import { Button } from "../Button";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "../../apiHandle.js/config";
+import axios from "../../apiHandle/config";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./custom-react-datepicker.css"
 import { ptBR } from "date-fns/locale";
+import { addDays, subDays } from "date-fns";
 
 
 
 
 export const Searchbar = () => {
-  console.log(ptBR)
   // --- Searchbar/Suggestions Dropdown logic ---
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,13 +21,6 @@ export const Searchbar = () => {
   // const [selectedOption, setSelectedOption] = useState(null)
   const [showDropdown, setShowDropdown] = useState(false);
 
-  // useEffect(() => {
-  //   if (searchTerm !== '') {
-  //         fetchSearchSuggestions()
-  //   } else {
-  //     setSuggestions([])
-  //   }
-  // }, [searchTerm]);
 
   // Creating the function to retrieve data from API
   const fetchSearchSuggestions = async () => {
@@ -102,6 +95,11 @@ export const Searchbar = () => {
   // --- Date Range Input logic ---
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+  const [isOpen, setIsOpen] = useState()
+  const handleApplySelectedDate = () => {
+    setIsOpen(false)
+    console.log(dateRange)
+  }
 
   return (
     <div className="searchbar flex flex-col justify-center gap-2 text-center px-2 text-white font-bold h-auto">
@@ -109,7 +107,7 @@ export const Searchbar = () => {
         <p>Buscar ofertas em hotéis, casas e muito mais</p>
       </div>
       <div
-        className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 lg:mx-32 md:mx-6 relative"
+        className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 lg:mx-32 md:mx-6 relative md:justify-between"
         // onBlur={handleDropdownBlur}
       >
         <input
@@ -119,7 +117,7 @@ export const Searchbar = () => {
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           placeholder="Onde vamos?"
-          className="search-location rounded h-10 pl-10 text-sm font-semibold lg:w-1/3 text-slate-500"
+          className="search-location rounded h-10 pl-10 text-sm font-semibold md:w-1/3 lg:w-1/3 text-slate-500"
         />
         {showDropdown && (
           // selectedOption &&
@@ -217,23 +215,53 @@ export const Searchbar = () => {
         /> */}
         <DatePicker
           // blur() on onFocus makes to hide the mobile keyboard that pops automatically
-          onFocus={(e) => e.target.blur()}
-          className="search-date rounded h-10 pl-10 text-sm font-semibold lg:w-1/3 text-slate-500 w-full"
+          onFocus={(e) => {e.target.blur()
+            setIsOpen(!isOpen)
+          }}
+          className="search-date rounded h-10 pl-10 text-sm font-semibold md:w-72 md:min-w-max lg:w-1/3 text-slate-500 w-full"
           selectsRange={true}
           showPopperArrow={false}
           startDate={startDate}
           endDate={endDate}
+          onClickOutside={() => setIsOpen(false)}
+          shouldCloseOnSelect={false}
+          minDate={subDays(new Date(), 0)}
+          maxDate={addDays(new Date(), 90)}
           placeholderText="Check in - Checkout"
           onChange={(update) => {
             setDateRange(update);
           }}
           isClearable={true}
+          open={isOpen}
           // locale="pt-PT"
-          dateFormat="dd/MM"
+          dateFormat="EEEEEE, dd/MM"
           locale={ptBR}
-        />
+        >
+          <div className="date-apply">
+            <Button text="Aplicar" variant="primary" width="18rem" onClick={handleApplySelectedDate}/>
+          </div>
+          {/* <div className="date-icon relative left-2 top-18">
+          <svg
+            className="icon-svg w-6"
+            fill="#545776"
+            viewBox="0 0 22 22"
+            xmlns="http://www.w3.org/2000/svg"
+            id="memory-calendar"
+          >
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path d="M19 20H3V19H2V3H3V2H5V0H7V2H15V0H17V2H19V3H20V19H19V20M4 4V6H18V4H4M4 8V18H18V8H4M12 12H16V16H12V12Z"></path>
+            </g>
+          </svg>
+        </div> */}
+          </DatePicker>
 
-        <div className="date-icon absolute left-2 top-18">
+        <div className="date-icon absolute left-2 md:left-72 md:ml-4 md:top-6 top-18">
           <svg
             className="icon-svg w-6"
             fill="#545776"

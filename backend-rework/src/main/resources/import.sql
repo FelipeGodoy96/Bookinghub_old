@@ -37,4 +37,12 @@ INSERT INTO search_suggestion (term, search_count) VALUES ('Foipon', 47);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Felpus', 96);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Ceopuo', 36);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Xegear', 38);
-
+INSERT INTO category (name) VALUES ('hotel');
+INSERT INTO category (name) VALUES ('hostel');
+INSERT INTO category (name) VALUES ('apartment');
+INSERT INTO category (name) VALUES ('resort');
+INSERT INTO category (name) VALUES ('villa');
+INSERT INTO category (name) VALUES ('cabin');
+INSERT INTO category (name) VALUES ('cottage');
+INSERT INTO category (name) VALUES ('glamping');
+INSERT INTO housing (name, title, description, rating, daily_cost, address, capacity, category_id) VALUES ('Eurostars Hotel Company', 'Aurea Museum', 'Aurea Museum by Eurostars Hotel Company is a unique 5-star property suited on the banks of the Tagus River, in a historic building is Lisbons iconic Alfama quarter. The Hotel features a permanent archaelogical exhibition, as well as modern facilities, like an indoor pool, restaurant, massage room and Turkish bath. The decór features references to the cultural legacy of the hotels building. The air-conditioned rooms all come with a private bathroom, flat-screen TV, safety deposit box and a work desk. Free WiFi is available throughout the property. A daily breakfast buffet is available at the property. The in house restaurant features a variety of traditional Portuguese and International dishes. Guests can also find a wide range of restaurants and eateries within a short 5-minute walk. Alfama is famed for its Fado Houses, which pair traditional Fado concerts with tasty Portuguese tapas. A fitness centre is also featured at the property, along with a 24-hour front desk and various meeting rooms. The iconic São Jorge Castle is a 15-minute uphill walk. Commerce Square is just 500 metres away, while Rossio is a 16-minute walk from Áurea Museum by Eurostars Hotel Company. Lisbons Humberto Delgado Airport is 8.4 km from the property.', 8.8, 264, '52 Rua Cais de Santarém, Santa Maria Maior, 1100-603 Lisbon, Portugal', 4, 1);

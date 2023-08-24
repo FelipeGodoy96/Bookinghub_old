@@ -12,9 +12,9 @@ public class ClientDTO implements Serializable {
 
     private Long id;
 
-    private String firstName;
+    private String fullName;
 
-    private String lastName;
+    private String nickname;
 
     private String email;
 
@@ -31,19 +31,19 @@ public class ClientDTO implements Serializable {
     }
 
     public String getFirstName() {
-        return firstName;
+        return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getLastName() {
-        return lastName;
+        return nickname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getEmail() {
@@ -73,10 +73,10 @@ public class ClientDTO implements Serializable {
     public ClientDTO() {
     }
 
-    public ClientDTO(Long id, String firstName, String lastName, String email, String password, LocalDate birthDate) {
+    public ClientDTO(Long id, String fullName, String nickname, String email, String password, LocalDate birthDate) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
+        this.nickname = nickname;
         this.email = email;
         this.password = password;
         this.birthDate = birthDate;
@@ -84,8 +84,8 @@ public class ClientDTO implements Serializable {
 
     public ClientDTO(Client client){
         id = client.getId();
-        firstName = client.getFirstName();
-        lastName = client.getLastName();
+        fullName = client.getFirstName();
+        nickname = client.getLastName();
         email = client.getEmail();
         password = client.getPassword();
         birthDate = client.getBirthDate();

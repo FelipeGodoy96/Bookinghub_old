@@ -86,19 +86,6 @@ public class Booking implements Serializable {
         this.client = client;
     }
 
-    public Booking() {
-    }
-
-    public Booking(Long id, String status, Housing housing, LocalDate checkIn, LocalDate checkOut, int numberOfGuests, Client client) {
-        this.id = id;
-        this.status = status;
-        this.housing = housing;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
-        this.numberOfGuests = numberOfGuests;
-        this.client = client;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

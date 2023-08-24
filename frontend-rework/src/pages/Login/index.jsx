@@ -18,7 +18,7 @@ export const Login = () => {
                         <label htmlFor='password' className='px-1'>Senha</label>
                         <input type="password" name="password" className='w-full rounded-md h-8 appearance-none py-3 px-2' placeholder='* * * * * * * *'/>
                     </div>
-                    <div className='content_form-button mt-8'>
+                    <div className='content_form-button mt-8 mb-4'>
                         <Button text='Entrar' variant='primary' width='19.375rem' fontSize="16px" type='submit'/>
                     </div>
                     <span className='content_form-register text-sm'>Ainda não tem conta? <Link to='/register' className='text-cyan-500'>Registre-se.</Link></span>

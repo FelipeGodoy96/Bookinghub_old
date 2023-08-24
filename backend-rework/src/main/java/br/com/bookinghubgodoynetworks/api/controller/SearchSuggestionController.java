@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://bookinghub-godoynetworks.netlify.app")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/search-suggestions")
 public class SearchSuggestionController {
 

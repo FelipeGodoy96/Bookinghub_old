@@ -3,6 +3,7 @@ package br.com.bookinghubgodoynetworks.api.service;
 import br.com.bookinghubgodoynetworks.api.dto.HousingDTO;
 import br.com.bookinghubgodoynetworks.api.model.Housing;
 import br.com.bookinghubgodoynetworks.api.model.exception.ResourceNotFoundException;
+import br.com.bookinghubgodoynetworks.api.repository.BookingRepository;
 import br.com.bookinghubgodoynetworks.api.repository.HousingRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class HousingService {
 
     @Autowired
     private HousingRepository repository;
+
+    @Autowired
+    private BookingRepository bookingRepository;
 
     /**
      * Method to retrieve all housings.

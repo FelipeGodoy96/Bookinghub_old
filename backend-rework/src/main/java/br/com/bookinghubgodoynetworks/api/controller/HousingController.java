@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://bookinghub-godoynetworks.netlify.app")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/housing")
 public class HousingController {
 

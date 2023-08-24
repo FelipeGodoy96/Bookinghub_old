@@ -6,6 +6,12 @@
     transform: translateY(0.625rem);
 }
 
+/* @media medium (min-width: 768px) {
+    .date-icon {
+        transform: translateX(0.25rem);
+    }
+} */
+
 /* .dropdown {
     top: 4.375rem;
 } */

@@ -5,7 +5,7 @@ import br.com.APIrest.APIrest.model.Caracteristicas;
 import java.io.Serializable;
 
 public class CaracteristicasDto implements Serializable {
-    private static long seriaçVersionUID = 1L;
+    private static long serialVersionUID = 1L;
 
     private Integer id;
     private String nome;
