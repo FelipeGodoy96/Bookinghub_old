@@ -107,9 +107,10 @@ export const Searchbar = () => {
         <p>Buscar ofertas em hotéis, casas e muito mais</p>
       </div>
       <div
-        className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 lg:mx-32 md:mx-6 relative md:justify-between"
+        className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 w-full relative md:justify-between"
         // onBlur={handleDropdownBlur}
       >
+        <div className="searchbar-responsive md:w-1/3 w-full">
         <input
           type="text"
           value={searchTerm}
@@ -117,7 +118,7 @@ export const Searchbar = () => {
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           placeholder="Onde vamos?"
-          className="search-location rounded h-10 pl-10 text-sm font-semibold md:w-1/3 lg:w-1/3 text-slate-500"
+          className="search-location rounded h-10 pl-10 text-sm font-semibold md:w-full lg:w-1/3 text-slate-500 w-full"
         />
         {showDropdown && (
           // selectedOption &&
@@ -209,16 +210,18 @@ export const Searchbar = () => {
             </g>
           </svg>
         </div>
+        </div>
         {/* <input
           placeholder="Check in - Checkout"
           className="search-date rounded h-10 pl-10 text-sm font-semibold lg:w-1/3"
         /> */}
+        <div className="searchbar-responsive md:w-1/3 w-full">
         <DatePicker
           // blur() on onFocus makes to hide the mobile keyboard that pops automatically
           onFocus={(e) => {e.target.blur()
             setIsOpen(!isOpen)
           }}
-          className="search-date rounded h-10 pl-10 text-sm font-semibold md:w-72 md:min-w-max lg:w-1/3 text-slate-500 w-full"
+          className="search-date rounded h-10 pl-10 text-sm font-semibold md:w-full lg:w-1/3 text-slate-500 w-full"
           selectsRange={true}
           showPopperArrow={false}
           startDate={startDate}
@@ -280,9 +283,13 @@ export const Searchbar = () => {
             </g>
           </svg>
         </div>
-        <div className="searchbar-button_responsive w-full lg:w-1/6 md:w-1/4">
+        </div>
+        <div className="searchbar-responsive md:w-1/3">
+          <div className="searchbar-button_responsive lg:w-1/6 md:w-full">
           <Button text="Buscar" variant="primary" width="100%" />
         </div>
+        </div>
+        
       </div>
     </div>
   );
