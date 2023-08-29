@@ -1,6 +1,6 @@
 INSERT INTO search_suggestion (term, search_count) VALUES ('Kuepei', 20);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Kiozeo', 15);
-INSERT INTO search_suggestion (term, search_count) VALUES ('Vefuzo', 500);
+INSERT INTO search_suggestion (term, search_count) VALUES ('Vefuzo Long Text For Testing Lorem Ipsum Sit Amet', 500);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Nimuci', 20);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Potaus', 33);
 INSERT INTO search_suggestion (term, search_count) VALUES ('Oshaus', 17);
