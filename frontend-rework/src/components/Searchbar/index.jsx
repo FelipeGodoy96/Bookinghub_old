@@ -19,7 +19,7 @@ export const Searchbar = () => {
   const [dropdownSuggestions, setDropdownSuggestions] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   // const [selectedOption, setSelectedOption] = useState(null)
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(true);
 
 
   // Creating the function to retrieve data from API
@@ -107,10 +107,10 @@ export const Searchbar = () => {
         <p>Buscar ofertas em hotéis, casas e muito mais</p>
       </div>
       <div
-        className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 w-full relative md:justify-between"
+        className="searchbar-search flex flex-col justify-center md:flex-row gap-2 py-4 w-full relative md:justify-between lg:justify-center lg:px-20"
         // onBlur={handleDropdownBlur}
       >
-        <div className="searchbar-responsive md:w-1/3 w-full">
+        <div className="searchbar-responsive lg:w-1/4 md:w-1/3 w-full ">
         <input
           type="text"
           value={searchTerm}
@@ -118,11 +118,11 @@ export const Searchbar = () => {
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           placeholder="Onde vamos?"
-          className="search-location rounded h-10 pl-10 text-sm font-semibold md:w-full lg:w-1/3 text-slate-500 w-full"
+          className="search-location rounded h-10 pl-10 text-sm font-semibold md:w-full text-slate-500 w-full"
         />
         {showDropdown && (
           // selectedOption &&
-          <div className="dropdown absolute overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full top-16">
+          <div className="dropdown absolute overflow-hidden z-10 bg-white rounded-b-lg shadow-lg w-full top-16 md:w-auto md:max-w-md md:overflow-hidden whitespace-nowrap">
             <ul className="mx-2 text-center">
               {dropdownSuggestions
                 .filter((suggestion) =>
@@ -181,7 +181,7 @@ export const Searchbar = () => {
             </ul>
           </div>
         )}
-        <div className="location-icon absolute left-2 top-6">
+        <div className="location-icon absolute md:relative left-2 top-6 md:-top-8 w-5">
           <svg
             className="icon-svg w-6"
             version="1.0"
@@ -215,13 +215,13 @@ export const Searchbar = () => {
           placeholder="Check in - Checkout"
           className="search-date rounded h-10 pl-10 text-sm font-semibold lg:w-1/3"
         /> */}
-        <div className="searchbar-responsive md:w-1/3 w-full">
+        <div className="searchbar-responsive lg:w-1/4 md:w-1/3 w-full">
         <DatePicker
           // blur() on onFocus makes to hide the mobile keyboard that pops automatically
           onFocus={(e) => {e.target.blur()
             setIsOpen(!isOpen)
           }}
-          className="search-date rounded h-10 pl-10 text-sm font-semibold md:w-full lg:w-1/3 text-slate-500 w-full"
+          className="search-date rounded h-10 pl-10 text-sm font-semibold md:w-full text-slate-500 w-full"
           selectsRange={true}
           showPopperArrow={false}
           startDate={startDate}
@@ -264,7 +264,7 @@ export const Searchbar = () => {
         </div> */}
           </DatePicker>
 
-        <div className="date-icon absolute left-2 md:left-72 md:ml-4 md:top-6 top-18">
+        <div className="date-icon absolute md:relative left-2 top-[4.5rem] md:-top-8 md:left-2 w-5">
           <svg
             className="icon-svg w-6"
             fill="#545776"
@@ -284,8 +284,8 @@ export const Searchbar = () => {
           </svg>
         </div>
         </div>
-        <div className="searchbar-responsive md:w-1/3">
-          <div className="searchbar-button_responsive lg:w-1/6 md:w-full">
+        <div className="searchbar-responsive lg:w-1/4 md:w-1/3">
+          <div className="searchbar-button_responsive w-full">
           <Button text="Buscar" variant="primary" width="100%" />
         </div>
         </div>

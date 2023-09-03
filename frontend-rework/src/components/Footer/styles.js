@@ -8,7 +8,7 @@ const media = {
 
 export const FooterComponent = styled.footer`
     background-color: #1DBEB4;
-    height: 3.625rem;
+    height: 1.625rem;
     position: fixed;
     bottom: 0;
     width: 100%;
