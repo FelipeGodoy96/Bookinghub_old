@@ -5,7 +5,7 @@ import './styles.css'
 export const Login = () => {
     return (
         <section className='login absolute w-full flex justify-center items-center align-center overflow-hidden'>
-            <div className='login_content flex flex-col w-full mx-10 md:w-1/4 md:mx-0 text-center'>
+            <div className='login_content flex flex-col w-full px-10 md:w-2/3 lg:w-1/4 md:px-0 text-center'>
                 <span className='login_content-text font-bold my-6'>Iniciar sessão</span>
                 <form className='login_content-form flex flex-col justify-between items-center w-full gap-4 text-base' onSubmit={(event) => {
                     event.preventDefault()
@@ -18,8 +18,8 @@ export const Login = () => {
                         <label htmlFor='password' className='px-1'>Senha</label>
                         <input type="password" name="password" className='w-full rounded-md h-8 appearance-none py-3 px-2' placeholder='* * * * * * * *'/>
                     </div>
-                    <div className='content_form-button mt-8 mb-4'>
-                        <Button text='Entrar' variant='primary' width='19.375rem' fontSize="16px" type='submit'/>
+                    <div className='content_form-button mt-8 mb-4 w-full'>
+                        <Button text='Entrar' variant='primary' width='100%' fontSize="16px" type='submit'/>
                     </div>
                     <span className='content_form-register text-sm'>Ainda não tem conta? <Link to='/register' className='text-cyan-500'>Registre-se.</Link></span>
                     <span className='conent_form-lostpw text-sm'>Esqueceu sua senha? <Link to='/forgotpw' className='text-cyan-500'>Recupere-a.</Link></span>

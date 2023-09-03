@@ -5,7 +5,7 @@
 
 .login {
     background-color: #F3F1ED;
-    height: calc(100% - 5.8125rem - 3.625rem);
+    height: calc(100% - 5.8125rem - 2.175rem);
 }
 
 .login_content {
@@ -27,9 +27,9 @@
 }
 
 
-.content_form-register {
+/* .content_form-register {
     transform: translateY(-0.675rem);
-}
+} */
 
 @media (max-height: 720px) {
     .login_content-form {
