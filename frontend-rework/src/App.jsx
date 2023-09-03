@@ -7,6 +7,7 @@ import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/Sidebar";
 import { useState } from 'react'
 import { Register } from "./pages/Register";
+import { ForgotPw } from "./pages/ForgotPw";
 
 export default function App() {
     const [ login, setLogin ] = useState(false)
@@ -21,6 +22,7 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register/>} />
+                <Route path="/forgotpw" element={<ForgotPw/>} />
             </Routes>
         </div>
         

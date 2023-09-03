@@ -14,7 +14,7 @@ export default createGlobalStyle`
         width: 100%;
         height: 100%;
         padding-top: 5.8125rem;
-        padding-bottom: 3.625rem;   
+        padding-bottom: 1.625rem;   
     }
 
 `
