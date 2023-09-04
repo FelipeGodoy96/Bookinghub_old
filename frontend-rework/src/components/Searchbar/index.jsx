@@ -2,7 +2,7 @@ import "./styles.css";
 import { Button } from "../Button";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "../../apiHandle/config";
+import axios from "../../services/config";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./custom-react-datepicker.css"
