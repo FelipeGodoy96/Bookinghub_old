@@ -47,7 +47,7 @@ export const Home = () => {
           Buscar por tipo de acomodação
         </h1>
         <Swiper
-        className="w-full h-full py-2 bg-transparent border-none"
+        className="w-full h-full pt-2 bg-transparent pb-6"
         spaceBetween={25}
         slidesPerView={2}
         mousewheel-force-to-axis="true"
