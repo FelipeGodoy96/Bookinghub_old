@@ -5,6 +5,8 @@ import br.com.bookinghubgodoynetworks.api.model.Client;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ClientDTO implements Serializable {
 
@@ -21,6 +23,8 @@ public class ClientDTO implements Serializable {
     private String password;
 
     private LocalDate birthdate;
+
+    private Set<RoleDTO> roles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -70,16 +74,25 @@ public class ClientDTO implements Serializable {
         this.birthdate = birthdate;
     }
 
+    public Set<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleDTO> roles) {
+        this.roles = roles;
+    }
+
     public ClientDTO() {
     }
 
-    public ClientDTO(Long id, String fullname, String nickname, String email, String password, LocalDate birthdate) {
+    public ClientDTO(Long id, String fullname, String nickname, String email, String password, LocalDate birthdate, Set<RoleDTO> roles) {
         this.id = id;
         this.fullname = fullname;
         this.nickname = nickname;
         this.email = email;
         this.password = password;
         this.birthdate = birthdate;
+        this.roles = roles;
     }
 
     public ClientDTO(Client client){
@@ -89,5 +102,6 @@ public class ClientDTO implements Serializable {
         email = client.getEmail();
         password = client.getPassword();
         birthdate = client.getBirthdate();
+        client.getRoles().forEach(role -> this.roles.add(new RoleDTO (role)));
     }
 }

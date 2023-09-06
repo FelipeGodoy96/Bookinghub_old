@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -27,6 +29,10 @@ public class Client implements Serializable {
 
     private LocalDate birthdate;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "client_roles", joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -76,16 +82,25 @@ public class Client implements Serializable {
         this.birthdate = birthdate;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     public Client() {
     }
 
-    public Client(Long id, String fullname, String nickname, String email, String password, LocalDate birthdate) {
+    public Client(Long id, String fullname, String nickname, String email, String password, LocalDate birthdate, Set<Role> roles) {
         this.id = id;
         this.fullname = fullname;
         this.nickname = nickname;
         this.email = email;
         this.password = password;
         this.birthdate = birthdate;
+        this.roles = roles;
     }
 
     @Override
