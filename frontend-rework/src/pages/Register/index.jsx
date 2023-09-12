@@ -9,10 +9,10 @@ export const Register = () => {
   const navigate = useNavigate();
 
   // Input states and data states
-  const [isValidName, setIsValidName] = useState(null);
-  const [isValidEmail, setIsValidEmail] = useState(null);
-  const [isValidPassword, setIsValidPassword] = useState(null);
-  const [passwordsIsEquals, setPasswordsIsEquals] = useState(null);
+  const [isValidName, setIsValidName] = useState(false);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [passwordsIsEquals, setPasswordsIsEquals] = useState(false);
   const [fullname, setFullname] = useState("");
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
@@ -22,7 +22,8 @@ export const Register = () => {
 
   // Validating data from input states
   const checkIsName = (name) => {
-    return /^[a-z ,.'-]+$/i.test(name);
+    // return /^[a-z ,.'-]+$/i.test(name);
+    return /^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$/.test(name)
   };
   const checkIsNickname = (nickname) => {
     // To implement: business logic here
@@ -48,15 +49,17 @@ export const Register = () => {
       nickname,
       email,
       password,
+      birthdate: null
     };
     if (isValidName && isValidEmail && isValidPassword && passwordsIsEquals) {
       try {
+        setIsLoading(true)
         await api.createClient(newUser);
+        // navigate("/");
       } catch (error) {
         console.log(error);
       } finally {
         setIsLoading(false);
-        navigate("/");
       }
     }
   };
@@ -90,7 +93,7 @@ export const Register = () => {
               }
               onChange={(e) => {
                 setFullname(e.target.value);
-                setIsValidName(checkIsName(fullname));
+                setIsValidName(checkIsName(e.target.value));
               }}
               minLength="2"
               required
@@ -138,7 +141,7 @@ export const Register = () => {
               }
               onChange={(e) => {
                 setEmail(e.target.value);
-                setIsValidEmail(checkIsEmail(email));
+                setIsValidEmail(checkIsEmail(e.target.value));
               }}
               required
             />
@@ -159,7 +162,7 @@ export const Register = () => {
               }
               onChange={(e) => {
                 setPassword(e.target.value);
-                setIsValidPassword(checkIsPassword(password));
+                setIsValidPassword(checkIsPassword(e.target.value));
               }}
               minLength="6"
               required
@@ -182,7 +185,7 @@ export const Register = () => {
               onChange={(e) => {
                 setPasswordCheck(e.target.value);
                 setPasswordsIsEquals(
-                  checkPasswordsIsEquals(passwordCheck, password)
+                  checkPasswordsIsEquals(e.target.value, password)
                 );
               }}
               required
