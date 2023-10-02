@@ -7,6 +7,7 @@ import br.com.bookinghubgodoynetworks.api.repository.ClientRepository;
 import br.com.bookinghubgodoynetworks.api.repository.RoleRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,9 @@ public class ClientService {
 
     @Autowired
     private ClientRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * Method to retrieve all clients.
@@ -62,6 +66,8 @@ public class ClientService {
      */
     public ClientDTO addClient (ClientDTO clientDto) {
         Client client = new ModelMapper().map(clientDto, Client.class);
+        // Re-setting password to a encoded one
+        client.setPassword(passwordEncoder.encode(clientDto.getPassword()));
         Optional<Role> defaultRole = roleRepository.findByRole("USER");
         client.setRoles(Collections.singleton(defaultRole.get()));
         repository.save(client);

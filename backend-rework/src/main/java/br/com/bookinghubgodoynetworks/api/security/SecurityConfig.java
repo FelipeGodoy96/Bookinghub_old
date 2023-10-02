@@ -9,7 +9,9 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
@@ -29,39 +31,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
         http
-                .cors(Customizer.withDefaults())
+                .cors(cors -> cors.disable())
                 .csrf((csrf) -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-                        .requestMatchers(HttpMethod.POST, "clients").permitAll()
-                        .requestMatchers("clients/**").authenticated()
-                        .requestMatchers(HttpMethod.GET,"api/search-suggestions/**").permitAll()
-                        .anyRequest().authenticated()
-                )
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 //                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/auth/**").authenticated()
+//                        .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+//                        .requestMatchers(HttpMethod.POST, "clients").permitAll()
+//                        .requestMatchers(HttpMethod.POST, "auth/**").permitAll()
+//                        .requestMatchers("clients/**").authenticated()
+//                        .requestMatchers(HttpMethod.GET,"api/search-suggestions/**").permitAll()
 //                        .anyRequest().authenticated()
 //                )
-                .httpBasic(Customizer.withDefaults());
-//                .formLogin(Customizer.withDefaults());
-//                .authorizeHttpRequests((auth) -> auth
-//                .anyRequest().authenticated()
-//                )
-
 //                .httpBasic(Customizer.withDefaults());
 
-
-//                .formLogin((formLogin) -> formLogin
-//                        .loginPage("/login")
-//                        .loginProcessingUrl("/auth/login")
-//                        .defaultSuccessUrl("/", true)
-//                        .failureUrl("/unauthorized")
-//                )
-//                .logout((logout) -> logout
-//                        .logoutUrl("/logout")
-//                        .deleteCookies("JSESSIONID")
-//                        .logoutSuccessHandler(logout.getLogoutSuccessHandler())
-//                );
 
 
         return http.build();

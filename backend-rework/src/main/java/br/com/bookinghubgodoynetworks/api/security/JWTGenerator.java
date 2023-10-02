@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JWTGenerator {
 
-    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String generateToken(Authentication authentication) {
         String email = authentication.getName();
@@ -25,7 +25,7 @@ public class JWTGenerator {
                 .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
-                .signWith(SignatureAlgorithm.HS512, key)
+                .signWith(SignatureAlgorithm.HS256, key)
                 .compact();
         return token;
     }

@@ -55,11 +55,12 @@ export const Register = () => {
       try {
         setIsLoading(true)
         await api.createClient(newUser);
-        // navigate("/");
       } catch (error) {
         console.log(error);
       } finally {
         setIsLoading(false);
+        Login(authenticate({email: password}))
+        navigate("/");
       }
     }
   };

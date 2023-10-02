@@ -2,7 +2,6 @@ package br.com.bookinghubgodoynetworks.api.controller;
 
 import br.com.bookinghubgodoynetworks.api.dto.AuthResponseDTO;
 import br.com.bookinghubgodoynetworks.api.dto.LoginDTO;
-import br.com.bookinghubgodoynetworks.api.repository.ClientRepository;
 import br.com.bookinghubgodoynetworks.api.repository.RoleRepository;
 import br.com.bookinghubgodoynetworks.api.security.JWTGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
