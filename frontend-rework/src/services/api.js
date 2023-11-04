@@ -2,18 +2,19 @@ import axios from "./config"
 
 const createClient = async newUser => {
     try {
-        const response = await axios.post('/clients', newUser)
-        return console.log(response)
-        // return console.log({
-        //     user: await response.data
-        // })
+        await axios.post('/clients', newUser)
     } catch (error) {
         console.error(error.message)
     }
 }
 
-const authenticateClient = async ({email:password}) => {
-
+const authenticateClient = async ({email, password}) => {
+    try {
+        const response = await axios.post('/auth/login', {email,password})
+        return response.data
+    } catch (error) {
+        console.error(error.message)
+    }
 }
 
 const api = {

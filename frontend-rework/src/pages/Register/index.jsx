@@ -41,8 +41,13 @@ export const Register = () => {
     return pwCheck === pw;
   };
 
+  const isAllValidHook = () => {
+  return isValidEmail && isValidName && isValidPassword && passwordsIsEquals
+  }
+
   // Registering a new user based on data from input states
   const registerUser = async (e) => {
+    const isAllValid = isAllValidHook()
     setIsLoading(true);
     const newUser = {
       fullname,
@@ -51,15 +56,16 @@ export const Register = () => {
       password,
       birthdate: null
     };
-    if (isValidName && isValidEmail && isValidPassword && passwordsIsEquals) {
+    if (isAllValid) {
       try {
-        setIsLoading(true)
+        // setIsLoading(true)  // redundant
         await api.createClient(newUser);
       } catch (error) {
         console.log(error);
       } finally {
         setIsLoading(false);
-        Login(authenticate({email: password}))
+        // Login(api.authenticateClient({email: password}))
+        await api.authenticateClient({email, password})
         navigate("/");
       }
     }
@@ -75,6 +81,7 @@ export const Register = () => {
           className="register_content-form flex flex-col justify-between items-center w-full gap-4 text-base"
           onSubmit={(e) => {
             e.preventDefault();
+            isAllValidHook()
             registerUser();
           }}
         >
@@ -199,7 +206,7 @@ export const Register = () => {
               width="100%"
               fontSize="16px"
               type="submit"
-              disabled={isLoading}
+              disabled={!isAllValidHook()}
             />
 
             <div
