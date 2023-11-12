@@ -1,5 +1,6 @@
 package br.com.bookinghubgodoynetworks.api.security;
 
+import br.com.bookinghubgodoynetworks.api.model.Client;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -17,12 +18,15 @@ public class JWTGenerator {
     private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String generateToken(Authentication authentication) {
-        String email = authentication.getName();
+        CustomUserDetails client = (CustomUserDetails) authentication.getPrincipal();
+        String email = client.getUsername();
+        String fullname = client.getFullname();
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + 68000);
 
         String token = Jwts.builder()
                 .setSubject(email)
+                .claim("fullName", fullname)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
                 .signWith(SignatureAlgorithm.HS256, key)
