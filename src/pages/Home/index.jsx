@@ -48,14 +48,14 @@ const products = [
   },
   {
     id: 2,
-    nome: "Hermitage Hotel",
-    tipo: "hotel",
+    nome: "Lorem Ipsum Hotel",
+    tipo: "sit amet",
     pontuacao: 3,
-    estrelas: 4,
+    estrelas: 5,
     centro: 900,
     mapslink: " saasda",
     descricao:
-      "No coraçãoraço e ouAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)",
+      "No coraçãoraço e ou wtf caralho de Buenos Aires, com 2 piscinas impressionantes, uma no terraço e ou impressionantes, uma no  impressionantes, uma no  impressionantes, uma no  impressionantes, uma no  impressionantes, uma no  impressionantes, uma no  impressionantes, uma no  impressionantes, uma no  impressionantes, uma no )",
     source:
       "https://img.freepik.com/fotos-gratis/luxo-classico-moderno-quarto-suite-em-hotel_105762-1787.jpg?w=1380&t=st=1687564479~exp=1687565079~hmac=c93b429cfef584600b5205cf4ede95a089a83798015e36e388de68507e074b3e",
   },
@@ -65,7 +65,7 @@ export const Home = () => {
   return (
     <>
       <Searchbar />
-      <section className="category my-8 mx-2 flex flex-col gap-6 py-2 md:px-12">
+      <section className="category my-8 px-2 flex flex-col gap-6 py-2 md:px-12">
         <h1 className="category-title font-semibold text-2xl text-slate-500">
           Buscar por tipo de acomodação
         </h1>
@@ -85,11 +85,11 @@ export const Home = () => {
           <CategoryCard category={category} key={category.id} />
         ))} */}
       </section>
-      <section className="recommendations my-8 mx-2 flex flex-col gap-6 py-2 md:px-12">
+      <section className="recommendations my-8 px-2 flex flex-col gap-6 py-2 md:px-12">
         <h1 className="recommendation-title font-semibold text-2xl text-white pt-4">
           Recomendações
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full min-h-0 min-w-0 items-stretch">
           {products.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
