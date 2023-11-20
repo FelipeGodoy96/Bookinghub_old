@@ -10,11 +10,11 @@ export const ProductCard = ({product}) => {
       };
     return (
         <>
-        <ProductCardDesktop 
+        {/* <ProductCardDesktop 
         key={product.id}
         product={product} 
         expandedText={expandedText[product.id] || false} 
-        handleSeeMoreText={() => handleSeeMoreText(product.id)} />
+        handleSeeMoreText={() => handleSeeMoreText(product.id)} /> */}
         <ProductCardMobile
         key={product.id}
         product={product}

@@ -17,7 +17,7 @@ export const HeaderStyledTag = styled.header`
     width: 100%;
     padding: 1.25rem 0.8275rem 1.25rem 0.690rem;
     ${media.tablet} {
-        padding: 1.25rem 2rem 1.25rem 2rem;
+        padding: 1.25rem 1.5rem 1.25rem 1.5rem;
     }
     ${media.laptop} {
         padding: 1.25rem 3rem 1.25rem 3rem;

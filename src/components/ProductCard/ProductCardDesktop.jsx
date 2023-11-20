@@ -13,8 +13,8 @@ export const ProductCardDesktop = ({
     stars.push(i);
   }
   return (
-    <div className="product-card__desktop hidden bg-white rounded-lg drop-shadow-md shadow-lg max-h-fit overflow-hidden min-w-0 md:flex flex-row">
-      <div className="c-image flex md:flex-row max-w-full h-full">
+    <div className="product-card bg-white rounded-lg drop-shadow-md shadow-lg max-h-fit overflow-hidden min-w-0 flex flex-row">
+      <div className="c-image flex flex-col sm:flex-row max-w-full h-full">
         <img
           src={product.source}
           className="md:w-1/2 md:max-w-1/2 sm:w-1/3 rounded-md"

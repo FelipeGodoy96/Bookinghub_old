@@ -2,8 +2,13 @@ import { CategoryCard } from "../../components/CategoryCard";
 import { ProductCard } from "../../components/ProductCard";
 import { Searchbar } from "../../components/Searchbar";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { register } from "swiper/element/bundle"
 import "swiper/css";
+import "swiper/css/pagination"
+import "swiper/css/navigation"
 import "./styles.css";
+import { useWindowSize } from "../../hooks/custom/useWindowSize";
+import { useEffect, useRef } from "react";
 
 const categories = [
   {
@@ -30,6 +35,18 @@ const categories = [
     quantidade: 2002,
     source: "./assets/img/bedbreakfast.jpg",
   },
+  {
+    id: 5,
+    categoria: "Resorts",
+    quantidade: 283,
+    source: "./assets/img/resorts.jpg"
+  },
+  {
+    id: 6,
+    categoria: "Cabanas",
+    quantidade: 857,
+    source: "./assets/img/cabanas.jpg"
+  }
 ];
 
 const products = [
@@ -61,19 +78,30 @@ const products = [
   },
 ];
 
+register()
+
 export const Home = () => {
+  const swiperElRef = useRef(null)
+  const { windowSize } = useWindowSize()
+
+  useEffect(() => {
+    swiperElRef.current.addEventListener('swiperprogress', (e) => {const [swiper, progress] = e.detail})
+    swiperElRef.current.addEventListener('swiperslidechange', (e) => {console.log('slide changed')})
+}, [])
   return (
     <>
       <Searchbar />
-      <section className="category my-8 px-2 flex flex-col gap-6 py-2 md:px-12">
+      <section className="category mt-2 md:my-4 lg:my-8 px-2 flex flex-col gap-6 py-2 md:px-8 lg:px-12">
         <h1 className="category-title font-semibold text-2xl text-slate-500">
           Buscar por tipo de acomodação
         </h1>
         <Swiper
-          className="w-full h-full pt-2 bg-transparent pb-6"
+          ref={swiperElRef}
+          className="w-full h-full pt-2 bg-transparent lg:pb-6"
           spaceBetween={25}
-          slidesPerView={4}
+          slidesPerView={windowSize == 'sm' ? 1 : windowSize == 'md' ? 2 : 4}
           mousewheel-force-to-axis="true"
+          navigation={true}
         >
           {categories.map((category) => (
             <SwiperSlide key={category.id}>
@@ -81,15 +109,12 @@ export const Home = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* {categories.map((category) => (
-          <CategoryCard category={category} key={category.id} />
-        ))} */}
       </section>
-      <section className="recommendations my-8 px-2 flex flex-col gap-6 py-2 md:px-12">
+      <section className="recommendations mt-2 md:my-4 lg:my-8 px-2 flex flex-col gap-6 py-2 md:px-8 lg:px-12">
         <h1 className="recommendation-title font-semibold text-2xl text-white pt-4">
           Recomendações
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full min-h-0 min-w-0 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 w-full min-h-0 min-w-0 items-stretch">
           {products.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}

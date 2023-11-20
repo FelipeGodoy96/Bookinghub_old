@@ -9,11 +9,11 @@ export const ProductCardMobile = ({product, expandedText, handleSeeMoreText}) =>
       stars.push(i);
     }
     return (
-        <div className="product-card__mobile bg-white rounded-b-lg drop-shadow-md shadow-lg max-h-fit overflow-hidden min-w-0 flex flex-row md:hidden">
-        <div className="c-image flex flex-col max-w-full h-full">
+        <div className="product-card__mobile bg-white rounded-b-lg drop-shadow-md shadow-lg max-h-fit overflow-hidden min-w-0 flex flex-row">
+        <div className="c-image flex flex-col sm:flex-row max-w-full h-full">
           <img
             src={product.source}
-            className="md:w-1/2 md:max-w-1/2 sm:w-1/3 rounded-b-md"
+            className="sm:w-1/2 sm:max-w-1/2 rounded-b-md"
           />
           <div className="c-content flex flex-col pt-4 pb-2 px-4 w-full flex-grow flex-shrink self-stretch">
             <div className="c-content__header">
