@@ -1,13 +1,18 @@
 package br.com.bookinghubgodoynetworks.api.service;
 import br.com.bookinghubgodoynetworks.api.dto.ClientDTO;
 import br.com.bookinghubgodoynetworks.api.model.Client;
+import br.com.bookinghubgodoynetworks.api.model.Role;
 import br.com.bookinghubgodoynetworks.api.model.exception.ResourceNotFoundException;
 import br.com.bookinghubgodoynetworks.api.repository.ClientRepository;
+import br.com.bookinghubgodoynetworks.api.repository.RoleRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -16,7 +21,13 @@ import java.util.stream.Collectors;
 public class ClientService {
 
     @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
     private ClientRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * Method to retrieve all clients.
@@ -55,6 +66,10 @@ public class ClientService {
      */
     public ClientDTO addClient (ClientDTO clientDto) {
         Client client = new ModelMapper().map(clientDto, Client.class);
+        // Re-setting password to a encoded one
+        client.setPassword(passwordEncoder.encode(clientDto.getPassword()));
+        Optional<Role> defaultRole = roleRepository.findByRole("USER");
+        client.setRoles(Collections.singleton(defaultRole.get()));
         repository.save(client);
         return new ClientDTO(client);
     }

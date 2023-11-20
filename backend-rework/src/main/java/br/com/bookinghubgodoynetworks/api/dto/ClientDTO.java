@@ -5,6 +5,8 @@ import br.com.bookinghubgodoynetworks.api.model.Client;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ClientDTO implements Serializable {
 
@@ -12,7 +14,7 @@ public class ClientDTO implements Serializable {
 
     private Long id;
 
-    private String fullName;
+    private String fullname;
 
     private String nickname;
 
@@ -20,7 +22,9 @@ public class ClientDTO implements Serializable {
 
     private String password;
 
-    private LocalDate birthDate;
+    private LocalDate birthdate;
+
+    private Set<RoleDTO> roles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -30,19 +34,19 @@ public class ClientDTO implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFirstName(String fullName) {
-        this.fullName = fullName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
-    public String getLastName() {
+    public String getNickname() {
         return nickname;
     }
 
-    public void setLastName(String nickname) {
+    public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
@@ -62,32 +66,42 @@ public class ClientDTO implements Serializable {
         this.password = password;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public LocalDate getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public Set<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleDTO> roles) {
+        this.roles = roles;
     }
 
     public ClientDTO() {
     }
 
-    public ClientDTO(Long id, String fullName, String nickname, String email, String password, LocalDate birthDate) {
+    public ClientDTO(Long id, String fullname, String nickname, String email, String password, LocalDate birthdate, Set<RoleDTO> roles) {
         this.id = id;
-        this.fullName = fullName;
+        this.fullname = fullname;
         this.nickname = nickname;
         this.email = email;
         this.password = password;
-        this.birthDate = birthDate;
+        this.birthdate = birthdate;
+        this.roles = roles;
     }
 
     public ClientDTO(Client client){
         id = client.getId();
-        fullName = client.getFirstName();
-        nickname = client.getLastName();
+        fullname = client.getFullname();
+        nickname = client.getNickname();
         email = client.getEmail();
         password = client.getPassword();
-        birthDate = client.getBirthDate();
+        birthdate = client.getBirthdate();
+        client.getRoles().forEach(role -> this.roles.add(new RoleDTO (role)));
     }
 }

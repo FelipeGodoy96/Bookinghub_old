@@ -34,7 +34,7 @@ public class ClientController {
     @PostMapping
     public ResponseEntity<ClientDTO> createClient (@RequestBody ClientDTO userDto) {
         userDto = service.addClient(userDto);
-        return new ResponseEntity<>(userDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(userDto, HttpStatus.CREATED); //REMOVE userDto FROM HERE !! -- ONLY USABLE AT TEST ENVIRONMENT --
     }
 
     @DeleteMapping("/{id}")
