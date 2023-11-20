@@ -26,7 +26,7 @@ public class JWTGenerator {
 
         String token = Jwts.builder()
                 .setSubject(email)
-                .claim("fullName", fullname)
+                .claim("fullname", fullname)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
                 .signWith(SignatureAlgorithm.HS256, key)

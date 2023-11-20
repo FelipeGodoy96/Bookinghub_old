@@ -3,7 +3,7 @@ import './styles.css'
 export const CategoryCard = ({category}) => {
     return (
         <div className='category-card flex flex-col rounded-lg overflow-hidden drop-shadow-md shadow-lg w-full'>
-            <img className='w-full ' src={category.source} />
+            <img className='md: w-full md:h-60' src={category.source} />
             <p className='m-4 font-semibold whitespace-nowrap overflow-ellipsis'>
                 {category.categoria}
             </p>

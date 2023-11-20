@@ -8,15 +8,16 @@ import { Sidebar } from "./components/Sidebar";
 import { useState } from 'react'
 import { Register } from "./pages/Register";
 import { ForgotPw } from "./pages/ForgotPw";
+import { LogonStateContextProvider } from "./hooks/contexts/LogonStateContext";
 
 export default function App() {
-    const [ login, setLogin ] = useState(false)
     const [ sidebar, setSidebar ] = useState(false)
     return (
         <>
+        <LogonStateContextProvider>
         <GlobalStyles />
-        <Header sidebar={sidebar} setSidebar={setSidebar} login={login} setLogin={setLogin} />
-        <Sidebar sidebar={sidebar} setSidebar={setSidebar} login={login} setLogin={setLogin} />
+        <Header sidebar={sidebar} setSidebar={setSidebar} />
+        <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
         <div className="wrapper">
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -24,9 +25,9 @@ export default function App() {
                 <Route path="/register" element={<Register/>} />
                 <Route path="/forgotpw" element={<ForgotPw/>} />
             </Routes>
-        </div>
-        
+        </div>        
         <Footer />
+        </LogonStateContextProvider>
         </>
     )
 }
