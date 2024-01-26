@@ -175,7 +175,7 @@ export const Register = () => {
           isLoggedIn: true,
           token: response.accessToken
       })
-        navigate("/");
+        // navigate("/");
       }
     }
     }
